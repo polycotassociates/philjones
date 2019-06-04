@@ -41,3 +41,5 @@ if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+
+$settings['hash_salt'] = 'CUX2SN2xDPrzIOzft75UAATQY7vrzvgBHzEGWrquM7ZU_4xzOdRj0vRFIYU5tRxYiEqDkxgeKw';

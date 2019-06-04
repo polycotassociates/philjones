@@ -59,3 +59,24 @@
 $sites = array(
   'philjones.fellaini.local' => 'default',
 );
+
+if (!empty($_ENV['PLATFORM_ROUTES'])) {
+  $routes = json_decode(base64_decode($_ENV['PLATFORM_ROUTES']), TRUE);
+
+  $sites = [];
+
+  // The following block adds a $sites[] entry for each subdomain that is defined
+  // in routes.yaml.
+  // If you are not using subdomain-based multisite routes then you will need to
+  // adapt the code below accordingly.
+  foreach ($routes as $url => $route) {
+    $host = parse_url($url, PHP_URL_HOST);
+    if ($host !== FALSE && $route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
+      $subdomain = substr($host, 0, strpos($host,'.'));
+      $sites[$host] = $subdomain;
+    }
+  }
+}
+
+// Add additional domain mappings here. The most common example will be to manually
+// specify your production domains.
