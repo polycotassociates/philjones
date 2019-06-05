@@ -55,7 +55,3 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
  */
-
-$sites = array(
-  'philjones.fellaini.local' => 'default',
-);
