@@ -23,6 +23,7 @@
         "drupal/bootstrap": "^3.19",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.7.0",
+        "drupal/pathauto": "^1.4",
         "drupal/redis": "^1.1",
         "drush/drush": "^9.0.0",
         "platformsh/config-reader": "^2.2",
