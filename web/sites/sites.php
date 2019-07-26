@@ -58,6 +58,7 @@
 
 $sites = array(
   'philjones.fellaini.local' => 'default',
+  'stronghealthycommunities.org' => 'default',
 );
 
 if (!empty($_ENV['PLATFORM_ROUTES'])) {
