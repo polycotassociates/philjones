@@ -25,6 +25,7 @@
         "drupal/core": "^8.7.0",
         "drupal/pathauto": "^1.4",
         "drupal/redis": "^1.1",
+        "drupal/viewsreference": "^1.4",
         "drush/drush": "^9.0.0",
         "platformsh/config-reader": "^2.2",
         "vlucas/phpdotenv": "^2.4",
