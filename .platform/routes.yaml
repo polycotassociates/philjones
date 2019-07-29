@@ -15,6 +15,6 @@
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
-https://stronghelathycommunities.org/:
+https://stronghealthycommunities.org/:
   type: upstream
   upstream: app:http
