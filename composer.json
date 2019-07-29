@@ -23,6 +23,8 @@
         "drupal/bootstrap": "^3.19",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.7.0",
+        "drupal/migrate_source_csv": "^3.0",
+        "drupal/migrate_tools": "^4.1",
         "drupal/pathauto": "^1.4",
         "drupal/redis": "^1.1",
         "drupal/viewsreference": "^1.4",
