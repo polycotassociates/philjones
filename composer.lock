@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "868307fc5be866d4f00ffc793944879b",
+    "content-hash": "137753814f53cf4eef285b29f8805c95",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3003,6 +3003,65 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "https://git.drupalcode.org/project/pathauto"
+            }
+        },
+        {
+            "name": "drupal/qualtricsxm",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/qualtricsxm.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/qualtricsxm-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "ab688aacf4664a79b4e3347c3ef94cbf95fd0dea"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1539299580",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "-FvP-",
+                    "homepage": "https://www.drupal.org/user/3552981"
+                },
+                {
+                    "name": "marblegravy",
+                    "homepage": "https://www.drupal.org/user/113092"
+                },
+                {
+                    "name": "neclimdul",
+                    "homepage": "https://www.drupal.org/user/48673"
+                },
+                {
+                    "name": "yi_jiang",
+                    "homepage": "https://www.drupal.org/user/2082768"
+                }
+            ],
+            "description": "Qualtrics eXperience Management.",
+            "homepage": "https://www.drupal.org/project/qualtricsxm",
+            "support": {
+                "source": "https://git.drupalcode.org/project/qualtricsxm"
             }
         },
         {
