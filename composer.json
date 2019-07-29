@@ -26,6 +26,7 @@
         "drupal/migrate_source_csv": "^3.0",
         "drupal/migrate_tools": "^4.1",
         "drupal/pathauto": "^1.4",
+        "drupal/qualtricsxm": "^1.2",
         "drupal/redis": "^1.1",
         "drupal/viewsreference": "^1.4",
         "drush/drush": "^9.0.0",
