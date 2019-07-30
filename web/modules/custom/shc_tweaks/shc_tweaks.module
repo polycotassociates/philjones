@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains shc_tweaks.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function shc_tweaks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the shc_tweaks module.
+    case 'help.page.shc_tweaks':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Various tweaks and overrides for the StrongHealthyCommunities survey portal') . '</p>';
+      return $output;
+
+    default:
+  }
+}

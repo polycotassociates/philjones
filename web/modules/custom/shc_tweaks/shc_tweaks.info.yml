@@ -1,0 +1,5 @@
+name: 'StrongHealthyCommunities Tweaks'
+type: module
+description: 'Various tweaks and overrides for the StrongHealthyCommunities survey portal'
+core: 8.x
+package: 'SHC'
