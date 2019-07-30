@@ -8,17 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 
 
-/**
- * Implements hook_menu_local_tasks_alter().
- */
-function shc_tweaks_menu_local_tasks_alter(&$data, $route_name) {
-  // Whether the personal contact form tab is present. You
-  // can fine-tune your conditions here. The tab route was
-  // taken from ./core/modules/contact/contact.links.task.yml.
-  if (isset($data['tabs'][0]['entity.user.contact_form']) {
-    unset($data['tabs'][0]['entity.user.contact_form']);
-  }
-}
+
 /**
  * Implements hook_help().
  */
