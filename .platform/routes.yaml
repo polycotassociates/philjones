@@ -18,3 +18,6 @@
 https://portal.stronghealthycommunities.org/:
   type: upstream
   upstream: app:http
+https://stronghealthycommunities.org/:
+  type: upstream
+  upstream: app:http
