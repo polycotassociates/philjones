@@ -1,0 +1,20 @@
+uuid: 9c7bd354-4b61-4f34-9011-bea2b2dbbaf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.strongpeople_strength
+  module:
+    - user
+id: node.strongpeople_strength.teaser
+targetEntityType: node
+bundle: strongpeople_strength
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

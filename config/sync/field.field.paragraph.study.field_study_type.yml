@@ -1,0 +1,29 @@
+uuid: 354a2a95-8088-4219-8794-a4747fa852ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_study_type
+    - paragraphs.paragraphs_type.study
+    - taxonomy.vocabulary.study_type
+id: paragraph.study.field_study_type
+field_name: field_study_type
+entity_type: paragraph
+bundle: study
+label: 'Study Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      study_type: study_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: 3abef37f-f8a0-4950-83c4-6548dd25d27a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.educator.field_educator_info
+    - node.type.educator
+  module:
+    - entity_reference_revisions
+    - user
+id: node.educator.default
+targetEntityType: node
+bundle: educator
+mode: default
+content:
+  field_educator_info:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,169 @@
+uuid: 3346f85c-45ae-47f2-97c7-d0d2738a1f3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.feeds_item
+    - field.field.user.user.field_age
+    - field.field.user.user.field_displa
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_last_contact_date
+    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_need_hcp
+    - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_response_id
+  module:
+    - datetime
+    - field_group
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_contact_info:
+      children:
+        - field_displa
+        - field_primary_phone
+        - field_mobile_phone
+        - field_mobile_phone_carrier
+        - field_preferred_contact
+        - field_last_contact_date
+        - field_response_id
+      parent_name: group_user_account
+      weight: 2
+      format_type: tab
+      format_settings:
+        formatter: open
+        id: ''
+        classes: ''
+        required_fields: false
+        description: ''
+      label: 'Contact Info'
+      region: content
+    group_survey_info:
+      children:
+        - field_gender
+        - field_age
+        - field_need_hcp
+        - field_hcp_date
+        - field_hcp_notes
+      parent_name: group_user_account
+      weight: 4
+      format_type: tab
+      format_settings:
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        description: ''
+      label: 'User Survey Data'
+      region: content
+    group_account_info:
+      children:
+        - account
+      parent_name: group_user_account
+      weight: 3
+      format_type: tab
+      format_settings:
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        description: ''
+      label: 'User Account, Email and Roles'
+      region: content
+    group_user_account:
+      children:
+        - group_contact_info
+        - group_account_info
+        - group_survey_info
+        - group_educator_info
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+        direction: vertical
+      label: 'User Account'
+      region: content
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_age:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_displa:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_gender:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_last_contact_date:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_mobile_phone_carrier:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_need_hcp:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_preferred_contact:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_primary_phone:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_response_id:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  contact: true
+  feeds_item: true
+  language: true
+  path: true
+  timezone: true

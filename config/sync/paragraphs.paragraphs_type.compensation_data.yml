@@ -1,0 +1,11 @@
+uuid: 241bce15-21b3-4713-bcfd-72789f7ede43
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:6b04519b-5afd-4703-9bda-142eb30297ca'
+id: compensation_data
+label: 'Compensation Data'
+icon_uuid: 6b04519b-5afd-4703-9bda-142eb30297ca
+description: 'Compensation data related to a study timepoint.'
+behavior_plugins: {  }

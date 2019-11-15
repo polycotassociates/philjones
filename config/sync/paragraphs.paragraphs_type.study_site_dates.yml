@@ -1,0 +1,11 @@
+uuid: 571b77f4-e3b9-42ce-93b1-fc907e27e71a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:56650cb8-87af-4d8f-b26d-034c2fdc4366'
+id: study_site_dates
+label: 'Study Site Dates'
+icon_uuid: 56650cb8-87af-4d8f-b26d-034c2fdc4366
+description: 'Dates related to milestones in a study, for a particular study type.'
+behavior_plugins: {  }
