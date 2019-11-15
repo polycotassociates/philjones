@@ -1,0 +1,16 @@
+uuid: 18959423-2f18-4a4f-b732-be424547f0b8
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.study_sites.field_study_site_dates
+    - taxonomy.vocabulary.study_sites
+id: taxonomy_term.study_sites.full
+targetEntityType: taxonomy_term
+bundle: study_sites
+mode: full
+content: {  }
+hidden:
+  description: true
+  field_study_site_dates: true

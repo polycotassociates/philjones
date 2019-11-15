@@ -1,0 +1,37 @@
+uuid: c6765dc3-d150-4165-afce-dda249a7cb5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.feeds_item
+    - field.field.user.user.field_age
+    - field.field.user.user.field_displa
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_last_contact_date
+    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_need_hcp
+    - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_response_id
+  module:
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content: {  }
+hidden:
+  feeds_item: true
+  field_age: true
+  field_displa: true
+  field_gender: true
+  field_last_contact_date: true
+  field_mobile_phone_carrier: true
+  field_need_hcp: true
+  field_preferred_contact: true
+  field_primary_phone: true
+  field_response_id: true
+  member_for: true

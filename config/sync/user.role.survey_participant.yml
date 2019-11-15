@@ -1,0 +1,10 @@
+uuid: a833eda3-18a6-4261-8b33-f90b7f4b9b70
+langcode: en
+status: true
+dependencies: {  }
+id: survey_participant
+label: 'Survey Participant'
+weight: 4
+is_admin: null
+permissions:
+  - 'access toolbar'

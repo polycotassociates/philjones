@@ -1,0 +1,28 @@
+uuid: d4e3743f-0283-4f48-b6bd-c96c7494e72b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.study_site_refer
+    - field.field.taxonomy_term.study_sites.field_studies
+    - field.field.taxonomy_term.study_sites.field_study_site_dates
+    - taxonomy.vocabulary.study_sites
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.study_sites.study_site_refer
+targetEntityType: taxonomy_term
+bundle: study_sites
+mode: study_site_refer
+content:
+  field_study_site_dates:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_studies: true
