@@ -9,7 +9,7 @@ id: paragraph.educator_info.field_contact_label
 field_name: field_contact_label
 entity_type: paragraph
 bundle: educator_info
-label: 'Contact Label'
+label: Location
 description: 'Used to distinguish 2 offices or other differing contact info.'
 required: false
 translatable: false

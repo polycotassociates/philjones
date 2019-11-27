@@ -10,7 +10,7 @@ field_name: field_date_label
 entity_type: paragraph
 bundle: study_site_dates
 label: 'Date Label'
-description: ''
+description: 'If no timepoint describes the date you''re entering, use this for a custom label.'
 required: false
 translatable: false
 default_value: {  }

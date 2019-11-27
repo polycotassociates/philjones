@@ -5,16 +5,18 @@ dependencies:
   config:
     - field.field.paragraph.study_site_dates.field_date
     - field.field.paragraph.study_site_dates.field_date_label
+    - field.field.paragraph.study_site_dates.field_timepoint
     - paragraphs.paragraphs_type.study_site_dates
   module:
     - datetime
+    - options
 id: paragraph.study_site_dates.default
 targetEntityType: paragraph
 bundle: study_site_dates
 mode: default
 content:
   field_date:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       timezone_override: ''
@@ -23,11 +25,18 @@ content:
     type: datetime_default
     region: content
   field_date_label:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_timepoint:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
 hidden: {  }

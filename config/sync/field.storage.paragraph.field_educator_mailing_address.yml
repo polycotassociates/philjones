@@ -1,16 +1,15 @@
-uuid: 72204e53-c22e-4481-a1d4-c6aee70944c4
+uuid: 24a78b77-ca44-42e4-874e-c81e3971ddf3
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - taxonomy
-id: paragraph.field_study_site
-field_name: field_study_site
+id: paragraph.field_educator_mailing_address
+field_name: field_educator_mailing_address
 entity_type: paragraph
-type: entity_reference
+type: string_long
 settings:
-  target_type: taxonomy_term
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1
