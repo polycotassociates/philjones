@@ -12,7 +12,7 @@ id: node.educator.field_educator_info
 field_name: field_educator_info
 entity_type: node
 bundle: educator
-label: 'Contact Info'
+label: 'Educator Contact Info'
 description: ''
 required: false
 translatable: false

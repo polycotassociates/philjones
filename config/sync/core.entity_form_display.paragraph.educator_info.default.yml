@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.educator_info.field_contact_label
     - field.field.paragraph.educator_info.field_educator_address
     - field.field.paragraph.educator_info.field_educator_email
+    - field.field.paragraph.educator_info.field_educator_mailing_address
     - field.field.paragraph.educator_info.field_educator_phone
     - paragraphs.paragraphs_type.educator_info
   module:
@@ -26,7 +27,7 @@ content:
   field_educator_address:
     weight: 3
     settings:
-      rows: 5
+      rows: 3
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
@@ -38,6 +39,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
+  field_educator_mailing_address:
+    weight: 4
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_educator_phone:
     weight: 2

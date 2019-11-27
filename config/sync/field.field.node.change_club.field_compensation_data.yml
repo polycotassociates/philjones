@@ -1,18 +1,18 @@
-uuid: aaeaef69-07a9-45c4-bf05-5f7293c7df6c
+uuid: 5ff28e76-c7ae-470d-9e54-329f73302d92
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_study_site_dates
-    - paragraphs.paragraphs_type.study_site_dates
-    - taxonomy.vocabulary.study_sites
+    - field.storage.node.field_compensation_data
+    - node.type.change_club
+    - paragraphs.paragraphs_type.compensation_data
   module:
     - entity_reference_revisions
-id: taxonomy_term.study_sites.field_study_site_dates
-field_name: field_study_site_dates
-entity_type: taxonomy_term
-bundle: study_sites
-label: 'Study Site Timepoints'
+id: node.change_club.field_compensation_data
+field_name: field_compensation_data
+entity_type: node
+bundle: change_club
+label: 'Compensation Data'
 description: ''
 required: false
 translatable: false
@@ -23,14 +23,11 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      study_site_dates: study_site_dates
+      compensation_data: compensation_data
     target_bundles_drag_drop:
-      study_site_dates:
-        enabled: true
-        weight: 2
       compensation_data:
+        enabled: true
         weight: 6
-        enabled: false
       educator_info:
         weight: 7
         enabled: false
@@ -39,5 +36,8 @@ settings:
         enabled: false
       study:
         weight: 9
+        enabled: false
+      study_site_dates:
+        weight: 10
         enabled: false
 field_type: entity_reference_revisions

@@ -1,15 +1,15 @@
-uuid: fe70bd1c-d344-466d-9687-bf5370e16a28
+uuid: f54ae117-9600-4266-8f99-f6ddbbce48f7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_study_site
-    - paragraphs.paragraphs_type.strongpeople_timepoint_actions
+    - field.storage.node.field_study_site
+    - node.type.change_club
     - taxonomy.vocabulary.study_sites
-id: paragraph.strongpeople_timepoint_actions.field_study_site
+id: node.change_club.field_study_site
 field_name: field_study_site
-entity_type: paragraph
-bundle: strongpeople_timepoint_actions
+entity_type: node
+bundle: change_club
 label: 'Study Site'
 description: ''
 required: false

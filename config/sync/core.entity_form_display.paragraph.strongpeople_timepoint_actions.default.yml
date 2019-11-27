@@ -9,8 +9,8 @@ dependencies:
     - field.field.paragraph.strongpeople_timepoint_actions.field_completed_on_paper
     - field.field.paragraph.strongpeople_timepoint_actions.field_date_recorded
     - field.field.paragraph.strongpeople_timepoint_actions.field_outcome_accelerometer_id
-    - field.field.paragraph.strongpeople_timepoint_actions.field_study_site
     - field.field.paragraph.strongpeople_timepoint_actions.field_survey_completed
+    - field.field.paragraph.strongpeople_timepoint_actions.field_timepoint
     - field.field.paragraph.strongpeople_timepoint_actions.field_visit_completed
     - paragraphs.paragraphs_type.strongpeople_timepoint_actions
   module:
@@ -21,41 +21,20 @@ bundle: strongpeople_timepoint_actions
 mode: default
 content:
   field_accelerometer_returned:
-    weight: 6
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_accelerometer_worn:
-    weight: 5
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_baseline_accelerometer_id:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_completed_on_paper:
-    weight: 3
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_date_recorded:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_outcome_accelerometer_id:
     weight: 8
     settings:
       size: 60
@@ -63,24 +42,42 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_study_site:
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_survey_completed:
-    weight: 2
+  field_completed_on_paper:
+    weight: 4
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_date_recorded:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_outcome_accelerometer_id:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_survey_completed:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_timepoint:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_visit_completed:
-    weight: 4
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }

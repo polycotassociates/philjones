@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.educator_info.field_contact_label
     - field.field.paragraph.educator_info.field_educator_address
     - field.field.paragraph.educator_info.field_educator_email
+    - field.field.paragraph.educator_info.field_educator_mailing_address
     - field.field.paragraph.educator_info.field_educator_phone
     - paragraphs.paragraphs_type.educator_info
   module:
@@ -17,7 +18,7 @@ mode: default
 content:
   field_contact_label:
     weight: 0
-    label: hidden
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -25,7 +26,7 @@ content:
     region: content
   field_educator_address:
     weight: 3
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
@@ -33,6 +34,13 @@ content:
   field_educator_email:
     weight: 1
     label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_educator_mailing_address:
+    weight: 4
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string

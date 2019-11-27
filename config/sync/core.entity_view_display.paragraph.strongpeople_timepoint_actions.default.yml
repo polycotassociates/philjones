@@ -9,19 +9,20 @@ dependencies:
     - field.field.paragraph.strongpeople_timepoint_actions.field_completed_on_paper
     - field.field.paragraph.strongpeople_timepoint_actions.field_date_recorded
     - field.field.paragraph.strongpeople_timepoint_actions.field_outcome_accelerometer_id
-    - field.field.paragraph.strongpeople_timepoint_actions.field_study_site
     - field.field.paragraph.strongpeople_timepoint_actions.field_survey_completed
+    - field.field.paragraph.strongpeople_timepoint_actions.field_timepoint
     - field.field.paragraph.strongpeople_timepoint_actions.field_visit_completed
     - paragraphs.paragraphs_type.strongpeople_timepoint_actions
   module:
     - datetime
+    - options
 id: paragraph.strongpeople_timepoint_actions.default
 targetEntityType: paragraph
 bundle: strongpeople_timepoint_actions
 mode: default
 content:
   field_accelerometer_returned:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       format: default
@@ -31,7 +32,7 @@ content:
     type: boolean
     region: content
   field_accelerometer_worn:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       format: default
@@ -41,33 +42,6 @@ content:
     type: boolean
     region: content
   field_baseline_accelerometer_id:
-    weight: 6
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_completed_on_paper:
-    weight: 2
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_date_recorded:
-    weight: 0
-    label: inline
-    settings:
-      timezone_override: ''
-      format_type: month_day_year
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_outcome_accelerometer_id:
     weight: 7
     label: inline
     settings:
@@ -75,17 +49,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_survey_completed:
-    weight: 1
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_visit_completed:
+  field_completed_on_paper:
     weight: 3
     label: inline
     settings:
@@ -95,5 +59,48 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-hidden:
-  field_study_site: true
+  field_date_recorded:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_outcome_accelerometer_id:
+    weight: 8
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_survey_completed:
+    weight: 2
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_visit_completed:
+    weight: 4
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }
