@@ -25,4 +25,15 @@ function shc_tweaks_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
+/**
+ * hook_form_FORM_ID_alter().
+ */
+function shc_tweaks_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  unset($form['meta']);
+  unset($form['menu']);
+  unset($form['path']);
+  unset($form['author']);
+  unset($form['options']);
+}
+
 
