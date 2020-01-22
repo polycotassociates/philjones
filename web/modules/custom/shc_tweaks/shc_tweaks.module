@@ -36,4 +36,13 @@ function shc_tweaks_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
   unset($form['options']);
 }
 
+/**
+ * Implements hook_theme_registry_alter
+ * Change View template
+ */
+function shc_tweaks_theme_registry_alter(&$theme_registry) {
+
+  $theme_registry['book_navigation']['path'] = drupal_get_path('module', 'shc_tweaks') . '/templates';
+}
+
 
