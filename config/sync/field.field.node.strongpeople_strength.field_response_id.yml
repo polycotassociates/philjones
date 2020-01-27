@@ -9,7 +9,7 @@ id: node.strongpeople_strength.field_response_id
 field_name: field_response_id
 entity_type: node
 bundle: strongpeople_strength
-label: 'Response ID'
+label: 'Participant ID'
 description: ''
 required: false
 translatable: false

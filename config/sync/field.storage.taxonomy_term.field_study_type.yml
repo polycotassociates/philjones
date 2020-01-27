@@ -1,13 +1,12 @@
-uuid: 24a05a23-1b34-47bb-9ff2-e5436d01ba8e
+uuid: 18c5ad6b-dd1a-4761-921e-5c1ce7c18059
 langcode: en
 status: true
 dependencies:
   module:
-    - paragraphs
     - taxonomy
-id: paragraph.field_study_type
+id: taxonomy_term.field_study_type
 field_name: field_study_type
-entity_type: paragraph
+entity_type: taxonomy_term
 type: entity_reference
 settings:
   target_type: taxonomy_term

@@ -1,0 +1,11 @@
+uuid: 34ab9ae5-3f1d-437b-bc00-d848fc206477
+langcode: en
+status: true
+dependencies: {  }
+id: educator
+label: Educator
+weight: -4
+is_admin: null
+permissions:
+  - 'view article revisions'
+  - 'view page revisions'

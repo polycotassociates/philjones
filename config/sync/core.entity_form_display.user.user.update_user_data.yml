@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.update_user_data
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -19,75 +18,6 @@ dependencies:
     - user
 third_party_settings:
   field_group:
-    group_contact_info:
-      children:
-        - field_displa
-        - field_last_contact_date
-        - field_mobile_phone
-        - field_mobile_phone_carrier
-        - field_preferred_contact
-        - field_primary_phone
-      parent_name: ''
-      weight: 9
-      format_type: tab
-      format_settings:
-        formatter: open
-        id: ''
-        classes: ''
-        required_fields: false
-        description: ''
-      label: 'Contact Info'
-      region: hidden
-    group_survey_info:
-      children:
-        - field_gender
-        - field_age
-        - field_incedental_findings_cons
-        - field_photo_video_consent
-        - field_need_hcp
-        - field_hcp_date
-        - field_hcp_notes
-      parent_name: ''
-      weight: 0
-      format_type: fieldset
-      format_settings:
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-        description: ''
-      label: 'User Survey Data'
-      region: content
-    group_account_info:
-      children:
-        - account
-      parent_name: ''
-      weight: 8
-      format_type: tab
-      format_settings:
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-        description: ''
-      label: 'User Account, Email and Roles'
-      region: hidden
-    group_educator_info:
-      children:
-        - field_educator_email
-        - field_educator_name
-        - field_educator_phone
-      parent_name: ''
-      weight: 7
-      format_type: tab
-      format_settings:
-        formatter: closed
-        required_fields: true
-        id: ''
-        classes: ''
-        description: ''
-      label: 'Educator Info'
-      region: hidden
     group_user_account:
       children: {  }
       parent_name: ''
@@ -130,7 +60,6 @@ content:
 hidden:
   account: true
   contact: true
-  feeds_item: true
   field_displa: true
   field_last_contact_date: true
   field_mobile_phone_carrier: true

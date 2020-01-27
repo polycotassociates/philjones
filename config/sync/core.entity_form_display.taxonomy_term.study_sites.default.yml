@@ -6,6 +6,7 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_educator
     - field.field.taxonomy_term.study_sites.field_studies
     - field.field.taxonomy_term.study_sites.field_study_site_dates
+    - field.field.taxonomy_term.study_sites.field_study_type
     - taxonomy.vocabulary.study_sites
   module:
     - paragraphs
@@ -20,12 +21,13 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
   field_study_site_dates:
     type: paragraphs
-    weight: 1
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -41,6 +43,12 @@ content:
         collapse_edit_all: collapse_edit_all
     third_party_settings: {  }
     region: content
+  field_study_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   name:
     type: string_textfield
     weight: 0
@@ -48,6 +56,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
     third_party_settings: {  }
 hidden:
   description: true

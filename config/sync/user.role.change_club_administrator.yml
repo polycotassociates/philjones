@@ -1,0 +1,30 @@
+uuid: 21728507-c869-4c9a-85b6-2a16e760b905
+langcode: en
+status: true
+dependencies: {  }
+id: change_club_administrator
+label: 'Change Club Administrator'
+weight: -5
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access toolbar'
+  - 'create change_club content'
+  - 'create educator content'
+  - 'delete any change_club content'
+  - 'delete own change_club content'
+  - 'delete own educator content'
+  - 'edit any change_club content'
+  - 'edit any educator content'
+  - 'edit own change_club content'
+  - 'edit own educator content'
+  - 'use node.default form mode'
+  - 'use node.timepoint_actions form mode'
+  - 'use node.update_compensation form mode'
+  - 'use text format full_html'
+  - 'use user.default form mode'
+  - 'use user.update_user_data form mode'
+  - 'view article revisions'
+  - 'view page revisions'
