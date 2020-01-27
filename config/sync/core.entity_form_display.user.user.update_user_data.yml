@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.update_user_data
+    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -60,6 +61,7 @@ content:
 hidden:
   account: true
   contact: true
+  feeds_item: true
   field_displa: true
   field_last_contact_date: true
   field_mobile_phone_carrier: true

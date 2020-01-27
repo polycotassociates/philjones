@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -23,6 +24,7 @@ bundle: user
 mode: compact
 content: {  }
 hidden:
+  feeds_item: true
   field_age: true
   field_displa: true
   field_gender: true

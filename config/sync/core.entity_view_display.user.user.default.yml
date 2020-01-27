@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -132,4 +133,5 @@ content:
     type: string
     region: content
 hidden:
+  feeds_item: true
   member_for: true
