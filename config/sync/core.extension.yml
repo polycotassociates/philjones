@@ -18,7 +18,6 @@ module:
   devel_entity_updates: 0
   dynamic_page_cache: 0
   editor: 0
-  entity_clone: 0
   entity_reference_revisions: 0
   entity_type_clone: 0
   feeds: 0
@@ -50,9 +49,11 @@ module:
   rest: 0
   search: 0
   serialization: 0
+  sharedemail: 0
   shc_tweaks: 0
   shortcut: 0
   simplify: 0
+  smtp: 0
   system: 0
   tamper: 0
   taxonomy: 0
@@ -62,7 +63,6 @@ module:
   toolbar: 0
   update: 0
   user: 0
-  vbo_export: 0
   views_bulk_operations: 0
   views_data_export: 0
   views_entity_form_field: 0

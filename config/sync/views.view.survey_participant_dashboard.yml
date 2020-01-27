@@ -14,11 +14,20 @@ dependencies:
     - field.storage.node.field_survey_link
     - field.storage.node.field_timepoint_actions
     - field.storage.node.field_user
+    - field.storage.paragraph.field_accelerometer_returned
+    - field.storage.paragraph.field_accelerometer_worn
     - field.storage.paragraph.field_amount_earned
     - field.storage.paragraph.field_amount_redeemed
+    - field.storage.paragraph.field_baseline_accelerometer_id
+    - field.storage.paragraph.field_completed_on_paper
+    - field.storage.paragraph.field_how_sent
+    - field.storage.paragraph.field_outcome_accelerometer_id
+    - field.storage.paragraph.field_sent_by
+    - field.storage.paragraph.field_sent_to
     - field.storage.paragraph.field_survey_completed
     - field.storage.paragraph.field_timepoint
     - field.storage.paragraph.field_visit_completed
+    - field.storage.paragraph.field_w
     - node.type.change_club
     - node.type.strongpeople_strength
     - system.menu.main
@@ -44,6 +53,7 @@ dependencies:
     - 'taxonomy_term:study_sites:fcac6fa4-e15b-4af8-b230-41292f79829c'
   module:
     - csv_serialization
+    - datetime
     - entity_reference_revisions
     - link
     - node
@@ -1443,7 +1453,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Active
+            label: field_active
             description: ''
             use_operator: false
             operator: field_active_value_op
@@ -1475,6 +1485,53 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
+        field_timepoint_value:
+          id: field_timepoint_value
+          table: paragraph__field_timepoint
+          field: field_timepoint_value
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_timepoint_value_op
+            label: Timepoint
+            description: ''
+            use_operator: false
+            operator: field_timepoint_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_timepoint_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              portal_administrator: '0'
+              survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
+              survey_participant: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         field_study_site_target_id:
           id: field_study_site_target_id
           table: node__field_study_site
@@ -1488,7 +1545,7 @@ display:
           exposed: true
           expose:
             operator_id: field_study_site_target_id_op
-            label: 'Study Site (field_study_site)'
+            label: field_study_site
             description: ''
             use_operator: false
             operator: field_study_site_target_id_op
@@ -1940,7 +1997,72 @@ display:
           relationship: field_timepoint_actions
           group_type: group
           admin_label: ''
-          label: Survey
+          label: 'Survey Completed'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_completed_on_paper:
+          id: field_completed_on_paper
+          table: paragraph__field_completed_on_paper
+          field: field_completed_on_paper
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Completed on Paper'
           exclude: false
           alter:
             alter_text: false
@@ -2005,7 +2127,7 @@ display:
           relationship: field_timepoint_actions
           group_type: group
           admin_label: ''
-          label: Visit
+          label: 'Visit Completed'
           exclude: false
           alter:
             alter_text: false
@@ -2063,6 +2185,262 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_accelerometer_worn:
+          id: field_accelerometer_worn
+          table: paragraph__field_accelerometer_worn
+          field: field_accelerometer_worn
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Accelerometer Worn'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_accelerometer_returned:
+          id: field_accelerometer_returned
+          table: paragraph__field_accelerometer_returned
+          field: field_accelerometer_returned
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Accelerometer Returned'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_baseline_accelerometer_id:
+          id: field_baseline_accelerometer_id
+          table: paragraph__field_baseline_accelerometer_id
+          field: field_baseline_accelerometer_id
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Baseline Accelerometer ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_outcome_accelerometer_id:
+          id: field_outcome_accelerometer_id
+          table: paragraph__field_outcome_accelerometer_id
+          field: field_outcome_accelerometer_id
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Outcome Accelerometer ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_amount_earned:
           id: field_amount_earned
           table: paragraph__field_amount_earned
@@ -2070,7 +2448,7 @@ display:
           relationship: field_compensation_data
           group_type: group
           admin_label: ''
-          label: Earned
+          label: 'Amount Earned'
           exclude: false
           alter:
             alter_text: false
@@ -2136,7 +2514,7 @@ display:
           relationship: field_compensation_data
           group_type: group
           admin_label: ''
-          label: Redeemed
+          label: 'Amount Redeemed'
           exclude: false
           alter:
             alter_text: false
@@ -2184,6 +2562,259 @@ display:
             prefix_suffix: true
             decimal_separator: .
             scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_how_sent:
+          id: field_how_sent
+          table: paragraph__field_how_sent
+          field: field_how_sent
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'How Sent'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_sent_by:
+          id: field_sent_by
+          table: paragraph__field_sent_by
+          field: field_sent_by
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'Sent By'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_sent_to:
+          id: field_sent_to
+          table: paragraph__field_sent_to
+          field: field_sent_to
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'Sent To'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_w:
+          id: field_w
+          table: paragraph__field_w
+          field: field_w
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'When Sent'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: month_day_year
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2271,11 +2902,20 @@ display:
         - 'config:field.storage.node.field_response_id'
         - 'config:field.storage.node.field_study_site'
         - 'config:field.storage.node.field_user'
+        - 'config:field.storage.paragraph.field_accelerometer_returned'
+        - 'config:field.storage.paragraph.field_accelerometer_worn'
         - 'config:field.storage.paragraph.field_amount_earned'
         - 'config:field.storage.paragraph.field_amount_redeemed'
+        - 'config:field.storage.paragraph.field_baseline_accelerometer_id'
+        - 'config:field.storage.paragraph.field_completed_on_paper'
+        - 'config:field.storage.paragraph.field_how_sent'
+        - 'config:field.storage.paragraph.field_outcome_accelerometer_id'
+        - 'config:field.storage.paragraph.field_sent_by'
+        - 'config:field.storage.paragraph.field_sent_to'
         - 'config:field.storage.paragraph.field_survey_completed'
         - 'config:field.storage.paragraph.field_timepoint'
         - 'config:field.storage.paragraph.field_visit_completed'
+        - 'config:field.storage.paragraph.field_w'
   data_export_2:
     display_plugin: data_export
     id: data_export_2
@@ -2341,6 +2981,145 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_active_value:
+          id: field_active_value
+          table: node__field_active
+          field: field_active_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: field_active
+            description: ''
+            use_operator: false
+            operator: field_active_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_active_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              portal_administrator: '0'
+              survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
+              survey_participant: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+        field_participant_role_value:
+          id: field_participant_role_value
+          table: node__field_participant_role
+          field: field_participant_role_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_participant_role_value_op
+            label: field_participant_role
+            description: ''
+            use_operator: false
+            operator: field_participant_role_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_participant_role_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              portal_administrator: '0'
+              survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
+              survey_participant: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_timepoint_value:
+          id: field_timepoint_value
+          table: paragraph__field_timepoint
+          field: field_timepoint_value
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_timepoint_value_op
+            label: Timepoint
+            description: ''
+            use_operator: false
+            operator: field_timepoint_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_timepoint_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              portal_administrator: '0'
+              survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
+              survey_participant: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
       defaults:
         filters: false
         filter_groups: false
@@ -2482,68 +3261,6 @@ display:
           settings:
             link: false
           group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_participant_role:
-          id: field_participant_role
-          table: node__field_participant_role
-          field: field_participant_role
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Role
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2816,7 +3533,72 @@ display:
           relationship: field_timepoint_actions
           group_type: group
           admin_label: ''
-          label: Survey
+          label: 'Survey Completed'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_completed_on_paper:
+          id: field_completed_on_paper
+          table: paragraph__field_completed_on_paper
+          field: field_completed_on_paper
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Completed on Paper'
           exclude: false
           alter:
             alter_text: false
@@ -2881,7 +3663,7 @@ display:
           relationship: field_timepoint_actions
           group_type: group
           admin_label: ''
-          label: Visit
+          label: 'Visit Completed'
           exclude: false
           alter:
             alter_text: false
@@ -2939,6 +3721,262 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_accelerometer_worn:
+          id: field_accelerometer_worn
+          table: paragraph__field_accelerometer_worn
+          field: field_accelerometer_worn
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Accelerometer Worn'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_accelerometer_returned:
+          id: field_accelerometer_returned
+          table: paragraph__field_accelerometer_returned
+          field: field_accelerometer_returned
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Accelerometer Returned'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_baseline_accelerometer_id:
+          id: field_baseline_accelerometer_id
+          table: paragraph__field_baseline_accelerometer_id
+          field: field_baseline_accelerometer_id
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Baseline Accelerometer ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_outcome_accelerometer_id:
+          id: field_outcome_accelerometer_id
+          table: paragraph__field_outcome_accelerometer_id
+          field: field_outcome_accelerometer_id
+          relationship: field_timepoint_actions
+          group_type: group
+          admin_label: ''
+          label: 'Outcome Accelerometer ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_amount_earned:
           id: field_amount_earned
           table: paragraph__field_amount_earned
@@ -2946,7 +3984,7 @@ display:
           relationship: field_compensation_data
           group_type: group
           admin_label: ''
-          label: Earned
+          label: 'Amount Earned'
           exclude: false
           alter:
             alter_text: false
@@ -3012,7 +4050,7 @@ display:
           relationship: field_compensation_data
           group_type: group
           admin_label: ''
-          label: Redeemed
+          label: 'Amount Redeemed'
           exclude: false
           alter:
             alter_text: false
@@ -3071,6 +4109,259 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_how_sent:
+          id: field_how_sent
+          table: paragraph__field_how_sent
+          field: field_how_sent
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'How Sent'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_sent_by:
+          id: field_sent_by
+          table: paragraph__field_sent_by
+          field: field_sent_by
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'Sent By'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_sent_to:
+          id: field_sent_to
+          table: paragraph__field_sent_to
+          field: field_sent_to
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'Sent To'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_w:
+          id: field_w
+          table: paragraph__field_w
+          field: field_w
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          label: 'When Sent'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: month_day_year
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       style:
         type: data_export
         options:
@@ -3088,37 +4379,25 @@ display:
         type: data_field
         options:
           field_options:
+            title:
+              alias: ''
+              raw_output: false
             field_user:
-              alias: ''
-              raw_output: false
-            field_study_site:
-              alias: ''
-              raw_output: false
-            field_participant_role:
               alias: ''
               raw_output: false
             field_response_id:
               alias: ''
               raw_output: false
-            field_active:
+            field_survey_link:
               alias: ''
               raw_output: false
-            field_enrolled_consented:
+            field_study_site:
               alias: ''
               raw_output: false
-            field_timepoint:
+            field_timepoint_actions:
               alias: ''
               raw_output: false
-            field_survey_completed:
-              alias: ''
-              raw_output: false
-            field_visit_completed:
-              alias: ''
-              raw_output: false
-            field_amount_earned:
-              alias: ''
-              raw_output: false
-            field_amount_redeemed:
+            field_compensation_data:
               alias: ''
               raw_output: false
       pager:
@@ -3149,20 +4428,29 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_active'
         - 'config:field.storage.node.field_enrolled_consented'
-        - 'config:field.storage.node.field_participant_role'
         - 'config:field.storage.node.field_response_id'
         - 'config:field.storage.node.field_study_site'
         - 'config:field.storage.node.field_user'
+        - 'config:field.storage.paragraph.field_accelerometer_returned'
+        - 'config:field.storage.paragraph.field_accelerometer_worn'
         - 'config:field.storage.paragraph.field_amount_earned'
         - 'config:field.storage.paragraph.field_amount_redeemed'
+        - 'config:field.storage.paragraph.field_baseline_accelerometer_id'
+        - 'config:field.storage.paragraph.field_completed_on_paper'
+        - 'config:field.storage.paragraph.field_how_sent'
+        - 'config:field.storage.paragraph.field_outcome_accelerometer_id'
+        - 'config:field.storage.paragraph.field_sent_by'
+        - 'config:field.storage.paragraph.field_sent_to'
         - 'config:field.storage.paragraph.field_survey_completed'
         - 'config:field.storage.paragraph.field_timepoint'
         - 'config:field.storage.paragraph.field_visit_completed'
+        - 'config:field.storage.paragraph.field_w'
   page_1:
     display_plugin: page
     id: page_1
@@ -3432,57 +4720,6 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-        field_amount_earned_value:
-          id: field_amount_earned_value
-          table: paragraph__field_amount_earned
-          field: field_amount_earned_value
-          relationship: field_compensation_data
-          group_type: group
-          admin_label: ''
-          operator: '>'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_amount_earned_value_op
-            label: 'Amount Earned >'
-            description: ''
-            use_operator: false
-            operator: field_amount_earned_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_amount_earned_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              portal_administrator: '0'
-              survey_administrator: '0'
-              change_club_administrator: '0'
-              educator: '0'
-              survey_participant: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -3671,6 +4908,48 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_active_value:
+          id: field_active_value
+          table: node__field_active
+          field: field_active_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: All
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Active?'
+            description: ''
+            use_operator: false
+            operator: field_active_value_op
+            identifier: field_active_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              survey_administrator: '0'
+              survey_participant: '0'
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
         field_participant_role_value:
           id: field_participant_role_value
           table: node__field_participant_role
@@ -3718,53 +4997,11 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-        field_active_value:
-          id: field_active_value
-          table: node__field_active
-          field: field_active_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: All
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: 'Active?'
-            description: ''
-            use_operator: false
-            operator: field_active_value_op
-            identifier: field_active_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              survey_administrator: '0'
-              survey_participant: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: boolean
-        field_gender_value:
-          id: field_gender_value
-          table: user__field_gender
-          field: field_gender_value
-          relationship: field_user
+        field_timepoint_value:
+          id: field_timepoint_value
+          table: paragraph__field_timepoint
+          field: field_timepoint_value
+          relationship: field_timepoint_actions
           group_type: group
           admin_label: ''
           operator: or
@@ -3772,12 +5009,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_gender_value_op
-            label: Gender
+            operator_id: field_timepoint_value_op
+            label: Timepoint
             description: ''
             use_operator: false
-            operator: field_gender_value_op
-            identifier: field_gender_value
+            operator: field_timepoint_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_timepoint_value
             required: false
             remember: false
             multiple: false
@@ -3785,12 +5024,12 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              contributor: '0'
+              portal_administrator: '0'
               survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
               survey_participant: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3805,55 +5044,6 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-        field_age_value:
-          id: field_age_value
-          table: user__field_age
-          field: field_age_value
-          relationship: field_user
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_age_value_op
-            label: 'Age >'
-            description: ''
-            use_operator: false
-            operator: field_age_value_op
-            identifier: field_age_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              contributor: '0'
-              survey_administrator: '0'
-              survey_participant: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false

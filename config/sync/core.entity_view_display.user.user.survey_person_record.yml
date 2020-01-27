@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.survey_person_record
+    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -83,6 +84,7 @@ content:
     type: boolean
     region: content
 hidden:
+  feeds_item: true
   field_last_contact_date: true
   field_mobile_phone_carrier: true
   field_preferred_contact: true
