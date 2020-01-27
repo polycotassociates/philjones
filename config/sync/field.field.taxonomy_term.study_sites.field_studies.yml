@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_studies
-    - paragraphs.paragraphs_type.study
     - taxonomy.vocabulary.study_sites
   module:
     - entity_reference_revisions
@@ -22,8 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      study: study
+    target_bundles: {  }
     target_bundles_drag_drop:
       study:
         enabled: true

@@ -1,15 +1,15 @@
-uuid: 354a2a95-8088-4219-8794-a4747fa852ff
+uuid: 7a3727e4-fc0f-4dd0-9a75-8a10d93f32a4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_study_type
-    - paragraphs.paragraphs_type.study
+    - field.storage.taxonomy_term.field_study_type
+    - taxonomy.vocabulary.study_sites
     - taxonomy.vocabulary.study_type
-id: paragraph.study.field_study_type
+id: taxonomy_term.study_sites.field_study_type
 field_name: field_study_type
-entity_type: paragraph
-bundle: study
+entity_type: taxonomy_term
+bundle: study_sites
 label: 'Study Type'
 description: ''
 required: false

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_age
     - field.field.user.user.field_displa
     - field.field.user.user.field_gender
@@ -25,7 +24,6 @@ third_party_settings:
       children:
         - field_displa
         - field_primary_phone
-        - field_mobile_phone
         - field_mobile_phone_carrier
         - field_preferred_contact
         - field_last_contact_date
@@ -40,14 +38,10 @@ third_party_settings:
       region: content
     group_survey_info:
       children:
-        - field_response_id
         - field_gender
         - field_age
         - field_need_hcp
-        - field_hcp_notes
-        - field_hcp_date
-        - field_incedental_findings_cons
-        - field_photo_video_consent
+        - field_response_id
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -131,12 +125,11 @@ content:
     region: content
   field_response_id:
     weight: 14
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
 hidden:
-  feeds_item: true
   member_for: true
