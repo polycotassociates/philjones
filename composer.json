@@ -46,6 +46,7 @@
         "drupal/paragraphs": "^1.9",
         "drupal/pathauto": "^1.4",
         "drupal/qualtricsxm": "^1.2",
+        "drupal/recaptcha": "^2.5",
         "drupal/redis": "^1.1",
         "drupal/restui": "^1.17",
         "drupal/rules": "^3.0",
