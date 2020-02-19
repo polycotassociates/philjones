@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "161f279a8fe9917e005af0a3f7bcfa96",
+    "content-hash": "92b9a7bc9ac3c341db2eb1f49bb332a6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4514,6 +4514,50 @@
                 "source": "http://cgit.drupalcode.org/feeds",
                 "issues": "https://www.drupal.org/project/issues/feeds"
             }
+        },
+        {
+            "name": "drupal/feeds_para_mapper",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/feeds_para_mapper.git",
+                "reference": "ae45c3bd1ec678a5c8e83b544de8e768a00346ce"
+            },
+            "require": {
+                "drupal/core": "~8",
+                "drupal/feeds": "~3.0",
+                "drupal/paragraphs": "~1.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1557646685",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "hussein-elhussein",
+                    "homepage": "https://www.drupal.org/user/3522231"
+                }
+            ],
+            "description": "Allows mapping to Paragraphs fields.",
+            "homepage": "https://www.drupal.org/project/feeds_para_mapper",
+            "support": {
+                "source": "https://git.drupalcode.org/project/feeds_para_mapper"
+            },
+            "time": "2019-07-01T00:37:13+00:00"
         },
         {
             "name": "drupal/feeds_tamper",
@@ -12829,7 +12873,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/feeds_para_mapper": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
