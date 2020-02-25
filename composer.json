@@ -24,6 +24,7 @@
         "drupal/auto_entitylabel": "^3.0",
         "drupal/auto_username": "^1.1",
         "drupal/bootstrap": "^3.19",
+        "drupal/business_rules": "^1.0",
         "drupal/colorbox_inline": "^1.1",
         "drupal/colorbox_load": "^1.0",
         "drupal/computed_field": "^2.0",
