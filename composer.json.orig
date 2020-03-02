@@ -54,7 +54,6 @@
         "drupal/migrate_source_csv": "^3.0",
         "drupal/migrate_source_ui": "^1.0",
         "drupal/migrate_tools": "^4.1",
-        "drupal/mimemail": "^1.0",
         "drupal/oauth2_client": "^2.0",
         "drupal/paragraphs": "^1.9",
         "drupal/pathauto": "^1.4",
