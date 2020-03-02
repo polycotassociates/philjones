@@ -1,0 +1,372 @@
+diff --git a/config/schema/feeds.schema.yml b/config/schema/feeds.schema.yml
+index b1d137d..82b6cbe 100644
+--- a/config/schema/feeds.schema.yml
++++ b/config/schema/feeds.schema.yml
+@@ -122,6 +122,22 @@ feeds.fetcher.http:
+       type: string
+     request_timeout:
+       type: integer
++    enable_authorization:
++      type: boolean
++    feed_authorization_setting:
++      type: boolean
++    access_token_url:
++      type: string
++    grant_type:
++      type: string
++    client_id:
++      type: string
++    client_secret:
++      type: string
++    username:
++      type: string
++    password:
++      type: string
+ 
+ feeds.fetcher.directory:
+   type: mapping
+diff --git a/src/Feeds/Fetcher/Form/HttpFetcherFeedForm.php b/src/Feeds/Fetcher/Form/HttpFetcherFeedForm.php
+index 99de17c..0f40d93 100644
+--- a/src/Feeds/Fetcher/Form/HttpFetcherFeedForm.php
++++ b/src/Feeds/Fetcher/Form/HttpFetcherFeedForm.php
+@@ -44,6 +44,8 @@ class HttpFetcherFeedForm extends ExternalPluginFormBase implements ContainerInj
+    * {@inheritdoc}
+    */
+   public function buildConfigurationForm(array $form, FormStateInterface $form_state, FeedInterface $feed = NULL) {
++    $feed_config = $feed->getConfigurationFor($this->plugin);
++
+     $form['source'] = [
+       '#title' => $this->t('Feed URL'),
+       '#type' => 'url',
+@@ -51,6 +53,139 @@ class HttpFetcherFeedForm extends ExternalPluginFormBase implements ContainerInj
+       '#maxlength' => 2048,
+       '#required' => TRUE,
+     ];
++    $enable_authorization = $this->plugin->getConfiguration('enable_authorization');
++    if ($enable_authorization) {
++      $form['authorization_options'] = [
++        '#type' => 'details',
++        '#title' => t('Private feed parameters.'),
++        '#description' => t('To access a feed which requires OAuth Authorization, use the fields below. It is assumed that private data will be requested using an implementation of the OAuth 2.0 Authorization Framework RFC.'),
++        '#open' => TRUE,
++      ];
++
++      $form['authorization_options']['feed_authorization_setting'] = [
++        '#type' => 'checkbox',
++        '#title' => t('Use OAuth 2.0 Authorization to access a private feed?'),
++        '#default_value' => $feed_config['feed_authorization_setting'],
++        '#description' => t('Whether this specific feed should use OAuth Authorization. If not checked, the feed will be imported without authorization.'),
++      ];
++
++      $grant_types = [
++        'client_credentials' => 'Client Credentials',
++        'authorization_code' => 'Authorization Code',
++        'password' => 'Password Grant',
++      ];
++
++      $form['authorization_options']['grant_type'] = [
++        '#type' => 'select',
++        '#title' => t('Grant type'),
++        '#options' => $grant_types,
++        '#default_value' => $feed_config['grant_type'],
++        '#required' => TRUE,
++        '#description' => t('The type of grant with which to make an authorization request. Currently, only the <em>Client Credentials</em> and <em>Password</em> grants are supported.'),
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++          ],
++        ],
++      ];
++
++      $form['authorization_options']['access_token_url'] = [
++        '#title' => $this->t('Access Token URL'),
++        '#type' => 'url',
++        '#default_value' => $feed_config['access_token_url'],
++        '#description' => t('URL retrieve an access token from an OAuth application.'),
++        '#maxlength' => 2048,
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++          ],
++          'required' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++          ],
++        ],
++      ];
++
++      $form['authorization_options']['client_id'] = [
++        '#type' => 'textfield',
++        '#title' => t('Client ID'),
++        '#default_value' => $feed_config['client_id'],
++        '#required' => FALSE,
++        '#description' => t("The OAuth application's Client ID."),
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++          ],
++          'required' => [
++            'select[name="plugin[fetcher][authorization_options][grant_type]"]' => [
++              'value' => 'client_credentials',
++              'visible' => TRUE,
++            ],
++          ],
++        ],
++      ];
++
++      $form['authorization_options']['client_secret'] = [
++        '#type' => 'password',
++        '#title' => t('Client Secret'),
++        '#description' => t("The OAuth application's Client Secret."),
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++          ],
++        ],
++      ];
++
++      $form['authorization_options']['username'] = [
++        '#type' => 'textfield',
++        '#title' => t('Username'),
++        '#default_value' => $feed_config['username'],
++        '#description' => t("The username on the vendor's server."),
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++            'select[name="plugin[fetcher][authorization_options][grant_type]"]' => [
++              'value' => 'password',
++              'visible' => TRUE,
++            ],
++          ],
++          'required' => [
++            'select[name="plugin[fetcher][authorization_options][grant_type]"]' => [
++              'value' => 'password',
++              'visible' => TRUE,
++            ],
++          ],
++        ],
++      ];
++
++      $form['authorization_options']['password'] = [
++        '#type' => 'password',
++        '#title' => t('Password'),
++        '#description' => t("The password on the vendor's server."),
++        '#states' => [
++          'visible' => [
++            'input[name="plugin[fetcher][authorization_options][feed_authorization_setting]"]' => [
++              'checked' => TRUE,
++            ],
++            'select[name="plugin[fetcher][authorization_options][grant_type]"]' => [
++              'value' => 'password',
++              'visible' => TRUE,
++            ],
++          ],
++        ],
++      ];
++    }
+ 
+     return $form;
+   }
+@@ -99,6 +234,24 @@ class HttpFetcherFeedForm extends ExternalPluginFormBase implements ContainerInj
+    */
+   public function submitConfigurationForm(array &$form, FormStateInterface $form_state, FeedInterface $feed = NULL) {
+     $feed->setSource($form_state->getValue('source'));
++    $feed_config = [
++      'feed_authorization_setting' => $form_state->getValue('authorization_options')['feed_authorization_setting'],
++      'access_token_url' => $form_state->getValue('authorization_options')['access_token_url'],
++      'grant_type' => $form_state->getValue('authorization_options')['grant_type'],
++      'client_id' => $form_state->getValue('authorization_options')['client_id'],
++      'username' => $form_state->getValue('authorization_options')['username'],
++    ];
++    $client_secret = $form_state->getValue('authorization_options')['client_secret'];
++    $password = $form_state->getValue('authorization_options')['password'];
++
++    // Only save the client secret and/or password if they have been changed.
++    if (!empty($client_secret)) {
++      $feed_config['client_secret'] = $client_secret;
++    }
++    if (!empty($password)) {
++      $feed_config['password'] = $password;
++    }
++    $feed->setConfigurationFor($this->plugin, $feed_config);
+   }
+ 
+   /**
+diff --git a/src/Feeds/Fetcher/Form/HttpFetcherForm.php b/src/Feeds/Fetcher/Form/HttpFetcherForm.php
+index 299ca36..01a0573 100644
+--- a/src/Feeds/Fetcher/Form/HttpFetcherForm.php
++++ b/src/Feeds/Fetcher/Form/HttpFetcherForm.php
+@@ -47,6 +47,13 @@ class HttpFetcherForm extends ExternalPluginFormBase {
+       '#default_value' => $this->plugin->getConfiguration('request_timeout'),
+       '#min' => 0,
+     ];
++    $form['enable_authorization'] = [
++      '#type' => 'checkbox',
++      '#title' => $this->t('Enable use of OAuth 2.0 Authorization to fetch feeds.'),
++      '#description' => $this->t('If checked, authors will have the option to enter authorization information when creating a feed.'),
++      '#default_value' => $this->plugin->getConfiguration('enable_authorization'),
++      '#min' => 0,
++    ];
+ 
+     return $form;
+   }
+diff --git a/src/Feeds/Fetcher/HttpFetcher.php b/src/Feeds/Fetcher/HttpFetcher.php
+index 171917d..a16c8cc 100644
+--- a/src/Feeds/Fetcher/HttpFetcher.php
++++ b/src/Feeds/Fetcher/HttpFetcher.php
+@@ -84,7 +84,7 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+     $sink = $this->fileSystem->tempnam('temporary://', 'feeds_http_fetcher');
+     $sink = $this->fileSystem->realpath($sink);
+ 
+-    $response = $this->get($feed->getSource(), $sink, $this->getCacheKey($feed));
++    $response = $this->get($feed, $sink, $this->getCacheKey($feed));
+     // @todo Handle redirects.
+     // @codingStandardsIgnoreStart
+     // $feed->setSource($response->getEffectiveUrl());
+@@ -102,8 +102,8 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+   /**
+    * Performs a GET request.
+    *
+-   * @param string $url
+-   *   The URL to GET.
++   * @param \Drupal\feeds\FeedInterface $feed
++   *   The feed to retrieve.
+    * @param string $sink
+    *   The location where the downloaded content will be saved. This can be a
+    *   resource, path or a StreamInterface object.
+@@ -118,10 +118,10 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+    *
+    * @see \GuzzleHttp\RequestOptions
+    */
+-  protected function get($url, $sink, $cache_key = FALSE) {
+-    $url = Feed::translateSchemes($url);
+-
++  protected function get(FeedInterface $feed, $sink, $cache_key = FALSE) {
++    $url = Feed::translateSchemes($feed->getSource());
+     $options = [RequestOptions::SINK => $sink];
++    $feed_config = $feed->getConfigurationFor($this);
+ 
+     // Add cached headers if requested.
+     if ($cache_key && ($cache = $this->cache->get($cache_key))) {
+@@ -133,6 +133,16 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+       }
+     }
+ 
++    // If the feed is configured to use OAuth.
++    if ($feed_config['feed_authorization_setting']) {
++      $token_components = $this->getAccessToken($feed);
++
++      // If an access token was returned, add it to the request options.
++      if (!empty($token_components) && isset($token_components->access_token)) {
++        $options['headers']['Authorization'] = $token_components->token_type . " " . $token_components->access_token;
++      }
++    }
++
+     try {
+       $response = $this->client->get($url, $options);
+     }
+@@ -148,6 +158,63 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+     return $response;
+   }
+ 
++  /**
++   * Returns the access token necessary for feeds which require authentication.
++   *
++   * @param \Drupal\feeds\FeedInterface $feed
++   *   The feed for which to retrieve the authentication token.
++   *
++   * @return string
++   *   The access token.
++   */
++  protected function getAccessToken(FeedInterface $feed) {
++    $feed_config = $feed->getConfigurationFor($this);
++    $header_content_type = "application/x-www-form-urlencoded";
++    $httpMethod = 'POST';
++    $fields_string = NULL;
++    if ($feed_config['grant_type'] == 'client_credentials') {
++      $fields = [
++        'client_id' => urlencode($feed_config['client_id']),
++        'client_secret' => urlencode($feed_config['client_secret']),
++        'grant_type' => urlencode($feed_config['grant_type']),
++      ];
++    }
++    elseif ($feed_config['grant_type'] == 'password') {
++      $fields = [
++        'client_id' => urlencode($feed_config['client_id']),
++        'client_secret' => urlencode($feed_config['client_secret']),
++        'grant_type' => urlencode($feed_config['grant_type']),
++        'username' => urlencode($feed_config['username']),
++        'password' => urlencode($feed_config['password']),
++        'grant_type' => urlencode($feed_config['grant_type']),
++      ];
++    }
++    foreach ($fields as $key => $value) {
++      $fields_string .= $key . '=' . $value . '&';
++    }
++    $fields_string = rtrim($fields_string, '&');
++    try {
++      // Submit the data.
++      $request = $this->client->request($httpMethod, $feed_config['access_token_url'], [
++        'body' => $fields_string,
++        'headers' => [
++          'Content-Type'   => $header_content_type,
++          'Accept'         => '1.0',
++        ],
++      ]);
++      // Convert the JSON response into an array.
++      $result = $request->getBody()->getContents();
++    }
++    catch (RequestException $e) {
++      watchdog_exception('feeds', $e);
++    }
++
++    // Set the signed JSON Web Token containing token
++    // components as a variable.
++    $token_components = json_decode($result, FALSE);
++    return $token_components;
++  }
++
+   /**
+    * Returns the download cache key for a given feed.
+    *
+@@ -168,6 +235,21 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+     $this->onFeedDeleteMultiple([$feed]);
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function defaultFeedConfiguration() {
++    return [
++      'feed_authorization_setting' => TRUE,
++      'access_token_url' => NULL,
++      'grant_type' => 'client_credentials',
++      'client_id' => NULL,
++      'client_secret' => NULL,
++      'username' => NULL,
++      'password' => NULL,
++    ];
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -180,6 +262,7 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
+       'use_pubsubhubbub' => FALSE,
+       'fallback_hub' => '',
+       'request_timeout' => 30,
++      'enable_authorization' => FALSE,
+     ];
+   }
+ 
