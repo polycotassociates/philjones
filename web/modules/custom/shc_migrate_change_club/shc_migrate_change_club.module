@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains shc_migrate_change_club.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function shc_migrate_change_club_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the shc_migrate_change_club module.
+    case 'help.page.shc_migrate_change_club':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Migrates survey responses from Qualtrics to create/update users and nodes of type change_club') . '</p>';
+      return $output;
+
+    default:
+  }
+}
