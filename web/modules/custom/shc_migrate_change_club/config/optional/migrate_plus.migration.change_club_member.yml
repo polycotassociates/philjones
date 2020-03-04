@@ -1,0 +1,89 @@
+# Migration configuration for imported change club member.
+id: change_club_member
+label: Import change club members to change club content type
+migration_group: change_club
+destination:
+  plugin: entity:node
+  default_bundle: change_club
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  authentication:
+    plugin: oauth2
+    base_uri: https://ca1.qualtrics.com
+    token_url: /oauth2/token
+    grant_type: client_credentials
+    client_id: UR_2ailSYXzssrId9y|eF4fkjj8qxLL
+    client_secret: UrxjbBo0OLEECjUX1wjKLMqm
+  data_parser_plugin: json
+  urls: https://ca1.qualtrics.com/API/v3/surveys/SV_doN3AIQ0sPGWuVv/export-responses
+  ids:
+    ResponseID:
+      type: string
+  item_selector: responses
+  fields:
+    -
+      name: ResponseID
+      label: 'Unique identifier'
+      selector: ResponseID
+    -
+      name: field_response_id
+      label: 'Participant ID'
+      selector: IDNUM
+    -
+      name: field_user
+      label: 'Participant'
+      selector: ELIG2
+    -
+      name: field_study_site
+      label: 'Study Site'
+      selector: ES6
+    -
+      name: field_gender
+      label: 'Gender'
+      selector: S_DM2
+    -
+      name: field_age
+      label: 'Age'
+      selector: S_DM1
+    -
+      name: field_active
+      label: 'Active'
+      selector: S_DM4
+    -
+      name: title
+      label: 'Respondant'
+      selector: ELIG3
+    -
+      name: field_participant_role_reference
+      label: 'Participant Role'
+      selector: ES3
+    -
+      name: field_survey_link_title
+      label: 'Survey Link Text'
+      selector: IDNUM
+    -
+      name: field_survey_link_url
+      label: 'Survey Link URI'
+      selector: IDNUM
+process:
+  type:
+    plugin: default_value
+    default_value: change_club
+  title: title
+  field_response_id: field_response_id
+  field_user: field_user
+  field_study_site:
+      plugin: skip_on_empty
+      method: process
+      source: field_study_site
+  field_gender: field_gender
+  field_age: field_age
+  field_active: field_active
+  'field_links/uri': field_survey_link_url
+  'field_links/title': 'link title'
+  field_participant_role_reference:
+      plugin: skip_on_empty
+      method: process
+      source: field_participant_role_reference
+  uid: 1

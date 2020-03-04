@@ -80,6 +80,7 @@
         "laminas/laminas-stdlib": "^3.2",
         "platformsh/config-reader": "^2.2",
         "psr/container": "^1.0",
+        "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
