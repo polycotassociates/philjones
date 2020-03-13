@@ -47,6 +47,10 @@ module:
   mail_login: 0
   mailsystem: 0
   menu_ui: 0
+  migrate: 0
+  migrate_json_example: 0
+  migrate_plus: 0
+  migrate_tools: 0
   mimemail: 0
   ng_lightbox: 0
   node: 0
@@ -60,6 +64,7 @@ module:
   search: 0
   serialization: 0
   sharedemail: 0
+  shc_migrate_change_club: 0
   shc_tweaks: 0
   shortcut: 0
   simplify: 0
