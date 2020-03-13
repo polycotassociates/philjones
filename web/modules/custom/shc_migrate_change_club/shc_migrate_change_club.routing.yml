@@ -1,0 +1,6 @@
+shc_migrate_change_club.settings:
+  path: 'admin/config/services/change-club-settings'
+  defaults:
+   _form: '\Drupal\shc_migrate_change_club\Form\QualtricsSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
