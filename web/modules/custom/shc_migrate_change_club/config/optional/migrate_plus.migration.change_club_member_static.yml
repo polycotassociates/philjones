@@ -9,7 +9,7 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'public://products.json'
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
   ids:
     ResponseID:
       type: string
