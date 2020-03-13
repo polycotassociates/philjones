@@ -23,12 +23,12 @@ function shc_migrate_change_club_help($route_name, RouteMatchInterface $route_ma
   }
 }
 
-function shc_migrate_change_club_post_qualtricssession(){
-
+function shc_migrate_change_club_post_qualtrics($settings){
+//get a session ID
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://ca1.qualtrics.com/API/v3/surveys/SV_doN3AIQ0sPGWuVv/export-responses",
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -38,7 +38,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS =>"{\n\t\"format\": \"json\"\n}",
   CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: uox0HEkJTPaXBue4R8R4BBQTjn4PmuUIcACDjbJV",
+    "X-API-TOKEN: ".$settings['api_token'],
     "Content-Type: application/json"
   ),
 ));
@@ -46,17 +46,49 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
-
-
-}
-
-function shc_migrate_change_club_get_qualtricsfileid(){
-
+$response = json_decode($response);
+$response =  $response->result->progressId;
+  if (!empty($response)){
+  $progressid = $response;
+  }else{
+    echo "no $progressid";
+  }
+// get a file ID
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://ca1.qualtrics.com/API/v3/surveys/SV_doN3AIQ0sPGWuVv/export-responses/ES_8v44fkufBMUyN3T",
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$progressid."",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "X-API-TOKEN: ".$settings['api_token'],
+    "Content-Type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$response = json_decode($response);
+$response =  $response->result->fileId;
+  if (!empty($response)){
+    $fileid = $response;
+
+  }else{
+    echo "no file ID";
+  }
+// download and save the .zip file
+// File to save the contents to
+$fp = fopen("../private/qualtrics_data/".$settings['survey_id'].".zip", "w+b");
+$curl = curl_init();
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$fileid."/file",
+  CURLOPT_FILE => $fp,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -71,19 +103,91 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
+  if (!empty($response)){
+    $fileid = $response;
+    echo $response;
+    fwrite($fp,$response);
+  }else{
+  echo "no file download";
+}
 
 curl_close($curl);
-echo $response;
+fclose($fp);
 
 
 }
 
-function shc_migrate_change_club_get_qualtricsfile(){
+function shc_migrate_change_club_post_qualtricssession($settings){
 
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://ca1.qualtrics.com/API/v3/surveys/SV_doN3AIQ0sPGWuVv/export-responses/0e65f0f7-ce0c-4105-b3b1-c4e7ac0c91e7/file",
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS =>"{\n\t\"format\": \"json\"\n}",
+  CURLOPT_HTTPHEADER => array(
+    "X-API-TOKEN: ".$settings['api_token'],
+    "Content-Type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$response = json_decode($response);
+$response =  $response->result->progressId;
+return $response;
+
+
+}
+
+function shc_migrate_change_club_get_qualtricsfileid($settings, $progressid){
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$progressid."",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "X-API-TOKEN: ".$settings['api_token'],
+    "Content-Type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$response = json_decode($response);
+$response =  $response->result->fileId;
+return $response;
+
+
+}
+
+
+function shc_migrate_change_club_get_qualtricsfile($settings, $fileid){
+
+// Directory to save qualtrics data exports
+$directory = 'private://qualtrics_data';
+// File to save the contents to
+//$fp = fopen(''.$directory.'/'.$settings['survey_id'].'.zip', 'w+');
+$curl = curl_init();
+$fp = fopen("../private/qualtrics_data/".$settings['survey_id'].".zip", "w+b");
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$fileid."/file",
+  CURLOPT_FILE => $fp,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -98,10 +202,26 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-
-curl_close($curl);
 echo $response;
+fwrite($fp,$response);
+curl_close($curl);
+fclose($fp);
 
 
 
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function shc_migrate_change_club_theme() {
+  return [
+    'default_block' => [
+      'variables' => [
+        'content' => NULL
+      ],
+      'render element' => 'children',
+    ],
+  ];
 }
