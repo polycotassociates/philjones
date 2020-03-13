@@ -114,6 +114,13 @@ $response = curl_exec($curl);
 curl_close($curl);
 fclose($fp);
 
+//$zip = new ZipArchive;
+//$res = $zip->open('../private/qualtrics_data/SV_doN3AIQ0sPGWuVv.zip');
+//if ($res === TRUE) {
+  //$zip->extractTo('../private/qualtrics_data/');
+  //$zip->close();
+//}
+
 
 }
 
