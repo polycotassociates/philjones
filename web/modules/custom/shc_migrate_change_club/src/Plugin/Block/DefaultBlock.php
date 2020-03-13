@@ -27,6 +27,7 @@ class DefaultBlock extends BlockBase {
     $settings['survey_id'] = $config->get('survey_id');
 
     $progressid = shc_migrate_change_club_post_qualtrics($settings);
+    //$unzipdatshit = shc_migrate_change_club_unzip();
 
     //$fileid = shc_migrate_change_club_get_qualtricsfileid($settings, $progressid);
 
@@ -34,8 +35,8 @@ class DefaultBlock extends BlockBase {
 
 
     //$build['default_block']['#markup'] = $settings['api_token'];
-    //$build['default_block']['#markup'] = $build['default_block']['#markup'] ."  ". $settings['data_center'];
-    //$build['default_block']['#markup'] =  $progressid."  ". $fileid;
+    $build['default_block']['#markup'] =  $settings['data_center'];
+    //$build['default_block']['#markup'] =  $unzipdatshit;
 
     return $build;
   }
