@@ -105,21 +105,21 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
   if (!empty($response)){
     $fileid = $response;
-    echo $response;
+    //echo $response;
+    echo "Yup";
     fwrite($fp,$response);
   }else{
   echo "no file download";
-}
+  }
 
 curl_close($curl);
 fclose($fp);
 
-//$zip = new ZipArchive;
-//$res = $zip->open('../private/qualtrics_data/SV_doN3AIQ0sPGWuVv.zip');
-//if ($res === TRUE) {
-  //$zip->extractTo('../private/qualtrics_data/');
-  //$zip->close();
-//}
+
+}
+
+function shc_migrate_change_club_unzip(){
+
 
 
 }
