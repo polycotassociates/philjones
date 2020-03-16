@@ -7,6 +7,7 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+
 /**
  * Implements hook_help().
  */
@@ -23,7 +24,13 @@ function shc_migrate_change_club_help($route_name, RouteMatchInterface $route_ma
   }
 }
 
-function shc_migrate_change_club_post_qualtrics($settings){
+function shc_migrate_change_club_post_qualtrics(){
+
+  $config = \Drupal::config("shc_migrate_change_club.credentials");
+  $settings = array();
+  $settings["api_token"] = $config->get("api_token");
+  $settings["data_center"] = $config->get("data_center");
+  $settings["survey_id"] = $config->get("survey_id");
 //get a session ID
 $curl = curl_init();
 
@@ -51,7 +58,7 @@ $response =  $response->result->progressId;
   if (!empty($response)){
   $progressid = $response;
   }else{
-    echo "no $progressid";
+    echo "No progressid! ";
   }
 // get a file ID
 $curl = curl_init();
@@ -80,10 +87,10 @@ $response =  $response->result->fileId;
     $fileid = $response;
 
   }else{
-    echo "no file ID";
+    echo "No file ID !";
   }
 // download and save the .zip file
-// File to save the contents to
+// file to save the contents to
 $fp = fopen("../private/qualtrics_data/".$settings['survey_id'].".zip", "w+b");
 $curl = curl_init();
 curl_setopt_array($curl, array(
@@ -97,7 +104,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: uox0HEkJTPaXBue4R8R4BBQTjn4PmuUIcACDjbJV",
+    "X-API-TOKEN: ".$settings['api_token'],
     "Content-Type: application/json"
   ),
 ));
@@ -106,23 +113,59 @@ $response = curl_exec($curl);
   if (!empty($response)){
     $fileid = $response;
     //echo $response;
-    echo "Yup";
+    $textout = "File Downloaded! ";
     fwrite($fp,$response);
   }else{
-  echo "no file download";
+    $textout = "File Download failed! ";
   }
 
 curl_close($curl);
 fclose($fp);
+$textout = $textout . shc_migrate_change_club_unzip($settings);
+//shc_migrate_change_club_rename();
+return $textout;
 
+}
+
+function shc_migrate_change_club_unzip($settings){
+
+// zip file name
+$filename = '../private/qualtrics_data/'.$settings["survey_id"].'.zip';
+// unzip path
+$path = "../private/qualtrics_data/";
+// do the business
+$zip = new ZipArchive;
+$res = $zip->open($filename);
+if ($res === TRUE) {
+// get file name, only one name
+ $oldname = $zip->getNameIndex(0);
+// rename file
+ $zip->renameName($oldname, $settings["survey_id"].'.json');
+ $zip->close();
+ $textout = 'Renamed! ';
+} else {
+ $textout = 'Rename failed! ';
+}
+$res = $zip->open($filename);
+if ($res === TRUE) {
+ // extract file
+ $zip->extractTo($path);
+ $zip->close();
+ $textout = $textout . 'Unzipped! ';
+} else {
+ $textout = $textout . 'Unzip failed! ';
+}
+
+return $textout;
 
 }
 
-function shc_migrate_change_club_unzip(){
+function shc_migrate_change_club_rename(){
 
-
+rename("../private/qualtrics_data/Change Club Member Screener.json", '../private/qualtrics_data/SV_doN3AIQ0sPGWuVv.json');
 
 }
+
 
 function shc_migrate_change_club_post_qualtricssession($settings){
 
@@ -203,7 +246,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: uox0HEkJTPaXBue4R8R4BBQTjn4PmuUIcACDjbJV",
+    "X-API-TOKEN: ".$settings['api_token'],
     "Content-Type: application/json"
   ),
 ));
