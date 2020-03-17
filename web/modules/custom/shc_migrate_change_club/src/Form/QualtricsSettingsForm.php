@@ -34,9 +34,9 @@ class QualtricsSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('data_center'),
     );
     $form['survey_id'] = array(
-      '#type' => 'textfield',
-      '#description' => t('Survey ID'),
-      '#title' => t('Survey ID'),
+      '#type' => 'textarea',
+      '#description' => t('Pipe | separated list of Survey IDs'),
+      '#title' => t('Survey IDs'),
       '#default_value' => $config->get('survey_id'),
     );
     return parent::buildForm($form,$form_state);
