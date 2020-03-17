@@ -61,6 +61,7 @@ function shc_migrate_change_club_runner(){
  */
 function shc_migrate_change_club_post_qualtrics($surveyid){
   $progressid = "";
+  $progresspercentcomplete = "";
   $fileid = "";
   $filepercentcomplete = "";
   $filedownload = "";
@@ -92,9 +93,13 @@ function shc_migrate_change_club_post_qualtrics($surveyid){
   ));
 
   $progressid = curl_exec($curl);
-
+  //uncomment to debug $progressid
+  //$textout =  $textout . "<li><strong>Session lookup</strong> is " . $progressid . "</li>";
   curl_close($curl);
   $progressid = json_decode($progressid);
+    //get percent complete for session build
+    $progresspercentcomplete = $progressid->result->percentComplete;
+    //$textout =  $textout . "<li>ProgressID is <strong>" . $progresspercentcomplete . "%</strong> complete</li>";
     if (!empty($progressid->result->progressId)){
     $progressid =  $progressid->result->progressId;
     $textout =  $textout . "<li><strong>progressId</strong> is " . $progressid . "</li>";

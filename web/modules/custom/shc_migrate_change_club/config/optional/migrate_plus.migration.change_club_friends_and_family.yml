@@ -1,6 +1,6 @@
-# Migration configuration for imported change club member.
-id: change_club_member_static
-label: Import change club members from static file to change club content type
+# Migration configuration for imported change club friends and family.
+id: change_club_friends_and_family
+label: Import change club friends and family from static file to change club content type
 migration_group: change_club
 destination:
   plugin: 'entity:node'
@@ -9,13 +9,13 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+    - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
   ids:
     ResponseID:
       type: string
   item_selector: responses
   constants:
-    link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_doN3AIQ0sPGWuVv?PPTID='
+    link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
   fields:
     -
       name: ResponseID
@@ -81,7 +81,7 @@ process:
         - field_response_id
   field_participant_role_reference:
     plugin: default_value
-    default_value: 25
+    default_value: 26
   uid:
     plugin: default_value
     default_value: 0
