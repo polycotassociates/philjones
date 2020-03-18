@@ -22,7 +22,6 @@ class DefaultBlock extends BlockBase {
     $build['#theme'] = 'default_block';
     //fire qulatrics download function
     $build['default_block']['#markup'] = shc_migrate_change_club_runner();
-
     return $build;
   }
 
