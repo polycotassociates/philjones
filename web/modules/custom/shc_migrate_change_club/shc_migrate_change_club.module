@@ -126,7 +126,7 @@ function shc_migrate_change_club_post_qualtrics($surveyid){
 
   $fileid = curl_exec($curl);
   //uncomment to debug file build
-  //$textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
+  $textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
 
   curl_close($curl);
   $fileid = json_decode($fileid);
@@ -315,6 +315,39 @@ fclose($fp);
 
 
 
+}
+
+function shc_migrate_change_club_cron() {
+
+  // access configuration.
+  $cron_config = \Drupal::config('shc_migrate_change_club.settings');
+  // default to an hourly interval.
+  $interval = $cron_config
+    ->get('interval');
+  $interval = !empty($interval) ? $interval : 3600;
+
+  //  keep a time for the next run in the site state.
+  $next_execution = \Drupal::state()
+    ->get('shc_migrate_change_club_cron.next_execution', 0);
+  if (REQUEST_TIME >= $next_execution) {
+
+    // This is a silly example of a cron job.
+    // It just makes it obvious that the job has run without
+    // making any changes to your database.
+    \Drupal::logger('shc_migrate_change_club_cron')
+      ->notice('shc_migrate_change_club_cron ran');
+    if (\Drupal::state()
+      ->get('shc_migrate_change_club_cron_show_status_message')) {
+      \Drupal::messenger()
+        ->addMessage(t('shc_migrate_change_club_cron executed at %time', [
+        '%time' => date('c'),
+      ]));
+      \Drupal::state()
+        ->set('shc_migrate_change_club_cron_show_status_message', FALSE);
+    }
+    \Drupal::state()
+      ->set('shc_migrate_change_club_cron.next_execution', REQUEST_TIME + $interval);
+  }
 }
 
 
