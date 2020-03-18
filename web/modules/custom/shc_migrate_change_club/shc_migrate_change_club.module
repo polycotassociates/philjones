@@ -33,6 +33,8 @@ function shc_migrate_change_club_runner(){
 // get settings
   $config = \Drupal::config("shc_migrate_change_club.credentials");
   $settings = array();
+  $settings["api_token"] = $config->get("api_token");
+  $settings["data_center"] = $config->get("data_center");
   $settings["survey_id"] = $config->get("survey_id");
   $surveys = explode("|", $settings["survey_id"]);
   $survey ="";
@@ -45,8 +47,11 @@ function shc_migrate_change_club_runner(){
     // ... manage the index this way..
     $textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
     $textout = $textout . "<li><strong>Survey ID</strong> is ". $surveys[$index]. "</li>";
-    $textout = $textout . shc_migrate_change_club_post_qualtrics($surveys[$index]). "</ul>";
-    //echo $textout."<br>";
+    //$textout = $textout . shc_migrate_change_club_post_qualtrics($settings, $surveys[$index]). "</ul>";
+    //$textout = $textout . shc_migrate_change_club_post_qualtrics($settings, $surveys[$index]). "</ul>";
+    //$textout = $textout . shc_migrate_change_club_post_qualtrics($settings, $surveys[$index]). "</ul>";
+
+    $textout = $textout . shc_migrate_change_club_qualtrics($settings, $surveys[$index]). "</ul>";
     $index++;
   }
   $textout = $textout ."</ul>";
@@ -59,7 +64,7 @@ function shc_migrate_change_club_runner(){
 /**
  * Downloads survey results from qualtrics().
  */
-function shc_migrate_change_club_post_qualtrics($surveyid){
+function shc_migrate_change_club_qualtrics($settings, $surveyid){
   $progressid = "";
   $progresspercentcomplete = "";
   $fileid = "";
@@ -68,11 +73,6 @@ function shc_migrate_change_club_post_qualtrics($surveyid){
   $unzip = "";
   $textout = "";
 
-// get settings
-  $config = \Drupal::config("shc_migrate_change_club.credentials");
-  $settings = array();
-  $settings["api_token"] = $config->get("api_token");
-  $settings["data_center"] = $config->get("data_center");
 //get a session ID
   $curl = curl_init();
 
@@ -126,7 +126,7 @@ function shc_migrate_change_club_post_qualtrics($surveyid){
 
   $fileid = curl_exec($curl);
   //uncomment to debug file build
-  $textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
+  //$textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
 
   curl_close($curl);
   $fileid = json_decode($fileid);
@@ -223,102 +223,133 @@ return $textout;
 
 
 
-function shc_migrate_change_club_post_qualtricssession($settings){
+function shc_migrate_change_club_post_qualtrics_progressid($settings, $surveyid){
 
-$curl = curl_init();
+$progressid = "";
+$progresspercentcomplete = "";
+//get a session ID
+  $curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS =>"{\n\t\"format\": \"json\"\n}",
-  CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: ".$settings['api_token'],
-    "Content-Type: application/json"
-  ),
-));
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS =>"{\n\t\"format\": \"json\"\n}",
+    CURLOPT_HTTPHEADER => array(
+      "X-API-TOKEN: ".$settings['api_token'],
+      "Content-Type: application/json"
+    ),
+  ));
 
-$response = curl_exec($curl);
+  $progressid = curl_exec($curl);
+  //uncomment to debug $progressid
+  //$textout =  $textout . "<li><strong>Session lookup</strong> is " . $progressid . "</li>";
+  curl_close($curl);
+  $progressid = json_decode($progressid);
+    //get percent complete for session build
+    $progresspercentcomplete = $progressid->result->percentComplete;
+    //$textout =  $textout . "<li>ProgressID is <strong>" . $progresspercentcomplete . "%</strong> complete</li>";
+    if (!empty($progressid->result->progressId)){
+    $progressid =  $progressid->result->progressId;
+    $textout =  $textout . "<li><strong>progressId</strong> is " . $progressid . "</li>";
+    }else{
+      $textout =  $textout . "<li><strong>No progressId !</strong></li>";
+    }
+    return $textout;
 
-curl_close($curl);
-$response = json_decode($response);
-$response =  $response->result->progressId;
-return $response;
+}
+
+function shc_migrate_change_club_get_qualtrics_fileid($settings, $progressid){
+
+// get a file ID
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$progressid."",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+      "X-API-TOKEN: ".$settings['api_token'],
+      "Content-Type: application/json"
+    ),
+  ));
+
+  $fileid = curl_exec($curl);
+  //uncomment to debug file build
+  //$textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
+
+  curl_close($curl);
+  $fileid = json_decode($fileid);
+    //get percent complete for requested file build
+    $filepercentcomplete = $fileid->result->percentComplete;
+    $textout =  $textout . "<li>File build is <strong>" . $filepercentcomplete . "%</strong> complete</li>";
+    //report percent completed
+    if ($filepercentcomplete == 100){
+      $fileid =  $fileid->result->fileId;
+      $textout =  $textout . "<li><strong>fileId</strong> is " . $fileid . "</li>";
+    }else{
+      $textout =  $textout . "<li><strong><div class = 'error'>File is ".$filepercentcomplete."% complete !</div></strong></li>";
+      //exit;
+    }
+    return $textout;
 
 
 }
 
-function shc_migrate_change_club_get_qualtricsfileid($settings, $progressid){
 
-$curl = curl_init();
+function shc_migrate_change_club_get_qualtrics_file($settings, $fileid){
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$progressid."",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: ".$settings['api_token'],
-    "Content-Type: application/json"
-  ),
-));
+// download and save the .zip file
+// file to save the contents to
+    $fp = fopen("../private/qualtrics_data/".$surveyid.".zip", "w+b");
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
+      CURLOPT_FILE => $fp,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "X-API-TOKEN: ".$settings['api_token'],
+        "Content-Type: application/json"
+      ),
+    ));
 
-$response = curl_exec($curl);
+    $filedownload = curl_exec($curl);
+      if (!empty($filedownload)){
+        fwrite($fp, $filedownload);
+        $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
 
-curl_close($curl);
-$response = json_decode($response);
-$response =  $response->result->fileId;
-return $response;
+      }else{
+        $textout =  $textout . "<li><strong>File Download failed !</strong></li>";
+      }
 
+    curl_close($curl);
+    fclose($fp);
+    $unzip = shc_migrate_change_club_unzip($surveyid);
 
-}
-
-
-function shc_migrate_change_club_get_qualtricsfile($settings, $fileid){
-
-// Directory to save qualtrics data exports
-$directory = 'private://qualtrics_data';
-// File to save the contents to
-//$fp = fopen(''.$directory.'/'.$settings['survey_id'].'.zip', 'w+');
-$curl = curl_init();
-$fp = fopen("../private/qualtrics_data/".$settings['survey_id'].".zip", "w+b");
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$settings['survey_id']."/export-responses/".$fileid."/file",
-  CURLOPT_FILE => $fp,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "X-API-TOKEN: ".$settings['api_token'],
-    "Content-Type: application/json"
-  ),
-));
-
-$response = curl_exec($curl);
-echo $response;
-fwrite($fp,$response);
-curl_close($curl);
-fclose($fp);
-
+  $textout = $textout . $unzip;
+  return $textout;
 
 
 }
 
 function shc_migrate_change_club_cron() {
-
+  $textout = "";
   // access configuration.
   $cron_config = \Drupal::config('shc_migrate_change_club.settings');
   // default to an hourly interval.
@@ -334,8 +365,9 @@ function shc_migrate_change_club_cron() {
     // This is a silly example of a cron job.
     // It just makes it obvious that the job has run without
     // making any changes to your database.
+    $textout = shc_migrate_change_club_runner();
     \Drupal::logger('shc_migrate_change_club_cron')
-      ->notice('shc_migrate_change_club_cron ran');
+      ->notice('Qualtrics data import ran via cron.'. $textout);
     if (\Drupal::state()
       ->get('shc_migrate_change_club_cron_show_status_message')) {
       \Drupal::messenger()
