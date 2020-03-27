@@ -59,7 +59,6 @@ source:
       selector: ELIG9
 process:
   name: field_response_id
-    delimiter: '-'
   mail: mail
   pass: 'changemeclub'
   field_street_address: field_street_address

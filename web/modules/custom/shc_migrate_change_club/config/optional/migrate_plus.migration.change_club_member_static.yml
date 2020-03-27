@@ -82,6 +82,8 @@ process:
   field_participant_role_reference:
     plugin: default_value
     default_value: 25
+  'field_timepoint_actions/target_id': field_response_id
+  'field_timepoint_actions/target_revision_id': field_response_id
   uid:
     plugin: default_value
     default_value: 0
