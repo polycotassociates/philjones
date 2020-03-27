@@ -12,6 +12,7 @@ source:
   data_parser_plugin: json
   urls:
     - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
 
   ids:
     ResponseID:
