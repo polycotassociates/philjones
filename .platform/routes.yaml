@@ -15,7 +15,7 @@
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
-https://portal.stronghealthycommunities.org/:
+https://texas.stronghealthycommunities.org/:
   type: upstream
   upstream: app:http
 https://stronghealthycommunities.org/:
