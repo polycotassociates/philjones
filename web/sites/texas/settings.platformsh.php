@@ -5,7 +5,7 @@
  */
 
 if (!isset($platformsh_subsite_id)) {
-  $platformsh_subsite_id = 'database';
+  $platformsh_subsite_id = 'texas';
 }
 
 // Configure the database.
