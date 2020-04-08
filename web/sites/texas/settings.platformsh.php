@@ -9,6 +9,7 @@ $platformsh = new \Platformsh\ConfigReader\Config();
 if (!$platformsh->inRuntime()) {
   return;
 }
+
 // Configure the database.
 $creds = $platformsh->credentials('texas');
 $databases['default']['default'] = [
@@ -20,7 +21,6 @@ $databases['default']['default'] = [
   'port' => $creds['port'],
   'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
 ];
-
 
 // Enable Redis caching.
 if ($platformsh->hasRelationship('redis') && !drupal_installation_attempted() && extension_loaded('redis')) {
