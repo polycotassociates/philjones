@@ -8,13 +8,13 @@ mysqldb:
     disk: 2048
     configuration:
         schemas:
-            - mysqldb
+            - shcdb
             - texasdb
         endpoints:
-            mysql:
-                default_schema: mysqldb
+            shc:
+                default_schema: shcdb
                 privileges:
-                    mysqldb: admin
+                    shcdb: admin
             texas:
                 default_schema: texasdb
                 privileges:
