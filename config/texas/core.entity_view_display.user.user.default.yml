@@ -14,11 +14,13 @@ dependencies:
     - field.field.user.user.field_primary_phone
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
+    - field.field.user.user.field_study_data
   module:
     - field_group
     - options
     - telephone
     - user
+    - viewsreference
 third_party_settings:
   field_group:
     group_contact_info:
@@ -129,7 +131,17 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_study_data:
+    weight: 15
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
 hidden:
   feeds_item: true
   field_response_id: true
+  langcode: true
   member_for: true

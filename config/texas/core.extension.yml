@@ -10,6 +10,7 @@ module:
   ckeditor: 0
   computed_field: 0
   config: 0
+  config_translation: 0
   contact: 0
   contextual: 0
   csv_serialization: 0
@@ -41,8 +42,10 @@ module:
   help: 0
   history: 0
   image: 0
+  language: 0
   layout_discovery: 0
   link: 0
+  locale: 0
   mail_login: 0
   mailsystem: 0
   menu_ui: 0
@@ -75,12 +78,16 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_bulk_operations: 0
   views_data_export: 0
+  views_entity_form_field: 0
+  views_send: 0
   views_ui: 0
   viewsreference: 0
   ds: 1
   menu_link_content: 1
   pathauto: 1
+  content_translation: 10
   views: 10
   paragraphs: 11
   standard: 1000

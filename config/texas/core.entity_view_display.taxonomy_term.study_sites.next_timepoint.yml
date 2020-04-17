@@ -33,3 +33,4 @@ hidden:
   field_educator: true
   field_studies: true
   field_study_type: true
+  langcode: true

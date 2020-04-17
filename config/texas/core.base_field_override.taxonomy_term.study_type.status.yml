@@ -1,0 +1,22 @@
+uuid: 698a7b84-9683-4c43-b12a-47b992f8e4a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_type
+id: taxonomy_term.study_type.status
+field_name: status
+entity_type: taxonomy_term
+bundle: study_type
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

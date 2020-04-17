@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_primary_phone
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
+    - field.field.user.user.field_study_data
   module:
     - telephone
     - user
@@ -97,6 +98,8 @@ hidden:
   contact: true
   feeds_item: true
   field_response_id: true
+  field_study_data: true
+  langcode: true
   language: true
   path: true
   timezone: true

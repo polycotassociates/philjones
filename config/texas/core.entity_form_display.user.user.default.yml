@@ -14,10 +14,12 @@ dependencies:
     - field.field.user.user.field_primary_phone
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
+    - field.field.user.user.field_study_data
   module:
     - field_group
     - telephone
     - user
+    - viewsreference
 third_party_settings:
   field_group:
     group_contact_info:
@@ -176,9 +178,20 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_study_data:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: viewsreference_autocomplete
+    region: content
 hidden:
   contact: true
   feeds_item: true
+  langcode: true
   language: true
   path: true
   timezone: true

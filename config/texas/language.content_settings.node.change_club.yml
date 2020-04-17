@@ -1,0 +1,18 @@
+uuid: da96247a-75f5-42ac-bd0d-f8b7e78ece4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.change_club
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.change_club
+target_entity_type_id: node
+target_bundle: change_club
+default_langcode: site_default
+language_alterable: true

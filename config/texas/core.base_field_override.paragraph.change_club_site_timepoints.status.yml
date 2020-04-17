@@ -1,0 +1,22 @@
+uuid: c4ed52d7-f830-4c2d-94b1-61d14d467790
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.change_club_site_timepoints
+id: paragraph.change_club_site_timepoints.status
+field_name: status
+entity_type: paragraph
+bundle: change_club_site_timepoints
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

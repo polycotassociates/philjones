@@ -46,3 +46,4 @@ content:
 hidden:
   description: true
   field_studies: true
+  langcode: true

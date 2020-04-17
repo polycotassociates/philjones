@@ -1,0 +1,22 @@
+uuid: 856b96bd-211c-43a2-9316-b50d4a4f146a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.compensation_types
+id: paragraph.compensation_types.status
+field_name: status
+entity_type: paragraph
+bundle: compensation_types
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

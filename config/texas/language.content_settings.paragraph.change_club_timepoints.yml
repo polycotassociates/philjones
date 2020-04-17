@@ -1,0 +1,18 @@
+uuid: aeb4d32b-228a-4f92-bfbe-201f7d7c4dc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.change_club_timepoints
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.change_club_timepoints
+target_entity_type_id: paragraph
+target_bundle: change_club_timepoints
+default_langcode: site_default
+language_alterable: false

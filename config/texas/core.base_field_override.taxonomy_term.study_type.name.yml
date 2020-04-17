@@ -1,0 +1,18 @@
+uuid: 45e853a3-98b8-401f-b65e-08a6a99e843e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_type
+id: taxonomy_term.study_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: study_type
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: f49c8106-c816-421a-9533-1c996b1e92a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.compensation_types
+id: paragraph.compensation_types.created
+field_name: created
+entity_type: paragraph
+bundle: compensation_types
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,18 @@
+uuid: 8ae69ab2-30d6-49a6-a1b9-3b94b7673e4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.change_club
+id: node.change_club.created
+field_name: created
+entity_type: node
+bundle: change_club
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

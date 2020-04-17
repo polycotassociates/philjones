@@ -1,0 +1,22 @@
+uuid: 5c31b4d9-4a8d-49d3-969f-50f841007a30
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.educator_info
+id: paragraph.educator_info.status
+field_name: status
+entity_type: paragraph
+bundle: educator_info
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
