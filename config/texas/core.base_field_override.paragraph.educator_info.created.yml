@@ -1,0 +1,18 @@
+uuid: ed59f54a-e896-4b23-96f5-82f82fa95874
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.educator_info
+id: paragraph.educator_info.created
+field_name: created
+entity_type: paragraph
+bundle: educator_info
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

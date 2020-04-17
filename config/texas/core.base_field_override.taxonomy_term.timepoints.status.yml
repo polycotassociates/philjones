@@ -1,0 +1,22 @@
+uuid: aef6470b-5e9a-40dc-b20f-5d2ce9976f08
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.timepoints
+id: taxonomy_term.timepoints.status
+field_name: status
+entity_type: taxonomy_term
+bundle: timepoints
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

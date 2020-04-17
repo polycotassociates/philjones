@@ -1,0 +1,20 @@
+uuid: c0e38301-e62c-40fc-a8a3-49e1c51774b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.change_club
+  module:
+    - path
+id: node.change_club.path
+field_name: path
+entity_type: node
+bundle: change_club
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

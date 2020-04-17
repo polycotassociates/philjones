@@ -1,0 +1,18 @@
+uuid: 3486b88b-8436-4bff-acda-8e01ccc80226
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_sites
+id: taxonomy_term.study_sites.name
+field_name: name
+entity_type: taxonomy_term
+bundle: study_sites
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

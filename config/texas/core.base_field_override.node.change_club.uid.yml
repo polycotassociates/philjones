@@ -1,0 +1,20 @@
+uuid: 9b8cedcd-d155-4535-b08f-801446fd5607
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.change_club
+id: node.change_club.uid
+field_name: uid
+entity_type: node
+bundle: change_club
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

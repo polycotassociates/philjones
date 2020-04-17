@@ -1,0 +1,22 @@
+uuid: 5ba607ab-4e08-48c0-ba8d-5a7f1896fdca
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.participant_roles
+id: taxonomy_term.participant_roles.status
+field_name: status
+entity_type: taxonomy_term
+bundle: participant_roles
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

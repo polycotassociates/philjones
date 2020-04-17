@@ -1,0 +1,18 @@
+uuid: af414566-742f-4cf8-b560-d94fcd48d5a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_sites
+id: taxonomy_term.study_sites.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: study_sites
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

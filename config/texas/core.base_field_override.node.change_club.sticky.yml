@@ -1,0 +1,22 @@
+uuid: f0e3c9a6-2218-48f4-9154-63cb06578910
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.change_club
+id: node.change_club.sticky
+field_name: sticky
+entity_type: node
+bundle: change_club
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

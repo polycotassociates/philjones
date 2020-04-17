@@ -12,7 +12,7 @@ bundle: educator_info
 label: 'Educator Office Address'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

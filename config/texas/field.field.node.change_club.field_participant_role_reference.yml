@@ -15,7 +15,7 @@ bundle: change_club
 label: 'Participant Role'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     target_uuid: d139c6e1-8ebd-40ad-86fc-090ebaf18401

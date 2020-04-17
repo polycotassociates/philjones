@@ -60,3 +60,4 @@ hidden:
   field_timepoint_actions: true
   field_user: true
   field_why_inactive: true
+  langcode: true

@@ -12,7 +12,7 @@ bundle: educator_info
 label: Location
 description: 'Used to distinguish 2 offices or other differing contact info.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

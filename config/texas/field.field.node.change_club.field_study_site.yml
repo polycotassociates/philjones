@@ -13,7 +13,7 @@ bundle: change_club
 label: 'Study Site'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
