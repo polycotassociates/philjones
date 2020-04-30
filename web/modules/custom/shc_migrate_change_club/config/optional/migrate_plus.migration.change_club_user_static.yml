@@ -78,3 +78,6 @@ process:
   status:
     plugin: default_value
     default_value: 0
+  roles:
+    plugin: default_value
+    default_value: 'change_club_participant'
