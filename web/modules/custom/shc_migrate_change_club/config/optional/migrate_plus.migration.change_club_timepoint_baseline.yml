@@ -11,32 +11,27 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
     - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
 
   ids:
-    ResponseID:
-      type: string
+    id:
+      type: integer
   item_selector: responses
   constants:
     link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
   fields:
     -
-      name: ResponseID
-      label: 'Unique identifier'
-      selector: ResponseID
-    -
       name: id
       label: 'Participant ID'
-      selector: IDNUM
+      selector: /values/IDNUM
     -
       name: field_survey_completed
       label: 'Survey Completed'
-      selector: Finished
+      selector: /values/finished
     -
       name: field_date_recorded
       label: 'Date of Data Collection Visit'
-      selector: RecordedDate
+      selector: /values/recordedDate
 
 process:
   id: id
@@ -48,7 +43,6 @@ process:
     plugin: default_value
     default_value: 30
   field_survey_completed: field_survey_completed
-  field_date_recorded: field_date_recorded
 
   'field_description/format':
     plugin: default_value
