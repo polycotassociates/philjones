@@ -32,11 +32,11 @@ source:
     -
       name: field_study_site
       label: 'Study Site'
-      selector: /values/QID197
+      selector: /labels/QID197
     -
       name: field_gender
       label: 'Gender'
-      selector: /values/QID189
+      selector: /labels/QID189
     -
       name: field_age
       label: 'Age'
