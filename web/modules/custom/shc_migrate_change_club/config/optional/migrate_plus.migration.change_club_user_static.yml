@@ -11,54 +11,55 @@ source:
   data_parser_plugin: json
   urls:
     - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
-    - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
   ids:
-    ResponseID:
-      type: string
+    field_response_id:
+      type: integer
   item_selector: responses
   fields:
     -
-      name: ResponseID
-      label: 'Unique identifier'
-      selector: ResponseID
-    -
       name: field_response_id
       label: 'Participant ID'
-      selector: IDNUM
+      selector: /values/IDNUM
     -
       name: Firstname
       label: 'Firstname'
-      selector: ELIG2
+      selector: /values/QID177_TEXT
     -
       name: Lastname
       label: 'Lastname'
-      selector: ELIG3
+      selector: /values/QID178_TEXT
     -
       name: mail
       label: 'Email'
-      selector: ELIG4
+      selector: /values/QID179_TEXT
     -
       name: field_primary_phone
       label: 'Primary Phone'
-      selector: ELIG5
+      selector: /values/QID180_TEXT
     -
       name: field_street_address
       label: 'Street Address'
-      selector: ELIG6
+      selector: /values/QID181_TEXT
     -
       name: field_address_city
       label: 'City'
-      selector: ELIG7
+      selector: /values/QID182_TEXT
     -
       name: field_address_state
       label: 'State'
-      selector: ELIG8
+      selector: /values/QID183_TEXT
     -
       name: field_address_zip
       label: 'Zip Code'
-      selector: ELIG9
+      selector: /values/QID184_TEXT
 process:
-  name: field_response_id
+  name:
+    plugin: concat
+    source:
+      - Firstname
+      - Lastname
+      - field_response_id
+    delimiter: '-'
   mail: mail
   pass: 'changemeclub'
   field_street_address: field_street_address
