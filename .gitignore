@@ -13,6 +13,9 @@
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
+# Ignore local private file directory
+/private/
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
