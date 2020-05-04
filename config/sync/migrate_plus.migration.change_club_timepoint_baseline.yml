@@ -1,0 +1,53 @@
+uuid: e282369d-cdee-4ff6-8067-9f2c140aec3e
+langcode: en
+status: true
+dependencies: {  }
+id: change_club_timepoint_baseline
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: change_club
+label: 'Import baseline timepoint data into a paragraph to relate to a change_club node.'
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+  ids:
+    id:
+      type: integer
+  item_selector: responses
+  constants:
+    link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
+  fields:
+    -
+      name: id
+      label: 'Participant ID'
+      selector: /values/IDNUM
+    -
+      name: field_survey_completed
+      label: 'Survey Completed'
+      selector: /values/finished
+    -
+      name: field_date_recorded
+      label: 'Date of Data Collection Visit'
+      selector: /values/recordedDate
+process:
+  id: id
+  revision_id: id
+  type:
+    plugin: default_value
+    default_value: change_club_timepoints
+  field_timepoint_reference:
+    plugin: default_value
+    default_value: 30
+  field_survey_completed: field_survey_completed
+  field_description/format:
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: change_club_timepoints
+migration_dependencies: null

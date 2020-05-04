@@ -48,7 +48,6 @@ module:
   mailsystem: 0
   menu_ui: 0
   migrate: 0
-  migrate_json_example: 0
   migrate_plus: 0
   migrate_tools: 0
   mimemail: 0
