@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.strongpeople_strength.feeds_item
     - field.field.node.strongpeople_strength.field_active
     - field.field.node.strongpeople_strength.field_age
     - field.field.node.strongpeople_strength.field_compensation_data
@@ -39,7 +38,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  feeds_item: true
   field_active: true
   field_age: true
   field_compensation_data: true

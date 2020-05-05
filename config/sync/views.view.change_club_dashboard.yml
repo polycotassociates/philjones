@@ -40,6 +40,10 @@ dependencies:
     - user.role.change_club_administrator
     - user.role.portal_administrator
   content:
+    - 'taxonomy_term:participant_roles:7cae442a-0b8e-4ec3-ae8f-41a4a6642f0d'
+    - 'taxonomy_term:participant_roles:ba0fa01b-9062-4454-884a-b8d8987a75da'
+    - 'taxonomy_term:participant_roles:d139c6e1-8ebd-40ad-86fc-090ebaf18401'
+    - 'taxonomy_term:participant_roles:da433902-b2c6-4e6b-8ed5-61b442da97e3'
     - 'taxonomy_term:study_sites:01ac8503-c7ec-4900-908c-e4605037d005'
     - 'taxonomy_term:study_sites:172e50d1-d750-42a8-862f-3b87311873ab'
     - 'taxonomy_term:study_sites:389707d5-9cf9-4d6c-bacf-db861b79f565'
@@ -4556,26 +4560,30 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
-        field_timepoint_value:
-          id: field_timepoint_value
-          table: paragraph__field_timepoint
-          field: field_timepoint_value
-          relationship: field_timepoint_actions
+        field_participant_role_reference_target_id:
+          id: field_participant_role_reference_target_id
+          table: node__field_participant_role_reference
+          field: field_participant_role_reference_target_id
+          relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Participant Role'
           operator: or
-          value: {  }
+          value:
+            25: 25
+            26: 26
+            27: 27
+            28: 28
           group: 1
           exposed: true
           expose:
-            operator_id: field_timepoint_value_op
-            label: Timepoint
+            operator_id: field_participant_role_reference_target_id_op
+            label: 'Participant Role'
             description: ''
             use_operator: false
-            operator: field_timepoint_value_op
+            operator: field_participant_role_reference_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_timepoint_value
+            identifier: field_participant_role_reference_target_id
             required: false
             remember: false
             multiple: false
@@ -4588,7 +4596,8 @@ display:
               change_club_administrator: '0'
               educator: '0'
               survey_participant: '0'
-            reduce: false
+              change_club_participant: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -4602,6 +4611,63 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+          type: select
+          limit: true
+          vid: participant_roles
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_accelerometer_status_value:
+          id: field_accelerometer_status_value
+          table: paragraph__field_accelerometer_status
+          field: field_accelerometer_status_value
+          relationship: field_compensation_data
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_accelerometer_status_value_op
+            label: 'Accelerometer Status'
+            description: ''
+            use_operator: false
+            operator: field_accelerometer_status_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_accelerometer_status_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              portal_administrator: '0'
+              survey_administrator: '0'
+              change_club_administrator: '0'
+              educator: '0'
+              survey_participant: '0'
+              change_club_participant: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
           plugin_id: list_field
       defaults:
         filters: false

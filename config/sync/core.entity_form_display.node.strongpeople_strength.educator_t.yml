@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.educator_t
-    - field.field.node.strongpeople_strength.feeds_item
     - field.field.node.strongpeople_strength.field_active
     - field.field.node.strongpeople_strength.field_age
     - field.field.node.strongpeople_strength.field_compensation_data
@@ -53,7 +52,6 @@ content:
     region: content
 hidden:
   created: true
-  feeds_item: true
   field_active: true
   field_age: true
   field_compensation_data: true

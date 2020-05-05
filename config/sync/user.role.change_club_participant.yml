@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: change_club_participant
 label: 'Change Club Participant'
-weight: -2
+weight: -5
 is_admin: null
 permissions:
   - 'access toolbar'

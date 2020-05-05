@@ -1,10 +1,9 @@
-uuid: 350ba3a1-a6fd-433d-9ae9-a5060701f1e1
+uuid: 09b3c832-a655-4425-b63e-9c86a2c62808
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.user.field_migrate_example_favbeers
-    - node.type.migrate_example_beer
   module:
     - user
 _core:
@@ -22,8 +21,7 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles:
-      migrate_example_beer: migrate_example_beer
+    target_bundles: {  }
     sort:
       field: title
       direction: ASC

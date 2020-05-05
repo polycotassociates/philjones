@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.strongpeople_strength.feeds_item
     - field.field.node.strongpeople_strength.field_active
     - field.field.node.strongpeople_strength.field_age
     - field.field.node.strongpeople_strength.field_compensation_data
@@ -285,5 +284,4 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
-  feeds_item: true
   links: true

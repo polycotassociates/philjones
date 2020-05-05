@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.change_club.feeds_item
     - field.field.node.change_club.field_active
     - field.field.node.change_club.field_age
+    - field.field.node.change_club.field_cluster_id
     - field.field.node.change_club.field_end_date
     - field.field.node.change_club.field_enrolled_consented
     - field.field.node.change_club.field_gender
@@ -18,6 +19,7 @@ dependencies:
     - field.field.node.change_club.field_start_date
     - field.field.node.change_club.field_study_image
     - field.field.node.change_club.field_study_site
+    - field.field.node.change_club.field_study_state
     - field.field.node.change_club.field_survey_link
     - field.field.node.change_club.field_timepoint_actions
     - field.field.node.change_club.field_user
@@ -37,6 +39,7 @@ third_party_settings:
     group_participant_data:
       children:
         - field_study_site
+        - field_study_state
         - field_response_id
         - field_participant_id_previous
         - field_survey_link
@@ -44,6 +47,7 @@ third_party_settings:
         - field_gender
         - field_intervention_group
         - field_participant_role_reference
+        - field_cluster_id
         - field_start_date
         - field_active
         - field_enrolled_consented
@@ -91,34 +95,6 @@ bundle: change_club
 mode: default
 content:
   field_active:
-    weight: 12
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_age:
-    weight: 6
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_end_date:
-    weight: 19
-    label: inline
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_enrolled_consented:
     weight: 13
     label: inline
     settings:
@@ -128,14 +104,34 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  field_gender:
+  field_age:
     weight: 7
     label: inline
-    settings: {  }
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: list_default
+    type: number_integer
     region: content
-  field_incedental_findings_consen:
+  field_cluster_id:
+    weight: 11
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_end_date:
+    weight: 17
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_enrolled_consented:
     weight: 14
     label: inline
     settings:
@@ -145,15 +141,32 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  field_intervention_group:
+  field_gender:
     weight: 8
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
+  field_incedental_findings_consen:
+    weight: 15
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_intervention_group:
+    weight: 9
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_participant_id_previous:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link_to_entity: false
@@ -169,7 +182,7 @@ content:
     type: entity_reference_label
     region: content
   field_photo_video_consent:
-    weight: 15
+    weight: 16
     label: inline
     settings:
       format: default
@@ -179,7 +192,7 @@ content:
     type: boolean
     region: content
   field_response_id:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link_to_entity: false
@@ -187,7 +200,7 @@ content:
     type: string
     region: content
   field_start_date:
-    weight: 11
+    weight: 12
     label: inline
     settings:
       timezone_override: ''
@@ -212,8 +225,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_study_state:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_survey_link:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       trim_length: 80
@@ -243,7 +264,7 @@ content:
     region: content
   field_why_inactive:
     type: string
-    weight: 20
+    weight: 18
     region: content
     label: above
     settings:

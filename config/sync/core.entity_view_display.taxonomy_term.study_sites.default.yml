@@ -9,7 +9,6 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_study_type
     - taxonomy.vocabulary.study_sites
   module:
-    - ds
     - entity_reference_revisions
 id: taxonomy_term.study_sites.default
 targetEntityType: taxonomy_term
@@ -38,9 +37,7 @@ content:
     label: above
     settings:
       link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
+    third_party_settings: {  }
     type: entity_reference_label
     region: content
 hidden:

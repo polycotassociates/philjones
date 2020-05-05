@@ -10,7 +10,6 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_study_type
     - taxonomy.vocabulary.study_sites
   module:
-    - ds
     - entity_reference_revisions
 id: taxonomy_term.study_sites.next_timepoint
 targetEntityType: taxonomy_term
@@ -24,9 +23,7 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings:
-      ds:
-        ds_limit: '1'
+    third_party_settings: {  }
     region: content
 hidden:
   description: true

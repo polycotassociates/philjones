@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.change_club.feeds_item
     - field.field.node.change_club.field_active
     - field.field.node.change_club.field_age
+    - field.field.node.change_club.field_cluster_id
     - field.field.node.change_club.field_end_date
     - field.field.node.change_club.field_enrolled_consented
     - field.field.node.change_club.field_gender
@@ -19,6 +20,7 @@ dependencies:
     - field.field.node.change_club.field_start_date
     - field.field.node.change_club.field_study_image
     - field.field.node.change_club.field_study_site
+    - field.field.node.change_club.field_study_state
     - field.field.node.change_club.field_survey_link
     - field.field.node.change_club.field_timepoint_actions
     - field.field.node.change_club.field_user
@@ -40,6 +42,7 @@ hidden:
   feeds_item: true
   field_active: true
   field_age: true
+  field_cluster_id: true
   field_end_date: true
   field_enrolled_consented: true
   field_gender: true
@@ -52,6 +55,7 @@ hidden:
   field_start_date: true
   field_study_image: true
   field_study_site: true
+  field_study_state: true
   field_survey_link: true
   field_timepoint_actions: true
   field_user: true
