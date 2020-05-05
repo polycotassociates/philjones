@@ -12,12 +12,17 @@ source:
   urls:
     - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
   ids:
-    id:
-      type: integer
+    ResponseID:
+      type: string
   item_selector: responses
+
   constants:
     link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
   fields:
+    -
+      name: ResponseID
+      label: 'Unique identifier'
+      selector: responseId
     -
       name: id
       label: 'Participant ID'
@@ -32,7 +37,11 @@ source:
       selector: /values/recordedDate
 
 process:
-  id: id
+  id:
+    plugin: skip_on_empty
+    method: row
+    source: id
+    message: 'id is missing'
   revision_id: id
   type:
     plugin: default_value
