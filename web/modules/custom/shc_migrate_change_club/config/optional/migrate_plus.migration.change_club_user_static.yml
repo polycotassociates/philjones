@@ -19,6 +19,10 @@ source:
     name_suffix: 'cc'
   fields:
     -
+      name: ResponseID
+      label: 'Unique identifier'
+      selector: responseId
+    -
       name: field_response_id
       label: 'Participant ID'
       selector: /values/IDNUM
@@ -61,7 +65,6 @@ process:
       - Firstname
       - Lastname
       - field_response_id
-      - 'constants/name_suffix'
     delimiter: '-'
   mail: mail
   pass: 'changemeclub'
