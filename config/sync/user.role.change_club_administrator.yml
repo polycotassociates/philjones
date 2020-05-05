@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: change_club_administrator
 label: 'Change Club Administrator'
-weight: -5
+weight: -6
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -12,6 +12,7 @@ permissions:
   - 'access contextual links'
   - 'access files overview'
   - 'access in-place editing'
+  - 'access shortcuts'
   - 'access toolbar'
   - 'access user profiles'
   - 'administer account settings'

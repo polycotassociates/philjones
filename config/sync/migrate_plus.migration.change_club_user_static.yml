@@ -1,4 +1,4 @@
-uuid: dbf85d56-a20f-48ea-af02-194a0ac9118c
+uuid: 64912a0b-a947-4228-866c-7a47dcc3e878
 langcode: en
 status: true
 dependencies: {  }
@@ -14,7 +14,7 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - ../private/qualtrics_data/SV_doN3AIQ0sPGWuVv.json
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
   ids:
     field_response_id:
       type: integer

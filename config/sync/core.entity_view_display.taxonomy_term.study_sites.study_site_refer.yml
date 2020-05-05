@@ -10,7 +10,6 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_study_type
     - taxonomy.vocabulary.study_sites
   module:
-    - ds
     - entity_reference_revisions
 id: taxonomy_term.study_sites.study_site_refer
 targetEntityType: taxonomy_term
@@ -25,9 +24,7 @@ content:
     settings:
       link: true
       view_mode: default
-    third_party_settings:
-      ds:
-        ds_limit: ''
+    third_party_settings: {  }
   field_study_site_dates:
     type: entity_reference_revisions_entity_view
     weight: 0
@@ -36,9 +33,7 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings:
-      ds:
-        ds_limit: ''
+    third_party_settings: {  }
 hidden:
   description: true
   field_studies: true

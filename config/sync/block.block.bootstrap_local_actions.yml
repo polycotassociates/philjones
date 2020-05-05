@@ -1,4 +1,4 @@
-uuid: 4b651a4d-777c-49d1-b2fa-adce1f2e7a7c
+uuid: d29dc7cc-86e0-4963-8c34-ac4ebcb0a1f9
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: bootstrap_local_actions
 theme: bootstrap
 region: header
-weight: -2
+weight: 20
 provider: null
 plugin: local_actions_block
 settings:

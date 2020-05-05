@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.compensation_types.field_notes
     - field.field.paragraph.compensation_types.field_timepoint_ref_multiple
     - paragraphs.paragraphs_type.compensation_types
-  module:
-    - ds
 id: paragraph.compensation_types.default
 targetEntityType: paragraph
 bundle: compensation_types
@@ -37,9 +35,7 @@ content:
     label: hidden
     settings:
       link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
+    third_party_settings: {  }
     type: entity_reference_label
     region: content
 hidden: {  }

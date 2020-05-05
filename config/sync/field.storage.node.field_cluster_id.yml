@@ -1,13 +1,15 @@
-uuid: e966d230-bf64-465b-b4e6-636b8da9f214
+uuid: 3e1c4f59-fcb2-4af7-931f-8d0332f999d1
 langcode: en
 status: true
 dependencies:
   module:
+    - field_permissions
     - node
-_core:
-  default_config_hash: sE33za4WgJVU7T_nG_PZp5CVmEBALuzB_Vn-tfw-q8s
-id: node.field_migrate_example_top_vintag
-field_name: field_migrate_example_top_vintag
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_cluster_id
+field_name: field_cluster_id
 entity_type: node
 type: integer
 settings:
@@ -15,7 +17,7 @@ settings:
   size: normal
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

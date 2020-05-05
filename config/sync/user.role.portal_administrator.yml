@@ -15,6 +15,7 @@ permissions:
   - 'access files overview'
   - 'access in-place editing'
   - 'access private fields'
+  - 'access shortcuts'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
