@@ -16,7 +16,7 @@ source:
       type: integer
   item_selector: responses
   constants:
-    name_suffix:'cc'
+    name_suffix: 'cc'
   fields:
     -
       name: field_response_id
