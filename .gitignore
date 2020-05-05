@@ -29,3 +29,5 @@
 *.DS_Store
 # Ignore --dump.sql
 *--dump.sql
+# Ignore --dump.sql
+*.sql.gz
