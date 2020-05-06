@@ -24,7 +24,7 @@ relationships:
 runtime:
     extensions:
         - redis
-        - php7.2-zip
+        - curl
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
