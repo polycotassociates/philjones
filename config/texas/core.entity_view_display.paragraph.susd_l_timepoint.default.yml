@@ -1,0 +1,32 @@
+uuid: ba3be827-a60e-4e3b-a2e7-dd70a336e5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.susd_l_timepoint.field_survey_completed
+    - field.field.paragraph.susd_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.susd_l_timepoint
+id: paragraph.susd_l_timepoint.default
+targetEntityType: paragraph
+bundle: susd_l_timepoint
+mode: default
+content:
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

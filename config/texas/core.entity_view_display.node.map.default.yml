@@ -1,0 +1,108 @@
+uuid: cd9be369-beb7-4cf3-99f2-e87449a40b54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.map.field_participant_questionnaire
+    - field.field.node.map.field_program_type
+    - field.field.node.map.field_response_id
+    - field.field.node.map.field_study_site
+    - field.field.node.map.field_timepoint_actions
+    - field.field.node.map.field_user
+    - node.type.map
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_participant_data:
+      children:
+        - field_program_type
+        - field_user
+        - field_response_id
+        - field_study_site
+        - field_participant_questionnaire
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Participant Data'
+    group_timepoint_data:
+      children:
+        - field_timepoint_actions
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.map.default
+targetEntityType: node
+bundle: map
+mode: default
+content:
+  field_participant_questionnaire:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_program_type:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_response_id:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_study_site:
+    weight: 4
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_timepoint_actions:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_user:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  langcode: true
+  links: true

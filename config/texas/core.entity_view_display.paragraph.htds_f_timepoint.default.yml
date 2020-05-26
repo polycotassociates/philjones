@@ -1,0 +1,64 @@
+uuid: 7c3a2e11-4059-41b1-9bea-6f66479335eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed
+    - field.field.paragraph.htds_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - options
+id: paragraph.htds_f_timepoint.default
+targetEntityType: paragraph
+bundle: htds_f_timepoint
+mode: default
+content:
+  field_accelerometer_status:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_asa_24_complete:
+    weight: 4
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_measures_completed:
+    weight: 2
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

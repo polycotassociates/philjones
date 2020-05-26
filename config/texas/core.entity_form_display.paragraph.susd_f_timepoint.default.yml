@@ -1,0 +1,56 @@
+uuid: 6bac4e00-fdd8-457f-b822-03c0ad21c8b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.susd_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.susd_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.susd_f_timepoint.field_measures_completed
+    - field.field.paragraph.susd_f_timepoint.field_survey_completed
+    - field.field.paragraph.susd_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.default
+targetEntityType: paragraph
+bundle: susd_f_timepoint
+mode: default
+content:
+  field_accelerometer_status:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_asa_24_complete:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_measures_completed:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_survey_completed:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_timepoint:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

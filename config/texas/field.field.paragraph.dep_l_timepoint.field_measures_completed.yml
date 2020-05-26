@@ -1,0 +1,23 @@
+uuid: b47c9bcf-ac39-4ceb-9843-75bc77f3de4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_measures_completed
+    - paragraphs.paragraphs_type.dep_l_timepoint
+id: paragraph.dep_l_timepoint.field_measures_completed
+field_name: field_measures_completed
+entity_type: paragraph
+bundle: dep_l_timepoint
+label: 'Measures Completed'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

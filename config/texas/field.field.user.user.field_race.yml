@@ -1,0 +1,21 @@
+uuid: 442c85cf-77f4-48dc-a852-bc32df46a2a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_race
+  module:
+    - options
+    - user
+id: user.user.field_race
+field_name: field_race
+entity_type: user
+bundle: user
+label: Race
+description: 'Are you of Hispanic or Latino origin?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

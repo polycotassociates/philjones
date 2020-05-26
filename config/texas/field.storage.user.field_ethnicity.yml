@@ -1,0 +1,45 @@
+uuid: 62bf651d-e1bb-43b5-b2da-00d1918ded23
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_ethnicity
+field_name: field_ethnicity
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: 'American Indian or Alaskan Native'
+    -
+      value: '1'
+      label: Asian
+    -
+      value: '2'
+      label: 'Native Hawaiian or other Pacific Islander'
+    -
+      value: '3'
+      label: 'Black or African American'
+    -
+      value: '4'
+      label: White
+    -
+      value: '5'
+      label: 'More than one race'
+    -
+      value: '6'
+      label: Other
+    -
+      value: '7'
+      label: 'Prefer not to answer'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

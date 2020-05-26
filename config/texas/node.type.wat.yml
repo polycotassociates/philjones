@@ -1,0 +1,18 @@
+uuid: 95a9f38b-014f-4e1e-ba2e-04505543c445
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Walking Across Texas'
+type: wat
+description: 'Walking Across Texas (WAT)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

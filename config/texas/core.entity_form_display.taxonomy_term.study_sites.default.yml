@@ -4,9 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.study_sites.field_educator
-    - field.field.taxonomy_term.study_sites.field_studies
-    - field.field.taxonomy_term.study_sites.field_study_site_dates
-    - field.field.taxonomy_term.study_sites.field_study_type
+    - field.field.taxonomy_term.study_sites.field_programs
+    - field.field.taxonomy_term.study_sites.field_timepoints
     - taxonomy.vocabulary.study_sites
   module:
     - paragraphs
@@ -16,7 +15,7 @@ bundle: study_sites
 mode: default
 content:
   field_educator:
-    weight: 4
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -25,37 +24,24 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_study_site_dates:
-    type: paragraphs
-    weight: 2
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      closed_mode: summary
-      autocollapse: none
-      add_mode: dropdown
-      form_display_mode: default
-      edit_mode: closed
-      closed_mode_threshold: 0
-      default_paragraph_type: ''
-      features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
-    third_party_settings: {  }
-    region: content
-  field_study_type:
+  field_programs:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
-  langcode:
-    type: language_select
+  field_timepoints:
+    type: entity_reference_paragraphs
     weight: 2
-    region: content
     settings:
-      include_locked: true
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
   name:
     type: string_textfield
     weight: 0
@@ -64,14 +50,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 5
-    region: content
-    third_party_settings: {  }
 hidden:
   description: true
-  field_studies: true
+  langcode: true
   path: true
+  status: true

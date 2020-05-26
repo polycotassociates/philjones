@@ -1,0 +1,32 @@
+uuid: 0ae9f608-6c9c-4211-94eb-407ed4641701
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_timepoint.field_survey_completed
+    - field.field.paragraph.map_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.default
+targetEntityType: paragraph
+bundle: map_timepoint
+mode: default
+content:
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

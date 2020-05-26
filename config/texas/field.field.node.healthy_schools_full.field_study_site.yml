@@ -1,0 +1,29 @@
+uuid: e728d44a-35ff-409b-bd1b-30ca3b1607d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_study_site
+    - node.type.healthy_schools_full
+    - taxonomy.vocabulary.study_sites
+id: node.healthy_schools_full.field_study_site
+field_name: field_study_site
+entity_type: node
+bundle: healthy_schools_full
+label: 'Study Site'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      study_sites: study_sites
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

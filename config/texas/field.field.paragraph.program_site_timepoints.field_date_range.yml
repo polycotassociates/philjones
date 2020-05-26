@@ -1,0 +1,21 @@
+uuid: 47e27da7-e5ac-4863-9b45-782b61f7ced1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_range
+    - paragraphs.paragraphs_type.program_site_timepoints
+  module:
+    - datetime_range
+id: paragraph.program_site_timepoints.field_date_range
+field_name: field_date_range
+entity_type: paragraph
+bundle: program_site_timepoints
+label: 'Date Range'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

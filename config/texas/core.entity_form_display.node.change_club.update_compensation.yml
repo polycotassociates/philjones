@@ -4,7 +4,6 @@ status: false
 dependencies:
   config:
     - core.entity_form_mode.node.update_compensation
-    - field.field.node.change_club.feeds_item
     - field.field.node.change_club.field_active
     - field.field.node.change_club.field_age
     - field.field.node.change_club.field_cluster_id
@@ -100,9 +99,13 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   created: true
-  feeds_item: true
   field_active: true
   field_age: true
   field_cluster_id: true

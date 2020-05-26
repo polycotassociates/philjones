@@ -1,0 +1,29 @@
+uuid: 19ea3d6d-79ed-4ebd-bebc-2b17bc94f7d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+    - taxonomy.vocabulary.timepoints
+id: paragraph.htds_f_timepoint.field_timepoint
+field_name: field_timepoint
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: Timepoint
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      timepoints: timepoints
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

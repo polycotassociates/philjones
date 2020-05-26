@@ -1,0 +1,33 @@
+uuid: 447ab22c-e796-4f34-a70c-7927caf5791a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_type
+    - node.type.healthy_schools_full
+    - taxonomy.vocabulary.programs
+  content:
+    - 'taxonomy_term:programs:9ddad9ec-0efe-4022-bdd4-0000f514ff36'
+id: node.healthy_schools_full.field_program_type
+field_name: field_program_type
+entity_type: node
+bundle: healthy_schools_full
+label: 'Program Type'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 9ddad9ec-0efe-4022-bdd4-0000f514ff36
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programs: programs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

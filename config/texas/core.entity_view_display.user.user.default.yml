@@ -3,15 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
-    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_ethnicity
+    - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_race
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
@@ -32,8 +33,10 @@ third_party_settings:
         - field_address_state
         - field_address_zip
         - field_primary_phone
-        - field_mobile_phone_carrier
         - field_preferred_contact
+        - langcode
+        - field_race
+        - field_ethnicity
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -101,16 +104,24 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_mobile_phone_carrier:
-    weight: 8
+  field_ethnicity:
+    weight: 11
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
+  field_person_title:
+    weight: 16
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_preferred_contact:
-    weight: 9
-    label: inline
+    weight: 8
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
@@ -122,6 +133,13 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
+    region: content
+  field_race:
+    weight: 10
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_street_address:
     weight: 3
@@ -140,8 +158,15 @@ content:
     third_party_settings: {  }
     type: viewsreference_formatter
     region: content
+  langcode:
+    type: language
+    weight: 9
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
 hidden:
-  feeds_item: true
   field_response_id: true
-  langcode: true
   member_for: true

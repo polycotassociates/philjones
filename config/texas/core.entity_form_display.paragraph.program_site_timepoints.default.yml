@@ -1,0 +1,30 @@
+uuid: 503bc78e-abff-453c-a510-3866fe63f166
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_site_timepoints.field_date_range
+    - field.field.paragraph.program_site_timepoints.field_timepoint
+    - paragraphs.paragraphs_type.program_site_timepoints
+  module:
+    - datetime_range
+id: paragraph.program_site_timepoints.default
+targetEntityType: paragraph
+bundle: program_site_timepoints
+mode: default
+content:
+  field_date_range:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_timepoint:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true

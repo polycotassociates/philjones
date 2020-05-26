@@ -1,0 +1,6 @@
+status: 3
+pattern: 'HTSD-L - [node:field_response_id]'
+escape: false
+dependencies:
+  config:
+    - node.type.healthy_schools_limited

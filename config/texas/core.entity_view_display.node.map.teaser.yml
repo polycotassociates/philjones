@@ -1,0 +1,33 @@
+uuid: 5fe005ba-b13d-4e6e-a714-0c8e779e3c38
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.map.field_participant_questionnaire
+    - field.field.node.map.field_program_type
+    - field.field.node.map.field_response_id
+    - field.field.node.map.field_study_site
+    - field.field.node.map.field_timepoint_actions
+    - field.field.node.map.field_user
+    - node.type.map
+  module:
+    - user
+id: node.map.teaser
+targetEntityType: node
+bundle: map
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_participant_questionnaire: true
+  field_program_type: true
+  field_response_id: true
+  field_study_site: true
+  field_timepoint_actions: true
+  field_user: true
+  langcode: true

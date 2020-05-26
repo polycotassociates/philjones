@@ -1,0 +1,94 @@
+uuid: 41909aad-3cc6-47f3-b38e-539b9f1d1590
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dashboard
+    - field.field.node.dep_l.field_participant_name
+    - field.field.node.dep_l.field_program_type
+    - field.field.node.dep_l.field_response_id
+    - field.field.node.dep_l.field_study_site
+    - field.field.node.dep_l.field_timepoint_actions
+    - node.type.dep_l
+  module:
+    - entity_reference_revisions
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_participant_data:
+      children:
+        - field_program_type
+        - field_participant_name
+        - field_response_id
+        - field_study_site
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Participant Data'
+    group_time:
+      children:
+        - field_timepoint_actions
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.dep_l.dashboard
+targetEntityType: node
+bundle: dep_l
+mode: dashboard
+content:
+  field_participant_name:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_program_type:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_response_id:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_study_site:
+    weight: 4
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_timepoint_actions:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  langcode: true
+  links: true
