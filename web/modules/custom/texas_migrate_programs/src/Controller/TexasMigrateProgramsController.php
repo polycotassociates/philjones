@@ -5,7 +5,7 @@ use Drupal\Core\Controller\ControllerBase;
 /**
  *In case of no default template of module, below markup will be displayed
  */
-class Migrate_TexasController extends ControllerBase {
+class TexasMigrateProgramsController extends ControllerBase {
   public function content() {
     return array('#markup' => texas_migrate_programs_runner());
   }
