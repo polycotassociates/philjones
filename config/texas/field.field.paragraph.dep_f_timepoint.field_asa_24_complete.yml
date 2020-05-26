@@ -1,0 +1,23 @@
+uuid: 3f32b958-c497-4c22-9710-7c89a03086ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_asa_24_complete
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_asa_24_complete
+field_name: field_asa_24_complete
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'ASA-24 Complete'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

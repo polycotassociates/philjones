@@ -1,0 +1,33 @@
+uuid: 1e5da9d5-7d5c-4f1f-a350-2faead5b6929
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.susd_l.field_participant_questionnaire
+    - field.field.node.susd_l.field_program_type
+    - field.field.node.susd_l.field_response_id
+    - field.field.node.susd_l.field_study_site
+    - field.field.node.susd_l.field_timepoint_actions
+    - field.field.node.susd_l.field_user
+    - node.type.susd_l
+  module:
+    - user
+id: node.susd_l.teaser
+targetEntityType: node
+bundle: susd_l
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_participant_questionnaire: true
+  field_program_type: true
+  field_response_id: true
+  field_study_site: true
+  field_timepoint_actions: true
+  field_user: true
+  langcode: true

@@ -1,0 +1,11 @@
+uuid: 51572581-9297-41eb-a4ca-03e1997f4fa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_limited
+id: node.healthy_schools_limited
+target_entity_type_id: node
+target_bundle: healthy_schools_limited
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,33 @@
+uuid: 3ab17257-b4a0-4771-be36-3800ca2ea812
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_type
+    - node.type.map
+    - taxonomy.vocabulary.programs
+  content:
+    - 'taxonomy_term:programs:4911a8e3-bcb2-4fd8-b242-d6a7458934ca'
+id: node.map.field_program_type
+field_name: field_program_type
+entity_type: node
+bundle: map
+label: 'Program Type'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 4911a8e3-bcb2-4fd8-b242-d6a7458934ca
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programs: programs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

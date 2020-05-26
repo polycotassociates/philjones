@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.change_club.feeds_item
     - field.field.node.change_club.field_active
     - field.field.node.change_club.field_age
     - field.field.node.change_club.field_cluster_id
@@ -276,5 +275,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  feeds_item: true
   langcode: true

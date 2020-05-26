@@ -1,0 +1,33 @@
+uuid: 31b2ef51-283e-4ca5-bc2b-3dd40cbd273d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dep_l_timepoint.field_measures_completed
+    - field.field.paragraph.dep_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.dep_l_timepoint
+id: paragraph.dep_l_timepoint.default
+targetEntityType: paragraph
+bundle: dep_l_timepoint
+mode: default
+content:
+  field_measures_completed:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_timepoint:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

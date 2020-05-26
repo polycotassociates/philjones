@@ -1,0 +1,23 @@
+uuid: d7fb9256-525e-43c8-97a0-bd78c96864c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_measures_completed
+    - paragraphs.paragraphs_type.htds_l_timepoint
+id: paragraph.htds_l_timepoint.field_measures_completed
+field_name: field_measures_completed
+entity_type: paragraph
+bundle: htds_l_timepoint
+label: 'Measures Completed'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

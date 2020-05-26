@@ -1,0 +1,11 @@
+uuid: 08104c34-fbed-4db1-9f4a-0ec4d7f49e3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat
+target_entity_type_id: node
+target_bundle: wat
+default_langcode: site_default
+language_alterable: false

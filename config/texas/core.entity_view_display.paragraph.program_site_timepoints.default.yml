@@ -1,0 +1,34 @@
+uuid: 3ad93a08-6208-49a2-ae19-8f7978f08e24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_site_timepoints.field_date_range
+    - field.field.paragraph.program_site_timepoints.field_timepoint
+    - paragraphs.paragraphs_type.program_site_timepoints
+  module:
+    - datetime_range
+id: paragraph.program_site_timepoints.default
+targetEntityType: paragraph
+bundle: program_site_timepoints
+mode: default
+content:
+  field_date_range:
+    weight: 1
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+      separator: '-'
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_timepoint:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

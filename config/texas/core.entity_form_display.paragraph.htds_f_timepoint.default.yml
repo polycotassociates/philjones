@@ -1,0 +1,52 @@
+uuid: a579bde7-c2e7-4d39-ab88-9cb362522f78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed
+    - field.field.paragraph.htds_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+id: paragraph.htds_f_timepoint.default
+targetEntityType: paragraph
+bundle: htds_f_timepoint
+mode: default
+content:
+  field_accelerometer_status:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_asa_24_complete:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_measures_completed:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_survey_completed:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_timepoint:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true

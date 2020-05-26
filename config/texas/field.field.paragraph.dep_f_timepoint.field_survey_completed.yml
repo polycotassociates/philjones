@@ -1,0 +1,23 @@
+uuid: 8a522019-178d-4e8b-b54f-808c67637ce0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_survey_completed
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_survey_completed
+field_name: field_survey_completed
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Survey Completed'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

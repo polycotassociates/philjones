@@ -3,15 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
-    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_ethnicity
+    - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_race
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
@@ -24,14 +25,17 @@ third_party_settings:
   field_group:
     group_contact_info:
       children:
+        - field_person_title
         - field_displa
         - field_email
+        - field_primary_phone
         - field_street_address
         - field_address_city
         - field_address_state
         - field_address_zip
-        - field_primary_phone
-        - field_mobile_phone_carrier
+        - langcode
+        - field_ethnicity
+        - field_race
         - field_preferred_contact
       parent_name: group_user_account
       weight: 4
@@ -104,7 +108,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address_city:
-    weight: 5
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -112,7 +116,7 @@ content:
     type: string_textfield
     region: content
   field_address_state:
-    weight: 6
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -120,7 +124,7 @@ content:
     type: string_textfield
     region: content
   field_address_zip:
-    weight: 7
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -128,7 +132,7 @@ content:
     type: string_textfield
     region: content
   field_displa:
-    weight: 2
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -136,31 +140,45 @@ content:
     type: string_textfield
     region: content
   field_email:
-    weight: 3
+    weight: 9
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
-  field_mobile_phone_carrier:
-    weight: 9
+  field_ethnicity:
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_person_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_preferred_contact:
-    weight: 10
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_primary_phone:
-    weight: 8
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+    region: content
+  field_race:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_response_id:
     weight: 8
@@ -171,7 +189,7 @@ content:
     type: string_textfield
     region: content
   field_street_address:
-    weight: 4
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -188,10 +206,15 @@ content:
     third_party_settings: {  }
     type: viewsreference_autocomplete
     region: content
+  langcode:
+    type: language_select
+    weight: 16
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
 hidden:
   contact: true
-  feeds_item: true
-  langcode: true
   language: true
   path: true
   timezone: true

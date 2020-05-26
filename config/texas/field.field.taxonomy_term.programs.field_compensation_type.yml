@@ -1,0 +1,43 @@
+uuid: 30104796-878c-4ae9-9776-1a87b2e95511
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_compensation_type
+    - paragraphs.paragraphs_type.compensation_types
+    - taxonomy.vocabulary.programs
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.programs.field_compensation_type
+field_name: field_compensation_type
+entity_type: taxonomy_term
+bundle: programs
+label: 'Opportunities for Compensation'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      compensation_types: compensation_types
+    target_bundles_drag_drop:
+      change_club_site_timepoints:
+        weight: 6
+        enabled: false
+      change_club_timepoints:
+        weight: 7
+        enabled: false
+      compensation_types:
+        enabled: true
+        weight: 8
+      educator_info:
+        weight: 9
+        enabled: false
+      program_site_timepoints:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

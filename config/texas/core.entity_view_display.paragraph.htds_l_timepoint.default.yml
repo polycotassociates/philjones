@@ -1,0 +1,32 @@
+uuid: 449ac073-2c32-42e4-b744-8e4d8e12ebb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_l_timepoint.field_measures_completed
+    - field.field.paragraph.htds_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_l_timepoint
+id: paragraph.htds_l_timepoint.default
+targetEntityType: paragraph
+bundle: htds_l_timepoint
+mode: default
+content:
+  field_measures_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

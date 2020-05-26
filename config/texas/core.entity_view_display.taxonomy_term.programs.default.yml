@@ -1,0 +1,46 @@
+uuid: c2e20a97-f728-4085-a3e0-7fca100da64b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.programs.field_compensation_type
+    - field.field.taxonomy_term.programs.field_image
+    - field.field.taxonomy_term.programs.field_role
+    - taxonomy.vocabulary.programs
+  module:
+    - entity_reference_revisions
+    - image
+id: taxonomy_term.programs.default
+targetEntityType: taxonomy_term
+bundle: programs
+mode: default
+content:
+  field_compensation_type:
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_role:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  description: true
+  langcode: true

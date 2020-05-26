@@ -1,0 +1,29 @@
+uuid: c65f03d0-1646-4350-8a4e-eba52f611dd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cwwd_timepoints.field_survey_completed
+    - field.field.paragraph.cwwd_timepoints.field_timepoint
+    - paragraphs.paragraphs_type.cwwd_timepoints
+id: paragraph.cwwd_timepoints.default
+targetEntityType: paragraph
+bundle: cwwd_timepoints
+mode: default
+content:
+  field_survey_completed:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_timepoint:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,23 @@
+uuid: c708b0ec-4b96-481c-b61c-012e713bef2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_asa_24_complete
+    - paragraphs.paragraphs_type.htds_f_timepoint
+id: paragraph.htds_f_timepoint.field_asa_24_complete
+field_name: field_asa_24_complete
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: 'ASA-24 Complete'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

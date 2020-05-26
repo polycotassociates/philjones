@@ -1,0 +1,32 @@
+uuid: c41a6d39-876e-4d73-9f57-340c7a0d991b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wat_timepoint.field_survey_completed
+    - field.field.paragraph.wat_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.wat_timepoint
+id: paragraph.wat_timepoint.default
+targetEntityType: paragraph
+bundle: wat_timepoint
+mode: default
+content:
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

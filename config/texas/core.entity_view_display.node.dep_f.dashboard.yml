@@ -1,0 +1,109 @@
+uuid: 30b9abb4-02cc-4285-be71-e394452b7a19
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dashboard
+    - field.field.node.dep_f.field_participant_questionnaire
+    - field.field.node.dep_f.field_program_type
+    - field.field.node.dep_f.field_response_id
+    - field.field.node.dep_f.field_study_site
+    - field.field.node.dep_f.field_timepoint_actions
+    - field.field.node.dep_f.field_user
+    - node.type.dep_f
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_participant_data:
+      children:
+        - field_program_type
+        - field_user
+        - field_response_id
+        - field_study_site
+        - field_participant_questionnaire
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Participant Data'
+    group_timepoint_data:
+      children:
+        - field_timepoint_actions
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.dep_f.dashboard
+targetEntityType: node
+bundle: dep_f
+mode: dashboard
+content:
+  field_participant_questionnaire:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_program_type:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_response_id:
+    weight: 2
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_study_site:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_timepoint_actions:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_user:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  langcode: true
+  links: true

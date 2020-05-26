@@ -1,0 +1,6 @@
+status: 3
+pattern: 'DEP-F - [node:field_response_id]'
+escape: false
+dependencies:
+  config:
+    - node.type.dep_f

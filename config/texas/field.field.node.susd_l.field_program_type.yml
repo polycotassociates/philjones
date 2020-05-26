@@ -1,0 +1,33 @@
+uuid: 2fba2e4f-ccb6-44b7-a48a-179066419d98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_type
+    - node.type.susd_l
+    - taxonomy.vocabulary.programs
+  content:
+    - 'taxonomy_term:programs:2ef60e89-f943-43b9-9e7d-38b2b265770b'
+id: node.susd_l.field_program_type
+field_name: field_program_type
+entity_type: node
+bundle: susd_l
+label: 'Program Type'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 2ef60e89-f943-43b9-9e7d-38b2b265770b
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programs: programs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

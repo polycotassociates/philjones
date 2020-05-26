@@ -1,0 +1,21 @@
+uuid: 986021db-aa45-412f-9481-a9b6d51e4a5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ethnicity
+  module:
+    - options
+    - user
+id: user.user.field_ethnicity
+field_name: field_ethnicity
+entity_type: user
+bundle: user
+label: Ethnicity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

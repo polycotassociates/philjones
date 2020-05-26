@@ -1,0 +1,32 @@
+uuid: c6c4f176-7fbc-4136-a14c-e5a21e79af3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dep_l_timepoint.field_measures_completed
+    - field.field.paragraph.dep_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.dep_l_timepoint
+id: paragraph.dep_l_timepoint.default
+targetEntityType: paragraph
+bundle: dep_l_timepoint
+mode: default
+content:
+  field_measures_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_timepoint:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

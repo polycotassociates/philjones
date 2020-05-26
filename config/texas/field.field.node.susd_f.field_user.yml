@@ -1,0 +1,28 @@
+uuid: 841e1b1a-0e15-4bfc-83b3-f461ad14e230
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user
+    - node.type.susd_f
+id: node.susd_f.field_user
+field_name: field_user
+entity_type: node
+bundle: susd_f
+label: Participant
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
