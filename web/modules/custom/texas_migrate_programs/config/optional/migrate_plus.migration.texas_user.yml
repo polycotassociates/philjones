@@ -1,7 +1,7 @@
 # Migration configuration for imported change club member.
-id: change_club_user_static
-label: Import change club members from static file to user with change club partipipant role
-migration_group: change_club
+id: texas_user
+label: Import texas program participants from static file to user with program partipipant role
+migration_group: texas
 destination:
   plugin: 'entity:user'
   md5_passwords: true
@@ -11,6 +11,7 @@ source:
   data_parser_plugin: json
   urls:
     - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+    - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
   ids:
     ResponseID:
       type: string
@@ -19,56 +20,45 @@ source:
     -
       name: ResponseID
       label: 'Unique identifier'
-      selector: responseId
+      selector: ResponseID
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: /values/IDNUM
+      selector: IDNUM
     -
       name: Firstname
       label: 'Firstname'
-      selector: /values/QID177_TEXT
+      selector: ELIG2
     -
       name: Lastname
       label: 'Lastname'
-      selector: /values/QID178_TEXT
+      selector: ELIG3
     -
       name: mail
       label: 'Email'
-      selector: /values/QID179_TEXT
+      selector: ELIG4
     -
       name: field_primary_phone
       label: 'Primary Phone'
-      selector: /values/QID180_TEXT
+      selector: ELIG5
     -
       name: field_street_address
       label: 'Street Address'
-      selector: /values/QID181_TEXT
+      selector: ELIG6
     -
       name: field_address_city
       label: 'City'
-      selector: /values/QID182_TEXT
+      selector: ELIG7
     -
       name: field_address_state
       label: 'State'
-      selector: /values/QID183_TEXT
+      selector: ELIG8
     -
       name: field_address_zip
       label: 'Zip Code'
-      selector: /values/QID184_TEXT
+      selector: ELIG9
 process:
-  field_response_id:
-    plugin: skip_on_empty
-    method: row
-    source: field_response_id
-    message: 'Field field_response_id is missing'
-  name:
-    plugin: concat
-    source:
-      - Firstname
-      - Lastname
-      - field_response_id
-    delimiter: '-'
+  name: field_response_id
   mail: mail
   pass: 'changemeclub'
   field_street_address: field_street_address
@@ -82,10 +72,8 @@ process:
       - Lastname
     delimiter: ' '
   field_email: mail
+  field_response_id: field_response_id
   field_primary_phone: field_primary_phone
   status:
     plugin: default_value
     default_value: 0
-  roles:
-    plugin: default_value
-    default_value: 'change_club_participant'
