@@ -1,17 +1,17 @@
 # Migration configuration for imported images.
-id: texas_timepoint_baseline
-label: Import baseline timepoint data into a paragraph to relate to a program data node.
+id: texas_susd_f_timepoint_baseline
+label: Import baseline timepoint data into a paragraph to relate to a susd_f program data node.
 migration_group: texas
 
 destination:
   plugin: entity_reference_revisions:paragraph
-  default_bundle: change_club_timepoints
+  default_bundle: susd_f_timepoint
 source:
   plugin: url
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'private://qualtrics_data/SV_dhtucmrn6CzwZTL.json'
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
 
   ids:
     ResponseID:
