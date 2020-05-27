@@ -138,11 +138,11 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
       //exit;
     }
   //only try to download if file build is 100 percent complete
-  if ($filepercentcomplete == 100) {
+  // if ($filepercentcomplete == 100) {
 // download and save the .zip file
 // file to save the contents to
     $path = drupal_realpath('private://qualtrics_data/');
-    $fp = fopen($path.$surveyid.".zip", "w+b");
+    $fp = fopen($path.$surveyid.".zip", "r+");
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
@@ -172,7 +172,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     curl_close($curl);
     fclose($fp);
     $unzip = texas_migrate_programs_unzip($surveyid);
-  }
+  //}
   //texas_migrate_programs_rename();
   $content = $textout;
   $content = $content . $unzip;
