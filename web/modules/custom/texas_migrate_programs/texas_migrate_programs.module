@@ -142,7 +142,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 // download and save the .zip file
 // file to save the contents to
     $path = drupal_realpath('private://qualtrics_data/');
-    $fp = fopen($path."/".$surveyid.".zip", "r+");
+    $fp = fopen($path.$surveyid.".zip", "r+");
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
