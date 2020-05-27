@@ -141,40 +141,41 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   if ($filepercentcomplete == 100) {
 // download and save the .zip file
 // file to save the contents to
-    //$path = drupal_realpath('private://qualtrics_data/');
-    //$fp = fopen($path.$surveyid.".zip", "r+");
-    //$curl = curl_init();
-    //curl_setopt_array($curl, array(
-      //CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
-     // CURLOPT_FILE => $fp,
-      //CURLOPT_RETURNTRANSFER => true,
-      //CURLOPT_ENCODING => "",
-      //CURLOPT_MAXREDIRS => 10,
-      //CURLOPT_TIMEOUT => 0,
-      //CURLOPT_FOLLOWLOCATION => true,
-      //CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      //CURLOPT_CUSTOMREQUEST => "GET",
-      //CURLOPT_HTTPHEADER => array(
-        //"X-API-TOKEN: ".$settings['api_token'],
-        //"Content-Type: application/json"
-      //),
-    //));
+    $path = drupal_realpath('private://qualtrics_data/');
+    $fp = fopen($path."/".$surveyid.".zip", "r+");
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
+      CURLOPT_FILE => $fp,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "X-API-TOKEN: ".$settings['api_token'],
+        "Content-Type: application/json"
+      ),
+    ));
 
-    //$filedownload = curl_exec($curl);
-      //if (!empty($filedownload)){
-        //fwrite($fp, $filedownload);
-        //$textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
+    $filedownload = curl_exec($curl);
+      if (!empty($filedownload)){
+        fwrite($fp, $filedownload);
+        $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
 
-      //}else{
-        //$textout =  $textout . "<li><strong>File Download failed !</strong></li>";
-      //}
+      }else{
+        $textout =  $textout . "<li><strong>File Download failed !</strong></li>";
+      }
 
-    //curl_close($curl);
-    //fclose($fp);
-    //$unzip = texas_migrate_programs_unzip($surveyid);
+    curl_close($curl);
+    fclose($fp);
+    $unzip = texas_migrate_programs_unzip($surveyid);
   }
+  //texas_migrate_programs_rename();
   $content = $textout;
-  //$content = $content . $unzip;
+  $content = $content . $unzip;
   return $content;
 
 }
