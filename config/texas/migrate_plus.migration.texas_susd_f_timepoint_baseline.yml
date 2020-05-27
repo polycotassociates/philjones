@@ -1,0 +1,58 @@
+uuid: d99db90b-0e3f-405a-929b-41ec5b477c76
+langcode: en
+status: true
+dependencies: {  }
+id: texas_susd_f_timepoint_baseline
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: texas
+label: 'Import baseline timepoint data into a paragraph to relate to a susd_f program data node.'
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+  ids:
+    ResponseID:
+      type: string
+  item_selector: responses
+  constants:
+    link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
+  fields:
+    -
+      name: ResponseID
+      label: 'Unique identifier'
+      selector: ResponseID
+    -
+      name: id
+      label: 'Participant ID'
+      selector: IDNUM
+    -
+      name: field_survey_completed
+      label: 'Survey Completed'
+      selector: Finished
+    -
+      name: field_date_recorded
+      label: 'Date of Data Collection Visit'
+      selector: RecordedDate
+process:
+  id: id
+  revision_id: id
+  type:
+    plugin: default_value
+    default_value: change_club_timepoints
+  field_timepoint_reference:
+    plugin: default_value
+    default_value: 30
+  field_survey_completed: field_survey_completed
+  field_date_recorded: field_date_recorded
+  field_description/format:
+    plugin: default_value
+    default_value: basic_html
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: susd_f_timepoint
+migration_dependencies: null
