@@ -33,9 +33,12 @@ function texas_migrate_programs_runner(){
 // get settings
   $config = \Drupal::config("texas_migrate_programs.credentials");
   $settings = array();
-  $settings["api_token"] = $config->get("api_token");
-  $settings["data_center"] = $config->get("data_center");
-  $settings["survey_id"] = $config->get("survey_id");
+  //$settings["api_token"] = $config->get("api_token");
+  $settings["api_token"] = "yfL4OvMbUOuF7R98CyVyQnhbatAAcsTirAiS6q3j";
+  //$settings["data_center"] = $config->get("data_center");
+  $settings["data_center"] = "az1";
+  //$settings["survey_id"] = $config->get("survey_id");
+  $settings["survey_id"] = "SV_3ejJc2qfOotJblX";
   $surveys = explode("|", $settings["survey_id"]);
   //$path = \Drupal::service('stream_wrapper_manager')->getViaUri('private://qualtrics_data/')->getUri();
   $path = drupal_realpath('private://qualtrics_data/');
