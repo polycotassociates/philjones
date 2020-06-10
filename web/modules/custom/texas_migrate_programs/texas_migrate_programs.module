@@ -33,12 +33,12 @@ function texas_migrate_programs_runner(){
 // get settings
   $config = \Drupal::config("texas_migrate_programs.credentials");
   $settings = array();
-  //$settings["api_token"] = $config->get("api_token");
-  $settings["api_token"] = "yfL4OvMbUOuF7R98CyVyQnhbatAAcsTirAiS6q3j";
-  //$settings["data_center"] = $config->get("data_center");
-  $settings["data_center"] = "az1";
-  //$settings["survey_id"] = $config->get("survey_id");
-  $settings["survey_id"] = "SV_3ejJc2qfOotJblX";
+  $settings["api_token"] = $config->get("api_token");
+  //$settings["api_token"] = "yfL4OvMbUOuF7R98CyVyQnhbatAAcsTirAiS6q3j";
+  $settings["data_center"] = $config->get("data_center");
+  //$settings["data_center"] = "az1";
+  $settings["survey_id"] = $config->get("survey_id");
+  //$settings["survey_id"] = "SV_3ejJc2qfOotJblX";
   $surveys = explode("|", $settings["survey_id"]);
   //$path = \Drupal::service('stream_wrapper_manager')->getViaUri('private://qualtrics_data/')->getUri();
   $path = drupal_realpath('private://qualtrics_data/');
@@ -145,7 +145,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 // download and save the .zip file
 // file to save the contents to
     $path = drupal_realpath('private://qualtrics_data/');
-    $fp = fopen($path.$surveyid.".zip", "r+");
+    $fp = fopen($path."/".$surveyid.".zip", "r+");
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
@@ -192,7 +192,7 @@ function texas_migrate_programs_unzip($surveyid){
 // unzip path
 $path = drupal_realpath('private://qualtrics_data/');
 // zip file name
-$filename = $path.$surveyid.'.zip';
+$filename = $path."/".$surveyid.'.zip';
 // zip file name
 //$filename = '../private/qualtrics_data/'.$surveyid.'.zip';
 // unzip path

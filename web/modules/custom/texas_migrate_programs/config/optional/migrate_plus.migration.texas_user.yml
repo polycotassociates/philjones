@@ -10,66 +10,60 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+    - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
+constants:
+    field_address_state: 'TX'
   fields:
     -
       name: ResponseID
       label: 'Unique identifier'
-      selector: ResponseID
+      selector: responseId
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: IDNUM
+      selector: /values/QID2_TEXT
     -
-      name: Firstname
-      label: 'Firstname'
-      selector: ELIG2
-    -
-      name: Lastname
-      label: 'Lastname'
-      selector: ELIG3
+      name: Name
+      label: 'Name'
+      selector: /values/QID4_TEXT
     -
       name: mail
       label: 'Email'
-      selector: ELIG4
+      selector: /values/QID6_TEXT
     -
       name: field_primary_phone
       label: 'Primary Phone'
-      selector: ELIG5
+      selector: /values/QID7_TEXT
     -
       name: field_street_address
       label: 'Street Address'
-      selector: ELIG6
+      selector: /values/QID8_TEXT
     -
       name: field_address_city
       label: 'City'
-      selector: ELIG7
-    -
-      name: field_address_state
-      label: 'State'
-      selector: ELIG8
+      selector: /values/QID9_TEXT
     -
       name: field_address_zip
       label: 'Zip Code'
-      selector: ELIG9
+      selector: /values/QID10_TEXT
 process:
-  name: field_response_id
+  name:
+    plugin: concat
+    source:
+      - name
+      - field_response_id
+    delimiter: '-'
   mail: mail
   pass: 'changemeclub'
   field_street_address: field_street_address
   field_address_city: field_address_city
   field_address_state: field_address_state
   field_address_zip: field_address_zip
-  field_displa:
-    plugin: concat
-    source:
-      - Firstname
-      - Lastname
-    delimiter: ' '
+  field_displa: name
   field_email: mail
   field_response_id: field_response_id
   field_primary_phone: field_primary_phone
