@@ -15,7 +15,7 @@ source:
     responseId:
       type: string
   item_selector: responses
-constants:
+  constants:
     field_address_state: 'TX'
   fields:
     -
