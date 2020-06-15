@@ -11,7 +11,7 @@ source:
   urls:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    responseID:
+    ResponseID:
       type: string
   item_selector: responses
   constants:
@@ -20,20 +20,29 @@ source:
     -
       name: ResponseID
       label: 'Unique identifier'
-      selector: responseID
+      selector: responseId
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: /values/QID2_TEXT
+      selector: values/QID2_TEXT
     -
-      name: Name
+      name: name
       label: 'Name'
-      selector: /values/QID4_TEXT
+      selector: values/QID4_TEXT
     -
       name: field_study_site
       label: 'Study Site'
-      selector: ES6
+      selector: labels/QID3
+    -
+      name: field_program_type
+      label: 'Role'
+      selector: values/QID15#1_3
+
 process:
+  field_program_type:
+    plugin: skip_on_empty
+    method: row
+    source: field_program_type
   type:
     plugin: default_value
     default_value: susd_f
@@ -52,8 +61,8 @@ process:
   'field_survey_link/uri':
     plugin: concat
     source:
-        - 'constants/link_prefix'
-        - field_response_id
+      - 'constants/link_prefix'
+      - field_response_id
   'field_timepoint_actions/target_id': field_response_id
   'field_timepoint_actions/target_revision_id': field_response_id
   uid:

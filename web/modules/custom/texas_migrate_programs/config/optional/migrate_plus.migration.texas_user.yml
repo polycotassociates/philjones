@@ -12,7 +12,7 @@ source:
   urls:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    responseId:
+    ResponseID:
       type: string
   item_selector: responses
   constants:
@@ -25,31 +25,49 @@ source:
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: /values/QID2_TEXT
+      selector: values/QID2_TEXT
     -
-      name: Name
+      name: name
       label: 'Name'
-      selector: /values/QID4_TEXT
+      selector: values/QID4_TEXT
     -
       name: mail
       label: 'Email'
-      selector: /values/QID6_TEXT
+      selector: values/QID6_TEXT
     -
       name: field_primary_phone
       label: 'Primary Phone'
-      selector: /values/QID7_TEXT
+      selector: values/QID7_TEXT
     -
       name: field_street_address
       label: 'Street Address'
-      selector: /values/QID8_TEXT
+      selector: values/QID8_TEXT
     -
       name: field_address_city
       label: 'City'
-      selector: /values/QID9_TEXT
+      selector: values/QID9_TEXT
     -
       name: field_address_zip
       label: 'Zip Code'
-      selector: /values/QID10_TEXT
+      selector: values/QID10_TEXT
+    -
+      name: field_preferred_contact
+      label: 'Preferred Contact'
+      selector: labels/QID13
+    -
+      name: field_ethnicity
+      label: 'Ethnicity'
+      selector: labels/QID16
+    -
+      name: field_race
+      label: 'Race'
+      selector: labels/QID19
+    -
+      name: field_person_title
+      label: 'Race'
+      selector: labels/QID5
+
+
 process:
   name:
     plugin: concat
@@ -67,6 +85,10 @@ process:
   field_email: mail
   field_response_id: field_response_id
   field_primary_phone: field_primary_phone
+  field_ethnicity: field_ethnicity
+  field_race : field_race
+  field_preferred_contact: field_preferred_contact
+  field_person_title: field_person_title
   status:
     plugin: default_value
     default_value: 0
