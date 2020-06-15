@@ -18,38 +18,38 @@ source:
       type: string
   item_selector: responses
   constants:
-    link_prefix: 'https://cornell.qualtrics.com/jfe/form/SV_dhtucmrn6CzwZTL?PPTID='
+    timepoint: 30
   fields:
     -
       name: ResponseID
       label: 'Unique identifier'
-      selector: ResponseID
+      selector: responseId
     -
-      name: id
+      name: field_response_id
       label: 'Participant ID'
-      selector: IDNUM
+      selector: values/QID2_TEXT
     -
-      name: field_survey_completed
-      label: 'Survey Completed'
-      selector: Finished
+      name: field_start_date
+      label: 'Start Date'
+      selector: values/QID15#2_2_1
     -
-      name: field_date_recorded
-      label: 'Date of Data Collection Visit'
-      selector: RecordedDate
+      name: field_program_type
+      label: 'Role'
+      selector: values/QID15#1_3
+
 
 process:
-  id: id
-  revision_id: id
+  field_program_type:
+    plugin: skip_on_empty
+    method: row
+    source: field_program_type
+  id: field_response_id
+  revision_id: field_response_id
   type:
     plugin: default_value
-    default_value: change_club_timepoints
-  field_timepoint_reference:
+    default_value: susd_f_timepoint
+  field_start_date: field_start_date
+  field_timepoint:
     plugin: default_value
     default_value: 30
-  field_survey_completed: field_survey_completed
-  field_date_recorded: field_date_recorded
-
-  'field_description/format':
-    plugin: default_value
-    default_value: basic_html
 
