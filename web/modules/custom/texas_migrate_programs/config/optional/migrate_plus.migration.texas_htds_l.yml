@@ -1,6 +1,6 @@
 # Migration configuration for imported change club member.
-id: texas_susd_f
-label: Import change club members from static file to susd_f content type
+id: texas_htds_l
+label: Import change club members from static file to htds_l content type
 migration_group: texas
 destination:
   plugin: 'entity:node'
@@ -36,7 +36,7 @@ source:
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_3
+      selector: values/QID15#1_9
 
 process:
   field_program_type:
@@ -45,7 +45,7 @@ process:
     source: field_program_type
   type:
     plugin: default_value
-    default_value: susd_f
+    default_value: htds_l
   title: name
   field_response_id: field_response_id
   field_user:
