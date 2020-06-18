@@ -14,14 +14,14 @@ source:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
 
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
   constants:
     timepoint: 30
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
       selector: responseId
     -
@@ -31,7 +31,7 @@ source:
     -
       name: field_start_date
       label: 'Start Date'
-      selector: values/QID15#2_2_1
+      selector: values/QID15#2_4_1
     -
       name: field_program_type
       label: 'Role'
@@ -43,13 +43,11 @@ process:
     plugin: skip_on_empty
     method: row
     source: field_program_type
-  id: field_response_id
-  revision_id: field_response_id
-  type:
-    plugin: default_value
-    default_value: susd_l_timepoint
-  field_start_date: field_start_date
+  field_start_date/value:
+    plugin: format_date
+    source: field_start_date
+    from_format: 'n/j/Y'
+    to_format: 'Y-m-d'
   field_timepoint:
     plugin: default_value
     default_value: 30
-

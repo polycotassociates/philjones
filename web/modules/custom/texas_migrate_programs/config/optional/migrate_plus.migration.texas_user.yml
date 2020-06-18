@@ -12,14 +12,14 @@ source:
   urls:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
   constants:
     field_address_state: 'TX'
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
       selector: responseId
     -
