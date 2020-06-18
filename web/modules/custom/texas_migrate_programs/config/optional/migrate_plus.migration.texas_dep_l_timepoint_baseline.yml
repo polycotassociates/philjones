@@ -1,11 +1,11 @@
 # Migration configuration for imported images.
 id: texas_dep_l_timepoint_baseline
-label: Import baseline timepoint data into a paragraph to relate to a dep_l program data node.
+label: Import baseline timepoint data into a paragraph to relate to a map program data node.
 migration_group: texas
 
 destination:
   plugin: entity_reference_revisions:paragraph
-  default_bundle: dep_l_timepoint
+  default_bundle: dep_f_timepoint
 source:
   plugin: url
   data_fetcher_plugin: file
@@ -14,20 +14,16 @@ source:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
 
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
   constants:
     timepoint: 30
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
       selector: responseId
-    -
-      name: field_response_id
-      label: 'Participant ID'
-      selector: values/QID2_TEXT
     -
       name: field_start_date
       label: 'Start Date'
@@ -37,18 +33,21 @@ source:
       label: 'Role'
       selector: values/QID15#1_2
 
-
 process:
   field_program_type:
     plugin: skip_on_empty
     method: row
     source: field_program_type
-  id: field_response_id
-  revision_id: field_response_id
-  type:
-    plugin: default_value
-    default_value: dep_l_timepoint
-  field_start_date: field_start_date
+  field_start_date/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_start_date
+    -
+      plugin: format_date
+      source: field_start_date
+      from_format: 'n/j/Y'
+      to_format: 'Y-m-d'
   field_timepoint:
     plugin: default_value
     default_value: 30

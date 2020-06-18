@@ -11,14 +11,14 @@ source:
   urls:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
   constants:
     link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
       selector: responseId
     -
@@ -63,8 +63,17 @@ process:
     source:
       - 'constants/link_prefix'
       - field_response_id
-  'field_timepoint_actions/target_id': field_response_id
-  'field_timepoint_actions/target_revision_id': field_response_id
+  pseudo_field_timepoint_actions:
+    plugin: migration_lookup
+    migration: texas_cwwd_timepoint_baseline
+    source: responseId
+  field_timepoint_actions:
+    plugin: sub_process
+    source:
+    - '@pseudo_field_timepoint_actions'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
   uid:
     plugin: default_value
     default_value: 0

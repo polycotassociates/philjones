@@ -11,32 +11,32 @@ source:
   urls:
     - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    ResponseID:
+    responseId:
       type: string
-  item_selector: responses
+  item_selector: /responses
   constants:
     link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
-      selector: responseId
+      selector: /responseId
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: values/QID2_TEXT
+      selector: /values/QID2_TEXT
     -
       name: name
       label: 'Name'
-      selector: values/QID4_TEXT
+      selector: /values/QID4_TEXT
     -
       name: field_study_site
       label: 'Study Site'
-      selector: labels/QID3
+      selector: /labels/QID3
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_3
+      selector: /values/QID15#1_3
 
 process:
   field_program_type:
@@ -63,8 +63,17 @@ process:
     source:
       - 'constants/link_prefix'
       - field_response_id
-  'field_timepoint_actions/target_id': field_response_id
-  'field_timepoint_actions/target_revision_id': field_response_id
+  pseudo_field_timepoint_actions:
+    plugin: migration_lookup
+    migration: texas_susd_f_timepoint_baseline
+    source: responseId
+  field_timepoint_actions:
+    plugin: sub_process
+    source:
+    - '@pseudo_field_timepoint_actions'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
   uid:
     plugin: default_value
     default_value: 0
