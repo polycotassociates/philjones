@@ -25,10 +25,6 @@ source:
       label: 'Unique identifier'
       selector: responseId
     -
-      name: field_response_id
-      label: 'Participant ID'
-      selector: values/QID2_TEXT
-    -
       name: field_start_date
       label: 'Start Date'
       selector: values/QID15#2_4_1
