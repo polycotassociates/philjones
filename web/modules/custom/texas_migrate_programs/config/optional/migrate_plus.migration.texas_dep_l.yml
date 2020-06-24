@@ -14,8 +14,6 @@ source:
     responseId:
       type: string
   item_selector: responses
-  constants:
-    link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
   fields:
     -
       name: responseId
@@ -29,10 +27,6 @@ source:
       name: name
       label: 'Name'
       selector: values/QID4_TEXT
-    -
-      name: field_study_site
-      label: 'Study Site'
-      selector: labels/QID3
     -
       name: field_program_type
       label: 'Role'
@@ -48,16 +42,6 @@ process:
     default_value: dep_l
   title: name
   field_response_id: field_response_id
-  field_study_site:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_departments_programs
-    -
-      plugin: entity_lookup
-      source: field_study_site
-      entity_type: taxonomy_term
-      value_key: name
   pseudo_field_timepoint_actions:
     plugin: migration_lookup
     migration: texas_dep_l_timepoint_baseline
