@@ -17,9 +17,20 @@ source:
   item_selector: responses
   constants:
     field_address_state: 'TX'
-    q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
-    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_1GrIWRyO533jd9b?PPTID='
-    d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?PPTID='
+    q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?ID='
+    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_1GrIWRyO533jd9b?ID='
+    d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?ID='
+    dep_f_prefix: '&DEP-F='
+    dep_l_prefix: '&DEP-L='
+    susd_f_prefix: '&SUSD-F='
+    susd_l_prefix: '&SUSD-L='
+    cwwd_prefix: '&CWWD='
+    map_prefix: '&MAP='
+    htds_f_prefix: '&HTDS-F='
+    htds_l_prefix: '&HTDS-L='
+    dem_prefix: '&DEM=0'
+    lng_prefix: '&LNG=E'
+    tm_prefix: '&TM=B'
   fields:
     -
       name: responseId
@@ -73,6 +84,38 @@ source:
       name: field_study_site
       label: 'Study Site'
       selector: labels/QID3
+    -
+      name: dep_f
+      label: 'DEP-F'
+      selector: displayedValues/QID15#1_1
+    -
+      name: dep_l
+      label: 'DEP-L'
+      selector: displayedValues/QID15#1_2
+    -
+      name: susd_f
+      label: 'SUSD-F'
+      selector: displayedValues/QID15#1_3
+    -
+      name: susd_l
+      label: 'SUSD-L'
+      selector: displayedValues/QID15#1_4
+    -
+      name: cwwd
+      label: 'CWWD'
+      selector: displayedValues/QID15#1_6
+    -
+      name: map
+      label: 'MAP'
+      selector: displayedValues/QID15#1_7
+    -
+      name: htds_f
+      label: 'HTDS-F'
+      selector: displayedValues/QID15#1_8
+    -
+      name: htds_l
+      label: 'HTDS-L'
+      selector: displayedValues/QID15#1_9
 
 
 process:
@@ -106,6 +149,25 @@ process:
     source:
       - 'constants/q_link_prefix'
       - field_response_id
+      - 'constants/dep_f_prefix'
+      - dep_f
+      - 'constants/dep_l_prefix'
+      - dep_l
+      - 'constants/susd_f_prefix'
+      - susd_f
+      - 'constants/susd_l_prefix'
+      - susd_l
+      - 'constants/cwwd_prefix'
+      - cwwd
+      - 'constants/map_prefix'
+      - map
+      - 'constants/htds_f_prefix'
+      - htds_f
+      - 'constants/htds_l_prefix'
+      - htds_l
+      - 'constants/dem_prefix'
+      - 'constants/lng_prefix'
+      - 'constants/tm_prefix'
   'field_attendance_process_survey/uri':
     plugin: concat
     source:
