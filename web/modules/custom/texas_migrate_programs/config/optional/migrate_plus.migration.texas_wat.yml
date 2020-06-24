@@ -14,8 +14,6 @@ source:
     responseId:
       type: string
   item_selector: responses
-  constants:
-    link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
   fields:
     -
       name: responseId
@@ -29,10 +27,6 @@ source:
       name: name
       label: 'Name'
       selector: values/QID4_TEXT
-    -
-      name: field_study_site
-      label: 'Study Site'
-      selector: labels/QID3
     -
       name: field_program_type
       label: 'Role'
@@ -53,16 +47,6 @@ process:
     source: field_response_id
     entity_type: user
     value_key: field_response_id
-  field_study_site:
-    plugin: entity_lookup
-    source: field_study_site
-    entity_type: taxonomy_term
-    value_key: name
-  'field_participant_questionnaire/uri':
-    plugin: concat
-    source:
-      - 'constants/link_prefix'
-      - field_response_id
   pseudo_field_timepoint_actions:
     plugin: migration_lookup
     migration: texas_wat_timepoint_baseline

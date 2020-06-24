@@ -17,6 +17,9 @@ source:
   item_selector: responses
   constants:
     field_address_state: 'TX'
+    q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?PPTID='
+    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_1GrIWRyO533jd9b?PPTID='
+    d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?PPTID='
   fields:
     -
       name: responseId
@@ -66,6 +69,10 @@ source:
       name: field_person_title
       label: 'Race'
       selector: labels/QID5
+    -
+      name: field_study_site
+      label: 'Study Site'
+      selector: labels/QID3
 
 
 process:
@@ -89,6 +96,26 @@ process:
   field_race : field_race
   field_preferred_contact: field_preferred_contact
   field_person_title: field_person_title
+  field_study_site:
+    plugin: entity_lookup
+    source: field_study_site
+    entity_type: taxonomy_term
+    value_key: name
+  'field_participant_questionnaire/uri':
+    plugin: concat
+    source:
+      - 'constants/q_link_prefix'
+      - field_response_id
+  'field_attendance_process_survey/uri':
+    plugin: concat
+    source:
+      - 'constants/a_link_prefix'
+      - field_response_id
+  'field_data_collection_form/uri':
+    plugin: concat
+    source:
+      - 'constants/d_link_prefix'
+      - field_response_id
   status:
     plugin: default_value
     default_value: 0
