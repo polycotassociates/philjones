@@ -17,8 +17,7 @@ source:
     responseId:
       type: string
   item_selector: responses
-  constants:
-    timepoint: 30
+
   fields:
     -
       name: responseId

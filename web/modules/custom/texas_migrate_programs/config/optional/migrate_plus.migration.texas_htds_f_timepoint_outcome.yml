@@ -44,4 +44,4 @@ process:
     to_format: 'Y-m-d'
   field_timepoint:
     plugin: default_value
-    default_value: 30
+    default_value: 34
