@@ -17,8 +17,6 @@ source:
     responseId:
       type: string
   item_selector: responses
-  constants:
-    timepoint: 30
   fields:
     -
       name: responseId
@@ -39,11 +37,9 @@ process:
     method: row
     source: field_program_type
   field_start_date/value:
-    plugin: format_date
+    plugin: outcome_date
     source: field_start_date
-    from_format: 'n/j/Y'
-    to_format: 'Y-m-d'
   field_timepoint:
     plugin: default_value
-    default_value: 30
+    default_value: 34
 

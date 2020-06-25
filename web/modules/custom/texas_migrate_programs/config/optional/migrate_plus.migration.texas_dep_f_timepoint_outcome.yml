@@ -38,15 +38,8 @@ process:
     method: row
     source: field_program_type
   field_start_date/value:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: field_start_date
-    -
-      plugin: format_date
-      source: field_start_date
-      from_format: 'n/j/Y'
-      to_format: 'Y-m-d'
+    plugin: outcome_date
+    source: field_start_date
   field_timepoint:
     plugin: default_value
     default_value: 34
