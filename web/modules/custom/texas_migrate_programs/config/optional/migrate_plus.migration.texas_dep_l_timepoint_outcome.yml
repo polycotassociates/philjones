@@ -1,11 +1,11 @@
 # Migration configuration for imported images.
-id: texas_htds_f_timepoint_baseline
-label: Import baseline timepoint data into a paragraph to relate to a htds_f program data node.
+id: texas_dep_l_timepoint_baseline
+label: Import baseline timepoint data into a paragraph to relate to a map program data node.
 migration_group: texas
 
 destination:
   plugin: entity_reference_revisions:paragraph
-  default_bundle: htds_f_timepoint
+  default_bundle: dep_f_timepoint
 source:
   plugin: url
   data_fetcher_plugin: file
@@ -26,11 +26,11 @@ source:
     -
       name: field_start_date
       label: 'Start Date'
-      selector: values/QID15#2_8_1
+      selector: values/QID15#2_2_1
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_8
+      selector: values/QID15#1_2
 
 process:
   field_program_type:
@@ -38,10 +38,16 @@ process:
     method: row
     source: field_program_type
   field_start_date/value:
-    plugin: format_date
-    source: field_start_date
-    from_format: 'n/j/Y'
-    to_format: 'Y-m-d'
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_start_date
+    -
+      plugin: format_date
+      source: field_start_date
+      from_format: 'n/j/Y'
+      to_format: 'Y-m-d'
   field_timepoint:
     plugin: default_value
-    default_value: 30
+    default_value: 34
+

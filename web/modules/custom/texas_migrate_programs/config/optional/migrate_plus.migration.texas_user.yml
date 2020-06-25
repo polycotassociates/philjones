@@ -87,35 +87,35 @@ source:
     -
       name: dep_f
       label: 'DEP-F'
-      selector: displayedValues/QID15#1_1
+      selector: values/QID15#1_1
     -
       name: dep_l
       label: 'DEP-L'
-      selector: displayedValues/QID15#1_2
+      selector: values/QID15#1_2
     -
       name: susd_f
       label: 'SUSD-F'
-      selector: displayedValues/QID15#1_3
+      selector: values/QID15#1_3
     -
       name: susd_l
       label: 'SUSD-L'
-      selector: displayedValues/QID15#1_4
+      selector: values/QID15#1_4
     -
       name: cwwd
       label: 'CWWD'
-      selector: displayedValues/QID15#1_6
+      selector: values/QID15#1_6
     -
       name: map
       label: 'MAP'
-      selector: displayedValues/QID15#1_7
+      selector: values/QID15#1_7
     -
       name: htds_f
       label: 'HTDS-F'
-      selector: displayedValues/QID15#1_8
+      selector: values/QID15#1_8
     -
       name: htds_l
       label: 'HTDS-L'
-      selector: displayedValues/QID15#1_9
+      selector: values/QID15#1_9
 
 
 process:
@@ -144,27 +144,83 @@ process:
     source: field_study_site
     entity_type: taxonomy_term
     value_key: name
+  pseudo_dep_f:
+    -
+      plugin: urlencode
+      source: dep_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_dep_l:
+    -
+      plugin: urlencode
+      source: dep_l
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_susd_f:
+    -
+      plugin: urlencode
+      source: susd_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_susd_l:
+    -
+      plugin: urlencode
+      source: susd_l
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_cwwd:
+    -
+      plugin: urlencode
+      source: cwwd
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_map:
+    -
+      plugin: urlencode
+      source: map
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_htds_f:
+    -
+      plugin: urlencode
+      source: htds_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_htds_l:
+    -
+      plugin: urlencode
+      source: htds_l
+    -
+      plugin: default_value
+      default_value: '0'
   'field_participant_questionnaire/uri':
     plugin: concat
     source:
       - 'constants/q_link_prefix'
       - field_response_id
       - 'constants/dep_f_prefix'
-      - dep_f
+      - '@pseudo_dep_f'
       - 'constants/dep_l_prefix'
-      - dep_l
+      - '@pseudo_dep_l'
       - 'constants/susd_f_prefix'
-      - susd_f
+      - '@pseudo_susd_f'
       - 'constants/susd_l_prefix'
-      - susd_l
+      - '@pseudo_susd_l'
       - 'constants/cwwd_prefix'
-      - cwwd
+      - '@pseudo_cwwd'
       - 'constants/map_prefix'
-      - map
+      - '@pseudo_map'
       - 'constants/htds_f_prefix'
-      - htds_f
+      - '@pseudo_htds_f'
       - 'constants/htds_l_prefix'
-      - htds_l
+      - '@pseudo_htds_l'
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
       - 'constants/tm_prefix'
