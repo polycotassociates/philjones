@@ -1,5 +1,5 @@
 # Migration configuration for imported images.
-id: texas_htds_l_timepoint_baseline
+id: texas_htds_l_timepoint_outcome
 label: Import baseline timepoint data into a paragraph to relate to a htds_l program data node.
 migration_group: texas
 

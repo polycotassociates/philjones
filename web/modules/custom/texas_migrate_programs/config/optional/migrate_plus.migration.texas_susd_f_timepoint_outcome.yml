@@ -1,5 +1,5 @@
 # Migration configuration for imported images.
-id: texas_susd_f_timepoint_baseline
+id: texas_susd_f_timepoint_outcome
 label: Import baseline timepoint data into a paragraph to relate to a susd_f program data node.
 migration_group: texas
 
