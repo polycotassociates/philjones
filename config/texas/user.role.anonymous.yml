@@ -12,4 +12,5 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'use exclude node title'
   - 'use text format restricted_html'

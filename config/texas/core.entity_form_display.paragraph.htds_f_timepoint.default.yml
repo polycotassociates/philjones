@@ -6,36 +6,46 @@ dependencies:
     - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
     - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
     - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_participant_id
+    - field.field.paragraph.htds_f_timepoint.field_start_date
     - field.field.paragraph.htds_f_timepoint.field_survey_completed
     - field.field.paragraph.htds_f_timepoint.field_timepoint
     - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
 id: paragraph.htds_f_timepoint.default
 targetEntityType: paragraph
 bundle: htds_f_timepoint
 mode: default
 content:
   field_accelerometer_status:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_asa_24_complete:
-    weight: 4
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_measures_completed:
-    weight: 2
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_survey_completed:
+  field_start_date:
     weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
@@ -49,4 +59,5 @@ content:
     region: content
 hidden:
   created: true
+  field_participant_id: true
   status: true

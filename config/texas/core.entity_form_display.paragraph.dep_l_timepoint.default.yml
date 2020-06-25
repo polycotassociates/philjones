@@ -4,19 +4,29 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.dep_l_timepoint.field_measures_completed
+    - field.field.paragraph.dep_l_timepoint.field_participant_id
+    - field.field.paragraph.dep_l_timepoint.field_start_date
     - field.field.paragraph.dep_l_timepoint.field_timepoint
     - paragraphs.paragraphs_type.dep_l_timepoint
+  module:
+    - datetime
 id: paragraph.dep_l_timepoint.default
 targetEntityType: paragraph
 bundle: dep_l_timepoint
 mode: default
 content:
   field_measures_completed:
-    weight: 1
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_start_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_timepoint:
     weight: 0
@@ -30,4 +40,5 @@ content:
     region: content
 hidden:
   created: true
+  field_participant_id: true
   status: true

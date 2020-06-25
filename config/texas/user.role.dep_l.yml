@@ -1,0 +1,18 @@
+uuid: d9acb10e-7cea-4378-9581-5c363a760aff
+langcode: en
+status: true
+dependencies: {  }
+id: dep_l
+label: DEP-L
+weight: -3
+is_admin: null
+permissions:
+  - 'create dep_l content'
+  - 'delete any dep_l content'
+  - 'delete dep_l revisions'
+  - 'delete own dep_l content'
+  - 'edit any dep_l content'
+  - 'edit own dep_l content'
+  - 'view dep_l revisions'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'

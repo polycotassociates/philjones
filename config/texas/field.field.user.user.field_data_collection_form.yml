@@ -1,0 +1,28 @@
+uuid: 1b3f1fcb-ac36-4c51-ad7c-8113106fecb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_data_collection_form
+  module:
+    - link
+    - user
+id: user.user.field_data_collection_form
+field_name: field_data_collection_form
+entity_type: user
+bundle: user
+label: 'Data Collection Form'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

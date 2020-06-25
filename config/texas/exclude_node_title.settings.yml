@@ -1,0 +1,65 @@
+nid_list: {  }
+translation_sync: true
+search: false
+_core:
+  default_config_hash: tFcyNjovmdPA1ZVm7j2Iymt809j-r2F5uSDJAOI_QV8
+content_types:
+  article: none
+  book: none
+  change_club: all
+  cwwd: all
+  dep_f: all
+  dep_l: all
+  educator: none
+  healthy_schools_full: all
+  healthy_schools_limited: all
+  map: all
+  page: none
+  susd_f: all
+  susd_l: all
+  wat: all
+content_type_modes:
+  article: {  }
+  book: {  }
+  change_club:
+    - dashboard
+    - full
+    - nodeform
+  cwwd:
+    - dashboard
+    - full
+    - nodeform
+  dep_f:
+    - dashboard
+    - full
+    - nodeform
+  dep_l:
+    - dashboard
+    - full
+    - nodeform
+  educator: {  }
+  healthy_schools_full:
+    - dashboard
+    - full
+    - nodeform
+  healthy_schools_limited:
+    - dashboard
+    - full
+    - nodeform
+  map:
+    - dashboard
+    - full
+    - nodeform
+  page: {  }
+  susd_f:
+    - dashboard
+    - full
+    - nodeform
+  susd_l:
+    - dashboard
+    - full
+    - nodeform
+  wat:
+    - dashboard
+    - full
+    - nodeform

@@ -4,17 +4,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.dashboard
-    - field.field.node.map.field_participant_questionnaire
     - field.field.node.map.field_program_type
     - field.field.node.map.field_response_id
-    - field.field.node.map.field_study_site
     - field.field.node.map.field_timepoint_actions
+    - field.field.node.map.field_timepoint_baseline
+    - field.field.node.map.field_timepoint_outcome
     - field.field.node.map.field_user
     - node.type.map
   module:
     - entity_reference_revisions
     - field_group
-    - link
     - user
 third_party_settings:
   field_group:
@@ -30,10 +29,10 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
+        description: ''
         id: ''
         classes: ''
-        description: ''
-      label: 'Participant Data'
+      label: ''
     group_timepoint_data:
       children:
         - field_timepoint_actions
@@ -51,18 +50,6 @@ targetEntityType: node
 bundle: map
 mode: dashboard
 content:
-  field_participant_questionnaire:
-    weight: 5
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_program_type:
     weight: 1
     label: hidden
@@ -78,14 +65,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_study_site:
-    weight: 4
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_timepoint_actions:
     weight: 2
@@ -105,5 +84,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_timepoint_baseline: true
+  field_timepoint_outcome: true
   langcode: true
   links: true

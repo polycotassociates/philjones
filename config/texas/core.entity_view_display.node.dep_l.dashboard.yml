@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.dep_l.field_participant_name
     - field.field.node.dep_l.field_program_type
     - field.field.node.dep_l.field_response_id
-    - field.field.node.dep_l.field_study_site
     - field.field.node.dep_l.field_timepoint_actions
+    - field.field.node.dep_l.field_timepoint_baseline
+    - field.field.node.dep_l.field_timepoint_followup
+    - field.field.node.dep_l.field_timepoint_outcome
     - node.type.dep_l
   module:
     - entity_reference_revisions
@@ -27,10 +29,10 @@ third_party_settings:
       format_type: fieldset
       region: content
       format_settings:
+        description: ''
         id: ''
         classes: ''
-        description: ''
-      label: 'Participant Data'
+      label: ''
     group_time:
       children:
         - field_timepoint_actions
@@ -72,14 +74,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_study_site:
-    weight: 4
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_timepoint_actions:
     weight: 6
     label: hidden
@@ -90,5 +84,8 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
 hidden:
+  field_timepoint_baseline: true
+  field_timepoint_followup: true
+  field_timepoint_outcome: true
   langcode: true
   links: true

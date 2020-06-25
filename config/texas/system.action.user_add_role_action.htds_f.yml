@@ -1,0 +1,14 @@
+uuid: a47d35e5-e612-4fa9-a8f1-24234467aab4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.htds_f
+  module:
+    - user
+id: user_add_role_action.htds_f
+label: 'Add the HTDS-F role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: htds_f

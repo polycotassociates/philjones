@@ -1,0 +1,14 @@
+uuid: 97ce6c23-bfd2-4ac5-a612-69304d30b4ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.susd_l
+  module:
+    - user
+id: user_remove_role_action.susd_l
+label: 'Remove the SUSD-L role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: susd_l

@@ -3,21 +3,34 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.susd_l_timepoint.field_participant_id
+    - field.field.paragraph.susd_l_timepoint.field_start_date
     - field.field.paragraph.susd_l_timepoint.field_survey_completed
     - field.field.paragraph.susd_l_timepoint.field_timepoint
     - paragraphs.paragraphs_type.susd_l_timepoint
+  module:
+    - datetime
 id: paragraph.susd_l_timepoint.default
 targetEntityType: paragraph
 bundle: susd_l_timepoint
 mode: default
 content:
-  field_survey_completed:
+  field_start_date:
     weight: 1
     label: inline
     settings:
-      format: default
-      format_custom_false: ''
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 2
+    label: inline
+    settings:
+      format: yes-no
       format_custom_true: ''
+      format_custom_false: ''
     third_party_settings: {  }
     type: boolean
     region: content
@@ -29,4 +42,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-hidden: {  }
+hidden:
+  field_participant_id: true
