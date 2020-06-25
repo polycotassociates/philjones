@@ -5,7 +5,7 @@ migration_group: texas
 
 destination:
   plugin: entity_reference_revisions:paragraph
-  default_bundle: cwwd_timepoint
+  default_bundle: cwwd_timepoints
 source:
   plugin: url
   data_fetcher_plugin: file
