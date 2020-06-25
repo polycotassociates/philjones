@@ -47,14 +47,25 @@ process:
     source: field_response_id
     entity_type: user
     value_key: field_response_id
-  pseudo_field_timepoint_actions:
+  pseudo_field_timepoint_baseline:
     plugin: migration_lookup
     migration: texas_wat_timepoint_baseline
     source: responseId
-  field_timepoint_actions:
+  field_timepoint_baseline:
     plugin: sub_process
     source:
-    - '@pseudo_field_timepoint_actions'
+    - '@pseudo_field_timepoint_baseline'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
+  pseudo_field_timepoint_outcome:
+    plugin: migration_lookup
+    migration: texas_wat_timepoint_outcome
+    source: responseId
+  field_timepoint_outcome:
+    plugin: sub_process
+    source:
+    - '@pseudo_field_timepoint_outcome'
     process:
       target_id: '0'
       target_revision_id: '1'
