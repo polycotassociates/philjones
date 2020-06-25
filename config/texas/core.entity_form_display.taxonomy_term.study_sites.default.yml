@@ -7,40 +7,16 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_programs
     - field.field.taxonomy_term.study_sites.field_timepoints
     - taxonomy.vocabulary.study_sites
-  module:
-    - paragraphs
 id: taxonomy_term.study_sites.default
 targetEntityType: taxonomy_term
 bundle: study_sites
 mode: default
 content:
-  field_educator:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_programs:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
-    region: content
-  field_timepoints:
-    type: entity_reference_paragraphs
-    weight: 2
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
     region: content
   name:
     type: string_textfield
@@ -52,6 +28,8 @@ content:
     third_party_settings: {  }
 hidden:
   description: true
+  field_educator: true
+  field_timepoints: true
   langcode: true
   path: true
   status: true

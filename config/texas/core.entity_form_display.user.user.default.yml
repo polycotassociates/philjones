@@ -6,9 +6,12 @@ dependencies:
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
     - field.field.user.user.field_ethnicity
+    - field.field.user.user.field_participant_questionnaire
     - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
@@ -16,8 +19,10 @@ dependencies:
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
   module:
     - field_group
+    - link
     - telephone
     - user
     - viewsreference
@@ -51,6 +56,10 @@ third_party_settings:
     group_survey_info:
       children:
         - field_response_id
+        - field_study_site
+        - field_participant_questionnaire
+        - field_attendance_process_survey
+        - field_data_collection_form
         - field_study_data
       parent_name: group_user_account
       weight: 5
@@ -131,6 +140,22 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_attendance_process_survey:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Attendance/Process Survey'
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_data_collection_form:
+    weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Data Collection Form'
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_displa:
     weight: 8
     settings:
@@ -152,6 +177,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_participant_questionnaire:
+    weight: 10
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Participant Questionnaire'
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_person_title:
     weight: 7
@@ -197,7 +230,7 @@ content:
     type: string_textfield
     region: content
   field_study_data:
-    weight: 9
+    weight: 13
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -205,6 +238,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: viewsreference_autocomplete
+    region: content
+  field_study_site:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select

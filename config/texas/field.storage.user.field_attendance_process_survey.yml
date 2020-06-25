@@ -1,0 +1,23 @@
+uuid: dd364fee-1918-4f92-b4ba-acda41b2a3a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - link
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_attendance_process_survey
+field_name: field_attendance_process_survey
+entity_type: user
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

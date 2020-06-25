@@ -3,16 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.cwwd_timepoints.field_participant_id
+    - field.field.paragraph.cwwd_timepoints.field_start_date
     - field.field.paragraph.cwwd_timepoints.field_survey_completed
     - field.field.paragraph.cwwd_timepoints.field_timepoint
     - paragraphs.paragraphs_type.cwwd_timepoints
+  module:
+    - datetime
 id: paragraph.cwwd_timepoints.default
 targetEntityType: paragraph
 bundle: cwwd_timepoints
 mode: default
 content:
-  field_survey_completed:
+  field_start_date:
     weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
@@ -26,4 +36,5 @@ content:
     region: content
 hidden:
   created: true
+  field_participant_id: true
   status: true

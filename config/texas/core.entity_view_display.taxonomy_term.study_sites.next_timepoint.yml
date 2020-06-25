@@ -1,6 +1,6 @@
 uuid: 6fc65711-f3ed-4013-943d-2aa22de33f31
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.next_timepoint

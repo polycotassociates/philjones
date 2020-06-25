@@ -1,0 +1,70 @@
+uuid: 5f6ee3e2-72c2-44c6-84a7-caeb9aedb5ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timepoint_baseline
+    - node.type.dep_f
+    - paragraphs.paragraphs_type.dep_f_timepoint
+  module:
+    - entity_reference_revisions
+id: node.dep_f.field_timepoint_baseline
+field_name: field_timepoint_baseline
+entity_type: node
+bundle: dep_f
+label: Baseline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      dep_f_timepoint: dep_f_timepoint
+    target_bundles_drag_drop:
+      change_club_site_timepoints:
+        weight: 15
+        enabled: false
+      change_club_timepoints:
+        weight: 16
+        enabled: false
+      compensation_types:
+        weight: 17
+        enabled: false
+      cwwd_timepoints:
+        weight: 18
+        enabled: false
+      dep_f_timepoint:
+        enabled: true
+        weight: 19
+      dep_l_timepoint:
+        weight: 20
+        enabled: false
+      educator_info:
+        weight: 21
+        enabled: false
+      htds_f_timepoint:
+        weight: 22
+        enabled: false
+      htds_l_timepoint:
+        weight: 23
+        enabled: false
+      map_timepoint:
+        weight: 24
+        enabled: false
+      program_site_timepoints:
+        weight: 25
+        enabled: false
+      susd_f_timepoint:
+        weight: 26
+        enabled: false
+      susd_l_timepoint:
+        weight: 27
+        enabled: false
+      wat_timepoint:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

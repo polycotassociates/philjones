@@ -7,9 +7,12 @@ dependencies:
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
     - field.field.user.user.field_ethnicity
+    - field.field.user.user.field_participant_questionnaire
     - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
@@ -17,6 +20,7 @@ dependencies:
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
   module:
     - ds
     - options
@@ -94,10 +98,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  field_attendance_process_survey: true
+  field_data_collection_form: true
   field_ethnicity: true
+  field_participant_questionnaire: true
   field_person_title: true
   field_race: true
   field_response_id: true
   field_study_data: true
+  field_study_site: true
   langcode: true
   member_for: true

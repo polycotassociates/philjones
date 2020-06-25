@@ -6,10 +6,13 @@ dependencies:
     - field.field.paragraph.dep_f_timepoint.field_accelerometer_status
     - field.field.paragraph.dep_f_timepoint.field_asa_24_complete
     - field.field.paragraph.dep_f_timepoint.field_measures_completed
+    - field.field.paragraph.dep_f_timepoint.field_participant_id
+    - field.field.paragraph.dep_f_timepoint.field_start_date
     - field.field.paragraph.dep_f_timepoint.field_survey_completed
     - field.field.paragraph.dep_f_timepoint.field_timepoint
     - paragraphs.paragraphs_type.dep_f_timepoint
   module:
+    - datetime
     - options
 id: paragraph.dep_f_timepoint.default
 targetEntityType: paragraph
@@ -43,6 +46,15 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_start_date:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_survey_completed:
     weight: 1
     label: inline
@@ -53,12 +65,6 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  field_timepoint:
-    weight: 0
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-hidden: {  }
+hidden:
+  field_participant_id: true
+  field_timepoint: true

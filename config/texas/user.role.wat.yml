@@ -1,0 +1,18 @@
+uuid: 236ac165-96f8-4722-926c-7a1aabe507b6
+langcode: en
+status: true
+dependencies: {  }
+id: wat
+label: WAT
+weight: 0
+is_admin: null
+permissions:
+  - 'create wat content'
+  - 'delete any wat content'
+  - 'delete own wat content'
+  - 'delete wat revisions'
+  - 'edit any wat content'
+  - 'edit own wat content'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'
+  - 'view wat revisions'

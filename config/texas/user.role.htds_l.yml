@@ -1,0 +1,18 @@
+uuid: 312cad5e-a981-426a-a9e8-26348a2f5173
+langcode: en
+status: true
+dependencies: {  }
+id: htds_l
+label: HTDS-L
+weight: 4
+is_admin: null
+permissions:
+  - 'create healthy_schools_limited content'
+  - 'delete any healthy_schools_limited content'
+  - 'delete healthy_schools_limited revisions'
+  - 'delete own healthy_schools_limited content'
+  - 'edit any healthy_schools_limited content'
+  - 'edit own healthy_schools_limited content'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'
+  - 'view healthy_schools_limited revisions'

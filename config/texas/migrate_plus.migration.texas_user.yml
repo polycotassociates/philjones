@@ -14,69 +14,228 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - 'private://qualtrics_data/SV_doN3AIQ0sPGWuVv.json'
+    - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
   ids:
-    ResponseID:
+    responseId:
       type: string
   item_selector: responses
+  constants:
+    field_address_state: TX
+    q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?ID='
+    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_1GrIWRyO533jd9b?ID='
+    d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?ID='
+    dep_f_prefix: '&DEP-F='
+    dep_l_prefix: '&DEP-L='
+    susd_f_prefix: '&SUSD-F='
+    susd_l_prefix: '&SUSD-L='
+    cwwd_prefix: '&CWWD='
+    map_prefix: '&MAP='
+    htds_f_prefix: '&HTDS-F='
+    htds_l_prefix: '&HTDS-L='
+    dem_prefix: '&DEM=0'
+    lng_prefix: '&LNG=E'
+    tm_prefix: '&TM=B'
   fields:
     -
-      name: ResponseID
+      name: responseId
       label: 'Unique identifier'
-      selector: ResponseID
+      selector: responseId
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: IDNUM
+      selector: values/QID2_TEXT
     -
-      name: Firstname
-      label: Firstname
-      selector: ELIG2
-    -
-      name: Lastname
-      label: Lastname
-      selector: ELIG3
+      name: name
+      label: Name
+      selector: values/QID4_TEXT
     -
       name: mail
       label: Email
-      selector: ELIG4
+      selector: values/QID6_TEXT
     -
       name: field_primary_phone
       label: 'Primary Phone'
-      selector: ELIG5
+      selector: values/QID7_TEXT
     -
       name: field_street_address
       label: 'Street Address'
-      selector: ELIG6
+      selector: values/QID8_TEXT
     -
       name: field_address_city
       label: City
-      selector: ELIG7
-    -
-      name: field_address_state
-      label: State
-      selector: ELIG8
+      selector: values/QID9_TEXT
     -
       name: field_address_zip
       label: 'Zip Code'
-      selector: ELIG9
+      selector: values/QID10_TEXT
+    -
+      name: field_preferred_contact
+      label: 'Preferred Contact'
+      selector: labels/QID13
+    -
+      name: field_ethnicity
+      label: Ethnicity
+      selector: labels/QID16
+    -
+      name: field_race
+      label: Race
+      selector: labels/QID19
+    -
+      name: field_person_title
+      label: Race
+      selector: labels/QID5
+    -
+      name: field_study_site
+      label: 'Study Site'
+      selector: labels/QID3
+    -
+      name: dep_f
+      label: DEP-F
+      selector: 'values/QID15#1_1'
+    -
+      name: dep_l
+      label: DEP-L
+      selector: 'values/QID15#1_2'
+    -
+      name: susd_f
+      label: SUSD-F
+      selector: 'values/QID15#1_3'
+    -
+      name: susd_l
+      label: SUSD-L
+      selector: 'values/QID15#1_4'
+    -
+      name: cwwd
+      label: CWWD
+      selector: 'values/QID15#1_6'
+    -
+      name: map
+      label: MAP
+      selector: 'values/QID15#1_7'
+    -
+      name: htds_f
+      label: HTDS-F
+      selector: 'values/QID15#1_8'
+    -
+      name: htds_l
+      label: HTDS-L
+      selector: 'values/QID15#1_9'
 process:
-  name: field_response_id
+  name:
+    plugin: concat
+    source:
+      - name
+      - field_response_id
+    delimiter: '-'
   mail: mail
   pass: changemeclub
   field_street_address: field_street_address
   field_address_city: field_address_city
   field_address_state: field_address_state
   field_address_zip: field_address_zip
-  field_displa:
-    plugin: concat
-    source:
-      - Firstname
-      - Lastname
-    delimiter: ' '
+  field_displa: name
   field_email: mail
   field_response_id: field_response_id
   field_primary_phone: field_primary_phone
+  field_ethnicity: field_ethnicity
+  field_race: field_race
+  field_preferred_contact: field_preferred_contact
+  field_person_title: field_person_title
+  field_study_site:
+    plugin: entity_lookup
+    source: field_study_site
+    entity_type: taxonomy_term
+    value_key: name
+  pseudo_dep_f:
+    -
+      plugin: urlencode
+      source: dep_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_dep_l:
+    -
+      plugin: urlencode
+      source: dep_l
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_susd_f:
+    -
+      plugin: urlencode
+      source: susd_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_susd_l:
+    -
+      plugin: urlencode
+      source: susd_l
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_cwwd:
+    -
+      plugin: urlencode
+      source: cwwd
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_map:
+    -
+      plugin: urlencode
+      source: map
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_htds_f:
+    -
+      plugin: urlencode
+      source: htds_f
+    -
+      plugin: default_value
+      default_value: '0'
+  pseudo_htds_l:
+    -
+      plugin: urlencode
+      source: htds_l
+    -
+      plugin: default_value
+      default_value: '0'
+  field_participant_questionnaire/uri:
+    plugin: concat
+    source:
+      - constants/q_link_prefix
+      - field_response_id
+      - constants/dep_f_prefix
+      - '@pseudo_dep_f'
+      - constants/dep_l_prefix
+      - '@pseudo_dep_l'
+      - constants/susd_f_prefix
+      - '@pseudo_susd_f'
+      - constants/susd_l_prefix
+      - '@pseudo_susd_l'
+      - constants/cwwd_prefix
+      - '@pseudo_cwwd'
+      - constants/map_prefix
+      - '@pseudo_map'
+      - constants/htds_f_prefix
+      - '@pseudo_htds_f'
+      - constants/htds_l_prefix
+      - '@pseudo_htds_l'
+      - constants/dem_prefix
+      - constants/lng_prefix
+      - constants/tm_prefix
+  field_attendance_process_survey/uri:
+    plugin: concat
+    source:
+      - constants/a_link_prefix
+      - field_response_id
+  field_data_collection_form/uri:
+    plugin: concat
+    source:
+      - constants/d_link_prefix
+      - field_response_id
   status:
     plugin: default_value
     default_value: 0

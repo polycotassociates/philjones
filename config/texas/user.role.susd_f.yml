@@ -1,0 +1,18 @@
+uuid: 35d80b90-1d6f-4778-b05d-3f4eb73a8ee3
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f
+label: SUSD-F
+weight: -2
+is_admin: null
+permissions:
+  - 'create susd_f content'
+  - 'delete any susd_f content'
+  - 'delete own susd_f content'
+  - 'delete susd_f revisions'
+  - 'edit any susd_f content'
+  - 'edit own susd_f content'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'
+  - 'view susd_f revisions'

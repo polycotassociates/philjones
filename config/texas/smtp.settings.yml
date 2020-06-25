@@ -17,3 +17,4 @@ _core:
   default_config_hash: WEa5Ex_IeAcm6Bm0hmQ4vU_nDwJDB8hW-vxT1qpGIbM
 smtp_timeout: 30
 smtp_keepalive: false
+smtp_autotls: true

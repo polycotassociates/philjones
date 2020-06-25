@@ -3,29 +3,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.susd_f.field_participant_questionnaire
     - field.field.node.susd_f.field_program_type
     - field.field.node.susd_f.field_response_id
-    - field.field.node.susd_f.field_study_site
     - field.field.node.susd_f.field_timepoint_actions
+    - field.field.node.susd_f.field_timepoint_baseline
+    - field.field.node.susd_f.field_timepoint_followup
+    - field.field.node.susd_f.field_timepoint_outcome
     - field.field.node.susd_f.field_user
     - node.type.susd_f
   module:
-    - link
+    - entity_reference_revisions
     - paragraphs
 id: node.susd_f.default
 targetEntityType: node
 bundle: susd_f
 mode: default
 content:
-  field_participant_questionnaire:
-    weight: 6
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   field_program_type:
     weight: 1
     settings: {  }
@@ -39,16 +32,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_study_site:
-    weight: 4
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_timepoint_actions:
     weight: 5
@@ -67,6 +50,36 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
     type: paragraphs
+    region: content
+  field_timepoint_baseline:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
+    region: content
+  field_timepoint_followup:
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
+    region: content
+  field_timepoint_outcome:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
     region: content
   field_user:
     weight: 2

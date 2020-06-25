@@ -3,17 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.dep_f.field_participant_questionnaire
     - field.field.node.dep_f.field_program_type
     - field.field.node.dep_f.field_response_id
-    - field.field.node.dep_f.field_study_site
     - field.field.node.dep_f.field_timepoint_actions
+    - field.field.node.dep_f.field_timepoint_baseline
+    - field.field.node.dep_f.field_timepoint_followup
+    - field.field.node.dep_f.field_timepoint_outcome
     - field.field.node.dep_f.field_user
     - node.type.dep_f
   module:
     - entity_reference_revisions
     - field_group
-    - link
     - user
 third_party_settings:
   field_group:
@@ -22,8 +22,6 @@ third_party_settings:
         - field_program_type
         - field_user
         - field_response_id
-        - field_study_site
-        - field_participant_questionnaire
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -36,6 +34,9 @@ third_party_settings:
     group_timepoint_data:
       children:
         - field_timepoint_actions
+        - field_timepoint_baseline
+        - field_timepoint_outcome
+        - field_timepoint_followup
       parent_name: ''
       weight: 6
       format_type: fieldset
@@ -50,18 +51,6 @@ targetEntityType: node
 bundle: dep_f
 mode: default
 content:
-  field_participant_questionnaire:
-    weight: 5
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_program_type:
     weight: 1
     label: hidden
@@ -78,14 +67,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_study_site:
-    weight: 4
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_timepoint_actions:
     weight: 7
     label: hidden
@@ -94,6 +75,33 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_followup:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_outcome:
+    type: entity_reference_revisions_entity_view
+    weight: 9
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   field_user:
     weight: 2

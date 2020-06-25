@@ -6,10 +6,13 @@ dependencies:
     - field.field.paragraph.susd_f_timepoint.field_accelerometer_status
     - field.field.paragraph.susd_f_timepoint.field_asa_24_complete
     - field.field.paragraph.susd_f_timepoint.field_measures_completed
+    - field.field.paragraph.susd_f_timepoint.field_participant_id
+    - field.field.paragraph.susd_f_timepoint.field_start_date
     - field.field.paragraph.susd_f_timepoint.field_survey_completed
     - field.field.paragraph.susd_f_timepoint.field_timepoint
     - paragraphs.paragraphs_type.susd_f_timepoint
   module:
+    - datetime
     - options
 id: paragraph.susd_f_timepoint.default
 targetEntityType: paragraph
@@ -17,14 +20,14 @@ bundle: susd_f_timepoint
 mode: default
 content:
   field_accelerometer_status:
-    weight: 3
+    weight: 4
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_asa_24_complete:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       format: default
@@ -34,7 +37,7 @@ content:
     type: boolean
     region: content
   field_measures_completed:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       format: default
@@ -43,8 +46,17 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  field_survey_completed:
+  field_start_date:
     weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 2
     label: inline
     settings:
       format: default
@@ -61,4 +73,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-hidden: {  }
+hidden:
+  field_participant_id: true

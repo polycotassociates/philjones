@@ -1,0 +1,14 @@
+uuid: 7012a1b9-26db-413e-9f9a-80469b2eca5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.susd_l
+  module:
+    - user
+id: user_add_role_action.susd_l
+label: 'Add the SUSD-L role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: susd_l

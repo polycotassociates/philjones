@@ -3,29 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.healthy_schools_full.field_participant_questionnaire
     - field.field.node.healthy_schools_full.field_program_type
     - field.field.node.healthy_schools_full.field_response_id
-    - field.field.node.healthy_schools_full.field_study_site
     - field.field.node.healthy_schools_full.field_timepoint_actions
+    - field.field.node.healthy_schools_full.field_timepoint_baseline
+    - field.field.node.healthy_schools_full.field_timepoint_outcome
     - field.field.node.healthy_schools_full.field_user
     - node.type.healthy_schools_full
   module:
-    - link
+    - entity_reference_revisions
     - paragraphs
 id: node.healthy_schools_full.default
 targetEntityType: node
 bundle: healthy_schools_full
 mode: default
 content:
-  field_participant_questionnaire:
-    weight: 6
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   field_program_type:
     weight: 1
     settings: {  }
@@ -40,16 +32,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_study_site:
-    weight: 4
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_timepoint_actions:
     weight: 5
     settings:
@@ -63,10 +45,30 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
       features:
-        duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
     type: paragraphs
+    region: content
+  field_timepoint_baseline:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
+    region: content
+  field_timepoint_outcome:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
     region: content
   field_user:
     weight: 2

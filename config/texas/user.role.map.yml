@@ -1,0 +1,18 @@
+uuid: e4b93e75-ffcd-4a10-9e91-305a58a181c2
+langcode: en
+status: true
+dependencies: {  }
+id: map
+label: MAP
+weight: 2
+is_admin: null
+permissions:
+  - 'create map content'
+  - 'delete any map content'
+  - 'delete map revisions'
+  - 'delete own map content'
+  - 'edit any map content'
+  - 'edit own map content'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'
+  - 'view map revisions'

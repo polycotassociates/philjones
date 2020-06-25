@@ -6,9 +6,12 @@ dependencies:
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
     - field.field.user.user.field_ethnicity
+    - field.field.user.user.field_participant_questionnaire
     - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
@@ -16,8 +19,10 @@ dependencies:
     - field.field.user.user.field_response_id
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
   module:
     - field_group
+    - link
     - options
     - telephone
     - user
@@ -26,6 +31,7 @@ third_party_settings:
   field_group:
     group_contact_info:
       children:
+        - field_person_title
         - field_displa
         - field_email
         - field_street_address
@@ -48,7 +54,12 @@ third_party_settings:
       region: content
     group_survey_info:
       children:
+        - field_response_id
+        - field_study_site
         - field_study_data
+        - field_participant_questionnaire
+        - field_attendance_process_survey
+        - field_data_collection_form
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -66,7 +77,7 @@ bundle: user
 mode: default
 content:
   field_address_city:
-    weight: 4
+    weight: 7
     label: inline
     settings:
       link_to_entity: false
@@ -74,7 +85,7 @@ content:
     type: string
     region: content
   field_address_state:
-    weight: 5
+    weight: 8
     label: inline
     settings:
       link_to_entity: false
@@ -82,15 +93,39 @@ content:
     type: string
     region: content
   field_address_zip:
-    weight: 6
+    weight: 9
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  field_attendance_process_survey:
+    weight: 20
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_data_collection_form:
+    weight: 21
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
   field_displa:
-    weight: 1
+    weight: 4
     label: inline
     settings:
       link_to_entity: false
@@ -98,50 +133,32 @@ content:
     type: string
     region: content
   field_email:
-    weight: 2
+    weight: 5
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_ethnicity:
-    weight: 11
+    weight: 14
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_participant_questionnaire:
+    weight: 19
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_person_title:
-    weight: 16
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_preferred_contact:
-    weight: 8
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_primary_phone:
-    weight: 7
-    label: inline
-    settings:
-      title: ''
-    third_party_settings: {  }
-    type: telephone_link
-    region: content
-  field_race:
-    weight: 10
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_street_address:
     weight: 3
     label: inline
     settings:
@@ -149,8 +166,46 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_preferred_contact:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_primary_phone:
+    weight: 10
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_race:
+    weight: 13
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_response_id:
+    type: string
+    weight: 16
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_street_address:
+    weight: 6
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_study_data:
-    weight: 15
+    weight: 18
     label: hidden
     settings:
       plugin_types:
@@ -158,9 +213,17 @@ content:
     third_party_settings: {  }
     type: viewsreference_formatter
     region: content
+  field_study_site:
+    weight: 17
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   langcode:
     type: language
-    weight: 9
+    weight: 12
     region: content
     label: inline
     settings:
@@ -168,5 +231,4 @@ content:
       native_language: false
     third_party_settings: {  }
 hidden:
-  field_response_id: true
   member_for: true

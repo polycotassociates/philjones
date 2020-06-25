@@ -1,0 +1,18 @@
+uuid: 3a40c86d-6cf1-4509-9e1d-7cc9c97d1e9f
+langcode: en
+status: true
+dependencies: {  }
+id: htds_f
+label: HTDS-F
+weight: 3
+is_admin: null
+permissions:
+  - 'create healthy_schools_full content'
+  - 'delete any healthy_schools_full content'
+  - 'delete healthy_schools_full revisions'
+  - 'delete own healthy_schools_full content'
+  - 'edit any healthy_schools_full content'
+  - 'edit own healthy_schools_full content'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'
+  - 'view healthy_schools_full revisions'

@@ -1,0 +1,21 @@
+uuid: e5f794fb-7656-43af-beb7-f2b41da00b9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_start_date
+    - paragraphs.paragraphs_type.dep_f_timepoint
+  module:
+    - datetime
+id: paragraph.dep_f_timepoint.field_start_date
+field_name: field_start_date
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Start Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

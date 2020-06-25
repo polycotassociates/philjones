@@ -8,37 +8,24 @@ dependencies:
     - field.field.taxonomy_term.study_sites.field_timepoints
     - taxonomy.vocabulary.study_sites
   module:
-    - entity_reference_revisions
+    - ds
 id: taxonomy_term.study_sites.default
 targetEntityType: taxonomy_term
 bundle: study_sites
 mode: default
 content:
-  field_educator:
-    weight: 2
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_programs:
     weight: 0
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
     type: entity_reference_label
-    region: content
-  field_timepoints:
-    type: entity_reference_revisions_entity_view
-    weight: 1
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
     region: content
 hidden:
   description: true
+  field_educator: true
+  field_timepoints: true
   langcode: true
