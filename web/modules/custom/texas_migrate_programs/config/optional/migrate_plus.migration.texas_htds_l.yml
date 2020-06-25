@@ -42,11 +42,7 @@ process:
     default_value: healthy_schools_limited
   title: name
   field_response_id: field_response_id
-  field_user:
-    plugin: entity_lookup
-    source: field_response_id
-    entity_type: user
-    value_key: field_response_id
+  field_participant_name: name
   pseudo_field_timepoint_baseline:
     plugin: migration_lookup
     migration: texas_htds_l_timepoint_baseline
