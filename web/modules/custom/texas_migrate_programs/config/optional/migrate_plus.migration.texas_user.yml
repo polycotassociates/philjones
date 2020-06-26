@@ -131,6 +131,9 @@ process:
     delimiter: '-'
   mail: mail
   pass: 'changemeclub'
+  temp_langlink:
+    plugin: langlink
+    source: field_preferred_language
   temp_langcode:
     plugin: langcode
     source: field_preferred_language
@@ -242,8 +245,9 @@ process:
       - '@pseudo_htds_l'
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
-      - '@temp_langcode'
+      - '@temp_langlink'
       - 'constants/tm_prefix'
+      - '@temp_timepointlink'
   'field_attendance_process_survey/uri':
     plugin: concat
     source:
