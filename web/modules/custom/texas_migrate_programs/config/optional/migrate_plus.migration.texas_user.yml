@@ -29,7 +29,7 @@ source:
     htds_f_prefix: '&HTDS-F='
     htds_l_prefix: '&HTDS-L='
     dem_prefix: '&DEM=0'
-    lng_prefix: '&LNG=E'
+    lng_prefix: '&LNG='
     tm_prefix: '&TM=B'
   fields:
     -
@@ -68,6 +68,10 @@ source:
       name: field_preferred_contact
       label: 'Preferred Contact'
       selector: labels/QID13
+    -
+      name: field_preferred_language
+      label: 'Preferred Contact'
+      selector: values/QID11
     -
       name: field_ethnicity
       label: 'Ethnicity'
@@ -127,6 +131,21 @@ process:
     delimiter: '-'
   mail: mail
   pass: 'changemeclub'
+  temp_langcode:
+    plugin: langcode
+    source: field_preferred_language
+  langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: false
+  preferred_langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: true
   field_street_address: field_street_address
   field_address_city: field_address_city
   field_address_state: field_address_state
@@ -223,6 +242,7 @@ process:
       - '@pseudo_htds_l'
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
+      - '@temp_langcode'
       - 'constants/tm_prefix'
   'field_attendance_process_survey/uri':
     plugin: concat
