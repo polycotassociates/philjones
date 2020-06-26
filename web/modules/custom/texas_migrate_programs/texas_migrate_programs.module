@@ -145,7 +145,8 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 // download and save the .zip file
 // file to save the contents to
     $path = drupal_realpath('private://qualtrics_data/');
-    $fp = fopen($path."/".$surveyid.".zip", "r+");
+    $fp = fopen($path.'/'.$surveyid.'.zip', 'wb');
+    //$fp = file('private://qualtrics_data/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
@@ -165,15 +166,18 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 
     $filedownload = curl_exec($curl);
       if (!empty($filedownload)){
-        fwrite($fp, $filedownload);
+        //fwrite($fp, $filedownload);
+        file_save_data($filedownload, 'private://qualtrics_data/'.$surveyid.'.zip', FILE_EXISTS_REPLACE);
+
         $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
+        $textout =  $textout . "<li>path = <strong>".$path."</strong></li>";
 
       }else{
         $textout =  $textout . "<li><strong>File Download failed !</strong></li>";
       }
 
     curl_close($curl);
-    fclose($fp);
+    //fclose($fp);
     $unzip = texas_migrate_programs_unzip($surveyid);
   }
   //texas_migrate_programs_rename();
