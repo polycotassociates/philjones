@@ -34,13 +34,9 @@ function texas_migrate_programs_runner(){
   $config = \Drupal::config("texas_migrate_programs.credentials");
   $settings = array();
   $settings["api_token"] = $config->get("api_token");
-  //$settings["api_token"] = "yfL4OvMbUOuF7R98CyVyQnhbatAAcsTirAiS6q3j";
   $settings["data_center"] = $config->get("data_center");
-  //$settings["data_center"] = "az1";
   $settings["survey_id"] = $config->get("survey_id");
-  //$settings["survey_id"] = "SV_3ejJc2qfOotJblX";
   $surveys = explode("|", $settings["survey_id"]);
-  //$path = \Drupal::service('stream_wrapper_manager')->getViaUri('private://qualtrics_data/')->getUri();
   $path = drupal_realpath('private://qualtrics_data/');
   $survey ="";
   $textout = "";
@@ -49,7 +45,7 @@ function texas_migrate_programs_runner(){
   foreach($surveys as $survey) {
     $textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
     $textout = $textout . "<li><strong>Survey ID</strong> is ". $surveys[$index]. "</li>";
-    $textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
+    //$textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
 
 
     $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]). "</ul>";
@@ -98,7 +94,6 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   $progressid = json_decode($progressid);
     //get percent complete for session build
     $progresspercentcomplete = $progressid->result->percentComplete;
-    //$textout =  $textout . "<li>ProgressID is <strong>" . $progresspercentcomplete . "%</strong> complete</li>";
     if (!empty($progressid->result->progressId)){
     $progressid =  $progressid->result->progressId;
     $textout =  $textout . "<li><strong>progressId</strong> is " . $progressid . "</li>";
@@ -145,8 +140,9 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 // download and save the .zip file
 // file to save the contents to
     $path = drupal_realpath('private://qualtrics_data/');
+    $textout =  $textout . "<li><strong>File Path</strong> is ". $path."/".$surveyid.".zip</li>";
     $fp = fopen($path.'/'.$surveyid.'.zip', 'wb');
-    //$fp = file('private://qualtrics_data/'.$surveyid.'.zip');
+    $datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
@@ -170,7 +166,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
         file_save_data($filedownload, 'private://qualtrics_data/'.$surveyid.'.zip', FILE_EXISTS_REPLACE);
 
         $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
-        $textout =  $textout . "<li>path = <strong>".$path."</strong></li>";
+        //$textout = $textout . "<li><strong>File Path</strong> is ".$path."</strong></li>";
 
       }else{
         $textout =  $textout . "<li><strong>File Download failed !</strong></li>";
@@ -197,10 +193,6 @@ function texas_migrate_programs_unzip($surveyid){
 $path = drupal_realpath('private://qualtrics_data/');
 // zip file name
 $filename = $path."/".$surveyid.'.zip';
-// zip file name
-//$filename = '../private/qualtrics_data/'.$surveyid.'.zip';
-// unzip path
-//$path = "../private/qualtrics_data/";
 // do the business
 $zip = new ZipArchive;
 $res = $zip->open($filename);
