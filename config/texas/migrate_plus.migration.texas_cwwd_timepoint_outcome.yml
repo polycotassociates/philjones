@@ -1,4 +1,4 @@
-uuid: 81a20d68-46e3-44aa-88ef-938d29fc0be0
+uuid: 1e9ac9c1-c003-4ed6-af50-4a8bc5205209
 langcode: en
 status: true
 dependencies: {  }
@@ -45,5 +45,5 @@ process:
     default_value: 34
 destination:
   plugin: 'entity_reference_revisions:paragraph'
-  default_bundle: cwwd_timepoint
+  default_bundle: cwwd_timepoints
 migration_dependencies: null

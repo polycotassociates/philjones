@@ -5,10 +5,11 @@ dependencies:
   config:
     - field.field.node.dep_f.field_program_type
     - field.field.node.dep_f.field_response_id
-    - field.field.node.dep_f.field_timepoint_actions
+    - field.field.node.dep_f.field_timepoint_12w
+    - field.field.node.dep_f.field_timepoint_24w
+    - field.field.node.dep_f.field_timepoint_36w
+    - field.field.node.dep_f.field_timepoint_48w
     - field.field.node.dep_f.field_timepoint_baseline
-    - field.field.node.dep_f.field_timepoint_followup
-    - field.field.node.dep_f.field_timepoint_outcome
     - field.field.node.dep_f.field_user
     - node.type.dep_f
   module:
@@ -33,10 +34,11 @@ third_party_settings:
       label: 'Participant Data'
     group_timepoint_data:
       children:
-        - field_timepoint_actions
         - field_timepoint_baseline
-        - field_timepoint_outcome
-        - field_timepoint_followup
+        - field_timepoint_12w
+        - field_timepoint_24w
+        - field_timepoint_36w
+        - field_timepoint_48w
       parent_name: ''
       weight: 6
       format_type: fieldset
@@ -67,25 +69,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 7
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_timepoint_baseline:
-    type: entity_reference_revisions_entity_view
-    weight: 8
+  field_timepoint_12w:
+    weight: 9
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
-  field_timepoint_followup:
+  field_timepoint_24w:
     type: entity_reference_revisions_entity_view
     weight: 10
     label: above
@@ -94,9 +87,27 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_timepoint_outcome:
+  field_timepoint_36w:
     type: entity_reference_revisions_entity_view
-    weight: 9
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_48w:
+    type: entity_reference_revisions_entity_view
+    weight: 12
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 8
     label: above
     settings:
       view_mode: default

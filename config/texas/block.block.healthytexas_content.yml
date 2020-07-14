@@ -1,0 +1,22 @@
+uuid: bc846a2f-1aa3-405a-959d-6be5dbbac432
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: healthytexas_content
+theme: healthytexas
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 1088d2e8-4f92-4e65-be6e-4f2ca2cf7227
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: MhtNdV__HKRTab0ZPjkPNfYL4Ng4UPBucDLoC7Rg5Eo
+id: healthytexas_help
+theme: healthytexas
+region: help
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

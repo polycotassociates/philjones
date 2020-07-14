@@ -6,13 +6,11 @@ dependencies:
     - core.entity_view_mode.node.dashboard
     - field.field.node.map.field_program_type
     - field.field.node.map.field_response_id
-    - field.field.node.map.field_timepoint_actions
+    - field.field.node.map.field_timepoint_12w
     - field.field.node.map.field_timepoint_baseline
-    - field.field.node.map.field_timepoint_outcome
     - field.field.node.map.field_user
     - node.type.map
   module:
-    - entity_reference_revisions
     - field_group
     - user
 third_party_settings:
@@ -66,15 +64,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
   field_user:
     weight: 2
     label: hidden
@@ -84,7 +73,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_timepoint_12w: true
   field_timepoint_baseline: true
-  field_timepoint_outcome: true
   langcode: true
   links: true

@@ -30,7 +30,6 @@ source:
     htds_l_prefix: '&HTDS-L='
     dem_prefix: '&DEM=0'
     lng_prefix: '&LNG='
-    tm_prefix: '&TM=B'
   fields:
     -
       name: responseId
@@ -246,8 +245,6 @@ process:
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
       - '@temp_langlink'
-      - 'constants/tm_prefix'
-      - '@temp_timepointlink'
   'field_attendance_process_survey/uri':
     plugin: concat
     source:

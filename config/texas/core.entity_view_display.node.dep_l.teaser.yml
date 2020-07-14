@@ -7,10 +7,9 @@ dependencies:
     - field.field.node.dep_l.field_participant_name
     - field.field.node.dep_l.field_program_type
     - field.field.node.dep_l.field_response_id
-    - field.field.node.dep_l.field_timepoint_actions
+    - field.field.node.dep_l.field_timepoint_12w
+    - field.field.node.dep_l.field_timepoint_24w
     - field.field.node.dep_l.field_timepoint_baseline
-    - field.field.node.dep_l.field_timepoint_followup
-    - field.field.node.dep_l.field_timepoint_outcome
     - node.type.dep_l
   module:
     - user
@@ -28,8 +27,7 @@ hidden:
   field_participant_name: true
   field_program_type: true
   field_response_id: true
-  field_timepoint_actions: true
+  field_timepoint_12w: true
+  field_timepoint_24w: true
   field_timepoint_baseline: true
-  field_timepoint_followup: true
-  field_timepoint_outcome: true
   langcode: true

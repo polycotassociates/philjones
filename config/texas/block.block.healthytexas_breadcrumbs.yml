@@ -1,0 +1,22 @@
+uuid: 0a771839-5d42-4f10-8c22-6eef07739109
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: wDR9JKEATSWldBjw8du8s3G2zjEYeQf88nlld11hMLo
+id: healthytexas_breadcrumbs
+theme: healthytexas
+region: header
+weight: -6
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

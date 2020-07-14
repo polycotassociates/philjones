@@ -6,10 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.dep_f.field_program_type
     - field.field.node.dep_f.field_response_id
-    - field.field.node.dep_f.field_timepoint_actions
+    - field.field.node.dep_f.field_timepoint_12w
+    - field.field.node.dep_f.field_timepoint_24w
+    - field.field.node.dep_f.field_timepoint_36w
+    - field.field.node.dep_f.field_timepoint_48w
     - field.field.node.dep_f.field_timepoint_baseline
-    - field.field.node.dep_f.field_timepoint_followup
-    - field.field.node.dep_f.field_timepoint_outcome
     - field.field.node.dep_f.field_user
     - node.type.dep_f
   module:
@@ -27,9 +28,10 @@ content:
 hidden:
   field_program_type: true
   field_response_id: true
-  field_timepoint_actions: true
+  field_timepoint_12w: true
+  field_timepoint_24w: true
+  field_timepoint_36w: true
+  field_timepoint_48w: true
   field_timepoint_baseline: true
-  field_timepoint_followup: true
-  field_timepoint_outcome: true
   field_user: true
   langcode: true

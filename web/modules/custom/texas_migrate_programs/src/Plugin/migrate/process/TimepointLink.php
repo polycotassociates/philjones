@@ -35,16 +35,24 @@ class TimepointLink extends ProcessPluginBase {
       // build some dates
       $date = $date->format('Y-m-d');
       $now = date('Y-m-d');
-      $outcomedate = date_add($date, date_interval_create_from_date_string('12 weeks'));;
-      $followupdate = date_add($date, date_interval_create_from_date_string('12 weeks'));;
+      $12W = date_add($date, date_interval_create_from_date_string('12 weeks'));
+      $24W = date_add($date, date_interval_create_from_date_string('24 weeks'));
+      $36W = date_add($date, date_interval_create_from_date_string('36 weeks'));
+      $48W = date_add($date, date_interval_create_from_date_string('48 weeks'));
 
       // set some values
       $timepoint_link = 'B';
-      if ($date > $outcomedate){
-        $timepoint_link = 'O';
+      if ($date > $12W){
+        $timepoint_link = '12W';
       }
-      if ($date > $followupdate){
-        $timepoint_link = 'FU';
+      if ($date > $24W){
+        $timepoint_link = '24W';
+      }
+      if ($date > $36W){
+        $timepoint_link = '36W';
+      }
+      if ($date > $48W){
+        $timepoint_link = '48W';
       }
       $value = $timepoint_link
     }

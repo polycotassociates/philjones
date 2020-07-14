@@ -80,6 +80,28 @@ process:
     process:
       target_id: '0'
       target_revision_id: '1'
+  pseudo_field_timepoint_36W:
+    plugin: migration_lookup
+    migration: texas_susd_f_timepoint_36W
+    source: responseId
+  field_timepoint_36W:
+    plugin: sub_process
+    source:
+    - '@pseudo_field_timepoint_36W'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
+  pseudo_field_timepoint_48W:
+    plugin: migration_lookup
+    migration: texas_susd_f_timepoint_48W
+    source: responseId
+  field_timepoint_48W:
+    plugin: sub_process
+    source:
+    - '@pseudo_field_timepoint_48W'
+    process:
+      target_id: '0'
+      target_revision_id: '1'
   uid:
     plugin: default_value
     default_value: 0

@@ -7,10 +7,9 @@ dependencies:
     - field.field.node.dep_l.field_participant_name
     - field.field.node.dep_l.field_program_type
     - field.field.node.dep_l.field_response_id
-    - field.field.node.dep_l.field_timepoint_actions
+    - field.field.node.dep_l.field_timepoint_12w
+    - field.field.node.dep_l.field_timepoint_24w
     - field.field.node.dep_l.field_timepoint_baseline
-    - field.field.node.dep_l.field_timepoint_followup
-    - field.field.node.dep_l.field_timepoint_outcome
     - node.type.dep_l
   module:
     - entity_reference_revisions
@@ -23,7 +22,6 @@ third_party_settings:
         - field_program_type
         - field_participant_name
         - field_response_id
-        - field_study_site
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -35,7 +33,9 @@ third_party_settings:
       label: ''
     group_time:
       children:
-        - field_timepoint_actions
+        - field_timepoint_baseline
+        - field_timepoint_12w
+        - field_timepoint_24w
       parent_name: ''
       weight: 5
       format_type: fieldset
@@ -74,18 +74,33 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 6
-    label: hidden
+  field_timepoint_12w:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_timepoint_24w:
     type: entity_reference_revisions_entity_view
+    weight: 2
     region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
 hidden:
-  field_timepoint_baseline: true
-  field_timepoint_followup: true
-  field_timepoint_outcome: true
   langcode: true
   links: true

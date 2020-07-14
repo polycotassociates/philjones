@@ -1,0 +1,31 @@
+uuid: 7c6058c6-55da-4921-ac74-b3464d2ddd15
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:70e52bee-0617-4506-bb97-ee75479c818d'
+  module:
+    - block_content
+    - system
+  theme:
+    - healthytexas
+id: healthytexas_agriliferesearchresearchlogo
+theme: healthytexas
+region: footer
+weight: -5
+provider: null
+plugin: 'block_content:70e52bee-0617-4506-bb97-ee75479c818d'
+settings:
+  id: 'block_content:70e52bee-0617-4506-bb97-ee75479c818d'
+  label: 'AgriLife Research Research Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

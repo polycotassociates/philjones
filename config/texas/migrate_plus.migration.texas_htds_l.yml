@@ -1,4 +1,4 @@
-uuid: 500950d0-e062-4bdb-89fb-eaea8fea0b4a
+uuid: 5f3a5d63-0742-4fe4-98b4-a0963c13b900
 langcode: en
 status: true
 dependencies: {  }
@@ -46,6 +46,7 @@ process:
     default_value: healthy_schools_limited
   title: name
   field_response_id: field_response_id
+  field_participant_name: name
   pseudo_field_timepoint_baseline:
     plugin: migration_lookup
     migration: texas_htds_l_timepoint_baseline
@@ -57,14 +58,14 @@ process:
     process:
       target_id: '0'
       target_revision_id: '1'
-  pseudo_field_timepoint_outcome:
+  pseudo_field_timepoint_12W:
     plugin: migration_lookup
-    migration: texas_htds_l_timepoint_outcome
+    migration: texas_htds_l_timepoint_12W
     source: responseId
-  field_timepoint_outcome:
+  field_timepoint_12W:
     plugin: sub_process
     source:
-      - '@pseudo_field_timepoint_outcome'
+      - '@pseudo_field_timepoint_12W'
     process:
       target_id: '0'
       target_revision_id: '1'
