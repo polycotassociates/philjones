@@ -16,7 +16,7 @@ bundle: dep_l_timepoint
 mode: default
 content:
   field_measures_completed:
-    weight: 2
+    weight: 1
     label: inline
     settings:
       format: default
@@ -26,7 +26,7 @@ content:
     type: boolean
     region: content
   field_start_date:
-    weight: 1
+    weight: 0
     label: inline
     settings:
       timezone_override: ''
@@ -34,13 +34,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_timepoint:
-    weight: 0
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
 hidden:
   field_participant_id: true
+  field_timepoint: true

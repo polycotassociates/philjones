@@ -5,9 +5,8 @@ dependencies:
   config:
     - field.field.node.cwwd.field_program_type
     - field.field.node.cwwd.field_response_id
-    - field.field.node.cwwd.field_timepoint_actions
+    - field.field.node.cwwd.field_timepoint_12w
     - field.field.node.cwwd.field_timepoint_baseline
-    - field.field.node.cwwd.field_timepoint_outcome
     - field.field.node.cwwd.field_user
     - node.type.cwwd
   module:
@@ -32,9 +31,8 @@ third_party_settings:
       label: 'Participant Data'
     group_timepoint_data:
       children:
-        - field_timepoint_actions
         - field_timepoint_baseline
-        - field_timepoint_outcome
+        - field_timepoint_12w
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -65,26 +63,17 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
+  field_timepoint_12w:
     type: entity_reference_revisions_entity_view
-    region: content
-  field_timepoint_baseline:
-    weight: 3
+    weight: 4
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
     region: content
-  field_timepoint_outcome:
-    weight: 4
+  field_timepoint_baseline:
+    weight: 3
     label: above
     settings:
       view_mode: default

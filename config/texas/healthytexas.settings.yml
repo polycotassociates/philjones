@@ -1,0 +1,17 @@
+schemas:
+  bootstrap: 8000
+  healthytexas: 8000
+favicon:
+  mimetype: image/png
+  path: 'public://TAM-LogoBox_2_0.png'
+  url: 'http://alexissanchez.fellaini.local/sites/texas/files/TAM-LogoBox_2_0.png'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: false

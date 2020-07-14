@@ -5,9 +5,8 @@ dependencies:
   config:
     - field.field.node.susd_l.field_program_type
     - field.field.node.susd_l.field_response_id
-    - field.field.node.susd_l.field_timepoint_actions
+    - field.field.node.susd_l.field_timepoint_12w
     - field.field.node.susd_l.field_timepoint_baseline
-    - field.field.node.susd_l.field_timepoint_outcome
     - field.field.node.susd_l.field_user
     - node.type.susd_l
   module:
@@ -32,9 +31,8 @@ third_party_settings:
       label: 'Participant Data'
     group_timepoint_data:
       children:
-        - field_timepoint_actions
         - field_timepoint_baseline
-        - field_timepoint_outcome
+        - field_timepoint_12w
       parent_name: ''
       weight: 6
       format_type: fieldset
@@ -65,9 +63,9 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 7
-    label: hidden
+  field_timepoint_12w:
+    weight: 9
+    label: above
     settings:
       view_mode: default
       link: ''
@@ -76,15 +74,6 @@ content:
     region: content
   field_timepoint_baseline:
     weight: 8
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_timepoint_outcome:
-    weight: 9
     label: above
     settings:
       view_mode: default

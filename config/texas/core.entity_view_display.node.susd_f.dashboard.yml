@@ -6,14 +6,14 @@ dependencies:
     - core.entity_view_mode.node.dashboard
     - field.field.node.susd_f.field_program_type
     - field.field.node.susd_f.field_response_id
-    - field.field.node.susd_f.field_timepoint_actions
+    - field.field.node.susd_f.field_timepoint_12w
+    - field.field.node.susd_f.field_timepoint_24w
+    - field.field.node.susd_f.field_timepoint_36w
+    - field.field.node.susd_f.field_timepoint_48w
     - field.field.node.susd_f.field_timepoint_baseline
-    - field.field.node.susd_f.field_timepoint_followup
-    - field.field.node.susd_f.field_timepoint_outcome
     - field.field.node.susd_f.field_user
     - node.type.susd_f
   module:
-    - entity_reference_revisions
     - field_group
     - user
 third_party_settings:
@@ -67,15 +67,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
   field_user:
     weight: 2
     label: hidden
@@ -85,8 +76,10 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_timepoint_12w: true
+  field_timepoint_24w: true
+  field_timepoint_36w: true
+  field_timepoint_48w: true
   field_timepoint_baseline: true
-  field_timepoint_followup: true
-  field_timepoint_outcome: true
   langcode: true
   links: true

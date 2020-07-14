@@ -5,10 +5,11 @@ dependencies:
   config:
     - field.field.node.susd_f.field_program_type
     - field.field.node.susd_f.field_response_id
-    - field.field.node.susd_f.field_timepoint_actions
+    - field.field.node.susd_f.field_timepoint_12w
+    - field.field.node.susd_f.field_timepoint_24w
+    - field.field.node.susd_f.field_timepoint_36w
+    - field.field.node.susd_f.field_timepoint_48w
     - field.field.node.susd_f.field_timepoint_baseline
-    - field.field.node.susd_f.field_timepoint_followup
-    - field.field.node.susd_f.field_timepoint_outcome
     - field.field.node.susd_f.field_user
     - node.type.susd_f
   module:
@@ -33,10 +34,11 @@ third_party_settings:
       label: 'Participant Data'
     group_timepoint_data:
       children:
-        - field_timepoint_actions
         - field_timepoint_baseline
-        - field_timepoint_outcome
-        - field_timepoint_followup
+        - field_timepoint_12w
+        - field_timepoint_24w
+        - field_timepoint_36w
+        - field_timepoint_48w
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -67,17 +69,8 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_timepoint_actions:
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_timepoint_baseline:
-    weight: 3
+  field_timepoint_12w:
+    weight: 4
     label: above
     settings:
       view_mode: default
@@ -85,7 +78,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
-  field_timepoint_followup:
+  field_timepoint_24w:
     weight: 5
     label: above
     settings:
@@ -94,8 +87,26 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
-  field_timepoint_outcome:
-    weight: 4
+  field_timepoint_36w:
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_48w:
+    weight: 7
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_baseline:
+    weight: 3
     label: above
     settings:
       view_mode: default

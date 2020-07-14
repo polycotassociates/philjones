@@ -1,4 +1,4 @@
-uuid: 022e9456-6283-42c4-9ef4-b64bdbcf9448
+uuid: 3ae7bfd6-1c7c-40fa-96f3-23c7678d7a52
 langcode: en
 status: true
 dependencies: {  }
@@ -62,14 +62,14 @@ process:
     process:
       target_id: '0'
       target_revision_id: '1'
-  pseudo_field_timepoint_outcome:
+  pseudo_field_timepoint_12W:
     plugin: migration_lookup
-    migration: texas_map_timepoint_outcome
+    migration: texas_map_timepoint_12W
     source: responseId
-  field_timepoint_outcome:
+  field_timepoint_12W:
     plugin: sub_process
     source:
-      - '@pseudo_field_timepoint_outcome'
+      - '@pseudo_field_timepoint_12W'
     process:
       target_id: '0'
       target_revision_id: '1'

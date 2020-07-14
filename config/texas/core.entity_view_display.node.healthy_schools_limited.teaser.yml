@@ -7,9 +7,8 @@ dependencies:
     - field.field.node.healthy_schools_limited.field_participant_name
     - field.field.node.healthy_schools_limited.field_program_type
     - field.field.node.healthy_schools_limited.field_response_id
-    - field.field.node.healthy_schools_limited.field_timepoint_actions
+    - field.field.node.healthy_schools_limited.field_timepoint_12w
     - field.field.node.healthy_schools_limited.field_timepoint_baseline
-    - field.field.node.healthy_schools_limited.field_timepoint_outcome
     - node.type.healthy_schools_limited
   module:
     - user
@@ -27,7 +26,6 @@ hidden:
   field_participant_name: true
   field_program_type: true
   field_response_id: true
-  field_timepoint_actions: true
+  field_timepoint_12w: true
   field_timepoint_baseline: true
-  field_timepoint_outcome: true
   langcode: true
