@@ -11,10 +11,10 @@ use Drupal\migrate\Row;
  * Format followup start date - baseline plus 24 weeks.
  *
  * @MigrateProcessPlugin(
- *   id = "48W_date",
+ *   id = "24W_date",
  * )
  */
-class 48WDate extends ProcessPluginBase {
+class Week24Date extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}
@@ -32,7 +32,7 @@ class 48WDate extends ProcessPluginBase {
       else {
         $date = new \DateTime($value);
       }
-      $date = date_add($date, date_interval_create_from_date_string('48 weeks'));
+      $date = date_add($date, date_interval_create_from_date_string('24 weeks'));
       $value = $date->format('Y-m-d');
     }
     catch (\Exception $e) {

@@ -42,7 +42,7 @@ process:
     source: field_start_date
   field_timepoint:
     plugin: default_value
-    default_value: 34
+    default_value: 74
 destination:
   plugin: 'entity_reference_revisions:paragraph'
   default_bundle: wat_timepoint
