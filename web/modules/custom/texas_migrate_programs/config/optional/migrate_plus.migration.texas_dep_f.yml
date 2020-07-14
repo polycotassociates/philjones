@@ -62,7 +62,7 @@ process:
     plugin: migration_lookup
     migration: texas_dep_f_timepoint_12W
     source: responseId
-  field_timepoint_12W:
+  field_timepoint_12w:
     plugin: sub_process
     source:
     - '@pseudo_field_timepoint_12W'
@@ -73,7 +73,7 @@ process:
     plugin: migration_lookup
     migration: texas_dep_f_timepoint_24W
     source: responseId
-  field_timepoint_24W:
+  field_timepoint_24w:
     plugin: sub_process
     source:
     - '@pseudo_field_timepoint_24W'
@@ -84,7 +84,7 @@ process:
     plugin: migration_lookup
     migration: texas_dep_f_timepoint_36W
     source: responseId
-  field_timepoint_36W:
+  field_timepoint_36w:
     plugin: sub_process
     source:
     - '@pseudo_field_timepoint_36W'
@@ -95,7 +95,7 @@ process:
     plugin: migration_lookup
     migration: texas_dep_f_timepoint_48W
     source: responseId
-  field_timepoint_48W:
+  field_timepoint_48w:
     plugin: sub_process
     source:
     - '@pseudo_field_timepoint_48W'

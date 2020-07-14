@@ -43,5 +43,5 @@ process:
     source: field_start_date
   field_timepoint:
     plugin: default_value
-    default_value: 35
+    default_value: 75
 
