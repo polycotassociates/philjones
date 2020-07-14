@@ -14,7 +14,7 @@ use Drupal\migrate\Row;
  *   id = "36W_date",
  * )
  */
-class 36WDate extends ProcessPluginBase {
+class Week36Date extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}

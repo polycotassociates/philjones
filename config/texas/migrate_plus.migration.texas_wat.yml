@@ -66,7 +66,7 @@ process:
     plugin: migration_lookup
     migration: texas_wat_timepoint_12W
     source: responseId
-  field_timepoint_12W:
+  field_timepoint_12w:
     plugin: sub_process
     source:
       - '@pseudo_field_timepoint_12W'
