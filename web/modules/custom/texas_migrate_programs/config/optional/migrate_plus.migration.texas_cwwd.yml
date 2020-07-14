@@ -58,7 +58,7 @@ process:
     process:
       target_id: '0'
       target_revision_id: '1'
-  pseudo_field_timepoint_12W:
+  pseudo_field_timepoint_12w:
     plugin: migration_lookup
     migration: texas_cwwd_timepoint_12W
     source: responseId
