@@ -39,7 +39,7 @@ process:
     method: row
     source: field_program_type
   field_start_date/value:
-    plugin: followup_date
+    plugin: 24W_date
     source: field_start_date
   field_timepoint:
     plugin: default_value

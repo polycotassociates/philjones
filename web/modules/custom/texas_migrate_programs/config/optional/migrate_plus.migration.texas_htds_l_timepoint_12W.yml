@@ -38,7 +38,7 @@ process:
     method: row
     source: field_program_type
   field_start_date/value:
-    plugin: outcome_date
+    plugin: 12W_date
     source: field_start_date
   field_timepoint:
     plugin: default_value
