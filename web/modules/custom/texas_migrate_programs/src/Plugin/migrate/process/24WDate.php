@@ -8,13 +8,13 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Format outcome start date - baseline plus 12 weeks.
+ * Format followup start date - baseline plus 24 weeks.
  *
  * @MigrateProcessPlugin(
- *   id = "outcome_date",
+ *   id = "24W_date",
  * )
  */
-class OutcomeDate extends ProcessPluginBase {
+class 24WDate extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}
@@ -32,7 +32,7 @@ class OutcomeDate extends ProcessPluginBase {
       else {
         $date = new \DateTime($value);
       }
-      $date = date_add($date, date_interval_create_from_date_string('12 weeks'));
+      $date = date_add($date, date_interval_create_from_date_string('24 weeks'));
       $value = $date->format('Y-m-d');
     }
     catch (\Exception $e) {
