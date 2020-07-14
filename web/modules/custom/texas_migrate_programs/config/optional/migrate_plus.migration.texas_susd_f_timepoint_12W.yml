@@ -1,11 +1,11 @@
 # Migration configuration for imported images.
-id: texas_dep_f_timepoint_outcome
-label: Import baseline timepoint data into a paragraph to relate to a dep_f program data node.
+id: texas_susd_f_timepoint_12W
+label: Import baseline timepoint data into a paragraph to relate to a susd_f program data node.
 migration_group: texas
 
 destination:
   plugin: entity_reference_revisions:paragraph
-  default_bundle: dep_f_timepoint
+  default_bundle: susd_f_timepoint
 source:
   plugin: url
   data_fetcher_plugin: file
@@ -26,11 +26,12 @@ source:
     -
       name: field_start_date
       label: 'Start Date'
-      selector: values/QID15#2_1_1
+      selector: values/QID15#2_3_1
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_1
+      selector: values/QID15#1_3
+
 
 process:
   field_program_type:
@@ -43,3 +44,4 @@ process:
   field_timepoint:
     plugin: default_value
     default_value: 34
+

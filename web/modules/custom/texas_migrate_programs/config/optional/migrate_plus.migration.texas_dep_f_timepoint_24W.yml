@@ -1,5 +1,5 @@
 # Migration configuration for imported images.
-id: texas_dep_f_timepoint_followup
+id: texas_dep_f_timepoint_24W
 label: Import baseline timepoint data into a paragraph to relate to a dep_f program data node.
 migration_group: texas
 
