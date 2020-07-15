@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.cwwd.field_user
     - node.type.cwwd
   module:
+    - entity_reference_revisions
     - field_group
     - user
 third_party_settings:
@@ -20,8 +21,6 @@ third_party_settings:
         - field_program_type
         - field_user
         - field_response_id
-        - field_study_site
-        - field_participant_questionnaire
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -33,7 +32,8 @@ third_party_settings:
       label: ''
     group_timepoint_data:
       children:
-        - field_timepoint_actions
+        - field_timepoint_baseline
+        - field_timepoint_12w
       parent_name: ''
       weight: 2
       format_type: fieldset
@@ -64,6 +64,24 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_timepoint_12w:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_user:
     weight: 2
     label: hidden
@@ -73,7 +91,5 @@ content:
     type: entity_reference_label
     region: content
 hidden:
-  field_timepoint_12w: true
-  field_timepoint_baseline: true
   langcode: true
   links: true
