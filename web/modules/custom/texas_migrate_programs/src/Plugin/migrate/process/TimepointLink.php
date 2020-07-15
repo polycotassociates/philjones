@@ -21,40 +21,40 @@ class TimepointLink extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     try {
-      if (is_numeric($value)) {
-        $date = new \DateTime();
-        $date->setTimestamp($value);
-      }
-      elseif (is_array($value)) {
-        $value = implode(',', $value);
-        $date = new \DateTime($value);
-      }
-      else {
-        $date = new \DateTime($value);
-      }
+
+      //date is 9/15/2020
+      //$date = $value;
       // build some dates
-      $date = $date->format('Y-m-d');
-      $now = date('Y-m-d');
-      $12W = date_add($date, date_interval_create_from_date_string('12 weeks'));
-      $24W = date_add($date, date_interval_create_from_date_string('24 weeks'));
-      $36W = date_add($date, date_interval_create_from_date_string('36 weeks'));
-      $48W = date_add($date, date_interval_create_from_date_string('48 weeks'));
+      //$date = $date->format('Y-m-d');
+      //$now = date('Y-m-d');
+      //$now = date_create();
+      //$now = date_timestamp_get($date);
+
 
       // set some values
-      $timepoint_link = 'B';
-      if ($date > $12W){
-        $timepoint_link = '12W';
-      }
-      if ($date > $24W){
-        $timepoint_link = '24W';
-      }
-      if ($date > $36W){
+      if (!empty($value)) {
+      $date = strtotime($value);
+      $timepoint_link = '48W';
+      if($date >= strtotime('-48 week')){
         $timepoint_link = '36W';
       }
-      if ($date > $48W){
-        $timepoint_link = '48W';
+      if($date >= strtotime('-36 week')){
+        $timepoint_link = '24W';
       }
-      $value = $timepoint_link
+      if($date >= strtotime('-24 week')){
+        $timepoint_link = '12W';
+      }
+      if($date >= strtotime('-12 week')){
+        $timepoint_link = 'B';
+      }
+
+
+
+       }else{
+      $timepoint_link = 'N';
+      }
+
+      $value = $timepoint_link;
     }
     catch (\Exception $e) {
       throw new MigrateException('Invalid source date.');
