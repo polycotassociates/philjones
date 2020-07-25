@@ -2,7 +2,10 @@ framework:
   css:
     theme:
       css/style.css: {}
-
+fonts:
+  css:
+    theme:
+      "//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&family=Oswald:wght@400;700&display=swap" : { type: external, minified: true }
 # Uncomment for LESS source JavaScript files.
 #  js:
 #    bootstrap/js/affix.js: {}
