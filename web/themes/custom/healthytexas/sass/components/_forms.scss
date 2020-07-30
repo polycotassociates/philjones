@@ -1,0 +1,19 @@
+/* -------------------------
+
+Title: _forms.scss
+Descr: overrides BS forms.
+
+--------------------------- */
+.form-group {
+  margin: 1rem 0 3rem 0;
+}
+
+.form--inline {
+  display: flex;
+  align-items: flex-end;
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+  }
+}

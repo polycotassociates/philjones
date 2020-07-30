@@ -1,0 +1,7 @@
+html {
+  font-size: var(--base-font-size);
+}
+body {
+  @include baseFont();
+  background: var(--lighter-gray);
+}
