@@ -1,0 +1,20 @@
+/* -------------------------
+
+Title: _wells.scss
+Descr: overrides for BS wells
+
+--------------------------- */
+
+.well {
+  background: var(--light-gray);
+  padding: 1rem;
+  h2.block-title {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: var(--lighter-gray);
+    background: var(--olive);
+    border-radius: var(--border-radius);
+    padding: 0.5em;
+  }
+}

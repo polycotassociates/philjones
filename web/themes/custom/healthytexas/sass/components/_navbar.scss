@@ -1,0 +1,86 @@
+/* -------------------------
+
+Title: _navbar.scss
+Descr: lots of overwrites for Bootstrap defaults
+  .navbar-default
+
+--------------------------- */
+
+.navbar-default {
+  background-color: var(--maroon);
+}
+
+.navbar.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.container-fluid {
+  .navbar-header {
+    @include bs-large {
+      // margin-left: calc((100% - 1170px) / 2);
+    }
+    padding: 0.75rem 0;
+  }
+}
+
+.navbar-nav {
+  @include bs-small {
+    float: right;
+    margin-top: 12px;
+  }
+  @include bs-large {
+    // margin-right: calc((100% - 1170px) / 2);
+  }
+}
+
+// crazy deep bootstrap nesting
+.navbar-default .navbar-nav > li > a {
+  color: var(--ht-white);
+  font-weight: var(--semi);
+  &:hover {
+    color: var(--lighter-gray);
+    text-decoration-color: var(--tan);
+  }
+}
+
+.navbar-default .navbar-brand {
+  color: var(--ht-white);
+  font-weight: var(--semi);
+  text-transform: uppercase;
+  background: url(/themes/custom/healthytexas/images/TAM-LogoBox.svg) no-repeat;
+  background-position: left;
+  padding-left: 3rem;
+
+  @include bs-small {
+    background-size: 4rem 4rem;
+    font-size: 1.25rem;
+    padding-left: 5rem;
+    position: relative;
+    margin-left: -1rem;
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: var(--ht-white);
+      width: 2px;
+      height: 100%;
+      left: 4rem;
+      top: 0;
+    }
+  }
+
+  &:hover {
+    color: var(--ht-white);
+    text-decoration: underline;
+  }
+}
+
+// main navbar links
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: var(--maroon-dark);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--olive);
+  color: var(--light-gray);
+}

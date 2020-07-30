@@ -1,0 +1,53 @@
+/* -------------------------
+
+Title: _footer.scss
+Descr: overrides for BS footers
+  will also include all footer nav stuff
+
+--------------------------- */
+
+.footer {
+  width: 100%;
+  background: var(--light-gray);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  border-top: 1px solid var(--tan);
+  margin-bottom: 4rem;
+  img {
+    max-width: 180px;
+  }
+}
+
+.region-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include bs-medium {
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  align-items: center;
+  // max-width: $bs-large;
+  margin: 0 auto;
+  padding: 3rem 0;
+  .navbar-nav {
+    float: none !important;
+    margin-top: none;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    @include bs-medium {
+      justify-content: flex-start;
+    }
+  }
+}
+
+// bootstrap hacker
+#block-healthytexas-agriliferesearchresearchlogo {
+  text-align: center;
+  padding: 2rem 0;
+  @include bs-medium {
+    padding: 0;
+  }
+}
