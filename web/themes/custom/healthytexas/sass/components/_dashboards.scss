@@ -1,0 +1,5 @@
+article[data-quickedit-entity-id^="user"]{
+  .name-id, .participant{
+    display: none;
+  }
+}
