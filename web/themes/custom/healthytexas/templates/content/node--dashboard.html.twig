@@ -47,13 +47,10 @@
   </div>
 </div> #}
 
-	<div
-	class="panel panel-default dashboard"> {#<div class="panel-heading">#}
-	<div class="dashboard__title">
+	<div class="panel panel-default dashboard"> <div class="dashboard__title">
 		{{elements.field_program_type}}
 	</div>
-	{# </div> #}
-	{# <div class="panel-body"> #}
+
 	<div class="dashboard__participant">
 		{{content.field_user}}
 	</div>
@@ -68,47 +65,4 @@
 			{{elements.field_timepoint_12w}}
 		</div>
 	</div>
-</div></div>{# <article>
-			<div class="content">
-	      <div class="panel">
-	        <div class="panel-heading">
-	          <h2{{title_attributes}}>
-	            <a href="{{ url }}" rel="bookmark">
-	              {{content.field_user.0["#title"]}}
-	            </a>
-	          </h2>
-	          {{elements.field_program_type}}
-	        </div>
-	        <div class="panel-body">
-	         	 
-	
-	        </div>
-	      </div>
-	      <div>
-	    </div>
-		</article> #}{# <article{{attributes.addClass(classes)}}> dashboard yo {{ title_prefix }} {% if label and not page %} <h2{{title_attributes}}> <a href="{{ url }}" rel="bookmark">></h2>
-		  {% endif %}
-		  {{ title_suffix }}
-		
-		  {% if display_submitted %}
-		    <footer>
-		      {{ author_picture }}
-		      <div{{author_attributes.addClass('author')}}>
-		        {% trans %}
-		        Submitted by
-		        {{ author_name }}
-		        on
-		        {{ date }}
-		        {% endtrans %}
-		        {{ metadata }}
-		      </div>
-		    </footer>
-		  {% endif %}
-		
-		  <div{{content_attributes.addClass('content')}}>
-		    {{ content }}
-		
-		  </div>
-		
-		</article>
-		#}
+</div>
