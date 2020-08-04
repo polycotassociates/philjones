@@ -34,7 +34,7 @@ Descr: overrides for BS footers
     margin-top: none;
   }
 
-  ul {
+  ul.menu {
     display: flex;
     justify-content: center;
     @include bs-medium {
