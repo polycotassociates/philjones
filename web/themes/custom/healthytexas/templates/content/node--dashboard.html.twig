@@ -46,9 +46,15 @@
     </div>
   </div>
 </div> #}
+{# {{vardumper()}} #}
 
-	<div class="panel panel-default dashboard"> <div class="dashboard__title">
-		{{elements.field_program_type}}
+{# Adding edit button b/c the hover for title_prefix won't work on iPads #}
+
+	<div class="panel panel-default dashboard contextual-region {{attributes}}">
+  
+  {# {{title_prefix}}  #}
+  <div class="dashboard__title">
+		 {{elements.field_program_type}} <a class="edit" href="{{url}}/edit">edit</a>
 	</div>
 
 	<div class="dashboard__participant">
@@ -63,6 +69,10 @@
 		<div class="panel-body">
 			{{elements.field_timepoint_baseline}}
 			{{elements.field_timepoint_12w}}
+      {{elements.field_timepoint_24w}}
+      {{elements.field_timepoint_36w}}
+      {{elements.field_timepoint_48w}}
 		</div>
 	</div>
+  {# {{title_suffix}} #}
 </div>

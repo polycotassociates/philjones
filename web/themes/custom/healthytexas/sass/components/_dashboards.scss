@@ -38,6 +38,22 @@ article[data-quickedit-entity-id^="user"] {
     font-size: 1.5rem;
     font-weight: var(--semi);
     color: var(--maroon);
+    display: flex;
+    justify-content: flex-end;
+    a{
+      color: var(--maroon);
+      // margin-right: 1rem;
+      &.edit{
+        font-weight: var(--light);
+        font-size: 1rem;
+        color: var(--link);
+        background: var(--ht-white);
+        border-radius: var(--border-radius);
+        font-family: var(--font-text);
+        padding: .25rem .5rem;
+        margin-left: 1rem;
+      }
+    }
   }
   &__participant {
     grid-column: 1 / -1;
@@ -88,8 +104,21 @@ article[data-quickedit-entity-id^="user"] {
   .panel-body {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     > div {
-      flex: 0 0 24%;
+      flex: 0 1 100%;
+      margin-bottom: 1rem;
+      @include bs-small(){
+        flex: 0 1 47%;
+      }
+      @include bs-large(){
+        flex: 0 1 23%;
+      }
+    }
+    >div{
+      field-label{
+        color: red;
+      }
     }
     &:before {
       display: none;
