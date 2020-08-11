@@ -1,0 +1,31 @@
+/* -------------------------
+
+Title: _layout.scss
+Descr: main layout overrides.
+
+--------------------------- */
+
+//whole wrapper
+.dialog-off-canvas-main-canvas {
+  max-width: $xl;
+  margin: 0 auto;
+  background: var(--ht-white);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 27px rgb(255, 255, 255);
+}
+
+// container-fluid
+.container-fluid {
+  padding: 0 2rem;
+  @include bs-small {
+    padding: 0.5rem 3rem;
+  }
+  @include bs-large {
+    padding: 0.5rem 4rem;
+  }
+}
+
+// main-container
+.main-container {
+  margin: 4rem 0 2rem 0;
+}
