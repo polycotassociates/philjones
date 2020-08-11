@@ -1,0 +1,20 @@
+/* -------------------------
+
+Title: _text-things.scss
+Descr: main text styles for 
+  <p>
+  <ul>
+  <a>
+  != headings
+
+--------------------------- */
+
+// body links
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  &:hover {
+    color: var(--link-hover);
+  }
+}

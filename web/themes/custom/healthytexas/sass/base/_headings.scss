@@ -1,0 +1,34 @@
+/* -------------------------
+
+Title: _headings.scss
+Descr: overrides for BS headers
+
+--------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-headings);
+  font-weight: var(--semi);
+  margin: 0.75em 0 0.5em 0;
+}
+
+h1 {
+  font-size: calc(2.5 * var(--base-font-size));
+  line-height: calc(1ex / 0.5);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: calc(2 * var(--base-font-size));
+}
+
+h3 {
+  font-size: calc(1.75 * var(--base-font-size));
+}
+
+h4 {
+  font-size: calc(1.5 * var(--base-font-size));
+}
