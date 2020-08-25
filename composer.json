@@ -68,7 +68,7 @@
         "drupal/qualtricsxm": "^1.2",
         "drupal/recaptcha": "^2.5",
         "drupal/redis": "^1.1",
-        "drupal/restui": "^1.17",
+        "drupal/restui": "^1.18",
         "drupal/rules": "^3.0",
         "drupal/sharedemail": "^2.0",
         "drupal/simple_oauth": "^3.16",
