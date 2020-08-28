@@ -1,7 +1,7 @@
 {% set classes = ['dashboard'] %}
 {# {{vardumper(content.field_user)}}
  #}
-{# {{vardumper()}} #}
+
 
 {# <p>
 	name:
@@ -32,6 +32,7 @@
 {# <div class="programItem">
   <div class="programItem--username">
     {{content.field_user}}
+    {{content.field_participant_name}}
   </div>
     <div class="panel panel-default col-sm-3">
       <div class="panel-heading">
@@ -51,14 +52,19 @@
 {# Adding edit button b/c the hover for title_prefix won't work on iPads #}
 
 	<div class="panel panel-default dashboard contextual-region {{attributes}}">
-  
+
   {# {{title_prefix}}  #}
   <div class="dashboard__title">
-		 {{elements.field_program_type}} <a class="edit" href="{{url}}/edit">edit</a>
+		 {# elements.field_program_type #} {{ node.type.entity.label }} ({{ node.getType }}) <a class="edit" href="{{url}}/edit">edit</a>
 	</div>
 
 	<div class="dashboard__participant">
-		{{content.field_user}}
+    {% if content.field_user %}
+        {{content.field_user}}
+    {% endif %}
+    {% if content.field_participant_name %}
+        {{content.field_participant_name}}
+    {% endif %}
 	</div>
 	<div class="panel panel-default timepoints dashboard__timepoints">
 		<div class="panel-heading">
