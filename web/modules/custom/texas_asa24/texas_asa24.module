@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Contains texas_asa24.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+/**
+ * Implements hook_help().
+ */
+function texas_asa24_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the texas_asa24 module.
+    case 'help.page.texas_asa24':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Generates JWT to provide SSO authentication to ASA24 an provides endpoint to receive data and update user records') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Runs functions to generate JWT().
+ */
+function texas_asa24_generate_jwt($user){
+// get settings
+  $config = \Drupal::config("texas_asa24.credentials");
+  $settings = array();
+  $settings["api_token"] = $config->get("api_token");
+  $userstring = 'HTI-'.$user;
+  $redirectstring = 'https://texas.stronghealthycommunities.org/user/'.$user;
+  //get current time
+  $tokenexp = time();
+  //add 3 months
+  $tokenexp = strtotime("+3 month", $tokenexp);
+  $textout = "";
+  // build JWT
+  // Create token header as a JSON string
+  $header = json_encode(['typ' => 'JWT', 'alg' => 'HS512']);
+
+  // Create token payload as a JSON string
+  $payload = json_encode(['study' => '76ba454b-dcdf-4f34-86f2-fcfeb432102a', 'roles' => '["respondent"]', 'userAccess' => '["HTI"]', 'studyAccess' => 'HTI', 'version' => '21', 'user' => $userstring, 'language' => 'eng', 'exp' => $tokenexp, 'iss' => 'TexasAM', 'redirect' => $redirectstring ]);
+
+  // Encode Header to Base64Url String
+  $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
+
+  // Encode Payload to Base64Url String
+  $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
+
+  // Create Signature Hash
+  $signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, $settings["api_token"], true);
+
+  // Encode Signature to Base64Url String
+  $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
+
+  // Create JWT
+  $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+
+  //echo $jwt;
+
+  $textout = $textout ."<ul>";
+  $textout = $textout ."<li>".$payload."</li>";
+  $textout = $textout ."<li>".$jwt."</li>";
+  $textout = $textout ."<li><a href='https://asa24mobiledemo.wesdemo.com/2016/index.html?token=".$jwt."'>Link to ASA24</a></li>";
+  $textout = $textout ."</ul>";
+ return $textout;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function texas_asa24_theme() {
+  return [
+    'default_block' => [
+      'variables' => [
+        'content' => NULL
+      ],
+      'render element' => 'children',
+    ],
+  ];
+}

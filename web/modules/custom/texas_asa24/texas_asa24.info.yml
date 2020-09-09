@@ -1,0 +1,5 @@
+name: 'Texas ASA24'
+type: module
+description: 'Generates JWT to provide SSO authentication to ASA24 an provides endpoint to receive data and update user records'
+core: 8.x
+package: 'TEXAS'
