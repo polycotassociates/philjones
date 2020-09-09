@@ -32,14 +32,18 @@ function texas_asa24_generate_jwt($user){
 // get settings
   $config = \Drupal::config("texas_asa24.credentials");
   $settings = array();
+  $textout = "";
   $settings["api_token"] = $config->get("api_token");
-  $userstring = 'HTI-'.$user;
-  $redirectstring = 'https://texas.stronghealthycommunities.org/user/'.$user;
+  $settings["base_url"] = $config->get("base_url");
+  $settings["token_life"] = $config->get("token_life");
+  $settings["redirect_url"] = $config->get("redirect_url");
+  $settings["user_prefix"] = $config->get("user_prefix");
+  $userstring = $settings["user_prefix"].$user;
+  $redirectstring = $settings["redirect_url"].$userstring;
   //get current time
   $tokenexp = time();
   //add 3 months
-  $tokenexp = strtotime("+3 month", $tokenexp);
-  $textout = "";
+  $tokenexp = strtotime($settings["token_life"], $tokenexp);
   // build JWT
   // Create token header as a JSON string
   $header = json_encode(['typ' => 'JWT', 'alg' => 'HS512']);
@@ -61,13 +65,16 @@ function texas_asa24_generate_jwt($user){
 
   // Create JWT
   $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+  $asaurl = $settings["base_url"].$jwt;
 
   //echo $jwt;
 
   $textout = $textout ."<ul>";
-  $textout = $textout ."<li>".$payload."</li>";
-  $textout = $textout ."<li>".$jwt."</li>";
-  $textout = $textout ."<li><a href='https://asa24mobiledemo.wesdemo.com/2016/index.html?token=".$jwt."'>Link to ASA24</a></li>";
+  //$textout = $textout ."<li>".$payload."</li>";
+  //$textout = $textout ."<li>".$jwt."</li>";
+  $textout = $textout ."<li>".$asaurl."</li>";
+  $textout = $textout ."<li>".$redirectstring."</li>";
+  $textout = $textout ."<li><a href='".$asaurl."'>Link to ASA24</a></li>";
   $textout = $textout ."</ul>";
  return $textout;
 }
