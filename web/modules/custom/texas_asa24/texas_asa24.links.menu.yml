@@ -1,0 +1,6 @@
+texas_asa24.settings:
+ title: 'ASA24 Settings'
+ description: 'Settings for ASA24 token generation'
+ parent: system.admin_config_services
+ route_name: texas_asa24.settings
+ weight: 100

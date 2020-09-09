@@ -30,7 +30,7 @@
         "drupal/colorbox_load": "^1.0",
         "drupal/computed_field": "^2.0",
         "drupal/config_delete": "^1.7",
-        "drupal/console": "^1.0.2",
+        "drupal/console": "~1.0",
         "drupal/consumers": "^1.10",
         "drupal/core": "^8.1",
         "drupal/core-dev": "^8.8",

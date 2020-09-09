@@ -1,0 +1,14 @@
+texas_asa24.settings:
+  path: 'admin/config/services/asa24-settings'
+  defaults:
+   _form: '\Drupal\texas_asa24\Form\Asa24SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+texas_asa24.texas_asa24_controller_content:
+  path: 'texas_asa24'
+  defaults:
+    _controller: '\Drupal\texas_asa24\Controller\TexasAsa24Controller::content'
+    _title: 'Generate ASA24 JWT'
+  requirements:
+    _permission: 'administer site configuration'
