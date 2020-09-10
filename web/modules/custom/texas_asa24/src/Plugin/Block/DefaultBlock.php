@@ -22,7 +22,7 @@ class DefaultBlock extends BlockBase {
     $build['#theme'] = 'default_block';
     //fire qulatrics download function
     $user = 6009;
-    $build['default_block']['#markup'] = texas_asa24_generate_jwt($user);
+    $build['default_block']['#markup'] = texas_asa24_display($user);
     return $build;
   }
 
