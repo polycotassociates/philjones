@@ -8,7 +8,7 @@ use Drupal\Core\Controller\ControllerBase;
 class TexasAsa24Controller extends ControllerBase {
   public function content() {
     $user = 6009;
-    return array('#markup' => texas_asa24_generate_jwt($user));
+    return array('#markup' => texas_asa24_display($user));
   }
 
 }

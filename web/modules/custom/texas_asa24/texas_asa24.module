@@ -24,6 +24,19 @@ function texas_asa24_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
+/**
+ * Displays generated JWT and link().
+ */
+function texas_asa24_display($user){
+
+  $textout = "";
+  $asaurl = texas_asa24_generate_jwt($user);
+  $textout = $textout ."<ul>";
+  $textout = $textout ."<li><a href='".$asaurl."'>Link to ASA24</a></li>";
+  $textout = $textout ."</ul>";
+
+  return $textout;
+}
 
 /**
  * Runs functions to generate JWT().
@@ -32,7 +45,6 @@ function texas_asa24_generate_jwt($user){
 // get settings
   $config = \Drupal::config("texas_asa24.credentials");
   $settings = array();
-  $textout = "";
   $settings["api_token"] = $config->get("api_token");
   $settings["base_url"] = $config->get("base_url");
   $settings["token_life"] = $config->get("token_life");
@@ -67,16 +79,7 @@ function texas_asa24_generate_jwt($user){
   $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
   $asaurl = $settings["base_url"].$jwt;
 
-  //echo $jwt;
-
-  $textout = $textout ."<ul>";
-  //$textout = $textout ."<li>".$payload."</li>";
-  //$textout = $textout ."<li>".$jwt."</li>";
-  $textout = $textout ."<li>".$asaurl."</li>";
-  $textout = $textout ."<li>".$redirectstring."</li>";
-  $textout = $textout ."<li><a href='".$asaurl."'>Link to ASA24</a></li>";
-  $textout = $textout ."</ul>";
- return $textout;
+ return $asaurl;
 }
 
 /**

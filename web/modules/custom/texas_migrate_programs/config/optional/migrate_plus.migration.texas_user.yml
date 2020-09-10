@@ -255,6 +255,9 @@ process:
     source:
       - 'constants/d_link_prefix'
       - field_response_id
+  'field_asa_24/uri':
+    plugin: asa_link
+    source: field_response_id
   status:
     plugin: default_value
     default_value: 0
