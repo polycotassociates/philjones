@@ -62,6 +62,7 @@ $sites = array(
   'alexissanchez.fellaini.local' => 'texas',
   'alexissanchez.fellaini.local.data' => 'texas',
   'texas.stronghealthycommunities.org' => 'texas',
+  'texas.stronghealthycommunities.org.data' => 'texas',
 );
 
 if (!empty($_ENV['PLATFORM_ROUTES'])) {
