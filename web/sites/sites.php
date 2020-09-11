@@ -60,6 +60,7 @@ $sites = array(
   'philjones.fellaini.local' => 'default',
   'stronghealthycommunities.org' => 'default',
   'alexissanchez.fellaini.local' => 'texas',
+  'alexissanchez.fellaini.local.data' => 'texas',
   'texas.stronghealthycommunities.org' => 'texas',
 );
 
