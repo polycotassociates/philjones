@@ -16,6 +16,9 @@
 # Ignore local private file directory
 /private/
 
+# Ignore oauth keys directory
+/oauth_keys/
+
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
