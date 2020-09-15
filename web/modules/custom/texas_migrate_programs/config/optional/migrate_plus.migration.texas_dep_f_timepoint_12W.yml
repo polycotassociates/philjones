@@ -46,6 +46,3 @@ process:
   field_amount_available:
     plugin: default_value
     default_value: 50
-  field_amount_earned:
-    plugin: default_value
-    default_value: 0
