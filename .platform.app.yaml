@@ -37,6 +37,7 @@ mounts:
     '/web/sites/texas/files': 'shared:files/files-texas'
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
+    '/oauth_keys': 'shared:files/oauth_keys'
     '/.drush': 'shared:files/.drush'
     '/drush-backups': 'shared:files/drush-backups'
     '/.console': 'shared:files/console'
