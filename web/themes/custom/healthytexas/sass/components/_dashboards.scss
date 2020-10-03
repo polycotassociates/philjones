@@ -7,12 +7,12 @@ article[data-quickedit-entity-id^="user"] {
     grid-column: 1 /3;
     text-align: left;
     padding-left: 1rem;
+    justify-content: flex-start;
   }
   .dashboard__timepoints {
     margin-top: 2rem;
   }
 }
-
 //dashboard
 .dashboard {
   display: grid;
@@ -40,17 +40,17 @@ article[data-quickedit-entity-id^="user"] {
     color: var(--maroon);
     display: flex;
     justify-content: flex-end;
-    a{
+    a {
       color: var(--maroon);
       // margin-right: 1rem;
-      &.edit{
+      &.edit {
         font-weight: var(--light);
         font-size: 1rem;
         color: var(--link);
         background: var(--ht-white);
         border-radius: var(--border-radius);
         font-family: var(--font-text);
-        padding: .25rem .5rem;
+        padding: 0.25rem 0.5rem;
         margin-left: 1rem;
       }
     }
@@ -108,15 +108,15 @@ article[data-quickedit-entity-id^="user"] {
     > div {
       flex: 0 1 100%;
       margin-bottom: 1rem;
-      @include bs-small(){
+      @include bs-small() {
         flex: 0 1 47%;
       }
-      @include bs-large(){
+      @include bs-large() {
         flex: 0 1 23%;
       }
     }
-    >div{
-      field-label{
+    > div {
+      field-label {
         color: red;
       }
     }
