@@ -154,7 +154,10 @@ process:
   field_address_zip: field_address_zip
   field_displa: name
   field_email: mail
-  field_response_id: field_response_id
+  field_response_id:
+    plugin: skip_on_empty
+    method: row
+    source: field_response_id
   field_primary_phone: field_primary_phone
   field_ethnicity: field_ethnicity
   field_race : field_race
