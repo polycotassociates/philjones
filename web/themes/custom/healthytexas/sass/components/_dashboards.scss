@@ -55,6 +55,7 @@ article[data-quickedit-entity-id^="user"] {
       }
     }
   }
+
   &__participant {
     grid-column: 1 / -1;
     grid-row: 1 / 3;
@@ -105,15 +106,18 @@ article[data-quickedit-entity-id^="user"] {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 1rem;
     > div {
       flex: 0 1 100%;
       margin-bottom: 1rem;
       @include bs-small() {
-        flex: 0 1 47%;
+        flex: 0 1 calc(50% - 1rem);
+        display: flex;
+        flex-direction: column;
       }
-      @include bs-large() {
-        flex: 0 1 23%;
-      }
+      // @include bs-large() {
+      //   flex: 0 1 23%;
+      // }
     }
     > div {
       field-label {
@@ -123,5 +127,26 @@ article[data-quickedit-entity-id^="user"] {
     &:before {
       display: none;
     }
+  }
+  div[class*="field--name-field-timepoint"] {
+    border: 1px solid var(--tan);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    > .field--label {
+      padding: 1rem;
+      font-size: var(--main-font-size);
+    }
+    .panel {
+      border: none;
+    }
+  }
+  .field--name-field-start-date,
+  .field--name-field-survey-completed,
+  .field--name-field-measures-completed,
+  .field--name-field-asa-24-complete {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100% !important;
+    // background: red;
   }
 }
