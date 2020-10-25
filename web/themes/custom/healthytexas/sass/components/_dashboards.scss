@@ -71,6 +71,15 @@ article[data-quickedit-entity-id^="user"] {
         color: var(--olive);
       }
     }
+    .field--name-field-participant-name {
+      float: left;
+      @extend h2;
+    }
+    .field--name-field-response-id {
+      @extend h2;
+      font-weight: var(--light);
+      color: var(--olive);
+    }
   }
   &__timepoints {
     grid-column: 1 / -1;
