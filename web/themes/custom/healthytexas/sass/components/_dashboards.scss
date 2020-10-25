@@ -152,10 +152,19 @@ article[data-quickedit-entity-id^="user"] {
   .field--name-field-start-date,
   .field--name-field-survey-completed,
   .field--name-field-measures-completed,
-  .field--name-field-asa-24-complete {
+  .field--name-field-asa-24-complete,
+  .field--name-field-amount-available,
+  .field--name-field-amount-earned,
+  .field--name-field-amount-redeemed {
     display: flex;
     flex-direction: column;
     flex: 0 0 100% !important;
+    margin-bottom: 0;
     // background: red;
+    .alert {
+      font-size: 16px;
+      padding: 0.25em;
+      margin-bottom: 0;
+    }
   }
 }
