@@ -1,0 +1,26 @@
+/* -------------------------
+
+Title: _utilities.scss
+Descr: Utilities
+
+- floats
+- margins
+
+--------------------------- */
+
+//floats
+
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+
+//margins
+.m-top-neg5 {
+  margin-top: -5rem;
+}
+.m-right-1 {
+  margin-right: 1rem;
+}

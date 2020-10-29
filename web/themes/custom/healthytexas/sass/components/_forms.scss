@@ -11,9 +11,36 @@ Descr: overrides BS forms.
 .form--inline {
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
+  // align-items: flex-start;
   .form-item {
     display: flex;
     flex-direction: column;
     margin-right: 1rem;
+  }
+}
+
+#views-exposed-form-participant-programs-page-1 {
+  #edit-actions {
+    align-self: flex-end;
+    button {
+      display: inline-block;
+      width: 25%;
+    }
+  }
+  .form--inline {
+    margin-bottom: 2rem;
+    > div {
+      flex: 0 0 calc(50% - 1rem);
+      margin-bottom: 1rem;
+      &:first-of-type {
+        flex: 0 1 100%;
+      }
+      &:last-of-type {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
   }
 }

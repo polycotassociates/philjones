@@ -24,3 +24,13 @@ Descr: main styles for person lists
     padding: 1rem 3rem;
   }
 }
+
+.person {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div:nth-child(1),
+  > div:nth-child(2) {
+    flex: 0 0 44%;
+  }
+}
