@@ -71,8 +71,7 @@ function texas_asa24_generate_jwt($user){
   $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
 
   // Create Signature Hash
-  //$signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, $settings["api_token"], true);
- $signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, 'S92nHoIkopyAMS0e+B4nQYFPERn2wvK3CrRZcRKVYfrxzvZrZaeLFg7yI8yA2pvpuvH/feLD2QQDnq+KodT7wWkqZBcz1H3cWZsWMwxu93U5WRtOp4wbIh6WxstGC8P4+/YEOC2KqnHPUhWc1guk4YACsrWVkb4aTxwyhK1gISY=', true);
+  $signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, $settings["api_token"], true);
 
   // Encode Signature to Base64Url String
   $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));

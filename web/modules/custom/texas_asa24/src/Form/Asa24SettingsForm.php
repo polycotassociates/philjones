@@ -22,7 +22,7 @@ class Asa24SettingsForm extends ConfigFormBase {
 
     $config = $this->config('texas_asa24.credentials');  //since we are extending ConfigFormBase instead of FormBase, it gives use access to the config object
     $form['api_token'] = array(
-      '#type' => 'textfield',
+      '#type' => 'textarea',
       '#description' => t('API Token'),
       '#title' => t('API Token'),
       '#default_value' => $config->get('api_token'),
