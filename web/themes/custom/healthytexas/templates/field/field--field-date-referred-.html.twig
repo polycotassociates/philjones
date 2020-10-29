@@ -72,7 +72,7 @@
       <div class='alert alert-info'>{{ compweeks }} weeks ago</div>#}
 
       {% set compstartdateclass = 'field--item alert alert-info' %}
-      <div{{ item.attributes.addClass(compstartdateclass) }}>{{ item.content }}<br>{{ compweeks }} weeks ago</div>
+      <div{{ item.attributes.addClass(compstartdateclass) }}>{{ item.content }}<br>{{ compdiffdate // 604800 }} weeks ago</div>
     {% endfor %}
     {% if multiple %}
       </div>
