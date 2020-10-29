@@ -58,10 +58,7 @@
 
 $sites = array(
   'philjones.fellaini.local' => 'default',
-  'stronghealthycommunities.org' => 'default',
-  'alexissanchez.fellaini.local' => 'texas',
-  'texas.stronghealthycommunities.org' => 'texas',
-  'data.healthytexas.tamu.edu' => 'texas'
+  'alexissanchez.fellaini.local' => 'texas'
 );
 
 if (!empty($_ENV['PLATFORM_ROUTES'])) {
@@ -84,3 +81,8 @@ if (!empty($_ENV['PLATFORM_ROUTES'])) {
 
 // Add additional domain mappings here. The most common example will be to manually
 // specify your production domains.
+
+$sites['stronghealthycommunities.org'] = 'default';
+$sites['texas.stronghealthycommunities.org'] = 'texas';
+$sites['data.healthytexas.tamu.edu'] = 'texas';
+
