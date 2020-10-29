@@ -27,6 +27,12 @@ class Asa24SettingsForm extends ConfigFormBase {
       '#title' => t('API Token'),
       '#default_value' => $config->get('api_token'),
     );
+    $form['study_id'] = array(
+      '#type' => 'textfield',
+      '#description' => t('Study ID'),
+      '#title' => t('Study ID'),
+      '#default_value' => $config->get('study_id'),
+    );
     $form['base_url'] = array(
       '#type' => 'textfield',
       '#description' => t('ASA24 Base URL'),
@@ -64,6 +70,7 @@ class Asa24SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('texas_asa24.credentials')
       ->set('api_token', $form_state->getValue('api_token'))
+      ->set('study_id', $form_state->getValue('study_id'))
       ->set('base_url', $form_state->getValue('base_url'))
       ->set('token_life', $form_state->getValue('token_life'))
       ->set('redirect_url', $form_state->getValue('redirect_url'))

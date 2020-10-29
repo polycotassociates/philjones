@@ -46,6 +46,7 @@ function texas_asa24_generate_jwt($user){
   $config = \Drupal::config("texas_asa24.credentials");
   $settings = array();
   $settings["api_token"] = $config->get("api_token");
+  $settings["study_id"] = $config->get("study_id");
   $settings["base_url"] = $config->get("base_url");
   $settings["token_life"] = $config->get("token_life");
   $settings["redirect_url"] = $config->get("redirect_url");
@@ -61,7 +62,7 @@ function texas_asa24_generate_jwt($user){
   $header = json_encode(['typ' => 'JWT', 'alg' => 'HS512']);
 
   // Create token payload as a JSON string
-  $payload = json_encode(['study' => '76ba454b-dcdf-4f34-86f2-fcfeb432102a', 'roles' => '["respondent"]', 'userAccess' => '["HTI"]', 'studyAccess' => 'HTI', 'version' => '21', 'user' => $userstring, 'language' => 'eng', 'exp' => $tokenexp, 'iss' => 'TexasAM', 'redirect' => $redirectstring ]);
+  $payload = json_encode(['study' => $settings["study_id"], 'roles' => '["respondent"]', 'userAccess' => '["HTI"]', 'studyAccess' => 'HTI', 'version' => '21', 'user' => $userstring, 'language' => 'eng', 'exp' => $tokenexp, 'iss' => 'TexasAM', 'redirect' => $redirectstring ]);
 
   // Encode Header to Base64Url String
   $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
@@ -70,7 +71,8 @@ function texas_asa24_generate_jwt($user){
   $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
 
   // Create Signature Hash
-  $signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, $settings["api_token"], true);
+  //$signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, $settings["api_token"], true);
+ $signature = hash_hmac('sha512', $base64UrlHeader . "." . $base64UrlPayload, 'S92nHoIkopyAMS0e+B4nQYFPERn2wvK3CrRZcRKVYfrxzvZrZaeLFg7yI8yA2pvpuvH/feLD2QQDnq+KodT7wWkqZBcz1H3cWZsWMwxu93U5WRtOp4wbIh6WxstGC8P4+/YEOC2KqnHPUhWc1guk4YACsrWVkb4aTxwyhK1gISY=', true);
 
   // Encode Signature to Base64Url String
   $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));

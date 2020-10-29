@@ -17,9 +17,17 @@ source:
   item_selector: responses
   constants:
     field_address_state: 'TX'
+    s_link_title: 'HT Participant Screener'
+    s_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_3ejJc2qfOotJblX?ID='
+    q_link_title: 'Online Health Survey'
     q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?ID='
-    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_1GrIWRyO533jd9b?ID='
+    a_link_title: 'HT Participant Program Participation Survey'
+    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_eXwbaKyAQxhIiBD?ID='
+    d_link_title: 'Data Collection Form'
     d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?ID='
+    asa_link_title: 'Online Food Diary'
+    e_link_title: 'Report an Adverse Event'
+    e_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_eVvqmVBRO6NpQ6F?ID='
     dep_f_prefix: '&DEP-F='
     dep_l_prefix: '&DEP-L='
     susd_f_prefix: '&SUSD-F='
@@ -168,6 +176,12 @@ process:
     source: field_study_site
     entity_type: taxonomy_term
     value_key: name
+  'field_ht_participant_screener/title':  'constants/s_link_title'
+  'field_ht_participant_screener/uri':
+    plugin: concat
+    source:
+      - 'constants/s_link_prefix'
+      - field_response_id
   pseudo_dep_f:
     -
       plugin: timepoint_link
@@ -224,6 +238,7 @@ process:
     -
       plugin: default_value
       default_value: 'N'
+  'field_participant_questionnaire/title': 'constants/q_link_title'
   'field_participant_questionnaire/uri':
     plugin: concat
     source:
@@ -248,19 +263,28 @@ process:
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
       - '@temp_langlink'
+  'field_attendance_process_survey/title': 'constants/a_link_title'
   'field_attendance_process_survey/uri':
     plugin: concat
     source:
       - 'constants/a_link_prefix'
       - field_response_id
+  'field_data_collection_form/title': 'constants/d_link_title'
   'field_data_collection_form/uri':
     plugin: concat
     source:
       - 'constants/d_link_prefix'
       - field_response_id
+  'field_asa_24/title': 'constants/asa_link_title'
   'field_asa_24/uri':
     plugin: asa_link
     source: field_response_id
+  'field_report_an_adverse_event/title': 'constants/e_link_title'
+  'field_report_an_adverse_event/uri':
+    plugin: concat
+    source:
+      - 'constants/e_link_prefix'
+      - field_response_id
   status:
     plugin: default_value
     default_value: 0
