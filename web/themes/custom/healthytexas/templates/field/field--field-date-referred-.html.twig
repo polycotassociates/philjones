@@ -65,18 +65,14 @@
       {% set compdiffdate = compnowdate - compstartdate %}
       {# convert difference to weeks #}
       {% set compweeks = compdiffdate // 604800 %}
+
       {# debugging #}
       {#<div class='alert alert-info'>{{ compnowdate }}</div>
       <div class='alert alert-info'>{{ compstartdate  }}</div>
       <div class='alert alert-info'>{{ compweeks }} weeks ago</div>#}
-      {% if compstartdate < 'now' |date_modify("+14 day")| date('U') and compstartdate > 'now' |date_modify("-14  day")| date('U') %}
-        {% set compstartdateclass = 'field--item alert alert-danger' %}
-      {% elseif compstartdate < 'now' |date_modify("-15 day")|date('U')%}
-        {% set compstartdateclass = 'field--item alert alert-success' %}
-      {% else %}
-        {% set compstartdateclass = 'field--item alert alert-info' %}
-      {% endif %}
-      <div{{ item.attributes.addClass(compstartdateclass) }}>{{ item.content }}<br>{{ compdiffdate // 604800 }} weeks ago</div>
+
+      {% set compstartdateclass = 'field--item alert alert-info' %}
+      <div{{ item.attributes.addClass(compstartdateclass) }}>{{ item.content }}<br>{{ compweeks }} weeks ago</div>
     {% endfor %}
     {% if multiple %}
       </div>
