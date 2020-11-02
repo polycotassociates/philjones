@@ -36,6 +36,7 @@ source:
     map_prefix: '&MAP='
     htds_f_prefix: '&HTDS-F='
     htds_l_prefix: '&HTDS-L='
+    wat_prefix: '&WAT='
     dem_prefix: '&DEM=0'
     lng_prefix: '&LNG='
   fields:
@@ -127,6 +128,10 @@ source:
       name: htds_l
       label: 'HTDS-L'
       selector: values/QID15#2_9_1
+    -
+      name: wat
+      label: 'Role'
+      selector: values/QID15#1_5
 
 
 process:
@@ -238,6 +243,13 @@ process:
     -
       plugin: default_value
       default_value: 'N'
+  pseudo_wat:
+    -
+      plugin: timepoint_link
+      source: wat
+    -
+      plugin: default_value
+      default_value: 'N'
   'field_participant_questionnaire/title': 'constants/q_link_title'
   'field_participant_questionnaire/uri':
     plugin: concat
@@ -260,6 +272,8 @@ process:
       - '@pseudo_htds_f'
       - 'constants/htds_l_prefix'
       - '@pseudo_htds_l'
+      - 'constants/wat_prefix'
+      - '@pseudo_wat'
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
       - '@temp_langlink'
