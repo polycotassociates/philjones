@@ -12,3 +12,11 @@ texas_migrate_programs.texas_migrate_programs_controller_content:
     _title: 'Import Qualtrics survey results'
   requirements:
     _permission: 'administer site configuration'
+
+texas_migrate_programs.texas_programs_controller_content:
+  path: 'texas_programs'
+  defaults:
+    _controller: '\Drupal\texas_migrate_programs\Controller\TexasProgramsController::content'
+    _title: 'Display compiled strings of variables'
+  requirements:
+    _permission: 'administer site configuration'

@@ -250,12 +250,9 @@ process:
     -
       plugin: default_value
       default_value: 'N'
-  'field_participant_questionnaire/title': 'constants/q_link_title'
-  'field_participant_questionnaire/uri':
+  psuedo_programs:
     plugin: concat
     source:
-      - 'constants/q_link_prefix'
-      - field_response_id
       - 'constants/dep_f_prefix'
       - '@pseudo_dep_f'
       - 'constants/dep_l_prefix'
@@ -274,9 +271,20 @@ process:
       - '@pseudo_htds_l'
       - 'constants/wat_prefix'
       - '@pseudo_wat'
+  field_programs_enrolled:
+    plugin: programs_enrolled
+    source: '@psuedo_programs'
+  psuedo_uri:
+    plugin: concat
+    source:
+      - 'constants/q_link_prefix'
+      - field_response_id
+      - '@pseudo_programs'
       - 'constants/dem_prefix'
       - 'constants/lng_prefix'
       - '@temp_langlink'
+  'field_participant_questionnaire/title': 'constants/q_link_title'
+  'field_participant_questionnaire/uri': '@psuedo_uri'
   'field_attendance_process_survey/title': 'constants/a_link_title'
   'field_attendance_process_survey/uri':
     plugin: concat

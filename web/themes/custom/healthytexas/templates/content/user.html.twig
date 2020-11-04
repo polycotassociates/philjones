@@ -18,12 +18,14 @@
  * @ingroup themeable
  */
 #}
-{# {{vardumper()}} #}
-
+{#vardumper(content.group_survey_info.field_programs_enrolled)#}
+{% set programs = content.group_survey_info.field_programs_enrolled|field_value|safe_join(', ') %}
+<div>{{content.field_programs_enrolled|field_value|safe_join(', ')}}</div>
 <article{{attributes.addClass('person')}}>
 	{# {% if content %}
 												{{- content -}}
 											{% endif %} #}
+
 	{{content.group_contact_info}}
 	<div class="panel panel-default links">
 		<div class="panel-heading">
@@ -32,16 +34,22 @@
 			</div>
 		</div>
 		<div class="panel-body">
-			{{content.group_survey_info.field_participant_questionnaire}}
-			{{content.group_survey_info.ield_attendance_process_survey}}
-			{{content.group_survey_info.field_data_collection_form}}
-			{{content.group_survey_info.field_asa_24}}
-			{{content.group_survey_info.field_attendance_process_survey}}
-			{{content.group_survey_info.field_report_an_adverse_event}}
+			{% if ('cwwd' in programs|render|render) or ('dep_f' in programs|render|render) or ('susd_f' in programs|render|render) or ('map' in programs|render|render) or ('wat' in programs|render|render) %}
+				{{content.group_survey_info.field_participant_questionnaire}}
+			{% endif %}
+			{% if ('dep_f' in programs|render|render) or ('dep_l' in programs|render|render)  %}
+			  {{content.group_survey_info.field_attendance_process_survey}}
+			{% endif %}
+			{% if ('dep_f' in programs|render|render) or ('susd_f' in programs|render|render)  %}
+			  {{content.group_survey_info.field_data_collection_form}}
+			{% endif %}
+			{% if ('dep_f' in programs|render|render) or ('susd_f' in programs|render|render)  %}
+			  {{content.group_survey_info.field_asa_24}}
+			{% endif %}
+			{% if ('cwwd' in programs|render|render) or ('dep_f' in programs|render|render) or ('susd_f' in programs|render|render) or ('map' in programs|render|render) or ('wat' in programs|render|render) %}
+				{{content.group_survey_info.field_report_an_adverse_event}}
+			{% endif %}
 		</div>
 	</div>
 	{{content.group_survey_info.field_study_data}}
-	{{content.field_date_referred_}}
-	{{content.field_referred_to_another_ht_pro}}
-	{{content.field_report_an_adverse_event}}
 </article>
