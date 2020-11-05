@@ -31,6 +31,10 @@ source:
       name: field_program_type
       label: 'Role'
       selector: values/QID15#1_4
+    -
+      name: field_participant_id
+      label: 'Participant ID'
+      selector: values/QID2_TEXT
 
 
 process:
@@ -38,6 +42,10 @@ process:
     plugin: skip_on_empty
     method: row
     source: field_program_type
+  field_participant_id:
+    plugin: skip_on_empty
+    method: row
+    source: field_participant_id
   field_start_date/value:
     plugin: baseline_date
     source: field_start_date
