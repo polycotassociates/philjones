@@ -39,6 +39,7 @@ source:
     wat_prefix: '&WAT='
     dem_prefix: '&DEM=0'
     lng_prefix: '&LNG='
+    stringglue: '&'
   fields:
     -
       name: responseId
@@ -187,6 +188,29 @@ process:
     source:
       - 'constants/s_link_prefix'
       - field_response_id
+  pseudo_start_date:
+    plugin: concat
+    source:
+      - cwwd
+      - 'constants/stringglue'
+      - dep_f
+      - 'constants/stringglue'
+      - dep_l
+      - 'constants/stringglue'
+      - htds_f
+      - 'constants/stringglue'
+      - htds_l
+      - 'constants/stringglue'
+      - map
+      - 'constants/stringglue'
+      - susd_f
+      - 'constants/stringglue'
+      - susd_l
+      - 'constants/stringglue'
+      - wat
+  field_start_date:
+    plugin: start_date
+    source: '@psuedo_start_date'
   pseudo_dep_f:
     -
       plugin: timepoint_link

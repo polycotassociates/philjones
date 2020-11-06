@@ -8,7 +8,7 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Format outcome start date - baseline plus 12 weeks.
+ * Return list of programss enrolled keys.
  *
  * @MigrateProcessPlugin(
  *   id = "programs_enrolled",
