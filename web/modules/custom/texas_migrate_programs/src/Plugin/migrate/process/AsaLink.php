@@ -19,13 +19,13 @@ class AsaLink extends ProcessPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+  public function transform($value MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     try {
 
-      // send pptid as $user
+      // send pptstring
       if (!empty($value)) {
-      $user = $value;
-      $asa_link = texas_asa24_generate_jwt($user);
+      $pptstring = $value;
+      $asa_link = texas_asa24_generate_jwt($pptstring);
       //$value = $asa_link;
     }
     }

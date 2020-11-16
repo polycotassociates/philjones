@@ -1,0 +1,5 @@
+name: 'Texas Qualtrics Update'
+type: module
+description: 'Provides endpoints to receive surevey complete and measures complete data from Qualtrics to update timepoint paragraph field values.'
+core: 8.x
+package: 'TEXAS'

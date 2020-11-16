@@ -21,8 +21,8 @@ class DefaultBlock extends BlockBase {
     $build = [];
     $build['#theme'] = 'default_block';
     //fire qulatrics download function
-    $user = 6009;
-    $build['default_block']['#markup'] = texas_asa24_display($user);
+    $pptstring = 'ID=1256&DEP-F=12W&DEP-L=N&SUSD-F=N&SUSD-L=N&CWWD=B&MAP=N&HTDS-F=N&HTDS-L=N&WAT=N';
+    $build['default_block']['#markup'] = texas_asa24_display($pptstring);
     return $build;
   }
 

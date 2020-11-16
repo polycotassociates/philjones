@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Contains texas_qualtrics_update.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+/**
+ * Implements hook_help().
+ */
+function texas_qualtrics_update_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the texas_qulatrics_update module.
+    case 'help.page.texas_qualtrics_update':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Updates survey complete and measures complete fields on timepoint paragraphs via custom controllers') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+

@@ -7,8 +7,8 @@ use Drupal\Core\Controller\ControllerBase;
  */
 class TexasAsa24Controller extends ControllerBase {
   public function content() {
-    $user = 6009;
-    return array('#markup' => texas_asa24_display($user));
+    $pptstring = 'ID=1256&DEP-F=12W&DEP-L=N&SUSD-F=N&SUSD-L=N&CWWD=B&MAP=N&HTDS-F=N&HTDS-L=N&WAT=N';
+    return array('#markup' => texas_asa24_display($pptstring));
   }
 
 }

@@ -120,7 +120,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 
   $fileid = curl_exec($curl);
   //uncomment to debug file build
-  //$textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
+  $textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
 
   curl_close($curl);
   $fileid = json_decode($fileid);
@@ -143,7 +143,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     $path = '../private/qualtrics_data';
     $textout =  $textout . "<li><strong>File Path</strong> is ". $path."/".$surveyid.".zip</li>";
     $fp = fopen($path.'/'.$surveyid.'.zip', 'wb');
-    $datap = file_get_contents($path.'/'.$surveyid.'.zip');
+    //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
@@ -163,7 +163,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 
     $filedownload = curl_exec($curl);
       if (!empty($filedownload)){
-        //fwrite($fp, $filedownload);
+        fwrite($fp, $filedownload);
         file_save_data($filedownload, 'private://qualtrics_data/'.$surveyid.'.zip', FILE_EXISTS_REPLACE);
 
         $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";

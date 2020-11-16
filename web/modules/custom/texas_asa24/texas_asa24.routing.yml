@@ -12,3 +12,11 @@ texas_asa24.texas_asa24_controller_content:
     _title: 'Generate ASA24 JWT'
   requirements:
     _permission: 'administer site configuration'
+
+texas_asa24.texas_asa24__update_controller_content:
+  path: 'texas_asa24_complete/{pptstring}'
+  defaults:
+    _controller: '\Drupal\texas_asa24\Controller\TexasAsa24UpdateController::content'
+    _title: 'Update timepoints'
+  requirements:
+    _permission: 'administer site configuration'
