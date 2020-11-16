@@ -8,7 +8,8 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 class TexasSurveyCompleteController extends ControllerBase {
   public function content($pptstring) {
-    $asaprogs = array('dep_f', 'htds_f', 'susd_f');
+    // programs that have field_survey_completed
+    $surveyprogs = array('cwwd', 'dep_f', 'htds_f', 'map', 'susd_f', 'susd_l', 'wat');
     // break string into pptid and timepoints
     $splits = explode('&', $pptstring);
     $pptid = ltrim(strstr(array_shift($splits), '='), '=');
@@ -18,7 +19,7 @@ class TexasSurveyCompleteController extends ControllerBase {
       $timepoint = ltrim(strstr($split, '='), '=');
       // map to timepoint term id
       // check to see if it's a program with asa24
-      foreach ($asaprogs as $p ) {
+      foreach ($surveyprogs as $p ) {
       if (strpos ($program , $p ) !== FALSE ) {
         // append rest of paragraph id
         $paragraphid = $program .'_timepoint';
