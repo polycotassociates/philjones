@@ -140,8 +140,9 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   if ($filepercentcomplete == 100) {
 // download and save the .zip file
 // file to save the contents to
+
     $textout =  $textout . "<li><strong>File Path</strong> is ". $path."/".$surveyid.".zip</li>";
-    $fp = fopen('../private/qualtrics_data'.$surveyid.'.zip', 'wb');
+    $fp = fopen($path.'/'.$surveyid.'.zip', 'wb');
     //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -163,7 +164,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     $filedownload = curl_exec($curl);
       if (!empty($filedownload)){
         fwrite($fp, $filedownload);
-        file_save_data($filedownload, '../private/qualtrics_data/'.$surveyid.'.zip', FILE_EXISTS_REPLACE);
+        file_save_data($filedownload, 'private://qualtrics_data/'.$surveyid.'.zip', FILE_EXISTS_REPLACE);
 
         $textout =  $textout . "<li>downloaded <strong>".$surveyid.".zip</strong></li>";
         //$textout = $textout . "<li><strong>File Path</strong> is ".$path."</strong></li>";

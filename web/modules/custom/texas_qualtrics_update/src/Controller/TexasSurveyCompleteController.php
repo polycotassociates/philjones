@@ -50,7 +50,7 @@ class TexasSurveyCompleteController extends ControllerBase {
           $paragraph = Paragraph::load($pid);
           $paragraph_field_value = $paragraph->get('field_survey_completed')->value;
           // var_dump($paragraph_field_value);
-          // Update field_asa_24_complete to true.
+          // Update field_survey_complete to true.
           $paragraph->set('field_survey_completed', 1);
           // Save the Paragraph.
           $paragraph->save();
