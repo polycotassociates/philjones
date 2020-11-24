@@ -46,7 +46,7 @@ function texas_migrate_programs_runner(){
   foreach($surveys as $survey) {
     $textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
     $textout = $textout . "<li><strong>Survey ID</strong> is ". $surveys[$index]. "</li>";
-    //$textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
+    $textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
 
 
     $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]). "</ul>";
@@ -61,6 +61,7 @@ function texas_migrate_programs_runner(){
  * Downloads survey results from qualtrics().
  */
 function texas_migrate_programs_qualtrics($settings, $surveyid){
+  $path = '../private/qualtrics_data';
   $progressid = "";
   $progresspercentcomplete = "";
   $fileid = "";
@@ -73,7 +74,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://sjc1.qualtrics.com/API/v3/surveys/SV_3ejJc2qfOotJblX/export-responses",
+    CURLOPT_URL => "https://".$settings["data_center"].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -105,7 +106,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://sjc1.qualtrics.com/API/v3/surveys/SV_3ejJc2qfOotJblX/export-responses/".$progressid,
+    CURLOPT_URL => "https://".$settings["data_center"].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$progressid,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -146,7 +147,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
-      CURLOPT_URL => "https://sjc1.qualtrics.com/API/v3/surveys/SV_3ejJc2qfOotJblX/export-responses/49750a66-deae-420e-b4df-f44c390361fc-def/file",
+      CURLOPT_URL => "https://".$settings["data_center"].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
       CURLOPT_FILE => $fp,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
@@ -191,7 +192,8 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 function texas_migrate_programs_unzip($surveyid){
 
 // unzip path
-$path = drupal_realpath('private://qualtrics_data/');
+//$path = drupal_realpath('private://qualtrics_data/');
+$path = '../private/qualtrics_data';
 // zip file name
 $filename = $path."/".$surveyid.'.zip';
 // do the business
