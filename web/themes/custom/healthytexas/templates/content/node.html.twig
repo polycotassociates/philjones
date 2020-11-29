@@ -98,11 +98,13 @@
 
 
   <div{{ content_attributes.addClass('content') }}>
+{% if 'page' not in node.getType  %}
   <div class="panel panel-default dashboard ">
   <div class="dashboard__title">
  {{ node.type.entity.label }} ({{ node.getType }})
   </div>
-   </div>
+  </div>
+{% endif %}
     {{ content }}
   </div>
 
