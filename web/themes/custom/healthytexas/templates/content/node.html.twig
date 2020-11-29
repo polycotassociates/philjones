@@ -95,7 +95,14 @@
     </footer>
   {% endif %}
 
+
+
   <div{{ content_attributes.addClass('content') }}>
+  <div class="panel panel-default dashboard ">
+  <div class="dashboard__title">
+ {{ node.type.entity.label }} ({{ node.getType }})
+  </div>
+   </div>
     {{ content }}
   </div>
 
