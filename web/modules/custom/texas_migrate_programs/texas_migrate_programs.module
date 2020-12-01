@@ -44,9 +44,9 @@ function texas_migrate_programs_runner(){
   $index = 0;
   $textout = $textout ."<ul>";
   foreach($surveys as $survey) {
-    $textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
-    $textout = $textout . "<li><strong>Survey ID</strong> is ". $surveys[$index]. "</li>";
-    $textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
+    //$textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
+    $textout = $textout . "<li><strong>Survey ID:</strong> ". $surveys[$index]. "</li>";
+    //$textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
 
 
     $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]). "</ul>";
@@ -91,14 +91,14 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 
   $progressid = curl_exec($curl);
   //uncomment to debug $progressid
-  $textout =  $textout . "<li><strong>Session lookup</strong> is " . $progressid . "</li>";
+  //$textout =  $textout . "<li><strong>Session lookup</strong> is " . $progressid . "</li>";
   curl_close($curl);
   $progressid = json_decode($progressid);
     //get percent complete for session build
     $progresspercentcomplete = $progressid->result->percentComplete;
     if (!empty($progressid->result->progressId)){
     $progressid =  $progressid->result->progressId;
-    $textout =  $textout . "<li><strong>progressId</strong> is " . $progressid . "</li>";
+    $textout =  $textout . "<li><strong>progressId:</strong> " . $progressid . "</li>";
     }else{
       $textout =  $textout . "<li><strong>No progressId !</strong></li>";
     }
@@ -122,7 +122,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 
   $fileid = curl_exec($curl);
   //uncomment to debug file build
-  $textout =  $textout . "<li><strong>File lookup</strong> is " . $fileid . "</li>";
+  $textout =  $textout . "<li><strong>File lookup:</strong> " . $fileid . "</li>";
 
   curl_close($curl);
   $fileid = json_decode($fileid);
@@ -132,7 +132,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     //report percent completed
     if ($filepercentcomplete == 100){
       $fileid =  $fileid->result->fileId;
-      $textout =  $textout . "<li><strong>fileId</strong> is " . $fileid . "</li>";
+      $textout =  $textout . "<li><strong>fileId  is: </strong>" . $fileid . "</li>";
     }else{
       $textout =  $textout . "<li><strong><div class = 'error'>File is ".$filepercentcomplete."% complete !</div></strong></li>";
       //exit;
@@ -142,8 +142,8 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
 // download and save the .zip file
 // file to save the contents to
 
-    $textout =  $textout . "<li><strong>File Path</strong> is ". $path."/".$surveyid.".zip</li>";
-    $fp = fopen($path.'/'.$surveyid.'.zip', 'wb');
+    $textout =  $textout . "<li><strong>File Path is: </strong>../private/qualtrics_data/".$surveyid.".zip</li>";
+    $fp = fopen("../private/qualtrics_data/".$surveyid.".zip", "wb");
     //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -205,7 +205,8 @@ $res = $zip->open($filename);
   // rename file
    $zip->renameName($oldname, $surveyid.'.json');
    $zip->close();
-   $textout = '<li>renamed <strong>'.$oldname.'</strong></li>';
+   $textout = '<li>unzipped <strong>'.$surveyid.'.zip</strong></li>';
+   $textout = $textout .  '<li>renamed <strong>'.$oldname.'</strong></li>';
   } else {
    $textout = '<li><strong>Rename failed !</strong><li>';
   }
@@ -214,7 +215,7 @@ $res = $zip->open($filename);
    // extract file
    $zip->extractTo($path);
    $zip->close();
-   $textout = $textout . '<li>unzipped <strong>'.$surveyid.'.zip</strong></li>';
+
    $textout = $textout . '<li><strong>'.$surveyid.'.json</strong> is ready.</li>';
   } else {
    $textout = $textout . '<li><strong>Unzip failed !</strong></li>';
