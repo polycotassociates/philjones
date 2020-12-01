@@ -99,13 +99,21 @@
 
   <div{{ content_attributes.addClass('content') }}>
 {% if 'page' not in node.getType  %}
-  <div class="panel panel-default dashboard ">
-  <div class="dashboard__title">
- {{ node.type.entity.label }} ({{ node.getType }})
+  <div class="panel panel-default dashboard {{attributes}}">
+    <div class="dashboard__title">
+      {{ node.type.entity.label }} ({{ node.getType }})
+    </div>
+    <div class="dashboard__participant">
+    {% if content.group_participant_data.field_user %}
+        {{content.group_participant_data.field_user}}
+    {% endif %}
+    {% if content.group_participant_data.field_participant_name %}
+        {{content.group_participant_data.field_participant_name}} - {{content.group_participant_data.field_response_id}}
+    {% endif %}
   </div>
   </div>
 {% endif %}
-    {{ content }}
+    {{ content.group_timepoint_data }}
   </div>
 
 </article>
