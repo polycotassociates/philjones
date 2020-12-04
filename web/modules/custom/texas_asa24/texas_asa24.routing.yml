@@ -19,4 +19,4 @@ texas_asa24.texas_asa24__update_controller_content:
     _controller: '\Drupal\texas_asa24\Controller\TexasAsa24UpdateController::content'
     _title: 'Update timepoints'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'edit field_asa_24_complete'
