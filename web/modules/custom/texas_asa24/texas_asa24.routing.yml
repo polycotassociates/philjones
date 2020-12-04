@@ -14,7 +14,7 @@ texas_asa24.texas_asa24_controller_content:
     _permission: 'administer site configuration'
 
 texas_asa24.texas_asa24__update_controller_content:
-  path: 'texas_asa24_complete/{pptstring}'
+  path: 'texas_asa24_update/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_asa24\Controller\TexasAsa24UpdateController::content'
     _title: 'Update timepoints'
