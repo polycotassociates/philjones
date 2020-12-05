@@ -65,7 +65,7 @@
       {% if fieldstatus > 0 %}
         {% set surveyclass = 'field--item alert alert-success' %}
       {% else %}
-        {% set surveyclass = 'field--item alert alert-info' %}
+        {% set surveyclass = 'field--item alert alert-light' %}
       {% endif %}
       <div{{ item.attributes.addClass(surveyclass) }}>$ {{ item.content["#markup"] }}</div>
     {% endfor %}
