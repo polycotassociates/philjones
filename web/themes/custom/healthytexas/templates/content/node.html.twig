@@ -104,15 +104,16 @@
       {{ node.type.entity.label }} ({{ node.getType }})
     </div>
     <div class="dashboard__participant">
-    {% if content.group_participant_data.field_user %}
-        {{content.group_participant_data.field_user}}
+    {% if content.field_user %}
+        {{content.field_user}}
     {% endif %}
-    {% if content.group_participant_data.field_participant_name %}
-        {{content.group_participant_data.field_participant_name}} - {{content.group_participant_data.field_response_id}}
+    {% if content.field_participant_name %}
+        {{content.field_participant_name}} - {{content.field_response_id}}
     {% endif %}
   </div>
   </div>
 {% endif %}
+    {{ content.group_program_website }}
     {{ content.group_timepoint_data }}
   </div>
 

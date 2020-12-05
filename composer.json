@@ -55,6 +55,7 @@
         "drupal/http_client_manager": "^2.3",
         "drupal/jsonapi_extras": "^3.16",
         "drupal/jwt": "^1.0",
+        "drupal/key": "^1.14",
         "drupal/mail_login": "^1.0",
         "drupal/migrate_source_csv": "^3.0",
         "drupal/migrate_source_ui": "^1.0",
