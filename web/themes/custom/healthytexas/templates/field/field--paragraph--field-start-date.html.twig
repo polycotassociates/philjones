@@ -63,11 +63,13 @@
       {# <div class='alert alert-info'>{{ compstartdate }}</div>
       <div class='alert alert-info'>{{ 'now' | date('U')  }}</div> #}
 
-      {% if compstartdate < 'now' |date_modify("+14 day")| date('U') and compstartdate > 'now' |date_modify("-14  day")| date('U') %}
-        <div{{ item.attributes.addClass('field--item alert alert-warning') }}><button type="button" class="btn btn-warning">{{ item.content }}</button>  </div>
-      {% elseif compstartdate < 'now' |date_modify("-15 day")|date('U')%}
+      {% if compstartdate < 'now' | date('U') and compstartdate > 'now' |date_modify("-90  day")| date('U') %}
+        <div{{ item.attributes.addClass('field--item alert alert-warning') }}><button type="button" class="btn btn-warning">{{ item.content }}</button></div>
+      {% endif %}
+      {% if compstartdate < 'now' |date_modify("-90 day")|date('U')%}
         <div{{ item.attributes.addClass('field--item alert alert-success') }}>{{ item.content }}</div>
-      {% else %}
+      {% endif %}
+      {% if compstartdate > 'now' |date('U')%}
         <div{{ item.attributes.addClass('field--item alert alert-info') }}>{{ item.content }}</div>
       {% endif %}
     {% endfor %}
