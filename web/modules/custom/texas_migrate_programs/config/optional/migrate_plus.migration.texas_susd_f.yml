@@ -13,24 +13,24 @@ source:
   ids:
     responseId:
       type: string
-  item_selector: /responses
+  item_selector: responses
   fields:
     -
       name: responseId
       label: 'Unique identifier'
-      selector: /responseId
+      selector: responseId
     -
       name: field_response_id
       label: 'Participant ID'
-      selector: /values/QID2_TEXT
+      selector: values/QID2_TEXT
     -
       name: name
       label: 'Name'
-      selector: /values/QID4_TEXT
+      selector: values/QID4_TEXT
     -
       name: field_program_type
       label: 'Role'
-      selector: /values/QID15#1_3
+      selector: values/QID15#2_3_1
 
 process:
   field_program_type:

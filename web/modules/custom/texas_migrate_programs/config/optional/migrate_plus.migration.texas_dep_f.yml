@@ -30,7 +30,7 @@ source:
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_1
+      selector: values/QID15#2_1_1
 
 process:
   field_program_type:

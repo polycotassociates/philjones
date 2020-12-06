@@ -30,7 +30,7 @@ source:
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#1_7
+      selector: values/QID15#2_7_1
     -
       name: field_participant_id
       label: 'Participant ID'
