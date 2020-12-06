@@ -26,11 +26,11 @@ source:
     -
       name: field_start_date
       label: 'Start Date'
-      selector: values/QID15#2_7_1
+      selector: values/QID43#2_7_1
     -
       name: field_program_type
       label: 'Role'
-      selector: values/QID15#2_7_1
+      selector: values/QID43#2_7_1
     -
       name: field_participant_id
       label: 'Participant ID'

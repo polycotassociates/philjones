@@ -92,39 +92,39 @@ source:
     -
       name: dep_f
       label: 'DEP-F'
-      selector: values/QID15#2_1_1
+      selector: values/QID43#2_1_1
     -
       name: dep_l
       label: 'DEP-L'
-      selector: values/QID15#2_2_1
+      selector: values/QID43#2_2_1
     -
       name: susd_f
       label: 'SUSD-F'
-      selector: values/QID15#2_3_1
+      selector: values/QID43#2_3_1
     -
       name: susd_l
       label: 'SUSD-L'
-      selector: values/QID15#2_4_1
+      selector: values/QID43#2_4_1
     -
       name: cwwd
       label: 'CWWD'
-      selector: values/QID15#2_6_1
+      selector: values/QID43#2_6_1
     -
       name: map
       label: 'MAP'
-      selector: values/QID15#2_7_1
+      selector: values/QID43#2_7_1
     -
       name: htds_f
       label: 'HTDS-F'
-      selector: values/QID15#2_8_1
+      selector: values/QID43#2_8_1
     -
       name: htds_l
       label: 'HTDS-L'
-      selector: values/QID15#2_9_1
+      selector: values/QID43#2_9_1
     -
       name: wat
       label: 'Role'
-      selector: values/QID15#2_5_1
+      selector: values/QID43#2_5_1
 
 
 process:
