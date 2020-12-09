@@ -70,7 +70,7 @@ class TexasSurveyCompleteController extends ControllerBase {
     }
   }
 
-    $markup = '<ul><li>Participant ID: '.$pptid .'</li><li>User ID: '.$uid .'</li><ul>' .$debug. '</ul></ul>';
+    //$markup = '<ul><li>Participant ID: '.$pptid .'</li><li>User ID: '.$uid .'</li><ul>' .$debug. '</ul></ul>';
     $markup = $markup . '<p>Thank you for completing your online Health Survey, your record has now been updated</p>';
     $markup = $markup . '<a href="/user/'.$uid .'" class="btn btn-info" role="button">Return to this participant\'s dashboard</a>';
     return array('#markup' => $markup );
