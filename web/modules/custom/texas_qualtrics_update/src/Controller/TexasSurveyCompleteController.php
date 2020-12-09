@@ -13,6 +13,14 @@ class TexasSurveyCompleteController extends ControllerBase {
     // break string into pptid and timepoints
     $splits = explode('&', $pptstring);
     $pptid = ltrim(strstr(array_shift($splits), '='), '=');
+    // get user id from pptid and add to link
+    $uids = \Drupal::entityQuery('user')
+      ->condition('field_response_id', $pptid)
+      ->execute();
+    foreach($uids as $uid)
+      {
+        $uid = $uid;
+      }
     foreach ($splits as $split) {
       $program = str_replace('-', '_',explode('=', $split, 2));
       $program = strtolower($program[0]);
@@ -54,16 +62,18 @@ class TexasSurveyCompleteController extends ControllerBase {
           $paragraph->set('field_survey_completed', 1);
           // Save the Paragraph.
           $paragraph->save();
-          $main = $main . '<li>Program: '. $program.'</li><li>Paragraph: '. $paragraphid.'</li><li>Timepoint: '. $timepoint.'</li><li>Timepoint ID: '. $timepointid.'</li><li>Paragraph ID '.$pid .'</li><li>field_survey_completed Value '.$paragraph_field_value.'</li>';
+          //$debug = $debug . '<li>Program: '. $program.'</li><li>Paragraph: '. $paragraphid.'</li><li>Timepoint: '. $timepoint.'</li><li>Timepoint ID: '. $timepointid.'</li><li>Paragraph ID '.$pid .'</li><li>field_survey_completed Value '.$paragraph_field_value.'</li>';
 
+        }
         }
       }
     }
-    }
-    //var_dump($program);
+  }
 
-        }
-    return array('#markup' => '<ul><li>Participant: '.$pptid .'</li><ul>' .$main. '</ul></ul>');
+    $markup = '<ul><li>Participant ID: '.$pptid .'</li><li>User ID: '.$uid .'</li><ul>' .$debug. '</ul></ul>';
+    $markup = $markup . '<p>Thank you for completing your online Health Survey, your record has now been updated</p>';
+    $markup = $markup . '<a href="/user/'.$uid .'" class="btn btn-info" role="button">Return to this participant\'s dashboard</a>';
+    return array('#markup' => $markup );
   }
 
 }

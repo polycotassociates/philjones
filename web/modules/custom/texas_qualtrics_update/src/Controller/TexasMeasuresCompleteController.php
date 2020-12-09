@@ -8,11 +8,20 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 class TexasMeasuresCompleteController extends ControllerBase {
   public function content($pptstring) {
-     // programs that have field_measures_completed
+
+    // programs that have field_measures_completed
     $measureprogs = array('dep_l', 'dep_f', 'htds_f', 'htds_l', 'susd_f');
     // break string into pptid and timepoints
     $splits = explode('&', $pptstring);
     $pptid = ltrim(strstr(array_shift($splits), '='), '=');
+    // get user id from pptid and add to link
+    $uids = \Drupal::entityQuery('user')
+      ->condition('field_response_id', $pptid)
+      ->execute();
+    foreach($uids as $uid)
+      {
+        $uid = $uid;
+      }
     foreach ($splits as $split) {
       $program = str_replace('-', '_',explode('=', $split, 2));
       $program = strtolower($program[0]);
@@ -45,6 +54,7 @@ class TexasMeasuresCompleteController extends ControllerBase {
         ->condition('field_participant_id', $pptid)
         ->condition('field_timepoint', $timepointid)
         ->execute();
+
         // loop through paragraphs and update
         foreach($pids as $pid) {
           $paragraph = Paragraph::load($pid);
@@ -54,16 +64,20 @@ class TexasMeasuresCompleteController extends ControllerBase {
           $paragraph->set('field_measures_completed', 1);
           // Save the Paragraph.
           $paragraph->save();
-          $main = $main . '<li>Program: '. $program.'</li><li>Paragraph: '. $paragraphid.'</li><li>Timepoint: '. $timepoint.'</li><li>Timepoint ID: '. $timepointid.'</li><li>Paragraph ID '.$pid .'</li><li>field_measures_completed Value '.$paragraph_field_value.'</li>';
+          //display debug info
+          //$debug = $debug . '<li>Program: '. $program.'</li><li>Paragraph: '. $paragraphid.'</li><li>Timepoint: '. $timepoint.'</li><li>Timepoint ID: '. $timepointid.'</li><li>Paragraph ID '.$pid .'</li><li>field_measures_completed Value '.$paragraph_field_value.'</li>';
 
+
+          }
         }
       }
     }
-    }
-    //var_dump($program);
+  }
 
-        }
-    return array('#markup' => '<ul><li>Participant: '.$pptid .'</li><ul>' .$main. '</ul></ul>');
+    //$markup = '<ul><li>Participant ID: '.$pptid .'</li><li>User ID: '.$uid .'</li><ul>' .$debug. '</ul></ul>';
+    $markup = $markup . '<p>The data collection visit has been recorded in the participant’s record</p>';
+    $markup = $markup . '<a href="/user/'.$uid .'" class="btn btn-info" role="button">Return to this participant\'s dashboard</a>';
+    return array('#markup' => $markup );
   }
 
 }

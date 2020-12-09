@@ -17,6 +17,6 @@ texas_asa24.texas_asa24__update_controller_content:
   path: 'texas_asa24_update/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_asa24\Controller\TexasAsa24UpdateController::content'
-    _title: 'Update timepoints'
+    _title: 'Food Diary complete'
   requirements:
     _permission: 'edit field_asa_24_complete'

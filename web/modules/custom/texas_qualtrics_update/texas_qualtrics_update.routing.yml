@@ -2,7 +2,7 @@ texas_qualtrics_update.texas_survey_complete_controller_content:
   path: 'texas_survey_complete/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_qualtrics_update\Controller\TexasSurveyCompleteController::content'
-    _title: 'Update timepoints to show survey complete'
+    _title: 'Health Survey complete'
   requirements:
     _permission: 'edit field_survey_completed'
 
@@ -10,6 +10,6 @@ texas_qualtrics_update.texas_measures_complete_controller_content:
   path: 'texas_measures_complete/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_qualtrics_update\Controller\TexasMeasuresCompleteController::content'
-    _title: 'Update timepoints to show measures complete'
+    _title: 'Data collection visit recorded'
   requirements:
     _permission: 'edit field_measures_completed'
