@@ -102,6 +102,8 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     }else{
       $textout =  $textout . "<li><strong>No progressId !</strong></li>";
     }
+//wait for file to build
+sleep(10);
 // get a file ID
   $curl = curl_init();
 
@@ -123,7 +125,6 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
   $fileid = curl_exec($curl);
   //uncomment to debug file build
   $textout =  $textout . "<li><strong>File lookup:</strong> " . $fileid . "</li>";
-
   curl_close($curl);
   $fileid = json_decode($fileid);
     //get percent complete for requested file build
