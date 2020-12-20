@@ -58,18 +58,23 @@
     {% endif %}
     {% for item in items %}
       {% set fieldstatus = item.content["#markup"] %}
+      {% set field_asa_24 = drupal_field('field_asa_24', 'user', 1024)%}
+      {% set field_asa_24 = field_asa_24.0['#url'] %}
 
       {# debugging
        <div class='alert alert-info'>{{ fieldstatus }}</div>
       {{vardumper(item.content["#markup"])}}#}
       {% if fieldstatus == 'No' %}
         {% set surveyclass = 'field--item alert alert-info' %}
+        <a href="{{field_asa_24}}" class="btn btn-success" role="button">Complete Online Food Diary</a>
       {% elseif fieldstatus == 'Yes' %}
         {% set surveyclass = 'field--item alert alert-success' %}
+        <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
       {% else %}
         {% set surveyclass = 'field--item alert alert-info' %}
+        <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
       {% endif %}
-      <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
+
     {% endfor %}
     {% if multiple %}
       </div>
