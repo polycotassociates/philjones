@@ -66,6 +66,7 @@
       {{vardumper(item.content["#markup"])}}#}
       {% if fieldstatus == 'No' %}
         {% set surveyclass = 'field--item alert alert-info' %}
+        <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
         <a href="{{field_asa_24}}" class="btn btn-success" role="button">Complete Online Food Diary</a>
       {% elseif fieldstatus == 'Yes' %}
         {% set surveyclass = 'field--item alert alert-success' %}
