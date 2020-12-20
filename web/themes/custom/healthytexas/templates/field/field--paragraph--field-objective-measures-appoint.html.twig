@@ -42,7 +42,6 @@
   <div{{ attributes.addClass(classes) }}>
     <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% for item in items %}
-      {% set surveyclass = 'field--item alert alert-info' %}
-      <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
+      <div>{{ item.content }}</div>
     {% endfor %}
   </div>
