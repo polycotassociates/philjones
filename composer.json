@@ -71,6 +71,7 @@
         "drupal/pet": "^1.0",
         "drupal/qualtricsxm": "^1.2",
         "drupal/recaptcha": "^2.5",
+        "drupal/redirect_after_login": "^2.6",
         "drupal/redis": "^1.1",
         "drupal/restui": "^1.18",
         "drupal/rules": "^3.0",
