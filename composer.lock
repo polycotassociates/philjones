@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa281cd899ace911bc94bb3336ae96dd",
+    "content-hash": "7210ed985f126b182d813ae73b565e8f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -7606,6 +7606,51 @@
                 "issues": "https://www.drupal.org/project/issues/typed_data"
             },
             "time": "2020-10-30T06:56:14+00:00"
+        },
+        {
+            "name": "drupal/user_email_textformat",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/user_email_textformat.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/user_email_textformat-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "43ea9030620bba4eb515bfd102a0e4ce7198869f"
+            },
+            "require": {
+                "drupal/core": "^8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1579276986",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "rudam",
+                    "homepage": "https://www.drupal.org/user/2437850"
+                }
+            ],
+            "description": "Transforms user email config body fields textarea into text_formated (ckeditor)",
+            "homepage": "https://www.drupal.org/project/user_email_textformat",
+            "support": {
+                "source": "http://cgit.drupalcode.org/user_email_textformat",
+                "issues": "https://www.drupal.org/project/issues/user_email_textformat"
+            }
         },
         {
             "name": "drupal/vbo_export",
