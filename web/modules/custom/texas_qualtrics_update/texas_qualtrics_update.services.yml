@@ -1,0 +1,13 @@
+services:
+  texas_qualtrics_update.getParticipantSurveyLink:
+    class: Drupal\texas_qualtrics_update\getParticipantSurveyLink
+    tags:
+      - { name: twig.extension }
+  texas_qualtrics_update.getParticipantMeasuresLink:
+    class: Drupal\texas_qualtrics_update\getParticipantMeasuresLink
+    tags:
+      - { name: twig.extension }
+  texas_qualtrics_update.getParticipantDiaryLink:
+    class: Drupal\texas_qualtrics_update\getParticipantDiaryLink
+    tags:
+      - { name: twig.extension }

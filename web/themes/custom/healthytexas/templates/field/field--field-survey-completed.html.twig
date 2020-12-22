@@ -59,13 +59,12 @@
     {% for item in items %}
       {#vardumper(_parent.element)#}
       {% set fieldstatus = item.content["#markup"] %}
-      {% set field_participant_questionnaire = drupal_field('field_participant_questionnaire', 'user', 1024)%}
-      {% set field_participant_questionnaire = field_participant_questionnaire.0['#url'] %}
       {% set pid = _parent.element['#object'].id.0.value%}
+      {% set survey_link = get_survey_link(pid) %}
       {% if fieldstatus == 'No' %}
         {% set surveyclass = 'field--item alert alert-info' %}
         <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
-        <a href="{{field_participant_questionnaire}}" class="btn btn-success" role="button">Complete Online Health Survey</a>
+        <a href="{{survey_link}}" class="btn btn-success" role="button">Complete Online Health Survey</a>
       {% elseif fieldstatus == 'Yes' %}
         {% set surveyclass = 'field--item alert alert-success' %}
         <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
@@ -73,8 +72,6 @@
         {% set surveyclass = 'field--item alert alert-info' %}
         <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
       {% endif %}
-
-
     {% endfor %}
     {% if multiple %}
       </div>
