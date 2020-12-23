@@ -62,13 +62,19 @@
       {% set field_data_collection_form = field_data_collection_form.0['#url'] %}
       {% set pid = _parent.element['#object'].id.0.value%}
       {% set measures_link = get_measures_link(pid) %}
+      {% set compstartdate = _parent.element['#object'].field_start_date.0.value | date('U') %}
+      {% if compstartdate < 'now' | date('U') and compstartdate > 'now' |date_modify("-90  day")| date('U') %}
+        {% set timepointcurrent = TRUE %}
+      {% endif %}
       {# debugging
        <div class='alert alert-info'>{{ fieldstatus }}</div>
       {{vardumper(item.content["#markup"])}}#}
       {% if fieldstatus == 'No' %}
         {% set surveyclass = 'field--item alert alert-info' %}
         <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
+        {% if timepointcurrent == TRUE %}
         <a href="{{measures_link}}" class="btn btn-success" role="button">Complete Objective Measures</a>
+        {% endif %}
       {% elseif fieldstatus == 'Yes' %}
         {% set surveyclass = 'field--item alert alert-success' %}
         <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
