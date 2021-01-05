@@ -34,13 +34,9 @@
 				Links
 			</div>
 		</div>
-<div class="panel-body">
-			{% if ('dep_f' in programs|render|render) or ('dep_l' in programs|render|render)  %}
+		<div class="panel-body">
 			  {{content.group_survey_info.field_attendance_process_survey}}
-			{% endif %}
-			{% if ('cwwd' in programs|render|render) or ('dep_f' in programs|render|render) or ('susd_f' in programs|render|render) or ('map' in programs|render|render) or ('wat' in programs|render|render) %}
 				{{content.group_survey_info.field_report_an_adverse_event}}
-			{% endif %}
 		</div>
 	</div>
 	{{content.group_survey_info.field_study_data}}
