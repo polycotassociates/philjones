@@ -1,5 +1,5 @@
 # Migration configuration for imported change club member.
-id: texas_user
+id: texas_a_user
 label: Import texas program participants from static file to user with program partipipant role
 migration_group: texas
 destination:
@@ -77,6 +77,14 @@ source:
       name: field_preferred_contact
       label: 'Preferred Contact'
       selector: labels/QID13
+    -
+      name: field_willing_to_be_contacted_by
+      label: 'Willing to be contacted by other HT programs'
+      selector: values/QID45
+    -
+      name: field_willing_to_be_contacted_in
+      label: 'Willing to be contacted in the future for HT programs or research studies'
+      selector: values/QID46
     -
       name: field_preferred_language
       label: 'Preferred Contact'
@@ -170,6 +178,8 @@ process:
     source: field_response_id
   field_primary_phone: field_primary_phone
   field_preferred_contact: field_preferred_contact
+  field_willing_to_be_contacted_by: field_willing_to_be_contacted_by
+  field_willing_to_be_contacted_in: field_willing_to_be_contacted_in
   field_person_title: field_person_title
   field_study_site:
     plugin: entity_lookup
@@ -347,9 +357,9 @@ process:
     source:
       - 'constants/e_link_prefix'
       - field_response_id
-  status:
-    plugin: default_value
-    default_value: 0
   roles:
     plugin: default_value
     default_value: 'participant'
+  status:
+    plugin: default_value
+    default_value: 0
