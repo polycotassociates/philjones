@@ -8,7 +8,8 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 class TexasMeasuresCompleteController extends ControllerBase {
   public function content($pptstring) {
-
+    $markup = '';
+    $timepointid = '';
     // programs that have field_measures_completed
     $measureprogs = array('dep_l', 'dep_f', 'htds_f', 'htds_l', 'susd_f');
     // break string into pptid and timepoints
@@ -60,7 +61,7 @@ class TexasMeasuresCompleteController extends ControllerBase {
           $paragraph = Paragraph::load($pid);
           $paragraph_field_value = $paragraph->get('field_measures_completed')->value;
           // var_dump($paragraph_field_value);
-          // Update field_asa_24_complete to true.
+          // Update field_measures_completed to true.
           $paragraph->set('field_measures_completed', 1);
           // Save the Paragraph.
           $paragraph->save();

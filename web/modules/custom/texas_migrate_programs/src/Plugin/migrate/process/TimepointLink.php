@@ -33,20 +33,21 @@ class TimepointLink extends ProcessPluginBase {
 
       // set some values
       if (!empty($value)) {
-      $date = strtotime($value);
-      $timepoint_link = '48W';
-      if($date >= strtotime('-48 week')){
-        $timepoint_link = '36W';
-      }
-      if($date >= strtotime('-36 week')){
-        $timepoint_link = '24W';
-      }
-      if($date >= strtotime('-24 week')){
-        $timepoint_link = '12W';
-      }
-      if($date >= strtotime('-12 week')){
+      // this logic moved to field template to rewrite link there
+      //$date = strtotime($value);
+      //$timepoint_link = '48W';
+      //if($date >= strtotime('-48 week')){
+        //$timepoint_link = '36W';
+      //}
+      //if($date >= strtotime('-36 week')){
+        //$timepoint_link = '24W';
+      //}
+      //if($date >= strtotime('-24 week')){
+        //$timepoint_link = '12W';
+      //}
+      //if($date >= strtotime('-12 week')){
         $timepoint_link = 'B';
-      }
+      //}
 
 
 

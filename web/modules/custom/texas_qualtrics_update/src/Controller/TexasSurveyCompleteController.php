@@ -8,6 +8,8 @@ use Drupal\paragraphs\Entity\Paragraph;
  */
 class TexasSurveyCompleteController extends ControllerBase {
   public function content($pptstring) {
+    $markup = '';
+    $timepointid = '';
     // programs that have field_survey_completed
     $surveyprogs = array('cwwd', 'dep_f', 'htds_f', 'map', 'susd_f', 'susd_l', 'wat');
     // break string into pptid and timepoints
