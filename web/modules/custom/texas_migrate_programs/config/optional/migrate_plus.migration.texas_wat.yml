@@ -41,10 +41,7 @@ process:
     plugin: default_value
     default_value: wat
   title: name
-  field_response_id:
-    plugin: skip_on_empty
-    method: row
-    source: field_response_id
+  field_response_id: field_response_id
   field_user:
     plugin: entity_lookup
     source: field_response_id

@@ -41,10 +41,8 @@ process:
     plugin: skip_on_empty
     method: row
     source: field_program_type
-  field_participant_id:
-    plugin: skip_on_empty
-    method: row
-    source: field_participant_id
+  field_participant_id: field_participant_id
+    source:
   field_start_date/value:
     plugin: 12W_date
     source: field_start_date
