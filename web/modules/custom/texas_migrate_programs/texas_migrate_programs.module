@@ -6,18 +6,10 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\migrate\Row;
-use Drupal\migrate\MigrateExecutable;
-use Drupal\migrate\MigrateMessageInterface;
-use Drupal\migrate\MigrateMessage;
-use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate\Event\MigrateEvents;
 
-use Drupal\migrate_plus\Entity\Migration;
-use Drupal\migrate_plus\Entity\MigrationGroup;
-use Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager;
 
-use Drupal\migrate_tools\Controller\MigrationController;
+
+
 
 /**
  * Implements hook_help().
@@ -252,10 +244,9 @@ function texas_migrate_programs_cron() {
     ->get('texas_migrate_programs_cron.next_execution', 0);
   if (REQUEST_TIME >= $next_execution) {
 
-    // This is a silly example of a cron job.
-    // It just makes it obvious that the job has run without
-    // making any changes to your database.
+    // Import Qualtrics data
     $textout = texas_migrate_programs_runner();
+
     \Drupal::logger('texas_migrate_programs_cron')
       ->notice('Qualtrics data import ran via cron.'. $textout);
     if (\Drupal::state()
