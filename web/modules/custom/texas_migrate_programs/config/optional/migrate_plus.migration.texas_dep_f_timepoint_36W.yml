@@ -2,7 +2,7 @@
 id: texas_dep_f_timepoint_36W
 
 label: Import baseline timepoint data into a paragraph to relate to a dep_f program data node.
-migration_group: texas
+migration_group: texas_dep_f
 
 destination:
   plugin: entity_reference_revisions:paragraph

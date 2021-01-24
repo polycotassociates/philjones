@@ -1,8 +1,7 @@
 # Migration configuration for imported images.
 id: texas_susd_f_timepoint_36W
 label: Import baseline timepoint data into a paragraph to relate to a susd_f program data node.
-migration_group: texas
-
+migration_group: texas_susd_f
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: susd_f_timepoint

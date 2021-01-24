@@ -1,7 +1,7 @@
 # Migration configuration for imported change club member.
 id: texas_htds_f
 label: Import change club members from static file to htds_f content type
-migration_group: texas
+migration_group: texas_htds_f
 destination:
   plugin: 'entity:node'
 source:

@@ -1,7 +1,7 @@
 # Migration configuration for imported images.
 id: texas_dep_l_timepoint_baseline
 label: Import baseline timepoint data into a paragraph to relate to a map program data node.
-migration_group: texas
+migration_group: texas_dep_l
 
 destination:
   plugin: entity_reference_revisions:paragraph

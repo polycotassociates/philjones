@@ -1,8 +1,7 @@
 # Migration configuration for imported images.
 id: texas_cwwd_timepoint_12W
 label: Import baseline timepoint data into a paragraph to relate to a cwwd program data node.
-migration_group: texas
-
+migration_group: texas_cwwd
 destination:
   plugin: entity_reference_revisions:paragraph
   default_bundle: cwwd_timepoints

@@ -1,7 +1,7 @@
 # Migration configuration for imported change club member.
 id: texas_dep_f
 label: Import data to dep_f content type
-migration_group: texas
+migration_group: texas_dep_f
 destination:
   plugin: 'entity:node'
 source:

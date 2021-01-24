@@ -1,7 +1,7 @@
 # Migration configuration for imported change club member.
 id: texas_susd_f
 label: Import data to susd_f content type
-migration_group: texas
+migration_group: texas_susd_f
 destination:
   plugin: 'entity:node'
 source:

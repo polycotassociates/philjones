@@ -6,7 +6,18 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\migrate\Row;
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessageInterface;
+use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Event\MigrateEvents;
 
+use Drupal\migrate_plus\Entity\Migration;
+use Drupal\migrate_plus\Entity\MigrationGroup;
+use Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager;
+
+use Drupal\migrate_tools\Controller\MigrationController;
 
 /**
  * Implements hook_help().
@@ -234,7 +245,7 @@ function texas_migrate_programs_cron() {
   // default to an hourly interval.
   $interval = $cron_config
     ->get('interval');
-  $interval = !empty($interval) ? $interval : 3600;
+  $interval = !empty($interval) ? $interval : 30;
 
   //  keep a time for the next run in the site state.
   $next_execution = \Drupal::state()

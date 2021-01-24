@@ -1,7 +1,7 @@
 # Migration configuration for imported images.
 id: texas_wat_timepoint_baseline
 label: Import baseline timepoint data into a paragraph to relate to a wat program data node.
-migration_group: texas
+migration_group: texas_wat
 
 destination:
   plugin: entity_reference_revisions:paragraph
