@@ -6,8 +6,17 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
-
+use Drupal\migrate\Row;
+//use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessageInterface;
+use Drupal\migrate\MigrateMessage;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Event\MigrateEvents;
+use Drupal\migrate_plus\Entity\Migration;
+use Drupal\migrate_plus\Entity\MigrationGroup;
+use Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager;
+use Drupal\migrate_tools\MigrateExecutable;
+use Drupal\migrate_tools\MigrateTools;
 
 
 
@@ -28,7 +37,6 @@ function texas_migrate_programs_help($route_name, RouteMatchInterface $route_mat
 }
 
 
-
 /**
  * Downloads survey results from qualtrics().
  */
@@ -46,19 +54,21 @@ function texas_migrate_programs_runner(){
   $textout = "";
   $index = 0;
   $textout = $textout ."<ul>";
-  foreach($surveys as $survey) {
+  // for loop disabled since there is only one survey being downloaded
+  //foreach($surveys as $survey) {
     //$textout = $textout . "<li><strong>Survey index</strong> is " .$index. "</li><ul>";
-    $textout = $textout . "<li><strong>Survey ID:</strong> ". $surveys[$index]. "</li>";
+    //$textout = $textout . "<li><strong>Survey ID:</strong> ". $surveys[$index]. "</li>";
     //$textout = $textout . "<li><strong>File Path</strong> is ". $path. "</li>";
 
 
-    $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]). "</ul>";
+    $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]);
+    //$textout = $textout . texas_migrate_programs_importer();
+    $textout = $textout . texas_migrate_programs_import_responseid('R_pnN8lFWwmn9n281','cwwd');
     $index++;
-  }
+  //}
   $textout = $textout ."</ul>";
  return $textout;
 }
-
 
 /**
  * Downloads survey results from qualtrics().
@@ -101,7 +111,7 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     $progresspercentcomplete = $progressid->result->percentComplete;
     if (!empty($progressid->result->progressId)){
     $progressid =  $progressid->result->progressId;
-    $textout =  $textout . "<li><strong>progressId:</strong> " . $progressid . "</li>";
+    //$textout =  $textout . "<li><strong>progressId:</strong> " . $progressid . "</li>";
     }else{
       $textout =  $textout . "<li><strong>No progressId !</strong></li>";
     }
@@ -127,18 +137,18 @@ sleep(10);
 
   $fileid = curl_exec($curl);
   //uncomment to debug file build
-  $textout =  $textout . "<li><strong>File lookup:</strong> " . $fileid . "</li>";
+  //$textout =  $textout . "<li><strong>File lookup:</strong> " . $fileid . "</li>";
   curl_close($curl);
   $fileid = json_decode($fileid);
     //get percent complete for requested file build
     $filepercentcomplete = $fileid->result->percentComplete;
-    $textout =  $textout . "<li>File build is <strong>" . $filepercentcomplete . "%</strong> complete</li>";
+    //$textout =  $textout . "<li>File build is <strong>" . $filepercentcomplete . "%</strong> complete</li>";
     //report percent completed
     if ($filepercentcomplete == 100){
       $fileid =  $fileid->result->fileId;
-      $textout =  $textout . "<li><strong>fileId  is: </strong>" . $fileid . "</li>";
+      //$textout =  $textout . "<li><strong>fileId  is: </strong>" . $fileid . "</li>";
     }else{
-      $textout =  $textout . "<li><strong><div class = 'error'>File is ".$filepercentcomplete."% complete !</div></strong></li>";
+      //$textout =  $textout . "<li><strong><div class = 'error'>File is ".$filepercentcomplete."% complete !</div></strong></li>";
       //exit;
     }
   //only try to download if file build is 100 percent complete
@@ -146,7 +156,7 @@ sleep(10);
 // download and save the .zip file
 // file to save the contents to
 
-    $textout =  $textout . "<li><strong>File Path is: </strong>../private/qualtrics_data/".$surveyid.".zip</li>";
+    //$textout =  $textout . "<li><strong>File Path is: </strong>../private/qualtrics_data/".$surveyid.".zip</li>";
     $fp = fopen("../private/qualtrics_data/".$surveyid.".zip", "wb");
     //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
@@ -229,39 +239,123 @@ return $textout;
 
 }
 
+/**
+ * programmatically runs migrations to import users, data nodes, and timepoint paragraphs for the various programs ().
+ */
+function texas_migrate_programs_importer(){
+// get settings
+  //$config = \Drupal::config("texas_migrate_programs.credentials");
+  //$settings = array();
+  //$settings["survey_id"] = $config->get("survey_id");
+  //$surveys = explode("|", $settings["survey_id"]);
+  $migrationlist  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+  $migrations = explode(',', $migrationlist);
+  $manager = Drupal::service('plugin.manager.migration');
+  $textout = '';
+  $index = 0;
+  foreach($migrations as $migration) {
+    $migration = $manager->createInstance($migration);
+    // update existing entity imported.
+    //$migration->getIdMap()->prepareUpdate();
+    $executable = new MigrateExecutable($migration, new MigrateMessage());
+    try {
+      // Run the migration.
+      $executable->import();
+      $textout = $textout . '<li><strong>'. $migrations[$index] .'</strong> imported.</li>';
+    }
+    catch (\Exception $e) {
+      $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      $textout = $textout . '<li>'. $migrations[$index]  .' import failed !</strong></li>';
+    }
+    $index++;
+  }
+ return $textout;
+}
 
-function texas_migrate_programs_cron() {
-  $textout = "";
+
+/**
+ * programmatically runs migrations to import data nodes, and timepoint paragraphs for the various programs dor a specific user ().
+ */
+function texas_migrate_programs_import_responseid($responseid,$program){
+// get settings
+  //$config = \Drupal::config("texas_migrate_programs.credentials");
+  //$settings = array();
+  //$settings["survey_id"] = $config->get("survey_id");
+  if ($program == 'cwwd') {
+  $migrationlist  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
+    }
+  if ($program == 'dep_f') {
+  $migrationlist  = 'texas_a_user,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f';
+    }
+  if ($program == 'map') {
+  $migrationlist  = 'texas_a_user,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map';
+    }
+  if ($program == 'susd_f') {
+  $migrationlist  = 'texas_a_user,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f';
+    }
+  if ($program == 'wat') {
+  $migrationlist  = 'texas_a_user,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+    }
+  $migrations = explode(',', $migrationlist);
+  $manager = Drupal::service('plugin.manager.migration');
+  $textout = '<li>Program = <strong>'.$program.'</strong></li>';
+  $index = 0;
+  foreach($migrations as $migration) {
+    $migration = $manager->createInstance($migration);
+    // update existing entity imported.
+    //$migration->getIdMap()->prepareUpdate();
+    $executable = new MigrateExecutable($migration, new MigrateMessage(),
+        [
+    'idlist' => $responseid,
+  ]
+  );
+    try {
+      // Run the migration.
+      $executable->import();
+      $textout = $textout . '<li><strong>'. $migrations[$index] .'</strong> for ResponseId <strong>'. $responseid .'</strong> imported.</li>';
+    }
+    catch (\Exception $e) {
+      $migration->setStatus(MigrationInterface::STATUS_IDLE);
+      $textout = $textout . '<li>'. $migrations[$index]  .' import failed !</strong></li>';
+    }
+    $index++;
+  }
+ return $textout;
+}
+
+
+//function texas_migrate_programs_cron() {
+  //$textout = "";
   // access configuration.
-  $cron_config = \Drupal::config('texas_migrate_programs.settings');
+  //$cron_config = \Drupal::config('texas_migrate_programs.settings');
   // default to an hourly interval.
-  $interval = $cron_config
-    ->get('interval');
-  $interval = !empty($interval) ? $interval : 30;
+  //$interval = $cron_config
+  //  ->get('interval');
+  //$interval = !empty($interval) ? $interval : 30;
 
   //  keep a time for the next run in the site state.
-  $next_execution = \Drupal::state()
-    ->get('texas_migrate_programs_cron.next_execution', 0);
-  if (REQUEST_TIME >= $next_execution) {
+  //$next_execution = \Drupal::state()
+  //  ->get('texas_migrate_programs_cron.next_execution', 0);
+  //if (REQUEST_TIME >= $next_execution) {
 
     // Import Qualtrics data
-    $textout = texas_migrate_programs_runner();
+  //  $textout = texas_migrate_programs_runner();
 
-    \Drupal::logger('texas_migrate_programs_cron')
-      ->notice('Qualtrics data import ran via cron.'. $textout);
-    if (\Drupal::state()
-      ->get('texas_migrate_programs_cron_show_status_message')) {
-      \Drupal::messenger()
-        ->addMessage(t('texas_migrate_programs_cron executed at %time', [
-        '%time' => date('c'),
-      ]));
-      \Drupal::state()
-        ->set('texas_migrate_programs_cron_show_status_message', FALSE);
-    }
-    \Drupal::state()
-      ->set('texas_migrate_programs_cron.next_execution', REQUEST_TIME + $interval);
-  }
-}
+  //  \Drupal::logger('texas_migrate_programs_cron')
+  //    ->notice('Qualtrics data import ran via cron.'. $textout);
+  //  if (\Drupal::state()
+  //    ->get('texas_migrate_programs_cron_show_status_message')) {
+  //    \Drupal::messenger()
+  //     ->addMessage(t('texas_migrate_programs_cron executed at %time', [
+  //     '%time' => date('c'),
+  //    ]));
+  //    \Drupal::state()
+   //     ->set('texas_migrate_programs_cron_show_status_message', FALSE);
+  //  }
+  //  \Drupal::state()
+  //    ->set('texas_migrate_programs_cron.next_execution', REQUEST_TIME + $interval);
+  //}
+//}
 
 
 /**
