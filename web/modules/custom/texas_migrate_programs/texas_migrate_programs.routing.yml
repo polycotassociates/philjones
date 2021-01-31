@@ -4,12 +4,18 @@ texas_migrate_programs.settings:
    _form: '\Drupal\texas_migrate_programs\Form\QualtricsSettingsForm'
   requirements:
     _permission: 'administer site configuration'
-
 texas_migrate_programs.texas_migrate_programs_controller_content:
   path: 'texas_migrate_programs'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsController::content'
-    _title: 'Import Qualtrics survey results'
+    _title: 'Import Qualtrics data and all new users'
+  requirements:
+    _permission: 'administer site configuration'
+texas_migrate_programs.texas_migrate_programs_update_participant_controller_content:
+  path: 'texas_migrate_programs/update_participant/{responseids}/{program}'
+  defaults:
+    _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsUpdateParticipantController::content'
+    _title: 'Re-import Qualtrics data by ResponseId'
   requirements:
     _permission: 'administer site configuration'
 

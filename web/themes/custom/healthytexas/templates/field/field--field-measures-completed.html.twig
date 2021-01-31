@@ -66,19 +66,19 @@
       {% set program = _parent.element['#object'].type.0.value.target_id|replace({'_timepoint': '', '_': '-'}) %}
       {% set survey_link = survey_link|replace({'SV_81vKYPSQYjf4AER':'SV_8bPbpQDM3Mz07Ax'}) %}
       {% if tid == 30 %}
-        {% set survey_link = survey_link|replace({'DEM=0':''}) %}
+        {% set survey_link = survey_link|replace({'&DEM=0':''}) %}
       {% endif %}
       {% if tid == 74 %}
-        {% set survey_link = survey_link|replace({'=B':'=12W','DEM=0':''}) %}
+        {% set survey_link = survey_link|replace({'=B':'=12W','&DEM=0':''}) %}
       {% endif %}
       {% if tid == 75 %}
-        {% set survey_link = survey_link|replace({'=B':'=24W','DEM=0':''}) %}
+        {% set survey_link = survey_link|replace({'=B':'=24W','&DEM=0':''}) %}
       {% endif %}
       {% if tid == 76 %}
-        {% set survey_link = survey_link|replace({'=B':'=36W','DEM=0':''}) %}
+        {% set survey_link = survey_link|replace({'=B':'=36W','&DEM=0':''}) %}
       {% endif %}
       {% if tid == 77 %}
-        {% set survey_link = survey_link|replace({'=B':'=48W','DEM=0':''}) %}
+        {% set survey_link = survey_link|replace({'=B':'=48W','&DEM=0':''}) %}
       {% endif %}
       {% set compstartdate = _parent.element['#object'].field_start_date.0.value | date('U') %}
       {% if compstartdate < 'now' | date('U') and compstartdate > 'now' |date_modify("-90  day")| date('U') %}

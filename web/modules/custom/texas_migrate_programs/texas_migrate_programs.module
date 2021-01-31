@@ -62,8 +62,7 @@ function texas_migrate_programs_runner(){
 
 
     $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]);
-    //$textout = $textout . texas_migrate_programs_importer();
-    $textout = $textout . texas_migrate_programs_import_responseid('R_pnN8lFWwmn9n281','cwwd');
+    $textout = $textout . texas_migrate_programs_importer();
     $index++;
   //}
   $textout = $textout ."</ul>";
@@ -248,8 +247,8 @@ function texas_migrate_programs_importer(){
   //$settings = array();
   //$settings["survey_id"] = $config->get("survey_id");
   //$surveys = explode("|", $settings["survey_id"]);
-  $migrationlist  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
-  $migrations = explode(',', $migrationlist);
+  $migrations  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+  $migrations = explode(',', $migrations);
   $manager = Drupal::service('plugin.manager.migration');
   $textout = '';
   $index = 0;
@@ -276,43 +275,50 @@ function texas_migrate_programs_importer(){
 /**
  * programmatically runs migrations to import data nodes, and timepoint paragraphs for the various programs dor a specific user ().
  */
-function texas_migrate_programs_import_responseid($responseid,$program){
+function texas_migrate_programs_import_responseid($responseids,$program){
 // get settings
   //$config = \Drupal::config("texas_migrate_programs.credentials");
   //$settings = array();
   //$settings["survey_id"] = $config->get("survey_id");
   if ($program == 'cwwd') {
-  $migrationlist  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
+  $migrations  = 'texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
     }
   if ($program == 'dep_f') {
-  $migrationlist  = 'texas_a_user,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f';
+  $migrations  = 'texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f';
     }
   if ($program == 'map') {
-  $migrationlist  = 'texas_a_user,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map';
+  $migrations  = 'texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map';
     }
   if ($program == 'susd_f') {
-  $migrationlist  = 'texas_a_user,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f';
+  $migrations  = 'texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f';
     }
   if ($program == 'wat') {
-  $migrationlist  = 'texas_a_user,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+  $migrations  = 'texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
     }
-  $migrations = explode(',', $migrationlist);
+  if ($program == 'user') {
+  $migrations  = 'texas_a_user';
+    }
+  if ($program == 'all') {
+  $migrations  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+    }
+  $migrations = explode(',', $migrations);
   $manager = Drupal::service('plugin.manager.migration');
   $textout = '<li>Program = <strong>'.$program.'</strong></li>';
   $index = 0;
   foreach($migrations as $migration) {
     $migration = $manager->createInstance($migration);
-    // update existing entity imported.
-    //$migration->getIdMap()->prepareUpdate();
+    // update existing entity imported, which was previpusly skipped.
+    $migration->getIdMap()->prepareUpdate();
     $executable = new MigrateExecutable($migration, new MigrateMessage(),
         [
-    'idlist' => $responseid,
+    'idlist' => $responseids,
+    //'group' => 'texas_'.$program,
   ]
   );
     try {
       // Run the migration.
       $executable->import();
-      $textout = $textout . '<li><strong>'. $migrations[$index] .'</strong> for ResponseId <strong>'. $responseid .'</strong> imported.</li>';
+      $textout = $textout . '<li>Imported <strong>'. $migrations[$index] .'</strong> for ResponseIds:<br/><ul><li><strong>'. $responseids .'</strong></li></ul></li>';
     }
     catch (\Exception $e) {
       $migration->setStatus(MigrationInterface::STATUS_IDLE);
