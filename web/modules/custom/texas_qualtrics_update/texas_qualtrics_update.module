@@ -25,3 +25,54 @@ function texas_qualtrics_update_help($route_name, RouteMatchInterface $route_mat
 }
 
 
+/**
+ * Manipulates $pptstring from Qualtrics ().
+ */
+function texas_qualtrics_update_measures_pptstring($pptstring){
+
+    $timepointid = '';
+    // programs that have field_measures_completed
+    $measureprogs = array('dep_l', 'dep_f', 'htds_f', 'htds_l', 'susd_f');
+    // break string into pptid and timepoints
+    $splits = explode('&', $pptstring);
+    $pptid = ltrim(strstr(array_shift($splits), '='), '=');
+    // get user id from pptid and add to link
+    $uids = \Drupal::entityQuery('user')
+      ->condition('field_response_id', $pptid)
+      ->execute();
+    foreach($uids as $uid)
+      {
+        $uid = $uid;
+      }
+    foreach ($splits as $split) {
+      $program = str_replace('-', '_',explode('=', $split, 2));
+      $program = strtolower($program[0]);
+      $timepoint = ltrim(strstr($split, '='), '=');
+      // map to timepoint term id
+      // check to see if it's a program with asa24
+      foreach ($measureprogs as $p ) {
+      if (strpos ($program , $p ) !== FALSE ) {
+        // append rest of paragraph id
+        $paragraphid = $program .'_timepoint';
+        if(strpos($timepoint, 'N') !== true) {
+          if ($timepoint == 'B'){
+            $timepointid = 30;
+          }
+        if ($timepoint == '12W'){
+            $timepointid = 74;
+          }
+        if ($timepoint == '24W'){
+            $timepointid = 75;
+          }
+        if ($timepoint == '36W'){
+            $timepointid = 76;
+          }
+        if ($timepoint == '48W'){
+            $timepointid = 77;
+          }
+        }
+      }
+    }
+  }
+
+}
