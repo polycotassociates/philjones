@@ -62,7 +62,7 @@ function texas_migrate_programs_runner(){
 
 
     $textout = $textout . texas_migrate_programs_qualtrics($settings, $surveys[$index]);
-    $textout = $textout . texas_migrate_programs_importer();
+    //$textout = $textout . texas_migrate_programs_importer();
     $index++;
   //}
   $textout = $textout ."</ul>";
