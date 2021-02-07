@@ -15,21 +15,21 @@ texas_migrate_programs.texas_migrate_programs_update_participant_controller_cont
   path: 'texas_migrate_programs/update_participant/{program}/{responseids}'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsUpdateParticipantController::content'
-    _title: 'Update participant data by ResponseId'
+    _title: 'Add participant to program'
   requirements:
     _permission: 'administer users'
 texas_migrate_programs.texas_migrate_programs_import_participant_controller_content:
   path: 'texas_migrate_programs/import_participant/{responseids}'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsImportParticipantController::content'
-    _title: 'Import participant data by ResponseId'
+    _title: 'Import a single participant'
   requirements:
     _permission: 'administer users'
 texas_migrate_programs.texas_migrate_programs_import_participant_group_controller_content:
   path: 'texas_migrate_programs/import_participant_group/{responseids}'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsImportParticipantGroupController::content'
-    _title: 'Import group of participants by ResponseIds'
+    _title: 'Import a list of new participants'
   requirements:
     _permission: 'administer users'
 

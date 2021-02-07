@@ -17,8 +17,6 @@ use Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager;
 use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\migrate_tools\MigrateTools;
 
-
-
 /**
  * Implements hook_help().
  */
@@ -277,7 +275,7 @@ function texas_migrate_programs_importer(){
 function texas_migrate_programs_import_responseid($responseids){
 
   if ($responseids == 'ResponseId') {
-    $textout = 'Please provide a valid ResponseId.';
+    $textout = 'Please provide a valid single ResponseId or comma seaprated list of ResponseIds.';
     }else{
     $migrations  = 'texas_a_user,texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd,texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f,texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map,texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f,texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
     $migrations = explode(',', $migrations);
@@ -287,7 +285,7 @@ function texas_migrate_programs_import_responseid($responseids){
     foreach($migrations as $migration) {
       $migration = $manager->createInstance($migration);
       // update existing entity imported, which was previously skipped.
-      //$migration->getIdMap()->prepareUpdate();
+     // $migration->getIdMap()->prepareUpdate();
       $executable = new MigrateExecutable($migration, new MigrateMessage(),
           [
       'idlist' => $responseids,
@@ -296,6 +294,7 @@ function texas_migrate_programs_import_responseid($responseids){
     );
       try {
         // Run the migration.
+        $executable->import();
         $textout = $textout . '<li>Processed <strong>'. $migrations[$index] .'</strong> for ResponseId(s): <strong>'. $responseids .'</strong></li>';
       }
       catch (\Exception $e) {
