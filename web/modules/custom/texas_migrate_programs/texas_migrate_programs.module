@@ -284,7 +284,7 @@ function texas_migrate_programs_import_responseid($responseids){
     $index = 0;
     foreach($migrations as $migration) {
       $migration = $manager->createInstance($migration);
-      // update existing entity imported, which was previously skipped.
+      // uncomment to update existing entity imported, which was previously skipped.
      // $migration->getIdMap()->prepareUpdate();
       $executable = new MigrateExecutable($migration, new MigrateMessage(),
           [
