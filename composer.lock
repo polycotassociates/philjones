@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6e7ebf078435e59bf935260f186a7e9",
+    "content-hash": "db7fc26d5a77894b6ffadd35e6640e60",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3187,176 +3187,6 @@
             "time": "2020-12-06T09:34:55+00:00"
         },
         {
-            "name": "drupal/colorbox",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/colorbox.git",
-                "reference": "8.x-1.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/colorbox-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "73bfc74e9afd294e3d3aded3622ad9cb9de6b75c"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "suggest": {
-                "jackmoore/colorbox": "The Colorbox library is required to use the drupal/colorbox module."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1587016344",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Neslee Canil Pinto",
-                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Fredrik Jonsson",
-                    "homepage": "https://www.drupal.org/u/frjo",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "jdwfly",
-                    "homepage": "https://www.drupal.org/user/298179"
-                }
-            ],
-            "description": "A light-weight, customizable lightbox plugin for jQuery.",
-            "homepage": "https://www.drupal.org/project/colorbox",
-            "support": {
-                "source": "https://git.drupalcode.org/project/colorbox",
-                "issues": "https://www.drupal.org/project/issues/colorbox"
-            }
-        },
-        {
-            "name": "drupal/colorbox_inline",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/colorbox_inline.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/colorbox_inline-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "75240db01e2f410d60ef837fd454e932e288cab9"
-            },
-            "require": {
-                "drupal/colorbox": "*",
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1598593268",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "NickDickinsonWilde",
-                    "homepage": "https://www.drupal.org/user/3094661"
-                },
-                {
-                    "name": "Sam152",
-                    "homepage": "https://www.drupal.org/user/1485048"
-                }
-            ],
-            "description": "Enabled the \"colorbox inline\" functionality for Drupal 8.",
-            "homepage": "https://www.drupal.org/project/colorbox_inline",
-            "support": {
-                "source": "https://git.drupalcode.org/project/colorbox_inline"
-            }
-        },
-        {
-            "name": "drupal/colorbox_load",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/colorbox_load.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/colorbox_load-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "c4b6e3c136ac4262ce23f8cfd77d2d4688fd766a"
-            },
-            "require": {
-                "drupal/colorbox": "*",
-                "drupal/core": "^8 || ^9",
-                "drupal/ng_lightbox": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1598593669",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "NickDickinsonWilde",
-                    "homepage": "https://www.drupal.org/user/3094661"
-                },
-                {
-                    "name": "Sam152",
-                    "homepage": "https://www.drupal.org/user/1485048"
-                },
-                {
-                    "name": "acbramley",
-                    "homepage": "https://www.drupal.org/user/1036766"
-                },
-                {
-                    "name": "benjy",
-                    "homepage": "https://www.drupal.org/user/1852732"
-                }
-            ],
-            "description": "Allow you to load any content in a colorbox.",
-            "homepage": "https://www.drupal.org/project/colorbox_load",
-            "support": {
-                "source": "https://git.drupalcode.org/project/colorbox_load"
-            }
-        },
-        {
             "name": "drupal/computed_field",
             "version": "2.0.0",
             "source": {
@@ -4427,76 +4257,6 @@
             }
         },
         {
-            "name": "drupal/ds",
-            "version": "3.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/ds.git",
-                "reference": "8.x-3.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ds-8.x-3.9.zip",
-                "reference": "8.x-3.9",
-                "shasum": "7b419763cd87c2b3f06313489500746705a46334"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "require-dev": {
-                "drupal/devel": "3.x-dev",
-                "drupal/field_group": "3.x-dev"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-3.9",
-                    "datestamp": "1598898821",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Bram Goffings",
-                    "homepage": "https://www.drupal.org/user/172527",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Kristof De Jaeger",
-                    "homepage": "http://realize.be/",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Brecht Ceyssens",
-                    "homepage": "https://www.drupal.org/user/591438",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "swentel",
-                    "homepage": "https://www.drupal.org/user/107403"
-                }
-            ],
-            "description": "Extend the display options for every entity type.",
-            "homepage": "https://www.drupal.org/project/ds",
-            "keywords": [
-                "drupal",
-                "layout",
-                "php"
-            ],
-            "support": {
-                "source": "http://git.drupal.org/project/ds.git",
-                "issues": "https://www.drupal.org/project/issues/ds",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
             "name": "drupal/entity_clone",
             "version": "1.0.0-beta4",
             "source": {
@@ -4990,83 +4750,6 @@
                 "source": "http://cgit.drupalcode.org/feeds_ex",
                 "issues": "http://drupal.org/project/issues/feeds_ex"
             }
-        },
-        {
-            "name": "drupal/feeds_migrate",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/feeds_migrate.git",
-                "reference": "c3fa372e9342f275bece32a26497701dd3090f9a"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9",
-                "drupal/migrate_plus": "^4.0|^5.0",
-                "drupal/migrate_tools": "^4.0|^5.0"
-            },
-            "require-dev": {
-                "bex/behat-screenshot": ">=1.2",
-                "composer/installers": ">=1.2",
-                "cweagans/composer-patches": ">=1.6",
-                "drupal/coder": ">=8.3",
-                "drupal/tamper": "*",
-                "phpmd/phpmd": ">=2.6",
-                "phpmetrics/phpmetrics": ">=2.4",
-                "squizlabs/php_codesniffer": ">=3.0.1",
-                "symfony/phpunit-bridge": ">=3.4.3",
-                "symfony/psr-http-message-bridge": "^1.1.1 | ^2.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1603012701",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Etroid",
-                    "homepage": "https://www.drupal.org/user/3048985"
-                },
-                {
-                    "name": "MegaChriz",
-                    "homepage": "https://www.drupal.org/user/654114"
-                },
-                {
-                    "name": "franksj",
-                    "homepage": "https://www.drupal.org/user/2743481"
-                },
-                {
-                    "name": "irinaz",
-                    "homepage": "https://www.drupal.org/user/225592"
-                },
-                {
-                    "name": "jamesdixon",
-                    "homepage": "https://www.drupal.org/user/762570"
-                },
-                {
-                    "name": "pookmish",
-                    "homepage": "https://www.drupal.org/user/3059577"
-                }
-            ],
-            "description": "Drupal Feeds using core migrate plugins.",
-            "homepage": "http://drupal.org/project/feeds_migrate",
-            "support": {
-                "source": "https://git.drupalcode.org/project/feeds_migrate",
-                "issues": "https://www.drupal.org/project/issues/feeds_migrate"
-            },
-            "time": "2021-01-21T19:00:10+00:00"
         },
         {
             "name": "drupal/feeds_para_mapper",
@@ -6549,9 +6232,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.0-beta3",
                     "datestamp": "1488844684",
@@ -15340,9 +15020,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/feeds_migrate": 20,
         "drupal/feeds_para_mapper": 20,
-        "drupal/login_destination": 10
+        "drupal/login_destination": 10,
+        "drupal/ng_lightbox": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
