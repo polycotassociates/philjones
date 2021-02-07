@@ -7,7 +7,6 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\migrate\Row;
-//use Drupal\migrate\MigrateExecutable;
 use Drupal\migrate\MigrateMessageInterface;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
@@ -48,7 +47,6 @@ function texas_migrate_programs_runner(){
   $settings["data_center"] = $config->get("data_center");
   $settings["survey_id"] = $config->get("survey_id");
   $surveys = explode("|", $settings["survey_id"]);
-  //$path = drupal_realpath('private://qualtrics_data/');
   $path = '../private/qualtrics_data';
   $survey ="";
   $textout = "";
@@ -112,7 +110,8 @@ function texas_migrate_programs_qualtrics($settings, $surveyid){
     $progressid =  $progressid->result->progressId;
     //$textout =  $textout . "<li><strong>progressId:</strong> " . $progressid . "</li>";
     }else{
-      $textout =  $textout . "<li><strong>No progressId !</strong></li>";
+      // this exits because the Qulatrics credentials aren't valid
+      $textout =  $textout . "<li><a class='btn btn-info' role='button' href='/admin/config/services/qualtrics-settings'><strong>Please check to make sure your Qualtrics API key, data center and Survey ID are valid.</strong></a></li>";
     }
 //wait for file to build
 sleep(10);
@@ -295,13 +294,9 @@ function texas_migrate_programs_import_responseid($responseids){
       //'group' => 'texas_'.$program,
     ]
     );
-       $message = new MigrateMessage();
-       var_dump($message);
       try {
         // Run the migration.
-        $textout = $textout . $executable->import();
-        //$textout = $textout . $message;
-        $textout = $textout . '<li>Imported <strong>'. $migrations[$index] .'</strong> for ResponseId(s):<br/><ul><li><strong>'. $responseids .'</strong></li></ul></li>';
+        $textout = $textout . '<li>Processed <strong>'. $migrations[$index] .'</strong> for ResponseId(s): <strong>'. $responseids .'</strong></li>';
       }
       catch (\Exception $e) {
         $migration->setStatus(MigrationInterface::STATUS_IDLE);
@@ -315,13 +310,14 @@ function texas_migrate_programs_import_responseid($responseids){
 
 
 /**
- * programmatically runs migrations to import data nodes, and timepoint paragraphs for the various programs dor a specific user ().
+ * programmatically runs migrations to import data nodes, and timepoint paragraphs for the various programs for a specific user ().
  */
 function texas_migrate_programs_update_responseid($program,$responseids){
   $migrations  = '';
   if ($responseids == 'ResponseId') {
     $textout = 'Please provide a valid ResponseId.';
     }else{
+    // TODOTODO change this to work with migration groups
     if ($program == 'cwwd') {
     $migrations  = 'texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
     }elseif ($program == 'dep_f') {
@@ -365,42 +361,6 @@ function texas_migrate_programs_update_responseid($program,$responseids){
   }
  return $textout;
 }
-
-
-
-
-//function texas_migrate_programs_cron() {
-  //$textout = "";
-  // access configuration.
-  //$cron_config = \Drupal::config('texas_migrate_programs.settings');
-  // default to an hourly interval.
-  //$interval = $cron_config
-  //  ->get('interval');
-  //$interval = !empty($interval) ? $interval : 30;
-
-  //  keep a time for the next run in the site state.
-  //$next_execution = \Drupal::state()
-  //  ->get('texas_migrate_programs_cron.next_execution', 0);
-  //if (REQUEST_TIME >= $next_execution) {
-
-    // Import Qualtrics data
-  //  $textout = texas_migrate_programs_runner();
-
-  //  \Drupal::logger('texas_migrate_programs_cron')
-  //    ->notice('Qualtrics data import ran via cron.'. $textout);
-  //  if (\Drupal::state()
-  //    ->get('texas_migrate_programs_cron_show_status_message')) {
-  //    \Drupal::messenger()
-  //     ->addMessage(t('texas_migrate_programs_cron executed at %time', [
-  //     '%time' => date('c'),
-  //    ]));
-  //    \Drupal::state()
-   //     ->set('texas_migrate_programs_cron_show_status_message', FALSE);
-  //  }
-  //  \Drupal::state()
-  //    ->set('texas_migrate_programs_cron.next_execution', REQUEST_TIME + $interval);
-  //}
-//}
 
 
 /**
