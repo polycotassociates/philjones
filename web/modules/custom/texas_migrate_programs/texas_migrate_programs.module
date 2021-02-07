@@ -295,9 +295,12 @@ function texas_migrate_programs_import_responseid($responseids){
       //'group' => 'texas_'.$program,
     ]
     );
+       $message = new MigrateMessage();
+       var_dump($message);
       try {
         // Run the migration.
-        $executable->import();
+        $textout = $textout . $executable->import();
+        //$textout = $textout . $message;
         $textout = $textout . '<li>Imported <strong>'. $migrations[$index] .'</strong> for ResponseId(s):<br/><ul><li><strong>'. $responseids .'</strong></li></ul></li>';
       }
       catch (\Exception $e) {
@@ -362,6 +365,9 @@ function texas_migrate_programs_update_responseid($program,$responseids){
   }
  return $textout;
 }
+
+
+
 
 //function texas_migrate_programs_cron() {
   //$textout = "";

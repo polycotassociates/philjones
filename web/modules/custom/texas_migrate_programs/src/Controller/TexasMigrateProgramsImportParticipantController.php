@@ -7,7 +7,9 @@ use Drupal\Core\Controller\ControllerBase;
  */
 class TexasMigrateProgramsImportParticipantController extends ControllerBase {
   public function content($responseids) {
-    return array('#markup' => texas_migrate_programs_import_responseid($responseids));
+    $markup = texas_migrate_programs_runner();
+    $markup = $markup . texas_migrate_programs_import_responseid($responseids);
+    return array('#markup' => $markup);
   }
 
 }

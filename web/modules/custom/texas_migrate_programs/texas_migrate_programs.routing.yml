@@ -25,6 +25,13 @@ texas_migrate_programs.texas_migrate_programs_import_participant_controller_cont
     _title: 'Import participant data by ResponseId'
   requirements:
     _permission: 'administer site configuration'
+texas_migrate_programs.texas_migrate_programs_import_participant_group_controller_content:
+  path: 'texas_migrate_programs/import_participant_group/{responseids}'
+  defaults:
+    _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsImportParticipantGroupontroller::content'
+    _title: 'Import group of participants by ResponseIds'
+  requirements:
+    _permission: 'administer site configuration'
 
 texas_migrate_programs.texas_programs_controller_content:
   path: 'texas_programs'
