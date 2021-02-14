@@ -15,6 +15,13 @@ texas_migrate_programs.texas_migrate_programs_update_participant_controller_cont
   path: 'texas_migrate_programs/update_participant/{program}/{responseids}'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsUpdateParticipantController::content'
+    _title: 'Reset participant data for single program'
+  requirements:
+    _permission: 'administer users'
+texas_migrate_programs.texas_migrate_programs_add_program_participant_controller_content:
+  path: 'texas_migrate_programs/add_program_participant/{pptid}'
+  defaults:
+    _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsAddProgramParticipantController::content'
     _title: 'Add participant to program'
   requirements:
     _permission: 'administer users'

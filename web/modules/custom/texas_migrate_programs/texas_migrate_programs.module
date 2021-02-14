@@ -309,7 +309,7 @@ function texas_migrate_programs_import_responseid($responseids){
 
 
 /**
- * programmatically runs migrations to import data nodes, and timepoint paragraphs for the various programs for a specific user ().
+ * programmatically runs migrations to import data nodes, and timepoint paragraphs for a single program for a specific user identofied by intake form response id().
  */
 function texas_migrate_programs_update_responseid($program,$responseids){
   $migrations  = '';
@@ -347,6 +347,67 @@ function texas_migrate_programs_update_responseid($program,$responseids){
         // Run the migration.
         $executable->import();
         $textout = $textout . '<li>Updated <strong>'. $migrations[$index] .'</strong> for ResponseId(s):<br/><ul><li><strong>'. $responseids .'</strong></li></ul></li>';
+      }
+      catch (\Exception $e) {
+        $migration->setStatus(MigrationInterface::STATUS_IDLE);
+        $textout = $textout . '<li>'. $migrations[$index]  .' import failed !</strong></li>';
+      }
+      $index++;
+    }
+  }else{
+    $textout = $textout .'Please provide a valid program ID (eg. cwwd).';
+  }
+  }
+ return $textout;
+}
+
+/**
+ * programmatically runs migrations to import data nodes, and timepoint paragraphs a single program for a specific user identified by pptid.  provides program start date via embedded data ().
+ */
+function texas_migrate_programs_add_program_pptid($data){
+  $migrations  = '';
+   //dpm($data[0]['responseId']);
+  if (empty($data[0]['pptid'])) {
+    $textout = 'Please provide a valid PPTID.';
+    }else{
+    // TODOTODO change this to work with migration groups
+    if ($data[0]['program'] == 'cwwd') {
+    $migrations  = 'texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
+    }elseif ($data[0]['program'] == 'dep_f') {
+    $migrations  = 'texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f';
+    }elseif ($data[0]['program'] == 'map') {
+    $migrations  = 'texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map';
+    }elseif ($data[0]['program'] == 'susd_f') {
+    $migrations  = 'texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f';
+    }elseif ($data[0]['program'] == 'wat') {
+    $migrations  = 'texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
+    }
+    if (!empty($migrations)){
+    $migrations = explode(',', $migrations);
+    $manager = Drupal::service('plugin.manager.migration');
+    $textout = '<li>Program = <strong>'.$data[0]['program'].'</strong></li>';
+    $index = 0;
+    // execute a migration with a data array
+    foreach($migrations as $migration) {
+      $migration = $manager->createInstance($migration, [
+        'source' => [
+          'plugin' => 'embedded_data',
+          'data_rows' => $data,
+         ],
+      ]);
+      // update existing entity imported, which was previously skipped.
+      $migration->getIdMap()->prepareUpdate();
+      $executable = new MigrateExecutable($migration, new MigrateMessage(),
+          [
+      'idlist' => $data[0]['responseId'],
+      //'group' => 'texas_'.$data['program'],
+      //
+    ]
+    );
+      try {
+        // Run the migration.
+        $executable->import();
+        $textout = $textout . '<li>Added <strong>'. $migrations[$index] .'</strong> for PPTID: <strong>'. $data[0]['pptid'] .'</strong></li>';
       }
       catch (\Exception $e) {
         $migration->setStatus(MigrationInterface::STATUS_IDLE);
