@@ -54,7 +54,7 @@
         "drupal/jwt": "^1.0",
         "drupal/key": "^1.14",
         "drupal/login_destination": "^2.0@beta",
-        "drupal/mail_login": "^1.0",
+        "drupal/mail_login": "^2.4",
         "drupal/mail_safety": "^1.2",
         "drupal/migrate_cron": "^1.3",
         "drupal/migrate_manifest": "^2.1",
