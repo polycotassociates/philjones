@@ -135,7 +135,7 @@ source:
       selector: values/QID43#2_9_1
     -
       name: wat
-      label: 'Role'
+      label: 'WAT'
       selector: values/QID43#2_5_1
 
 
@@ -181,6 +181,11 @@ process:
   field_willing_to_be_contacted_by: field_willing_to_be_contacted_by
   field_willing_to_be_contacted_in: field_willing_to_be_contacted_in
   field_person_title: field_person_title
+    field_staff_entered_intake:
+    plugin: entity_lookup
+    source: field_staff_entered_intake
+    entity_type: user
+    value_key: name
   field_study_site:
     plugin: entity_lookup
     source: field_study_site
@@ -276,11 +281,6 @@ process:
       - '@pseudo_htds_l'
       - 'constants/wat_prefix'
       - '@pseudo_wat'
-  field_staff_entered_intake:
-    plugin: entity_lookup
-    source: field_staff_entered_intake
-    entity_type: user
-    value_key: name
   field_programs_enrolled:
     plugin: programs_enrolled
     source: '@psuedo_programs'

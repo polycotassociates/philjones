@@ -32,7 +32,7 @@ class TexasMigrateProgramsAddProgramParticipantController extends ControllerBase
   $responseid = $query->execute()->fetchField();
   //start date and program from form
   $startdate = '02/06/2021';
-  $program = 'susd_f';
+  $program = 'map';
 
   $data = [
     ['responseId' => $responseid, 'field_response_id' => $pptid, 'name' => $name, 'field_program_type' => $startdate, 'field_start_date' => $startdate, 'program' => $program, 'pptid' => $pptid],

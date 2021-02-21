@@ -19,7 +19,7 @@ texas_migrate_programs.texas_migrate_programs_update_participant_controller_cont
   requirements:
     _permission: 'administer users'
 texas_migrate_programs.texas_migrate_programs_add_program_participant_controller_content:
-  path: 'texas_migrate_programs/add_program_participant/{pptid}'
+  path: 'add_program/{pptid}'
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsAddProgramParticipantController::content'
     _title: 'Add participant to program'
