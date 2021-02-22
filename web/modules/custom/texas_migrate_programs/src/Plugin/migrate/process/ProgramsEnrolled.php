@@ -22,7 +22,7 @@ class ProgramsEnrolled extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     try {
 
-    //take uri string from participant questionnaire and transform into array of values to be mapped to mapped to text list of program names
+    //take uri string from participant questionnaire and transform into array of values to be mapped to text list of program names
     //explode string
     $programs = explode('&', $value);
       //loop over array of program strings to see which are not N
@@ -33,7 +33,9 @@ class ProgramsEnrolled extends ProcessPluginBase {
         if ($toggle == 'N') {
             $value = NULL;
           }else{
+            // get everything before =
             $value = strtolower(substr($value, 0, strpos($value, '=')));
+            // translate program abbreviation from Qualtrics values
             $value = str_replace('-','_', $value);
           }
         }

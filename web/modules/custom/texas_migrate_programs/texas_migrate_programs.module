@@ -16,6 +16,9 @@ use Drupal\migrate_plus\Entity\MigrationGroup;
 use Drupal\migrate_plus\Plugin\MigrationConfigEntityPluginManager;
 use Drupal\migrate_tools\MigrateExecutable;
 use Drupal\migrate_tools\MigrateTools;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_help().
@@ -364,8 +367,31 @@ function texas_migrate_programs_update_responseid($program,$responseids){
 /**
  * programmatically runs migrations to import data nodes, and timepoint paragraphs a single program for a specific user identified by pptid.  provides program start date via embedded data ().
  */
-function texas_migrate_programs_add_program_pptid($data){
+function texas_migrate_programs_add_program_pptid($pid){
   $migrations  = '';
+  $paragraph = Paragraph::load($pid);
+    $startdate = $paragraph->get('field_start_date')->value;
+    $program = \Drupal\taxonomy\Entity\Term::load($paragraph->field_program_referred->target_id);
+    $program = strtolower($program->get('field_role')->value);
+    $uid = $paragraph->get('parent_id')->value;
+    // get user id, full name from user
+    $user = User::load($uid);
+    $name = $user->get('field_displa')->value;
+    $pptid = $user->get('field_response_id')->value;
+    // get response id from user migration map
+    $query = \Drupal::database()->select('migrate_map_texas_a_user', 'm');
+    $query->addField('m', 'sourceid1');
+    $query->condition('m.destid1', $uid);
+    $query->range(0, 1);
+    $responseid = $query->execute()->fetchField();
+
+    //dpm($uid);
+    //dpm($startdate);
+    //dpm($program);
+
+    $data = [
+      ['responseId' => $responseid, 'field_response_id' => $pptid, 'field_participant_id' => $pptid, 'name' => $name, 'field_program_type' => $startdate, 'field_start_date' => $startdate, 'program' => $program, 'pptid' => $pptid],
+      ];
    //dpm($data[0]['responseId']);
   if (empty($data[0]['pptid'])) {
     $textout = 'Please provide a valid PPTID.';
@@ -373,11 +399,11 @@ function texas_migrate_programs_add_program_pptid($data){
     // TODOTODO change this to work with migration groups
     if ($data[0]['program'] == 'cwwd') {
     $migrations  = 'texas_cwwd_timepoint_12W,texas_cwwd_timepoint_baseline,texas_cwwd';
-    }elseif ($data[0]['program'] == 'dep_f') {
+    }elseif ($data[0]['program'] == 'dep-f') {
     $migrations  = 'texas_dep_f_timepoint_48W,texas_dep_f_timepoint_36W,texas_dep_f_timepoint_24W,texas_dep_f_timepoint_12W,texas_dep_f_timepoint_baseline,texas_dep_f';
     }elseif ($data[0]['program'] == 'map') {
     $migrations  = 'texas_map_timepoint_12W,texas_map_timepoint_baseline,texas_map';
-    }elseif ($data[0]['program'] == 'susd_f') {
+    }elseif ($data[0]['program'] == 'susd-f') {
     $migrations  = 'texas_susd_f_timepoint_48W,texas_susd_f_timepoint_36W,texas_susd_f_timepoint_24W,texas_susd_f_timepoint_12W,texas_susd_f_timepoint_baseline,texas_susd_f';
     }elseif ($data[0]['program'] == 'wat') {
     $migrations  = 'texas_wat_timepoint_12W,texas_wat_timepoint_baseline,texas_wat';
@@ -385,7 +411,7 @@ function texas_migrate_programs_add_program_pptid($data){
     if (!empty($migrations)){
     $migrations = explode(',', $migrations);
     $manager = Drupal::service('plugin.manager.migration');
-    $textout = '<li>Program = <strong>'.$data[0]['program'].'</strong></li>';
+    $textout = '<li>Participant: <strong>'. $data[0]['name'] .' - '. $data[0]['pptid'] .'</strong>';
     $index = 0;
     // execute a migration with a data array
     foreach($migrations as $migration) {
@@ -407,7 +433,7 @@ function texas_migrate_programs_add_program_pptid($data){
       try {
         // Run the migration.
         $executable->import();
-        $textout = $textout . '<li>Added <strong>'. $migrations[$index] .'</strong> for PPTID: <strong>'. $data[0]['pptid'] .'</strong></li>';
+        $textout = $textout . '<li>Added <strong>'. $migrations[$index] .'</strong></li>';
       }
       catch (\Exception $e) {
         $migration->setStatus(MigrationInterface::STATUS_IDLE);
@@ -419,7 +445,9 @@ function texas_migrate_programs_add_program_pptid($data){
     $textout = $textout .'Please provide a valid program ID (eg. cwwd).';
   }
   }
- return $textout;
+  // return $textout for debug info
+  //return $textout;
+ return $uid;
 }
 
 
