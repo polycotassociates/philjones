@@ -368,6 +368,7 @@ function texas_migrate_programs_update_responseid($program,$responseids){
  * programmatically runs migrations to import data nodes, and timepoint paragraphs a single program for a specific user identified by pptid.  provides program start date via embedded data ().
  */
 function texas_migrate_programs_add_program_pptid($pid){
+  //TODO TODO add check for existing data for program being added.
   $migrations  = '';
   $paragraph = Paragraph::load($pid);
     $startdate = $paragraph->get('field_start_date')->value;
