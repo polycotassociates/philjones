@@ -3,21 +3,30 @@ texas_qualtrics_update.texas_survey_complete_controller_content:
   defaults:
     _controller: '\Drupal\texas_qualtrics_update\Controller\TexasSurveyCompleteController::content'
     _title: 'Health Survey complete'
+  methods: [GET]
   requirements:
     _permission: 'edit field_survey_completed'
+  options:
+    _auth: ['basic_auth']
 
 texas_qualtrics_update.texas_measures_complete_controller_content:
   path: 'texas_measures_complete/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_qualtrics_update\Controller\TexasMeasuresCompleteController::content'
     _title: 'Data collection visit recorded'
+  methods: [GET]
   requirements:
     _permission: 'edit field_measures_completed'
+  options:
+    _auth: ['basic_auth']
 
 texas_qualtrics_update.texas_user_activate_controller_content:
   path: 'texas_user_activate/{pptstring}'
   defaults:
     _controller: '\Drupal\texas_qualtrics_update\Controller\TexasUserActivateController::content'
     _title: 'User account activated'
+  methods: [GET]
   requirements:
-    _permission: 'administer users'
+    _permission: 'administer users,access user activate'
+  options:
+    _auth: ['basic_auth']

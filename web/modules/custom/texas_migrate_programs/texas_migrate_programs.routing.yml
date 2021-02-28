@@ -30,8 +30,11 @@ texas_migrate_programs.texas_migrate_programs_import_participant_controller_cont
   defaults:
     _controller: '\Drupal\texas_migrate_programs\Controller\TexasMigrateProgramsImportParticipantController::content'
     _title: 'Import a single participant'
+  methods: [GET]
   requirements:
     _permission: 'administer users'
+  options:
+    _auth: ['basic_auth']
 texas_migrate_programs.texas_migrate_programs_import_participant_group_controller_content:
   path: 'texas_migrate_programs/import_participant_group/{responseids}'
   defaults:
