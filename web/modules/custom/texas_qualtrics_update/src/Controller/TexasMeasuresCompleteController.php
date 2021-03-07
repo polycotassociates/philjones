@@ -4,13 +4,21 @@ namespace Drupal\texas_qualtrics_update\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\user\Entity\User;
+use Drupal\Core\Datetime\DrupalDateTime;
 /**
- *In case of no default template of module, below markup will be displayed
+ * Get $pptstring from router and lookup relevant timepoint paragraphs for all programs with 'measures complete'.  Set 'measures complete' for all current timepoints for a given pptid.
  */
 class TexasMeasuresCompleteController extends ControllerBase {
   public function content($pptstring) {
     $markup = '';
-    $timepointid = 30;
+    // use static timepoint returned from Qualtrics DEPRECATED
+    //set to baseline as default
+    //$timepointid = 30;
+    $now = new DrupalDateTime('now');
+    $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+    // start date is not more than 90 days ago to avoid marking previous timepoints complete
+    $datewindow = new DrupalDateTime('-90 days');
+    $datewindow->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
     // get pptid out of string
     $pptid = ltrim(strstr($pptstring, '='), '=');
     // get user id from pptid and add to link
@@ -27,8 +35,10 @@ class TexasMeasuresCompleteController extends ControllerBase {
         $pids = \Drupal::entityQuery('paragraph')
           //->condition('type', 'dep_f_timepoint')
           ->condition('field_participant_id', $pptid)
-          ->condition('field_timepoint', $timepointid)
-          //->condition('field_start_date.value', time(), '<=')
+          // use static timepoint returned from Qualtrics DEPRECATED
+          //->condition('field_timepoint', $timepointid)
+          ->condition('field_start_date', $now->format(DATETIME_DATETIME_STORAGE_FORMAT), '<')    // start date was before now
+          ->condition('field_start_date', $datewindow->format(DATETIME_DATETIME_STORAGE_FORMAT), '>')     // start date is after now -90 days
           ->condition('field_measures_completed', 0)
           ->execute();
           // loop through paragraphs and update
