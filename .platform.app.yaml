@@ -11,7 +11,7 @@ type: 'php:7.2'
 
 variables:
    php:
-       memory_limit: 512M
+       memory_limit: 1024M
 
 # The relationships of the application with services or other applications.
 #
