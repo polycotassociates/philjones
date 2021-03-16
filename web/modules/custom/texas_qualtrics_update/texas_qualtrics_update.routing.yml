@@ -7,7 +7,7 @@ texas_qualtrics_update.texas_survey_complete_controller_content:
   requirements:
     _permission: 'edit field_survey_completed'
   options:
-    _auth: ['basic_auth']
+    _auth: [basic_auth', 'cookie']
 
 texas_qualtrics_update.texas_measures_complete_controller_content:
   path: 'texas_measures_complete/{pptstring}'
@@ -18,7 +18,7 @@ texas_qualtrics_update.texas_measures_complete_controller_content:
   requirements:
     _permission: 'edit field_measures_completed'
   options:
-    _auth: ['basic_auth']
+    _auth: [basic_auth', 'cookie']
 
 texas_qualtrics_update.texas_user_activate_controller_content:
   path: 'texas_user_activate/{pptstring}'
@@ -29,4 +29,4 @@ texas_qualtrics_update.texas_user_activate_controller_content:
   requirements:
     _permission: 'administer users,access user activate'
   options:
-    _auth: ['basic_auth']
+    _auth: [basic_auth', 'cookie']
