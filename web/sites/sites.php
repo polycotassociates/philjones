@@ -85,4 +85,5 @@ if (!empty($_ENV['PLATFORM_ROUTES'])) {
 $sites['stronghealthycommunities.org'] = 'default';
 $sites['texas.stronghealthycommunities.org'] = 'texas';
 $sites['data.healthytexas.tamu.edu'] = 'texas';
+$sites['data.healthytexas.tamu.edu.polycot-gacd6bi-ogjymcrf4mzra.us-2.platformsh.site'] = 'texas';
 
