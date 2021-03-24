@@ -1,0 +1,11 @@
+name: surveyportal
+recipe: platformsh
+config:
+  id: ogjymcrf4mzra
+tooling:
+  drush:
+    service: app
+    cmd: drush
+  composer:
+    service: app
+    cmd: composer
