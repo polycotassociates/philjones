@@ -1,0 +1,10 @@
+/* Overrides */
+@media (min-width: 768px){
+.navbar-default .navbar-brand {
+    background-size: 50px !important;
+    font-size: 1.25rem;
+    padding-left: 5rem;
+    position: relative;
+    margin-left: -1rem;
+}
+}
