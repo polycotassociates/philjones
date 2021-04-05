@@ -1,0 +1,42 @@
+/* Overrides */
+@media (min-width: 768px){
+.navbar-default .navbar-brand {
+ background-size: contain;
+    font-size: 1.25rem;
+    padding-left: 190px;
+    position: relative;
+    margin-left: -1rem;
+    background-position-y: 2px;
+}
+
+.navbar-default .navbar-brand::before {
+    position: absolute;
+    content: "";
+    background-color: var(--ht-white);
+    width: 2px;
+    height: 100%;
+    left: 181px;
+    top: 0;
+}
+}
+
+@media (max-width: 767px){
+  .navbar-default .navbar-brand {
+    color: var(--ht-white);
+    font-weight: var(--semi);
+    text-transform: uppercase;
+    background:none;
+    padding-left: 2rem;
+    padding-top: 40px;
+}
+
+.navbar-default .navbar-brand::before {
+    background: url(/themes/custom/healthytexas/images/TAM-LogoBox.svg) left no-repeat;
+     position: absolute;
+    content: "";
+    width: 180px;
+    height: 60px;
+    left: 49px;
+    top: 0;
+}
+}

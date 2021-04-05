@@ -26,3 +26,5 @@ libraries-extend:
 
 libraries:
   - healthytexas/fonts
+  - healthytexas/global-styling
+  - healthytexas/global-scripts
