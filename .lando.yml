@@ -2,6 +2,11 @@ name: surveyportal
 recipe: platformsh
 config:
   id: ogjymcrf4mzra
+services:
+  app:
+    overrides:
+      environment:
+        COMPOSER_MEMORY_LIMIT: -1
 tooling:
   drush:
     service: app

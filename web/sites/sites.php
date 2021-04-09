@@ -88,3 +88,7 @@ $sites['data.healthytexas.tamu.edu'] = 'texas';
 $sites['data.healthytexas.tamu.edu.polycot-gacd6bi-ogjymcrf4mzra.us-2.platformsh.site'] = 'default';
 $sites['stronghealthycommunities.org.polycot-gacd6bi-ogjymcrf4mzra.us-2.platformsh.site'] = 'default';
 
+// Local settings. These come last so that they can override anything.
+if (file_exists($app_root . '/sites.local.php')) {
+  include $app_root . '/sites.local.php';
+}
