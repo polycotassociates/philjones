@@ -45,6 +45,3 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 }
 
 $settings['hash_salt'] = 'CUX2SN2xDPrzIOzft75UAATQY7vrzvgBHzEGWrquM7ZU_4xzOdRj0vRFIYU5tRxYiEqDkxgeKw';
-
-// define $pptstring in config
-$config['texas_asa24.settings']['pptstring'] = 'ID=1256&DEP-F=12W&DEP-L=N&SUSD-F=N&SUSD-L=N&CWWD=B&MAP=N&HTDS-F=N&HTDS-L=N&WAT=N';
