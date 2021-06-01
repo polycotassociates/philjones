@@ -1,0 +1,23 @@
+uuid: d3ff06a8-d8f2-455f-a089-493da02d518e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_available
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_amount_available
+field_name: field_amount_available
+entity_type: paragraph
+bundle: map_timepoint
+label: Available
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

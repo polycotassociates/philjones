@@ -1,0 +1,18 @@
+uuid: a71760da-a3f3-48d2-8dd0-747af1b7a3cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.participant_roles
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.participant_roles
+target_entity_type_id: taxonomy_term
+target_bundle: participant_roles
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,19 @@
+uuid: b57f44fb-f6ab-4b06-a5d1-378113c29f18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_participant_id
+    - paragraphs.paragraphs_type.dep_l_timepoint
+id: paragraph.dep_l_timepoint.field_participant_id
+field_name: field_participant_id
+entity_type: paragraph
+bundle: dep_l_timepoint
+label: 'Participant ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

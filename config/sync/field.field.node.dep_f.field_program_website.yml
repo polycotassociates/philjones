@@ -1,0 +1,28 @@
+uuid: 71ceb65a-5af9-4683-9bb6-eca96483e395
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.dep_f
+  module:
+    - link
+id: node.dep_f.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: dep_f
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://healthytexas.tamu.edu/diabetes-control-program/'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

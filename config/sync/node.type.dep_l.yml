@@ -1,0 +1,17 @@
+uuid: ab2bb1bb-9a5d-4329-bd0b-a3a5f13c26c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Diabetes Education Program: Limited'
+type: dep_l
+description: 'Diabetes Education Program: Limited (DEP-L)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

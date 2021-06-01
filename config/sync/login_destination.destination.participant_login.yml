@@ -1,0 +1,18 @@
+uuid: c8f9535b-f794-4634-ad08-920a9d84f1e4
+langcode: en
+status: true
+dependencies: {  }
+name: participant_login
+label: 'Participant login'
+triggers:
+  registration: registration
+  login: login
+  one-time-login: one-time-login
+roles:
+  participant: participant
+pages_type: 0
+pages: ''
+language: ''
+enabled: true
+destination_path: 'internal:/user/'
+weight: 0

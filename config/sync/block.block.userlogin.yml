@@ -1,0 +1,20 @@
+uuid: 8acac7e3-474b-487c-a4d2-717fd115aa5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - healthytexas
+id: userlogin
+theme: healthytexas
+region: content
+weight: -4
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

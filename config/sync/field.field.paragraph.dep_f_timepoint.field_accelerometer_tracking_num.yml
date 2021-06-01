@@ -1,0 +1,19 @@
+uuid: 5b554f61-c027-4877-ab88-d5e43c45c58f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accelerometer_tracking_num
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_accelerometer_tracking_num
+field_name: field_accelerometer_tracking_num
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Outgoing accelerometer tracking number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

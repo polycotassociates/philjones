@@ -1,0 +1,21 @@
+uuid: be3a7db5-b992-403f-b1c4-663a9330d988
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_objective_measures_date
+    - paragraphs.paragraphs_type.susd_f_timepoint
+  module:
+    - datetime
+id: paragraph.susd_f_timepoint.field_objective_measures_date
+field_name: field_objective_measures_date
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: 'Objective Measures Date and Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

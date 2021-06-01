@@ -1,0 +1,58 @@
+uuid: 76dd92e1-c034-4219-8ed7-4c0b0b8e34b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_referrals
+    - paragraphs.paragraphs_type.user_referrals
+  module:
+    - entity_reference_revisions
+    - user
+id: user.user.field_referrals
+field_name: field_referrals
+entity_type: user
+bundle: user
+label: 'Additional HT Programs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      user_referrals: user_referrals
+    target_bundles_drag_drop:
+      cwwd_timepoints:
+        weight: 11
+        enabled: false
+      dep_f_timepoint:
+        weight: 12
+        enabled: false
+      dep_l_timepoint:
+        weight: 13
+        enabled: false
+      htds_f_timepoint:
+        weight: 14
+        enabled: false
+      htds_l_timepoint:
+        weight: 15
+        enabled: false
+      map_timepoint:
+        weight: 16
+        enabled: false
+      susd_f_timepoint:
+        weight: 17
+        enabled: false
+      susd_l_timepoint:
+        weight: 18
+        enabled: false
+      user_referrals:
+        enabled: true
+        weight: 19
+      wat_timepoint:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

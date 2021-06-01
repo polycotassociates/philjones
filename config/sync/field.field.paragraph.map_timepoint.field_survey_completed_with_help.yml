@@ -1,0 +1,43 @@
+uuid: 281b5c6c-73dd-446c-8071-72ab2d478a0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_survey_completed_with_help
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_survey_completed_with_help
+field_name: field_survey_completed_with_help
+entity_type: paragraph
+bundle: map_timepoint
+label: 'Survey completed with help of staff'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        program_staff: program_staff
+        administrator: '0'
+        portal_administrator: '0'
+        dep_f: '0'
+        dep_l: '0'
+        susd_f: '0'
+        susd_l: '0'
+        wat: '0'
+        cwwd: '0'
+        map: '0'
+        htds_f: '0'
+        htds_l: '0'
+        participant: '0'
+        updater: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

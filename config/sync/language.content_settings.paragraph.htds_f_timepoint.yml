@@ -1,0 +1,18 @@
+uuid: ab7dd412-b04f-4f4f-92ff-e0e7ad04aff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.htds_f_timepoint
+target_entity_type_id: paragraph
+target_bundle: htds_f_timepoint
+default_langcode: site_default
+language_alterable: false

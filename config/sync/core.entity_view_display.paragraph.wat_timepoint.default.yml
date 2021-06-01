@@ -1,0 +1,48 @@
+uuid: c41a6d39-876e-4d73-9f57-340c7a0d991b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wat_timepoint.field_participant_id
+    - field.field.paragraph.wat_timepoint.field_start_date
+    - field.field.paragraph.wat_timepoint.field_survey_completed
+    - field.field.paragraph.wat_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.wat_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.wat_timepoint
+  module:
+    - datetime
+id: paragraph.wat_timepoint.default
+targetEntityType: paragraph
+bundle: wat_timepoint
+mode: default
+content:
+  field_start_date:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_survey_completed_with_help:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_participant_id: true
+  field_timepoint: true

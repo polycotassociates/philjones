@@ -1,0 +1,13 @@
+uuid: 1aaf94aa-6f78-4a58-9496-097e0f48363f
+langcode: en
+status: true
+dependencies: {  }
+id: redirect_add_program
+label: 'Redirect add_program'
+description: 'Redirect to add_program with PID for inserted paragraph'
+type: page_redirect
+target_entity_type: null
+target_bundle: null
+tags: {  }
+settings:
+  url: '/add_program/[paragraph:id:value]'

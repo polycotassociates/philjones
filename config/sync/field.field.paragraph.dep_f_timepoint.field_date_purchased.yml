@@ -1,0 +1,21 @@
+uuid: 92a3e11d-80b1-424d-879c-8ad2aa1dec84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_purchased
+    - paragraphs.paragraphs_type.dep_f_timepoint
+  module:
+    - datetime
+id: paragraph.dep_f_timepoint.field_date_purchased
+field_name: field_date_purchased
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Date Purchased'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

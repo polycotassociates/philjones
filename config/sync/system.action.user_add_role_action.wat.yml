@@ -1,0 +1,14 @@
+uuid: 77975b18-60d9-4299-b2ca-37920a3df46c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wat
+  module:
+    - user
+id: user_add_role_action.wat
+label: 'Add the WAT role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: wat

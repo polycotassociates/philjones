@@ -1,0 +1,21 @@
+uuid: eece1f42-7021-4ab5-b793-d06bada64cf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_start_date
+    - paragraphs.paragraphs_type.user_referrals
+  module:
+    - datetime
+id: paragraph.user_referrals.field_start_date
+field_name: field_start_date
+entity_type: paragraph
+bundle: user_referrals
+label: 'Additional program start date'
+description: 'Please add the session start date for the additional program'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

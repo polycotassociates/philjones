@@ -1,0 +1,26 @@
+uuid: de4d1594-9a67-43ed-950c-40733e860f62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_balance
+    - paragraphs.paragraphs_type.map_timepoint
+  module:
+    - computed_field
+id: paragraph.map_timepoint.field_balance
+field_name: field_balance
+entity_type: paragraph
+bundle: map_timepoint
+label: Balance
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  code: '$value = 0;'
+  prefix: ''
+  suffix: ''
+field_type: computed_decimal

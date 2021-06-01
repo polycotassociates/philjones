@@ -1,0 +1,18 @@
+uuid: 84f241b9-3155-4e10-89df-6e3ba2a2b398
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat.created
+field_name: created
+entity_type: node
+bundle: wat
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

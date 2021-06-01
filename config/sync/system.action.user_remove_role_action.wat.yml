@@ -1,0 +1,14 @@
+uuid: e32e9da4-44a5-4a52-81e4-92a1c4e95e08
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wat
+  module:
+    - user
+id: user_remove_role_action.wat
+label: 'Remove the WAT role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: wat

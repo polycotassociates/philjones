@@ -1,0 +1,68 @@
+uuid: f46a69f9-bb35-4954-a7e3-3fa2f4e0d25b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.user_referrals.field_notes
+    - field.field.paragraph.user_referrals.field_program_referred
+    - field.field.paragraph.user_referrals.field_referred_by
+    - field.field.paragraph.user_referrals.field_start_date
+    - paragraphs.paragraphs_type.user_referrals
+  module:
+    - datetime
+    - field_group
+third_party_settings:
+  field_group:
+    group_referrals:
+      children:
+        - field_program_referred
+        - field_start_date
+        - field_referred_by
+        - field_notes
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        description: ''
+        id: ''
+        classes: ''
+      label: 'Additional HT Program'
+id: paragraph.user_referrals.default
+targetEntityType: paragraph
+bundle: user_referrals
+mode: default
+content:
+  field_notes:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_program_referred:
+    weight: 1
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_referred_by:
+    weight: 3
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_start_date:
+    weight: 2
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

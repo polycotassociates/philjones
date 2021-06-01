@@ -1,0 +1,14 @@
+uuid: 78e6574e-3fe1-4ddd-b8d0-e53bbd996007
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.htds_f
+  module:
+    - user
+id: user_remove_role_action.htds_f
+label: 'Remove the HTDS-F role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: htds_f

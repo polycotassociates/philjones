@@ -1,0 +1,14 @@
+uuid: 68cb67b3-dd56-4bba-9282-2922246977ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.updater
+  module:
+    - user
+id: user_add_role_action.updater
+label: 'Add the updater role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: updater

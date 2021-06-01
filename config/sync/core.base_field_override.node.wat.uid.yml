@@ -1,0 +1,20 @@
+uuid: e1834cd5-235e-4467-b10c-ba6d21622b0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat.uid
+field_name: uid
+entity_type: node
+bundle: wat
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,98 @@
+uuid: c04315ce-3c90-4929-b284-ff3f44f84b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.susd_l.field_program_website
+    - field.field.node.susd_l.field_response_id
+    - field.field.node.susd_l.field_timepoint_12w
+    - field.field.node.susd_l.field_timepoint_baseline
+    - field.field.node.susd_l.field_user
+    - node.type.susd_l
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+    group_program_website:
+      children:
+        - field_program_website
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Program Website'
+id: node.susd_l.default
+targetEntityType: node
+bundle: susd_l
+mode: default
+content:
+  field_program_website:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_response_id:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timepoint_12w:
+    weight: 9
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_baseline:
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_user:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: header
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true
+  links: true

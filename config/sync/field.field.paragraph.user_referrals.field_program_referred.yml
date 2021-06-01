@@ -1,0 +1,29 @@
+uuid: 850299d8-fa32-4a0d-8ff5-40c1d3bd0d9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_referred
+    - paragraphs.paragraphs_type.user_referrals
+    - taxonomy.vocabulary.programs
+id: paragraph.user_referrals.field_program_referred
+field_name: field_program_referred
+entity_type: paragraph
+bundle: user_referrals
+label: 'Additional HT Program '
+description: 'Please indicate the HT Program that a participant has now enrolled in'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      programs: programs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

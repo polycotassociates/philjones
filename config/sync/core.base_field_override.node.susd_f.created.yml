@@ -1,0 +1,18 @@
+uuid: bb067d71-398c-4486-8bce-be4a374a27fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_f
+id: node.susd_f.created
+field_name: created
+entity_type: node
+bundle: susd_f
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: 08b62298-cf58-4946-8f56-20b241f784dc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
+id: healthytexas_local_tasks
+theme: healthytexas
+region: header
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

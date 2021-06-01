@@ -1,0 +1,20 @@
+uuid: 6608182c-ce90-4e49-83eb-1b3e4c419243
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_full
+id: node.healthy_schools_full.menu_link
+field_name: menu_link
+entity_type: node
+bundle: healthy_schools_full
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

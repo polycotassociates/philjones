@@ -1,0 +1,18 @@
+uuid: 1b45d10f-af2b-41e4-91e9-a4988b7f06da
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.book
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.book
+target_entity_type_id: node
+target_bundle: book
+default_langcode: site_default
+language_alterable: true

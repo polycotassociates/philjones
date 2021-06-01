@@ -1,0 +1,87 @@
+uuid: a2deb379-1a4f-471a-b9bb-65effa132136
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.data_export
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_label_id
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_num
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_ret
+    - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_distrib
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_return
+    - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_date
+    - field.field.paragraph.htds_f_timepoint.field_participant_id
+    - field.field.paragraph.htds_f_timepoint.field_start_date
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.htds_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
+    - options
+id: paragraph.htds_f_timepoint.data_export
+targetEntityType: paragraph
+bundle: htds_f_timepoint
+mode: data_export
+content:
+  field_accelerometer_status:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_asa_24_complete:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_measures_completed:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_start_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  field_accelerometer_label_id: true
+  field_accelerometer_tracking_num: true
+  field_accelerometer_tracking_ret: true
+  field_date_accelerometer_distrib: true
+  field_date_accelerometer_return: true
+  field_objective_measures_appoint: true
+  field_objective_measures_date: true
+  field_participant_id: true
+  field_survey_completed_with_help: true
+  field_timepoint: true

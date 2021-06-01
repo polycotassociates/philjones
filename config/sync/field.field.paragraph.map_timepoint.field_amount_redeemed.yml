@@ -1,0 +1,23 @@
+uuid: 9df64cff-35c2-4941-8197-bef5c31a660e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_redeemed
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_amount_redeemed
+field_name: field_amount_redeemed
+entity_type: paragraph
+bundle: map_timepoint
+label: Redeemed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

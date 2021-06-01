@@ -1,0 +1,21 @@
+uuid: 532a1933-b53b-4408-abc2-e3dffabd2953
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_consent_date
+  module:
+    - datetime
+    - user
+id: user.user.field_consent_date
+field_name: field_consent_date
+entity_type: user
+bundle: user
+label: 'Consent Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

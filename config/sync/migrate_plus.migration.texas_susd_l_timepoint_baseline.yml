@@ -1,0 +1,54 @@
+uuid: dbd35110-cc71-479a-838e-557b1a148379
+langcode: en
+status: true
+dependencies: {  }
+id: texas_susd_l_timepoint_baseline
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: texas_susd_l
+label: 'Import baseline timepoint data into a paragraph to relate to a susd_l program data node.'
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
+  ids:
+    responseId:
+      type: string
+  item_selector: responses
+  fields:
+    -
+      name: responseId
+      label: 'Unique identifier'
+      selector: responseId
+    -
+      name: field_start_date
+      label: 'Start Date'
+      selector: 'values/QID43#2_4_1'
+    -
+      name: field_program_type
+      label: Role
+      selector: 'values/QID43#2_4_1'
+    -
+      name: field_participant_id
+      label: 'Participant ID'
+      selector: values/QID2_TEXT
+process:
+  field_program_type:
+    plugin: skip_on_empty
+    method: row
+    source: field_program_type
+  field_participant_id: field_participant_id
+  field_start_date/value:
+    plugin: baseline_date
+    source: field_start_date
+  field_timepoint:
+    plugin: default_value
+    default_value: 30
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: susd_l_timepoint
+migration_dependencies: null

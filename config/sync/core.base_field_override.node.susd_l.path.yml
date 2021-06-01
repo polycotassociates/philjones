@@ -1,0 +1,20 @@
+uuid: b0644da8-82de-479f-9e59-19a1adf117b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_l
+  module:
+    - path
+id: node.susd_l.path
+field_name: path
+entity_type: node
+bundle: susd_l
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

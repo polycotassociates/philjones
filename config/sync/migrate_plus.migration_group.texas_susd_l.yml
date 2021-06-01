@@ -1,0 +1,10 @@
+uuid: 60f19302-7418-459b-8a7f-52c44f18d8cb
+langcode: en
+status: true
+dependencies: {  }
+id: texas_susd_l
+label: texas_susd_l
+description: ''
+source_type: null
+module: null
+shared_configuration: null

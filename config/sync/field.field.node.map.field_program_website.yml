@@ -1,0 +1,28 @@
+uuid: 55e8632e-1993-4aca-810a-540e32899b0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.map
+  module:
+    - link
+id: node.map.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: map
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://healthytexas.tamu.edu/medication-assistance/'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

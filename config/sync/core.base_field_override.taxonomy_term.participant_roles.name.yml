@@ -1,0 +1,18 @@
+uuid: d805a6ed-bdab-4c93-aa28-7b05edb99a06
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.participant_roles
+id: taxonomy_term.participant_roles.name
+field_name: name
+entity_type: taxonomy_term
+bundle: participant_roles
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

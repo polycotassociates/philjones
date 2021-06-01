@@ -1,0 +1,41 @@
+uuid: fb4bf4a6-7dd4-4419-abb5-9888cfad013f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_timepoints
+    - taxonomy.vocabulary.study_sites
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.study_sites.field_timepoints
+field_name: field_timepoints
+entity_type: taxonomy_term
+bundle: study_sites
+label: Timepoints
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: {  }
+    target_bundles_drag_drop:
+      change_club_site_timepoints:
+        weight: 5
+        enabled: false
+      change_club_timepoints:
+        weight: 6
+        enabled: false
+      compensation_types:
+        weight: 7
+        enabled: false
+      educator_info:
+        weight: 8
+        enabled: false
+      program_site_timepoints:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

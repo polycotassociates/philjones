@@ -1,0 +1,20 @@
+uuid: 2b5ccebd-fd5e-4249-9d40-339149fecc93
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+  module:
+    - path
+id: node.wat.path
+field_name: path
+entity_type: node
+bundle: wat
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,4 +1,4 @@
-patterns: "/node/*/edit/update_compensation\r\n/node/*/edit/timepoint_actions\r\n/user/*/edit/update_user_data"
+patterns: "/node/*/edit\r\n/user/*/edit/update_user_data\r\n/paragraphs_edit/node/*"
 default_width: 700
 lightbox_class: ''
 skip_admin_paths: false

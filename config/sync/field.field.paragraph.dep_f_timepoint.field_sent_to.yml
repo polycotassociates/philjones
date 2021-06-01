@@ -1,0 +1,19 @@
+uuid: e64131d2-036c-4bb2-a5c2-3883936e8adf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sent_to
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_sent_to
+field_name: field_sent_to
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Sent to'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

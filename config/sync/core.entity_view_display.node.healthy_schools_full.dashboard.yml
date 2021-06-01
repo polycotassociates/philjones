@@ -1,0 +1,75 @@
+uuid: 72966268-7944-49d7-a218-a47ba003e7df
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dashboard
+    - field.field.node.healthy_schools_full.field_program_website
+    - field.field.node.healthy_schools_full.field_response_id
+    - field.field.node.healthy_schools_full.field_timepoint_12w
+    - field.field.node.healthy_schools_full.field_timepoint_baseline
+    - field.field.node.healthy_schools_full.field_user
+    - node.type.healthy_schools_full
+  module:
+    - entity_reference_revisions
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.healthy_schools_full.dashboard
+targetEntityType: node
+bundle: healthy_schools_full
+mode: dashboard
+content:
+  field_response_id:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timepoint_12w:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_user:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: contact
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_program_website: true
+  langcode: true
+  links: true

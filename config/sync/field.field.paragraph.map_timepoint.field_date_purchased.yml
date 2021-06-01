@@ -1,0 +1,21 @@
+uuid: 969635d5-c9ce-4deb-9b60-6a8e86c584c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_purchased
+    - paragraphs.paragraphs_type.map_timepoint
+  module:
+    - datetime
+id: paragraph.map_timepoint.field_date_purchased
+field_name: field_date_purchased
+entity_type: paragraph
+bundle: map_timepoint
+label: 'Date Purchased'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+uuid: 14d61d4b-a351-4767-8899-00129f46c737
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_l
+id: node.susd_l.title
+field_name: title
+entity_type: node
+bundle: susd_l
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

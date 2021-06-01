@@ -1,0 +1,97 @@
+uuid: 63a32319-35fb-423b-a4d5-3221b1a72d98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.healthy_schools_limited.field_participant_name
+    - field.field.node.healthy_schools_limited.field_program_website
+    - field.field.node.healthy_schools_limited.field_response_id
+    - field.field.node.healthy_schools_limited.field_timepoint_12w
+    - field.field.node.healthy_schools_limited.field_timepoint_baseline
+    - node.type.healthy_schools_limited
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+    group_pr:
+      children:
+        - field_program_website
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Program Website'
+id: node.healthy_schools_limited.default
+targetEntityType: node
+bundle: healthy_schools_limited
+mode: default
+content:
+  field_participant_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_program_website:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_response_id:
+    weight: 2
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timepoint_12w:
+    weight: 7
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_baseline:
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  langcode: true
+  links: true

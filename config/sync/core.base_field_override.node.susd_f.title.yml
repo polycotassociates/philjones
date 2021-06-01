@@ -1,0 +1,18 @@
+uuid: bc2ef130-ee42-4b41-892a-08835a72d99a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_f
+id: node.susd_f.title
+field_name: title
+entity_type: node
+bundle: susd_f
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

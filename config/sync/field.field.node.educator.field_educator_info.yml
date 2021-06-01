@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_educator_info
     - node.type.educator
-    - paragraphs.paragraphs_type.educator_info
   module:
     - entity_reference_revisions
 id: node.educator.field_educator_info
@@ -22,8 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      educator_info: educator_info
+    target_bundles: {  }
     target_bundles_drag_drop:
       compensation_data:
         weight: 6

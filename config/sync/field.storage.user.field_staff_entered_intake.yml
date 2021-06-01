@@ -1,0 +1,23 @@
+uuid: d0b7295a-67cb-4526-8656-6e0d15b98913
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_staff_entered_intake
+field_name: field_staff_entered_intake
+entity_type: user
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

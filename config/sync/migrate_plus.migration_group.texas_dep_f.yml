@@ -1,0 +1,10 @@
+uuid: 6b2cea03-e4e6-4b89-8357-55c3dc7aca52
+langcode: en
+status: true
+dependencies: {  }
+id: texas_dep_f
+label: texas_dep_f
+description: ''
+source_type: null
+module: null
+shared_configuration: null

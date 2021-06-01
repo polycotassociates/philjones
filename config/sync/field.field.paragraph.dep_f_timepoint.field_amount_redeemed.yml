@@ -1,0 +1,23 @@
+uuid: ec1e259a-160f-400f-b1ff-2251820fcf0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_redeemed
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_amount_redeemed
+field_name: field_amount_redeemed
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: Redeemed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

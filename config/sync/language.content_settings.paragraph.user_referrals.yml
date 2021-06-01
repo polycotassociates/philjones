@@ -1,0 +1,18 @@
+uuid: 24125f80-0571-43f5-950c-7c78bc42fdc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.user_referrals
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.user_referrals
+target_entity_type_id: paragraph
+target_bundle: user_referrals
+default_langcode: site_default
+language_alterable: false

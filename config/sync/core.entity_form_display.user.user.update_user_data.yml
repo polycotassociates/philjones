@@ -4,23 +4,50 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.update_user_data
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_address_city
+    - field.field.user.user.field_address_city_home
     - field.field.user.user.field_address_state
+    - field.field.user.user.field_address_state_home
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_address_zip_home
+    - field.field.user.user.field_asa_24
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_cluster_id
+    - field.field.user.user.field_consent_date
+    - field.field.user.user.field_cr_surveyonly
+    - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
-    - field.field.user.user.field_migrate_example_favbeers
-    - field.field.user.user.field_migrate_example_gender
-    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_end_date
+    - field.field.user.user.field_enrolled
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_ht_participant_screener
+    - field.field.user.user.field_id_previous
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_notes
+    - field.field.user.user.field_participant_questionnaire
+    - field.field.user.user.field_person_title
+    - field.field.user.user.field_photo_consent
     - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_previous_role
     - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_programs_enrolled
+    - field.field.user.user.field_referrals
+    - field.field.user.user.field_report_an_adverse_event
     - field.field.user.user.field_response_id
+    - field.field.user.user.field_staff_entered_intake
+    - field.field.user.user.field_state
     - field.field.user.user.field_street_address
+    - field.field.user.user.field_street_address_home
     - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
+    - field.field.user.user.field_willing_to_be_contacted_by
+    - field.field.user.user.field_willing_to_be_contacted_in
+    - field.field.user.user.field_withdrew
   module:
     - telephone
     - user
+    - viewsreference
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.update_user_data
@@ -30,14 +57,6 @@ mode: update_user_data
 content:
   field_address_city:
     type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_address_state:
-    type: string_textfield
     weight: 4
     region: content
     settings:
@@ -46,7 +65,7 @@ content:
     third_party_settings: {  }
   field_address_zip:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -54,7 +73,7 @@ content:
     third_party_settings: {  }
   field_displa:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -62,47 +81,92 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_mobile_phone_carrier:
-    type: options_select
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_preferred_contact:
-    type: options_select
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_primary_phone:
-    type: telephone_default
-    weight: 6
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_street_address:
-    type: string_textfield
     weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_person_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_preferred_contact:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_primary_phone:
+    type: telephone_default
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_street_address:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_study_data:
+    type: viewsreference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 9
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
 hidden:
   account: true
   contact: true
-  feeds_item: true
-  field_migrate_example_favbeers: true
-  field_migrate_example_gender: true
+  field_address_city_home: true
+  field_address_state: true
+  field_address_state_home: true
+  field_address_zip_home: true
+  field_asa_24: true
+  field_attendance_process_survey: true
+  field_cluster_id: true
+  field_consent_date: true
+  field_cr_surveyonly: true
+  field_data_collection_form: true
+  field_end_date: true
+  field_enrolled: true
+  field_first_name: true
+  field_ht_participant_screener: true
+  field_id_previous: true
+  field_last_name: true
+  field_notes: true
+  field_participant_questionnaire: true
+  field_photo_consent: true
+  field_previous_role: true
+  field_programs_enrolled: true
+  field_referrals: true
+  field_report_an_adverse_event: true
   field_response_id: true
-  field_study_data: true
+  field_staff_entered_intake: true
+  field_state: true
+  field_street_address_home: true
+  field_study_site: true
+  field_willing_to_be_contacted_by: true
+  field_willing_to_be_contacted_in: true
+  field_withdrew: true
   language: true
   path: true
   timezone: true

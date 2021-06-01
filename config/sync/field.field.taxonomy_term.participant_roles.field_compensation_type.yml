@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_compensation_type
-    - paragraphs.paragraphs_type.compensation_types
     - taxonomy.vocabulary.participant_roles
   module:
     - entity_reference_revisions
@@ -22,8 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      compensation_types: compensation_types
+    target_bundles: {  }
     target_bundles_drag_drop:
       change_club_timepoints:
         weight: 7

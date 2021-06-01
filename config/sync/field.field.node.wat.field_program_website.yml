@@ -1,0 +1,28 @@
+uuid: 66c21f8d-811c-4f95-ba7b-e2b836ecc7ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.wat
+  module:
+    - link
+id: node.wat.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: wat
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://walkacrosstexas.org'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

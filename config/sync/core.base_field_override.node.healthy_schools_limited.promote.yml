@@ -1,0 +1,22 @@
+uuid: 9543bced-4ab5-4623-b773-d5f9c81ea054
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_limited
+id: node.healthy_schools_limited.promote
+field_name: promote
+entity_type: node
+bundle: healthy_schools_limited
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

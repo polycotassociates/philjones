@@ -1,0 +1,75 @@
+uuid: 3dd2c95a-41a8-4300-9041-96471b372470
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dashboard
+    - field.field.node.wat.field_program_website
+    - field.field.node.wat.field_response_id
+    - field.field.node.wat.field_timepoint_12w
+    - field.field.node.wat.field_timepoint_baseline
+    - field.field.node.wat.field_user
+    - node.type.wat
+  module:
+    - entity_reference_revisions
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.wat.dashboard
+targetEntityType: node
+bundle: wat
+mode: dashboard
+content:
+  field_response_id:
+    weight: 2
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timepoint_12w:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_user:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: contact
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_program_website: true
+  langcode: true
+  links: true

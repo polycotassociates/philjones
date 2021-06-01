@@ -1,0 +1,22 @@
+uuid: b07a6d34-8d33-4faa-9b32-0e4f6e43ecde
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_l
+id: node.susd_l.status
+field_name: status
+entity_type: node
+bundle: susd_l
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

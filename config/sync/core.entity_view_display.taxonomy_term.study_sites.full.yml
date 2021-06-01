@@ -5,9 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.full
     - field.field.taxonomy_term.study_sites.field_educator
-    - field.field.taxonomy_term.study_sites.field_studies
-    - field.field.taxonomy_term.study_sites.field_study_site_dates
-    - field.field.taxonomy_term.study_sites.field_study_type
+    - field.field.taxonomy_term.study_sites.field_programs
+    - field.field.taxonomy_term.study_sites.field_timepoints
     - taxonomy.vocabulary.study_sites
 id: taxonomy_term.study_sites.full
 targetEntityType: taxonomy_term
@@ -17,6 +16,6 @@ content: {  }
 hidden:
   description: true
   field_educator: true
-  field_studies: true
-  field_study_site_dates: true
-  field_study_type: true
+  field_programs: true
+  field_timepoints: true
+  langcode: true

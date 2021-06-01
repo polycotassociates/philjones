@@ -1,0 +1,14 @@
+uuid: 6b0bb190-5154-45cf-ad61-42e7a0d343a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dep_f
+  module:
+    - user
+id: user_add_role_action.dep_f
+label: 'Add the DEP-F role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dep_f

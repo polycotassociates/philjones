@@ -1,0 +1,21 @@
+uuid: 79f38e6f-ef80-4ce0-a727-c92499e75874
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accelerometer_status
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - options
+id: paragraph.htds_f_timepoint.field_accelerometer_status
+field_name: field_accelerometer_status
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: 'Accelerometer Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

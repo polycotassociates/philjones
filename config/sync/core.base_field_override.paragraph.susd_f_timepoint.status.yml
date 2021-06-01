@@ -1,0 +1,22 @@
+uuid: 0452f744-e6b3-42c8-89a6-4cf7f8850c8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.status
+field_name: status
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

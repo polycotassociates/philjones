@@ -17,6 +17,9 @@ settings:
         -
           name: Formatting
           items:
+            - Format
+            - Styles
+            - '-'
             - Bold
             - Italic
             - Strike
@@ -41,16 +44,15 @@ settings:
             - DrupalImage
             - Table
             - HorizontalRule
+            - DrupalMediaLibrary
         -
-          name: 'Block Formatting'
+          name: tools
           items:
-            - Format
-        -
-          name: Tools
-          items:
-            - ShowBlocks
             - Source
+            - Maximize
   plugins:
+    language:
+      language_list: un
     stylescombo:
       styles: ''
 image_upload:
@@ -59,5 +61,5 @@ image_upload:
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

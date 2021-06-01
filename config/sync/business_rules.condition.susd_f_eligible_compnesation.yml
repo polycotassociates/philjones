@@ -1,0 +1,23 @@
+uuid: 83e28a6d-f205-4e9c-813e-7b296bcf82be
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_eligible_compnesation
+label: 'SUSD-F Eligible Compnesation'
+type: data_comparison
+reverse: false
+description: 'Check if SUSD-F timepoint is eligible for compensation (has value)'
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+success_items:
+  susd_f_survey_complete:
+    id: susd_f_survey_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_amount_available
+  data_to_compare: current_data
+  operator: '>'
+  value_to_compare: '1'

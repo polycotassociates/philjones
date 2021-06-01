@@ -1,0 +1,19 @@
+uuid: dfd5638c-cd08-4b2f-8608-bcb2f36ef0dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accelerometer_label_id
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.field_accelerometer_label_id
+field_name: field_accelerometer_label_id
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: 'Accelerometer Label ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: 8ac89db3-2661-48be-b783-a66f67f10d0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_address_state_home
+  module:
+    - user
+id: user.user.field_address_state_home
+field_name: field_address_state_home
+entity_type: user
+bundle: user
+label: 'Home Address: State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

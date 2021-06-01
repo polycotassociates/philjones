@@ -1,0 +1,44 @@
+uuid: 2367a52f-4c90-4a27-9c4a-964df183db68
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.data_export
+    - field.field.paragraph.dep_l_timepoint.field_measures_completed
+    - field.field.paragraph.dep_l_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.dep_l_timepoint.field_objective_measures_date
+    - field.field.paragraph.dep_l_timepoint.field_participant_id
+    - field.field.paragraph.dep_l_timepoint.field_start_date
+    - field.field.paragraph.dep_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.dep_l_timepoint
+  module:
+    - datetime
+id: paragraph.dep_l_timepoint.data_export
+targetEntityType: paragraph
+bundle: dep_l_timepoint
+mode: data_export
+content:
+  field_measures_completed:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_start_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  field_objective_measures_appoint: true
+  field_objective_measures_date: true
+  field_participant_id: true
+  field_timepoint: true

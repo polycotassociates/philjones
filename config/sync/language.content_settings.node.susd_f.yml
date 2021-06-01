@@ -1,0 +1,18 @@
+uuid: 04b03ba5-5db0-428b-a9ec-357aea30b6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_f
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.susd_f
+target_entity_type_id: node
+target_bundle: susd_f
+default_langcode: site_default
+language_alterable: true

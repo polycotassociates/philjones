@@ -1,0 +1,23 @@
+uuid: a501f441-7df7-4097-ab04-d6c34a8b37bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.healthy_schools_full
+  module:
+    - link
+id: node.healthy_schools_full.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: healthy_schools_full
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

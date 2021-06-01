@@ -1,0 +1,20 @@
+uuid: 994399f9-9af9-459b-8b8b-c6bb55a64bc9
+langcode: en
+status: true
+dependencies:
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: 1TQP4b3ZnlzvIH9bj6cpCz_SyUHdJjLQkZnHpikjjhw
+id: healthytexas_page_title
+theme: healthytexas
+region: header
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

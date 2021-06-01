@@ -11,7 +11,7 @@ id: user.user.field_preferred_contact
 field_name: field_preferred_contact
 entity_type: user
 bundle: user
-label: 'Preferred Contact'
+label: 'Preferred Contact Methods'
 description: ''
 required: false
 translatable: false

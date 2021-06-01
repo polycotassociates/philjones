@@ -1,4 +1,4 @@
-simplify_admin: false
+simplify_admin: true
 simplify_nodes_global:
   author: author
   format: format
@@ -14,12 +14,12 @@ simplify_users_global:
   contact: '0'
 simplify_comments_global: {  }
 simplify_taxonomies_global:
-  format: '0'
-  relations: '0'
-  path: '0'
+  format: format
+  relations: relations
+  path: path
 simplify_blocks_global:
-  format: '0'
-  revision_information: '0'
+  format: format
+  revision_information: revision_information
 simplify_profiles_global: {  }
 _core:
   default_config_hash: omWr4s_-ZB9DeG-rP5oY4s3Pm2uiK-guRhGg0_DHHpM

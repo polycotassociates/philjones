@@ -1,0 +1,19 @@
+uuid: 7de1769f-93f9-4118-bf40-fce2e0357827
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_response_id
+    - node.type.dep_l
+id: node.dep_l.field_response_id
+field_name: field_response_id
+entity_type: node
+bundle: dep_l
+label: 'Participant ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

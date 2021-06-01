@@ -1,0 +1,33 @@
+uuid: a90c1589-ed0e-4b24-a724-6c80bf0ee2a2
+langcode: en
+status: true
+dependencies: {  }
+id: participant
+label: 'Program Participant'
+weight: 5
+is_admin: null
+permissions:
+  - 'access shared email message'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'create field_asa_24_complete'
+  - 'create field_measures_completed'
+  - 'create field_survey_completed'
+  - 'create shared email account'
+  - 'edit field_asa_24_complete'
+  - 'edit field_measures_completed'
+  - 'edit field_survey_completed'
+  - 'edit own field_asa_24_complete'
+  - 'edit own field_measures_completed'
+  - 'edit own field_survey_completed'
+  - 'use user.default form mode'
+  - 'view field_accelerometer_status'
+  - 'view field_asa_24_complete'
+  - 'view field_measures_completed'
+  - 'view field_survey_completed'
+  - 'view own field_accelerometer_status'
+  - 'view own field_asa_24_complete'
+  - 'view own field_measures_completed'
+  - 'view own field_objective_measures_appoint'
+  - 'view own field_objective_measures_date'
+  - 'view own field_survey_completed'

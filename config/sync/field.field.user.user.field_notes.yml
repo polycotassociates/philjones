@@ -1,0 +1,21 @@
+uuid: 652d63f0-4d89-4738-83eb-d11dadb9008f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_notes
+  module:
+    - text
+    - user
+id: user.user.field_notes
+field_name: field_notes
+entity_type: user
+bundle: user
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

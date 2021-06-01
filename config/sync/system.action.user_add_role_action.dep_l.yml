@@ -1,0 +1,14 @@
+uuid: efb48aaa-8263-41af-8732-4f1170c9c286
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dep_l
+  module:
+    - user
+id: user_add_role_action.dep_l
+label: 'Add the DEP-L role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dep_l

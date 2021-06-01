@@ -1,0 +1,62 @@
+uuid: 1f6c5ef5-3cbb-43e9-a7ad-d754236a21ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_l_timepoint.field_measures_completed
+    - field.field.paragraph.htds_l_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.htds_l_timepoint.field_objective_measures_date
+    - field.field.paragraph.htds_l_timepoint.field_participant_id
+    - field.field.paragraph.htds_l_timepoint.field_start_date
+    - field.field.paragraph.htds_l_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_l_timepoint
+  module:
+    - datetime
+id: paragraph.htds_l_timepoint.default
+targetEntityType: paragraph
+bundle: htds_l_timepoint
+mode: default
+content:
+  field_measures_completed:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_objective_measures_appoint:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_objective_measures_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_start_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_timepoint:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  field_participant_id: true
+  status: true

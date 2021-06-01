@@ -1,0 +1,20 @@
+uuid: f21ff4d1-2f7b-4c1c-9d2a-1dd5792b3406
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cwwd
+  module:
+    - path
+id: node.cwwd.path
+field_name: path
+entity_type: node
+bundle: cwwd
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

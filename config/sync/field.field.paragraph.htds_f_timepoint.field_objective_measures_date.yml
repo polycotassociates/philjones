@@ -1,0 +1,21 @@
+uuid: 11668c65-747b-4628-93be-7cd9e9f385a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_objective_measures_date
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
+id: paragraph.htds_f_timepoint.field_objective_measures_date
+field_name: field_objective_measures_date
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: 'Objective Measures Date and Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

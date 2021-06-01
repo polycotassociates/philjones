@@ -1,6 +1,12 @@
 format: basic_html
-name: 'Strong Healthy Communities'
-mail: info@stronghealthycommunities.org
-linkonly: 0
+name: 'Healthy Texas Program Evaluation'
+mail: healthytexas@tamu.edu
+linkonly: false
 _core:
   default_config_hash: K-CsbDCpdo87etSfdahl1iomaod_-AfrRo-6I8RbTQA
+textonly: false
+sitestyle: false
+simple_address: false
+advanced:
+  incoming: false
+  key: VAJo3-n_jZjcYjpKrENAGrm1QninDPzJSRogceeUCXI

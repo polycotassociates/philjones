@@ -1,0 +1,20 @@
+uuid: b6ca7e99-c125-4599-a198-eb9da517ddf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dep_f
+  module:
+    - path
+id: node.dep_f.path
+field_name: path
+entity_type: node
+bundle: dep_f
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path
