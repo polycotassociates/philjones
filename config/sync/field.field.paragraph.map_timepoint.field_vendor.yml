@@ -1,0 +1,21 @@
+uuid: 14a9739e-54a8-47ec-8386-b3906ef1cfe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_vendor
+    - paragraphs.paragraphs_type.map_timepoint
+  module:
+    - options
+id: paragraph.map_timepoint.field_vendor
+field_name: field_vendor
+entity_type: paragraph
+bundle: map_timepoint
+label: Vendor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,18 @@
+uuid: 13edfa2b-1194-4e39-96b8-447bb81e5c71
+langcode: en
+status: true
+dependencies: {  }
+name: program_staff_login
+label: 'Program Staff login'
+triggers:
+  registration: registration
+  login: login
+  one-time-login: one-time-login
+roles:
+  program_staff: program_staff
+pages_type: 0
+pages: ''
+language: ''
+enabled: true
+destination_path: 'internal:/participants'
+weight: 0

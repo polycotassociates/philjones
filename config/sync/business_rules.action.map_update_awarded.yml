@@ -1,0 +1,14 @@
+uuid: cbea7739-a64c-417d-ab93-dd21c8b82572
+langcode: en
+status: true
+dependencies: {  }
+id: map_update_awarded
+label: 'MAP Update Awarded'
+description: 'MAP Update Awarded'
+type: set_field_value
+target_entity_type: paragraph
+target_bundle: map_timepoint
+tags: {  }
+settings:
+  field: field_amount_earned
+  value: '100'

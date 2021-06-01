@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Study Sites'
 vid: study_sites
-description: 'Study sites and their related dates, educators.'
+description: 'Study sites and their related programs.  Also shows which Study Admins have access to that study site.'
 weight: 0

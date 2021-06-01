@@ -1,0 +1,18 @@
+uuid: 4c247777-9f09-4c27-87e0-49cba7d79b56
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.participant_roles
+id: taxonomy_term.participant_roles.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: participant_roles
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

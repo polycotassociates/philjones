@@ -1,0 +1,23 @@
+uuid: fc3a90b7-a238-4cca-a66e-346ee67d91f3
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_food_diary_complete
+label: 'SUSD-F Food Diary Complete'
+type: data_comparison
+reverse: false
+description: 'Check to see if Food Diary Complete for SUSD-F timepoint'
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+success_items:
+  susd_f_accelerometer_complete:
+    id: susd_f_accelerometer_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_asa_24_complete
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

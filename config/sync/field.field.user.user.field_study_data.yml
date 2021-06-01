@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_study_data
-    - views.view.user_dashboard
+    - views.view.participant_dashboard
   module:
     - user
     - viewsreference
@@ -25,7 +25,7 @@ default_value:
     argument: null
     title: 0
     data: null
-    target_uuid: ed0afc00-8862-42f6-af54-0ffe7716af46
+    target_uuid: d0c341b9-f54f-4825-83ea-25eae141975b
 default_value_callback: ''
 settings:
   handler: 'default:view'
@@ -36,23 +36,18 @@ settings:
     block: block
     default: 0
     page: 0
-    feed: 0
     data_export: 0
+    feed: 0
   preselect_views:
-    user_dashboard: user_dashboard
+    participant_dashboard: participant_dashboard
     block_content: 0
     content: 0
-    content_recent: 0
-    educators: 0
-    emails: 0
-    feeds_feed: 0
     files: 0
-    frontpage: 0
-    study_sites: 0
-    survey_participant_dashboard: 0
+    media: 0
+    media_library: 0
+    participant_programs: 0
+    program_dashboard: 0
     taxonomy_term: 0
     user_admin_people: 0
     watchdog: 0
-    who_s_new: 0
-    who_s_online: 0
 field_type: viewsreference

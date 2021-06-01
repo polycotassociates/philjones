@@ -1,0 +1,75 @@
+uuid: e2ad2240-4ea5-438e-a805-c1454093f443
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dashboard
+    - field.field.node.susd_l.field_program_website
+    - field.field.node.susd_l.field_response_id
+    - field.field.node.susd_l.field_timepoint_12w
+    - field.field.node.susd_l.field_timepoint_baseline
+    - field.field.node.susd_l.field_user
+    - node.type.susd_l
+  module:
+    - entity_reference_revisions
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.susd_l.dashboard
+targetEntityType: node
+bundle: susd_l
+mode: dashboard
+content:
+  field_response_id:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timepoint_12w:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_user:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: contact
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_program_website: true
+  langcode: true
+  links: true

@@ -1,0 +1,20 @@
+uuid: 12ac849a-ca31-4a4b-995f-6e4efeaa4478
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.timepoints
+  module:
+    - path
+id: taxonomy_term.timepoints.path
+field_name: path
+entity_type: taxonomy_term
+bundle: timepoints
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

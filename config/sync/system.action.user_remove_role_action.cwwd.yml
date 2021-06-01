@@ -1,0 +1,14 @@
+uuid: 4c17a48a-0176-4dd7-876f-3e8708255981
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cwwd
+  module:
+    - user
+id: user_remove_role_action.cwwd
+label: 'Remove the CWWD role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cwwd

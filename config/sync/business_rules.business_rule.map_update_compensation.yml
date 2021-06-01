@@ -1,0 +1,16 @@
+uuid: 9e581985-23af-470d-b1c5-c6b426c5efe3
+langcode: en
+status: true
+dependencies: {  }
+id: map_update_compensation
+label: 'MAP Update Compensation'
+description: 'Update compensation for eligible MAP timepoints when survey is completed.'
+reacts_on: entity_presave
+target_entity_type: paragraph
+target_bundle: map_timepoint
+items:
+  map_eligible_compensation:
+    id: map_eligible_compensation
+    type: condition
+    weight: -9
+tags: {  }

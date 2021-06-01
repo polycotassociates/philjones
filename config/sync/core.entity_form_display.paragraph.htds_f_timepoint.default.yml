@@ -1,0 +1,137 @@
+uuid: a579bde7-c2e7-4d39-ab88-9cb362522f78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_label_id
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_num
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_ret
+    - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_distrib
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_return
+    - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_date
+    - field.field.paragraph.htds_f_timepoint.field_participant_id
+    - field.field.paragraph.htds_f_timepoint.field_start_date
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.htds_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
+id: paragraph.htds_f_timepoint.default
+targetEntityType: paragraph
+bundle: htds_f_timepoint
+mode: default
+content:
+  field_accelerometer_label_id:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_accelerometer_status:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_accelerometer_tracking_num:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_accelerometer_tracking_ret:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_asa_24_complete:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_date_accelerometer_distrib:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_accelerometer_return:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_measures_completed:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_objective_measures_appoint:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_objective_measures_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_start_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_survey_completed_with_help:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_timepoint:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  field_participant_id: true
+  status: true

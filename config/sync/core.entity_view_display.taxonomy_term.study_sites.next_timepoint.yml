@@ -1,32 +1,21 @@
 uuid: 6fc65711-f3ed-4013-943d-2aa22de33f31
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.next_timepoint
     - field.field.taxonomy_term.study_sites.field_educator
-    - field.field.taxonomy_term.study_sites.field_studies
-    - field.field.taxonomy_term.study_sites.field_study_site_dates
-    - field.field.taxonomy_term.study_sites.field_study_type
+    - field.field.taxonomy_term.study_sites.field_programs
+    - field.field.taxonomy_term.study_sites.field_timepoints
     - taxonomy.vocabulary.study_sites
-  module:
-    - entity_reference_revisions
 id: taxonomy_term.study_sites.next_timepoint
 targetEntityType: taxonomy_term
 bundle: study_sites
 mode: next_timepoint
-content:
-  field_study_site_dates:
-    type: entity_reference_revisions_entity_view
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
+content: {  }
 hidden:
   description: true
   field_educator: true
-  field_studies: true
-  field_study_type: true
+  field_programs: true
+  field_timepoints: true
+  langcode: true

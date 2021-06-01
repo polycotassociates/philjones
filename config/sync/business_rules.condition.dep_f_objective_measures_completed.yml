@@ -1,0 +1,23 @@
+uuid: 6ce07862-4000-4812-bbd5-f3305f48b1af
+langcode: en
+status: true
+dependencies: {  }
+id: dep_f_objective_measures_completed
+label: 'DEP-F Objective Measures Completed'
+type: data_comparison
+reverse: false
+description: 'Check if Objective Measures Completed for DEP-F timepoint'
+target_entity_type: paragraph
+target_bundle: dep_f_timepoint
+success_items:
+  food_diary_complete:
+    id: food_diary_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_measures_completed
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

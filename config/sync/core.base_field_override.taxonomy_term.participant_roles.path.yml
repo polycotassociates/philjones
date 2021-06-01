@@ -1,0 +1,20 @@
+uuid: e9f3a084-efbe-4a55-bed4-1a6ddb08e8bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.participant_roles
+  module:
+    - path
+id: taxonomy_term.participant_roles.path
+field_name: path
+entity_type: taxonomy_term
+bundle: participant_roles
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

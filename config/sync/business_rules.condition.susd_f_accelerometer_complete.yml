@@ -1,0 +1,23 @@
+uuid: d9d4574d-e9ce-4478-b431-e83c6f77d6c7
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_accelerometer_complete
+label: 'SUSD-F Accelerometer Complete'
+type: data_comparison
+reverse: false
+description: 'Check to see if Accelerometer Status = Complete for SUSD-F timepoint'
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+success_items:
+  susd_f_update_awarded:
+    id: susd_f_update_awarded
+    type: action
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_accelerometer_status
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '3'

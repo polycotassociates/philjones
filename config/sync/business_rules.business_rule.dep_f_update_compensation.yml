@@ -1,0 +1,16 @@
+uuid: 44a5df23-6be8-4fe3-9d26-d78152bfbdc6
+langcode: en
+status: true
+dependencies: {  }
+id: dep_f_update_compensation
+label: 'DEP-F Update Compensation'
+description: 'Update compensation amount for DEP-F where all conditions are met'
+reacts_on: entity_presave
+target_entity_type: paragraph
+target_bundle: dep_f_timepoint
+items:
+  dep_f_eligible_compensation:
+    id: dep_f_eligible_compensation
+    type: condition
+    weight: -9
+tags: {  }

@@ -1,0 +1,23 @@
+uuid: 2c3a2c36-1f2c-49fe-bb64-0c4657753183
+langcode: en
+status: true
+dependencies: {  }
+id: map_survey_complete
+label: 'MAP Survey Complete'
+type: data_comparison
+reverse: false
+description: "Check to see if Survey Complete for MAP timepoint\t"
+target_entity_type: paragraph
+target_bundle: map_timepoint
+success_items:
+  map_update_awarded:
+    id: map_update_awarded
+    type: action
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_survey_completed
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

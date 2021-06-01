@@ -1,0 +1,22 @@
+uuid: 708333d1-dc10-4c42-8534-ef5bdae01cda
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.educator
+id: node.educator.status
+field_name: status
+entity_type: node
+bundle: educator
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

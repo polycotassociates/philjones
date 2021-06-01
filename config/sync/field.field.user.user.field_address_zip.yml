@@ -10,7 +10,7 @@ id: user.user.field_address_zip
 field_name: field_address_zip
 entity_type: user
 bundle: user
-label: 'Zip Code'
+label: 'Mailing Address: Zip Code'
 description: ''
 required: false
 translatable: false

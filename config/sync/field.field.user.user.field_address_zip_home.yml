@@ -1,0 +1,20 @@
+uuid: affcf1a7-1884-414e-8ec9-c4d576d38323
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_address_zip_home
+  module:
+    - user
+id: user.user.field_address_zip_home
+field_name: field_address_zip_home
+entity_type: user
+bundle: user
+label: 'Home Address: Zip Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

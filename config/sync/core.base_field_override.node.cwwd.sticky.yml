@@ -1,0 +1,22 @@
+uuid: 34b6acf3-a5dc-40e6-995e-74f2f4cc2324
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cwwd
+id: node.cwwd.sticky
+field_name: sticky
+entity_type: node
+bundle: cwwd
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 234fe9db-f74e-467b-9889-b304c28655a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_id_previous
+  module:
+    - user
+id: user.user.field_id_previous
+field_name: field_id_previous
+entity_type: user
+bundle: user
+label: 'Previous IDNUM'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

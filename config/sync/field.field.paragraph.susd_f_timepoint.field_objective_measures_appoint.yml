@@ -1,0 +1,43 @@
+uuid: 1c9a6a6d-d582-4cf8-b368-641cf1b5ecf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_objective_measures_appoint
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.field_objective_measures_appoint
+field_name: field_objective_measures_appoint
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: 'Objective measures appointment with'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        program_staff: program_staff
+        administrator: '0'
+        portal_administrator: '0'
+        dep_f: '0'
+        dep_l: '0'
+        susd_f: '0'
+        susd_l: '0'
+        wat: '0'
+        cwwd: '0'
+        map: '0'
+        htds_f: '0'
+        htds_l: '0'
+        participant: '0'
+        updater: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -5,8 +5,8 @@ dependencies: {  }
 id: more_information_on_dr_seguin_fo
 label: 'More information'
 recipients:
-  - r.seguin-fowler@ag.tamu.edu
+  - mgraham@tamus.edu
 reply: ''
 weight: 0
-message: 'Thank you for inquiring about more information on Dr. Seguin-Fowler’s studies.'
+message: 'Thank you for inquiring about more information on the Healthy Texas Program Evaluation. '
 redirect: /node/2

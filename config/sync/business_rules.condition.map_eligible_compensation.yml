@@ -1,0 +1,23 @@
+uuid: 37297086-8dec-460f-95d7-d742f4ea5c0a
+langcode: en
+status: true
+dependencies: {  }
+id: map_eligible_compensation
+label: 'MAP Eligible Compensation'
+type: data_comparison
+reverse: false
+description: 'Check to see if compensation is available for a MAP timepoint'
+target_entity_type: paragraph
+target_bundle: map_timepoint
+success_items:
+  map_survey_complete:
+    id: map_survey_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_amount_available
+  data_to_compare: current_data
+  operator: '>'
+  value_to_compare: '1'

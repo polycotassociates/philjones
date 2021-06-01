@@ -1,0 +1,14 @@
+uuid: d75c57c0-1429-4f62-a6e7-a19eea3a7b96
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_update_awarded
+label: 'SUSD-F Update Awarded'
+description: 'SUSD-F Update Awarded'
+type: set_field_value
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+tags: {  }
+settings:
+  field: field_amount_earned
+  value: '50'

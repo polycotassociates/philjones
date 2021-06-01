@@ -1,0 +1,23 @@
+uuid: d6e1b41c-939a-4b46-bfb7-a9594da56fae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_earned
+    - paragraphs.paragraphs_type.dep_f_timepoint
+id: paragraph.dep_f_timepoint.field_amount_earned
+field_name: field_amount_earned
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: Earned
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,19 @@
+uuid: ce2b4615-5701-4b33-a8a8-f571b4dc7de6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_participant_name
+    - node.type.dep_l
+id: node.dep_l.field_participant_name
+field_name: field_participant_name
+entity_type: node
+bundle: dep_l
+label: 'Participant Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

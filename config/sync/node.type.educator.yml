@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Educator
+name: 'Healthy Texas Staff'
 type: educator
 description: 'An educator''s name and contact info that can be related to a Study Site.'
 help: ''

@@ -1,0 +1,14 @@
+uuid: 4f51f3a2-4510-44d3-8052-f4ba51d7afa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.map
+  module:
+    - user
+id: user_add_role_action.map
+label: 'Add the MAP role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: map

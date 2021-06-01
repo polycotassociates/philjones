@@ -1,0 +1,23 @@
+uuid: ddf56974-39e2-4e69-9a3d-9391a342b130
+langcode: en
+status: true
+dependencies: {  }
+id: dep_f_eligible_compensation
+label: 'DEP-F Eligible Compensation'
+type: data_comparison
+reverse: false
+description: 'Check if DEP-F timepoint is eligible for compensation (has value)'
+target_entity_type: paragraph
+target_bundle: dep_f_timepoint
+success_items:
+  dep_f_survey_complete:
+    id: dep_f_survey_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_amount_available
+  data_to_compare: current_data
+  operator: '>'
+  value_to_compare: '1'

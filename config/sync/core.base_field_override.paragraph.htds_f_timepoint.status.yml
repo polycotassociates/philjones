@@ -1,0 +1,22 @@
+uuid: a9b898d8-244a-4961-bf71-ab3e8dc18f42
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.htds_f_timepoint
+id: paragraph.htds_f_timepoint.status
+field_name: status
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

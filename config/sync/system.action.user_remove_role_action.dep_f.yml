@@ -1,0 +1,14 @@
+uuid: b56a4198-cced-4d95-844a-77fe08ff1112
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dep_f
+  module:
+    - user
+id: user_remove_role_action.dep_f
+label: 'Remove the DEP-F role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dep_f

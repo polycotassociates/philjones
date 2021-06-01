@@ -1,4 +1,4 @@
-uuid: 84b4c557-63d4-4701-a476-a7b06039e4c6
+uuid: f4ef68bf-2f7a-48af-a144-464f11dcab0d
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: bootstrap_branding
 theme: bootstrap
 region: navigation
-weight: 0
+weight: -5
 provider: null
 plugin: system_branding_block
 settings:

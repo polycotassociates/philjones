@@ -1,0 +1,18 @@
+uuid: b0f74ac6-6285-46b8-b6a1-dfb099e42d1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.timepoints
+id: taxonomy_term.timepoints.name
+field_name: name
+entity_type: taxonomy_term
+bundle: timepoints
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

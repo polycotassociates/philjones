@@ -1,0 +1,118 @@
+uuid: 59670531-70a6-48c8-8733-3959e64a398a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.user_dashboard
+    - field.field.node.dep_f.field_program_website
+    - field.field.node.dep_f.field_response_id
+    - field.field.node.dep_f.field_timepoint_12w
+    - field.field.node.dep_f.field_timepoint_24w
+    - field.field.node.dep_f.field_timepoint_36w
+    - field.field.node.dep_f.field_timepoint_48w
+    - field.field.node.dep_f.field_timepoint_baseline
+    - field.field.node.dep_f.field_user
+    - node.type.dep_f
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_participant_data:
+      children:
+        - field_user
+        - field_response_id
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Participant Data'
+    group_timepoint_data:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+        - field_timepoint_24w
+        - field_timepoint_36w
+        - field_timepoint_48w
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.dep_f.user_dashboard
+targetEntityType: node
+bundle: dep_f
+mode: user_dashboard
+content:
+  field_program_website:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_timepoint_12w:
+    weight: 9
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_24w:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_36w:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_48w:
+    type: entity_reference_revisions_entity_view
+    weight: 12
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_baseline:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_response_id: true
+  field_user: true
+  langcode: true
+  links: true

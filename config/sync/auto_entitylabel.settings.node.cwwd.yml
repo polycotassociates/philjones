@@ -1,0 +1,6 @@
+status: 3
+pattern: 'CWWD - [node:field_response_id]'
+escape: false
+dependencies:
+  config:
+    - node.type.cwwd

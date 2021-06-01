@@ -1,0 +1,14 @@
+uuid: c34bb383-8945-4253-b12b-f963f12c220d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.map
+  module:
+    - user
+id: user_remove_role_action.map
+label: 'Remove the MAP role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: map

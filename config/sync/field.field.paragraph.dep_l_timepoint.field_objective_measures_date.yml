@@ -1,0 +1,21 @@
+uuid: cbfbbeb4-d174-4617-b04b-d4dde7aae9a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_objective_measures_date
+    - paragraphs.paragraphs_type.dep_l_timepoint
+  module:
+    - datetime
+id: paragraph.dep_l_timepoint.field_objective_measures_date
+field_name: field_objective_measures_date
+entity_type: paragraph
+bundle: dep_l_timepoint
+label: 'Objective Measures Date and Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

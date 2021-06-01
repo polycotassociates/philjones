@@ -1,0 +1,21 @@
+uuid: fcbaf506-577e-49d6-a31d-079fdafb1ef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_vendor
+    - paragraphs.paragraphs_type.susd_f_timepoint
+  module:
+    - options
+id: paragraph.susd_f_timepoint.field_vendor
+field_name: field_vendor
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: Vendor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

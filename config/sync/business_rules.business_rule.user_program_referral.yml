@@ -1,0 +1,16 @@
+uuid: 0eea7fba-5f33-4eb1-9019-26fb2da5def0
+langcode: en
+status: true
+dependencies: {  }
+id: user_program_referral
+label: 'User Program Referral'
+description: 'User is added to program via user edit form, redirected to /add_program/{pid} with paragraph id for entity queries to look up UID, ResponseID and Date needed to run migrations to add user to program that was previously skipped.'
+reacts_on: entity_insert
+target_entity_type: paragraph
+target_bundle: user_referrals
+items:
+  redirect_add_program:
+    id: redirect_add_program
+    type: action
+    weight: -9
+tags: {  }

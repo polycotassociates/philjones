@@ -1,0 +1,17 @@
+uuid: ac5c8185-f9ed-423e-94bc-954df520ad03
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Cooking Well with Diabetes'
+type: cwwd
+description: 'Cooking Well with Diabetes (CWWD)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

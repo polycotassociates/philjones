@@ -1,0 +1,22 @@
+uuid: c301a02d-3ab3-4c73-8a57-6d18cf66802a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.htds_l_timepoint
+id: paragraph.htds_l_timepoint.status
+field_name: status
+entity_type: paragraph
+bundle: htds_l_timepoint
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

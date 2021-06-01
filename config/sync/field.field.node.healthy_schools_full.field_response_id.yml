@@ -1,0 +1,19 @@
+uuid: f204843e-d542-44ae-a93b-20c092319efb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_response_id
+    - node.type.healthy_schools_full
+id: node.healthy_schools_full.field_response_id
+field_name: field_response_id
+entity_type: node
+bundle: healthy_schools_full
+label: 'Participant ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

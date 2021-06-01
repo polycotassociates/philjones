@@ -1,0 +1,31 @@
+uuid: 22cbd105-0acb-4284-b74f-6919da8b4b6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.timepoints.field_acronym
+    - taxonomy.vocabulary.timepoints
+  module:
+    - text
+id: taxonomy_term.timepoints.default
+targetEntityType: taxonomy_term
+bundle: timepoints
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_acronym:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

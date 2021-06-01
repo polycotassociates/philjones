@@ -1,0 +1,18 @@
+uuid: b007436e-01a7-4cd4-a7ba-c893c89d6111
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.educator
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.educator
+target_entity_type_id: node
+target_bundle: educator
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,16 @@
+uuid: 18d73a6f-345f-4ee6-ae30-155774f00a4a
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_update_compensation
+label: 'SUSD-F Update Compensation'
+description: 'Update compensation for SUSD-F if available for that timepoint and conditions  are met'
+reacts_on: entity_presave
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+items:
+  susd_f_eligible_compnesation:
+    id: susd_f_eligible_compnesation
+    type: condition
+    weight: -9
+tags: {  }

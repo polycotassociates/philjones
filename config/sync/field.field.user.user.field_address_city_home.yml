@@ -1,0 +1,20 @@
+uuid: fea54f27-64da-4205-837e-81579d891711
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_address_city_home
+  module:
+    - user
+id: user.user.field_address_city_home
+field_name: field_address_city_home
+entity_type: user
+bundle: user
+label: 'Home Address: City'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

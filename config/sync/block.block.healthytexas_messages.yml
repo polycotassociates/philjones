@@ -1,0 +1,22 @@
+uuid: c2e71b54-6c92-4735-9dad-e321e0e3c4eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: healthytexas_messages
+theme: healthytexas
+region: header
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

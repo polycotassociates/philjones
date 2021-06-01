@@ -1,0 +1,23 @@
+uuid: 77463524-1388-40b4-bdf9-633200d7f786
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_survey_complete
+label: 'SUSD-F Survey Complete'
+type: data_comparison
+reverse: false
+description: 'Check to see if Survey Complete for SUSD-F timepoint'
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+success_items:
+  susd_f_objective_measures_completed:
+    id: susd_f_objective_measures_completed
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_survey_completed
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

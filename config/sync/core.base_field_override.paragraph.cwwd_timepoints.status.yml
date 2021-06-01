@@ -1,0 +1,22 @@
+uuid: 919ff776-d046-4f30-b6e1-7090152e403d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.cwwd_timepoints
+id: paragraph.cwwd_timepoints.status
+field_name: status
+entity_type: paragraph
+bundle: cwwd_timepoints
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

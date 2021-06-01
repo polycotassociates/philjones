@@ -1,0 +1,10 @@
+uuid: 8520e704-15a2-4153-b7ae-286f8504b85f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.data_export
+label: 'Data Export'
+targetEntityType: paragraph
+cache: true

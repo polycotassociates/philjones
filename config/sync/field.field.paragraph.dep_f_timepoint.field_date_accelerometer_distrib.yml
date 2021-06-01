@@ -1,0 +1,21 @@
+uuid: cde8908a-9909-4430-bcce-84b6a2aa2518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_accelerometer_distrib
+    - paragraphs.paragraphs_type.dep_f_timepoint
+  module:
+    - datetime
+id: paragraph.dep_f_timepoint.field_date_accelerometer_distrib
+field_name: field_date_accelerometer_distrib
+entity_type: paragraph
+bundle: dep_f_timepoint
+label: 'Date Accelerometer Shipped'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

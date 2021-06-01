@@ -1,0 +1,17 @@
+uuid: 6b54297e-ccae-4a43-b5e3-5e07e3aefbcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Medication Assistance Program'
+type: map
+description: 'Medication Assistance Program (MAP)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

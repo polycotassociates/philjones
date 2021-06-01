@@ -1,0 +1,23 @@
+uuid: c9ca022e-8a52-4113-9ba5-e0db3a7bf03e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_attendance_process_survey
+  module:
+    - link
+    - user
+id: user.user.field_attendance_process_survey
+field_name: field_attendance_process_survey
+entity_type: user
+bundle: user
+label: 'HT Participant Program Participation Survey'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

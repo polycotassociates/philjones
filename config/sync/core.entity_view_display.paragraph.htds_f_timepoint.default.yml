@@ -1,0 +1,145 @@
+uuid: 7c3a2e11-4059-41b1-9bea-6f66479335eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_label_id
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_num
+    - field.field.paragraph.htds_f_timepoint.field_accelerometer_tracking_ret
+    - field.field.paragraph.htds_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_distrib
+    - field.field.paragraph.htds_f_timepoint.field_date_accelerometer_return
+    - field.field.paragraph.htds_f_timepoint.field_measures_completed
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.htds_f_timepoint.field_objective_measures_date
+    - field.field.paragraph.htds_f_timepoint.field_participant_id
+    - field.field.paragraph.htds_f_timepoint.field_start_date
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed
+    - field.field.paragraph.htds_f_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.htds_f_timepoint.field_timepoint
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
+    - options
+id: paragraph.htds_f_timepoint.default
+targetEntityType: paragraph
+bundle: htds_f_timepoint
+mode: default
+content:
+  field_accelerometer_label_id:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_accelerometer_status:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_accelerometer_tracking_num:
+    weight: 9
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_accelerometer_tracking_ret:
+    weight: 10
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_asa_24_complete:
+    weight: 12
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_date_accelerometer_distrib:
+    weight: 8
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_accelerometer_return:
+    weight: 11
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_measures_completed:
+    weight: 5
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_objective_measures_appoint:
+    weight: 3
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_objective_measures_date:
+    weight: 4
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_start_date:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_survey_completed_with_help:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  field_participant_id: true
+  field_timepoint: true

@@ -1,0 +1,17 @@
+uuid: 6bfd96f0-b421-492e-bbd1-32b7d3e08333
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Healthy Schools: Full'
+type: healthy_schools_full
+description: 'Healthy Schools: Full (HTDS-F)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

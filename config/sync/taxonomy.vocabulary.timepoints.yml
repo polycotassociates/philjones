@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: Timepoints
 vid: timepoints
-description: 'Timepoints related to Studies and Compensation Types'
+description: 'Timepoints for reference to paragraphs, can provide acronym and other related data.'
 weight: 0

@@ -1,0 +1,64 @@
+uuid: 8a809934-4fda-4fc3-9564-db90c9501f4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timepoint_12w
+    - node.type.map
+    - paragraphs.paragraphs_type.map_timepoint
+  module:
+    - entity_reference_revisions
+id: node.map.field_timepoint_12w
+field_name: field_timepoint_12w
+entity_type: node
+bundle: map
+label: '3 Months'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      map_timepoint: map_timepoint
+    target_bundles_drag_drop:
+      change_club_site_timepoints:
+        weight: 15
+        enabled: false
+      change_club_timepoints:
+        weight: 16
+        enabled: false
+      compensation_types:
+        weight: 17
+        enabled: false
+      cwwd_timepoints:
+        weight: 18
+        enabled: false
+      dep_f_timepoint:
+        weight: 19
+        enabled: false
+      dep_l_timepoint:
+        weight: 20
+        enabled: false
+      htds_f_timepoint:
+        weight: 22
+        enabled: false
+      htds_l_timepoint:
+        weight: 23
+        enabled: false
+      map_timepoint:
+        enabled: true
+        weight: 24
+      susd_f_timepoint:
+        weight: 26
+        enabled: false
+      susd_l_timepoint:
+        weight: 27
+        enabled: false
+      wat_timepoint:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

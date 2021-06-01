@@ -1,0 +1,77 @@
+uuid: 9658f60d-1266-4a8e-b3e9-4a298573a35f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.map.field_program_website
+    - field.field.node.map.field_response_id
+    - field.field.node.map.field_timepoint_12w
+    - field.field.node.map.field_timepoint_baseline
+    - field.field.node.map.field_user
+    - node.type.map
+  module:
+    - paragraphs
+id: node.map.default
+targetEntityType: node
+bundle: map
+mode: default
+content:
+  field_response_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_timepoint_12w:
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_timepoint_baseline:
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_user:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_program_website: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

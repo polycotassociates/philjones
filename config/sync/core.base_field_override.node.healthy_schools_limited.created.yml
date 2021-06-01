@@ -1,0 +1,18 @@
+uuid: 69d8c85c-bb1b-4c15-91a4-6840b4b0f66f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_limited
+id: node.healthy_schools_limited.created
+field_name: created
+entity_type: node
+bundle: healthy_schools_limited
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

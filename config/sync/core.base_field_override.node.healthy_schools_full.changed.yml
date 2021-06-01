@@ -1,0 +1,18 @@
+uuid: a86a8a55-e4af-49e1-92e8-16e9237a4058
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_full
+id: node.healthy_schools_full.changed
+field_name: changed
+entity_type: node
+bundle: healthy_schools_full
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

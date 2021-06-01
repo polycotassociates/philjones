@@ -1,0 +1,19 @@
+uuid: bd811d1a-5cfb-4415-8ad4-81275838dffa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_notes
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_notes
+field_name: field_notes
+entity_type: paragraph
+bundle: map_timepoint
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

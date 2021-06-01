@@ -1,0 +1,18 @@
+uuid: 4bc191ad-9bad-4a92-a8fa-d26b57d0f3ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dep_f
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.dep_f
+target_entity_type_id: node
+target_bundle: dep_f
+default_langcode: site_default
+language_alterable: true
