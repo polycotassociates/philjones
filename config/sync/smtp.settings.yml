@@ -1,17 +1,20 @@
 smtp_on: false
-smtp_host: smtp.office365.com
+smtp_host: relay.tamu.edu
 smtp_hostbackup: ''
 smtp_port: '587'
 smtp_protocol: tls
-smtp_username: info@stronghealthycommunities.org
-smtp_password: '%E@uoE0v#$Q0'
-smtp_from: info@stronghealthycommunities.org
-smtp_fromname: 'Strong Healthy Communities'
+smtp_username: healthytexas@tamu.edu
+smtp_password: ''
+smtp_from: healthytexas@tamu.edu
+smtp_fromname: ''
 smtp_client_hostname: ''
 smtp_client_helo: ''
-smtp_allowhtml: '0'
+smtp_allowhtml: '1'
 smtp_test_address: ''
-smtp_debugging: true
+smtp_debugging: false
 prev_mail_system: php_mail
 _core:
   default_config_hash: WEa5Ex_IeAcm6Bm0hmQ4vU_nDwJDB8hW-vxT1qpGIbM
+smtp_timeout: 30
+smtp_keepalive: true
+smtp_autotls: true

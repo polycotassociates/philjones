@@ -39,6 +39,11 @@ if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
   include $app_root . '/' . $site_path . '/settings.platformsh.php';
 }
 
+// Private settings. Secure credentials are kept out of the repository and injected as config overrides.
+if (file_exists($settings['file_private_path'] . '/secrets.php')) {
+  include $settings['file_private_path'] . '/secrets.php';
+}
+
 // Local settings. These come last so that they can override anything.
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
