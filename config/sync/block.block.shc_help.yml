@@ -1,0 +1,22 @@
+uuid: b4e8c0ef-cc00-4b58-89e2-a1a3a6cd8720
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - shc
+_core:
+  default_config_hash: MhtNdV__HKRTab0ZPjkPNfYL4Ng4UPBucDLoC7Rg5Eo
+id: shc_help
+theme: shc
+region: help
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

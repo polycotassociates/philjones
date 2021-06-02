@@ -3,7 +3,7 @@ base theme: bootstrap
 core: 8.x
 core_version_requirement: ^8 || ^9
 
-name: "Healthy Texas"
+name: "Strong Healthy Communities"
 description: "A Drupal Bootstrap 3 based sub-theme."
 package: "Bootstrap"
 
@@ -22,7 +22,9 @@ regions:
 
 libraries-extend:
   bootstrap/framework:
-    - healthytexas/framework
+    - shc/framework
 
 libraries:
-  - healthytexas/fonts
+  - shc/fonts
+  - shc/global-styling
+  - shc/global-scripts

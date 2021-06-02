@@ -1,0 +1,95 @@
+// Color variable all drawn from (https://brandguide.tamu.edu/)
+
+:root {
+  --maroon: #500000;
+  --maroon-dark: #3c0000;
+
+  --link: #006483;
+  --link-hover: #004362;
+
+  --ht-blue: #003c71;
+  --olive: #5b6236;
+  --tan: #d6d3c4;
+  --light-gray: #eef0f0;
+  --lighter-gray: #f5f5f5;
+  --ht-white: #ffffff;
+  --ht-black: #141414;
+  --dark-gray: #202020;
+
+  --ht-red: #e4002b;
+  --ht-yellow: #fce300;
+  --ht-green: #3ed488;
+
+  // page widths moved to _01-breakpoints.scss so they can be used here
+  --xs: 320px;
+  --small: 480px;
+  --medium: 782px; // 782
+  --large: 1224px; // 1,224
+  --xl: 1432px; // 1,432
+  --xxl: 1640px; // 1640
+
+  --bs-small: 768px;
+  --bs-medium: 992px;
+  --bs-large: 1200px;
+
+  // Font families
+  --font-text: "Open Sans", sans-serif;
+  --font-headings: "Oswald", sans-serif;
+
+  // font size
+  --base-font-size: 18px;
+  @include large {
+    --base-font-size: 20px;
+  }
+
+  --medium-font-size: 20px;
+  --small-font-size: 16px;
+  --sidebar-font-size: 20px;
+  --main-font-size: 28px;
+  --font-size--huge: 60px;
+
+  //font weights
+
+  --light: 300;
+  --regular: 400;
+  --semi: 600;
+  --heavy: 700;
+
+  --line-height: calc(1ex / 0.32);
+
+  --line-width: 60ch;
+
+  // border-variables
+
+  --border-width: 1px;
+  --border-color: var(--gray-light);
+  --border-radius: 4px;
+
+  // spacing elements
+  --space: 1rem;
+  @include medium() {
+    --space: 1.5rem;
+  }
+
+  // gutter on first level wrappers; header, .container
+
+  --mainGutter: var(--space);
+  @include small() {
+    --mainGutter: var(--space); // 1 rem
+  }
+
+  @include medium() {
+    --mainGutter: calc(2 * var(--space)); // 2rem
+  }
+
+  // Base grid variables
+
+  --auto-grid-min-size: calc(10 * var(--space));
+  --grid-gap: var(--mainGutter);
+
+  --base-grid-column: 84px;
+
+  // universal spacing variables
+
+  --component-bottom-margin: calc(1 * var(--space));
+}

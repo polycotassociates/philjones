@@ -1,0 +1,22 @@
+uuid: 90c7a3e9-11f2-4716-923a-063e2f4f804b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - shc
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: shc_content
+theme: shc
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

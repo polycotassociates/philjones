@@ -1,0 +1,36 @@
+/* -------------------------
+
+Title: _personList.scss
+Descr: main styles for person lists
+
+--------------------------- */
+.participant {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem !important;
+  background: linear-gradient(
+    180deg,
+    var(--lighter-gray) 92px,
+    var(--tan) 93px,
+    var(--ht-white) 94px
+  ) !important;
+  h3 {
+    padding-left: 1rem;
+    margin-bottom: 1em;
+  }
+  ul {
+    padding: 1rem 3rem;
+  }
+}
+
+.person {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div:nth-child(1),
+  > div:nth-child(2) {
+    flex: 0 0 44%;
+  }
+}

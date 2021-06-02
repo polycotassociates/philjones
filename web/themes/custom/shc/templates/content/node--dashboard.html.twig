@@ -1,0 +1,84 @@
+{% set classes = ['dashboard'] %}
+{# {{vardumper(content.field_user)}}
+ #}
+
+
+{# <p>
+	name:
+	{{content.field_user.0["#title"]}}
+	<br/>
+	participant url:
+	{{content.field_user.0["#url"]}}
+	<br/>
+	participant title:
+	{{content.field_user["#title"]}}
+	<br/>
+	participant id:
+	{{content.field_response_id}}
+	<br/>
+	url:
+	{{url}}
+	<br/>
+	12weeks:
+	{{elements.field_timepoint_12w}}
+	<br/>
+	baseline:
+	{{elements.field_timepoint_baseline}}
+	<br/>
+	programtype:
+{{elements.field_program_type}}
+</p> #}
+
+{# <div class="programItem">
+  <div class="programItem--username">
+    {{content.field_user}}
+    {{content.field_participant_name}}
+  </div>
+    <div class="panel panel-default col-sm-3">
+      <div class="panel-heading">
+        <div class="panel-title">
+          Timepoints
+        </div>
+      </div>
+      <div class="panel-body">
+        {{elements.field_timepoint_baseline}}
+        {{elements.field_timepoint_12w}}
+      </div>
+    </div>
+  </div>
+</div> #}
+{# {{vardumper()}} #}
+
+{# Adding edit button b/c the hover for title_prefix won't work on iPads #}
+
+	<div class="panel panel-default dashboard contextual-region {{attributes}}">
+
+  {# {{title_prefix}}  #}
+  <div class="dashboard__title">
+		 {# elements.field_program_type #} {{ node.type.entity.label }} <a class="edit" href="{{url}}/edit">edit</a>
+	</div>
+
+	<div class="dashboard__participant">
+    {% if content.field_user %}
+        {{content.field_user}}
+    {% endif %}
+    {% if content.field_participant_name %}
+        {{content.field_participant_name}} - {{content.field_response_id}}
+    {% endif %}
+	</div>
+	<div class="panel panel-default timepoints dashboard__timepoints">
+		<div class="panel-heading">
+			<div class="panel-title">
+				Timepoints
+			</div>
+		</div>
+		<div class="panel-body">
+			{{elements.field_timepoint_baseline}}
+			{{elements.field_timepoint_12w}}
+      {{elements.field_timepoint_24w}}
+      {{elements.field_timepoint_36w}}
+      {{elements.field_timepoint_48w}}
+		</div>
+	</div>
+  {# {{title_suffix}} #}
+</div>

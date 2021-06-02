@@ -1,0 +1,22 @@
+uuid: e78301b3-5c80-4d23-ab6d-f5a3fcd016f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - shc
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: shc_messages
+theme: shc
+region: header
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

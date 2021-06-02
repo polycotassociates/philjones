@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+{%
+  set title_classes = [
+    'field--label',
+    label_display == 'visually_hidden' ? 'sr-only',
+  ]
+%}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(classes, 'field--items') }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field--item') }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field--items">
+    {% endif %}
+    {% for item in items %}
+      {% set fieldstatus = item.content["#markup"] %}
+
+       {#debugging
+       <div class='alert alert-info'>{{ fieldstatus }}</div>
+      {{vardumper(item.content["#markup"])}} #}
+      {% if fieldstatus == 'Not completed' %}
+        {% set surveyclass = 'field--item alert alert-info' %}
+      {% elseif fieldstatus == 'Need to pick-up' %}
+        {% set surveyclass = 'field--item alert alert-info' %}
+      {% elseif fieldstatus == 'Need to return when done' %}
+        {% set surveyclass = 'field--item alert alert-danger' %}
+      {% elseif fieldstatus == 'Completed' %}
+        {% set surveyclass = 'field--item alert alert-success' %}
+      {% else %}
+        {% set surveyclass = 'field--item' %}
+      {% endif %}
+      <div{{ item.attributes.addClass(surveyclass) }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

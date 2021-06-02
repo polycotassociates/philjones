@@ -1,0 +1,35 @@
+uuid: c0b89a0a-f26a-4af4-9336-7c793027b43a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+    - user
+  theme:
+    - shc
+id: shc_mainnavigation
+theme: shc
+region: navigation_collapsible
+weight: -6
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      portal_administrator: portal_administrator
+      program_staff: program_staff
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
