@@ -1,0 +1,64 @@
+uuid: dda0d287-5e53-4956-91a1-1070b45700d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timepoint_12w
+    - node.type.dep_l
+    - paragraphs.paragraphs_type.dep_l_timepoint
+  module:
+    - entity_reference_revisions
+id: node.dep_l.field_timepoint_12w
+field_name: field_timepoint_12w
+entity_type: node
+bundle: dep_l
+label: '3 Months'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      dep_l_timepoint: dep_l_timepoint
+    target_bundles_drag_drop:
+      change_club_site_timepoints:
+        weight: 15
+        enabled: false
+      change_club_timepoints:
+        weight: 16
+        enabled: false
+      compensation_types:
+        weight: 17
+        enabled: false
+      cwwd_timepoints:
+        weight: 18
+        enabled: false
+      dep_f_timepoint:
+        weight: 19
+        enabled: false
+      dep_l_timepoint:
+        enabled: true
+        weight: 20
+      htds_f_timepoint:
+        weight: 22
+        enabled: false
+      htds_l_timepoint:
+        weight: 23
+        enabled: false
+      map_timepoint:
+        weight: 24
+        enabled: false
+      susd_f_timepoint:
+        weight: 26
+        enabled: false
+      susd_l_timepoint:
+        weight: 27
+        enabled: false
+      wat_timepoint:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

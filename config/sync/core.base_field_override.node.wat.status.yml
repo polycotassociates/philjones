@@ -1,0 +1,22 @@
+uuid: a2a1e2cc-022b-4cf4-a5e5-d5e940770e36
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat.status
+field_name: status
+entity_type: node
+bundle: wat
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

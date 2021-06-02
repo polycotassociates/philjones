@@ -1,0 +1,14 @@
+uuid: 4c3d29ed-e554-4f36-9263-90e60cc6024c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.susd_f
+  module:
+    - user
+id: user_remove_role_action.susd_f
+label: 'Remove the SUSD-F role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: susd_f

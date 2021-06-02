@@ -1,0 +1,20 @@
+uuid: 94834a9b-0c08-4736-b9e1-96257b634ad8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.educator
+  module:
+    - path
+id: node.educator.path
+field_name: path
+entity_type: node
+bundle: educator
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

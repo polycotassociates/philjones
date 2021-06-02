@@ -1,0 +1,19 @@
+uuid: 764731bd-cb1c-4f7e-954f-10b6942777a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_notes
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.field_notes
+field_name: field_notes
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,23 @@
+uuid: fc3fcf08-b64f-42d6-98d4-11e59a50e449
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_survey_completed
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_survey_completed
+field_name: field_survey_completed
+entity_type: paragraph
+bundle: map_timepoint
+label: 'Online Health Survey Completed'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

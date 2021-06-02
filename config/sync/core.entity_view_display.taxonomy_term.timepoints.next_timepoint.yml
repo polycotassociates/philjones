@@ -1,0 +1,17 @@
+uuid: b2eac770-90e8-4b9b-9114-919f995e95bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.next_timepoint
+    - field.field.taxonomy_term.timepoints.field_acronym
+    - taxonomy.vocabulary.timepoints
+id: taxonomy_term.timepoints.next_timepoint
+targetEntityType: taxonomy_term
+bundle: timepoints
+mode: next_timepoint
+content: {  }
+hidden:
+  description: true
+  field_acronym: true
+  langcode: true

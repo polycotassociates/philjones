@@ -1,0 +1,20 @@
+uuid: 259d0198-8d7b-48b4-9bf5-2ae97afe0ccc
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.remote_video
+id: media.remote_video.name
+field_name: name
+entity_type: media
+bundle: remote_video
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

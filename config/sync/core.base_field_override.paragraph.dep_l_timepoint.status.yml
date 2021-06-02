@@ -1,0 +1,22 @@
+uuid: fc576493-d30d-41f6-a923-3030d9b32de0
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.dep_l_timepoint
+id: paragraph.dep_l_timepoint.status
+field_name: status
+entity_type: paragraph
+bundle: dep_l_timepoint
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

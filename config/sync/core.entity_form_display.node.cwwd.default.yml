@@ -1,0 +1,85 @@
+uuid: 7e8b179c-ece7-48d8-b51d-0d7f032bdeb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cwwd.field_program_website
+    - field.field.node.cwwd.field_response_id
+    - field.field.node.cwwd.field_timepoint_12w
+    - field.field.node.cwwd.field_timepoint_baseline
+    - field.field.node.cwwd.field_user
+    - node.type.cwwd
+  module:
+    - link
+    - paragraphs
+id: node.cwwd.default
+targetEntityType: node
+bundle: cwwd
+mode: default
+content:
+  field_program_website:
+    weight: 28
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_response_id:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_timepoint_12w:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_timepoint_baseline:
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_user:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

@@ -1,0 +1,18 @@
+uuid: 89c2ed2f-5820-4cee-bc2d-ced237f40e26
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cwwd
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.cwwd
+target_entity_type_id: node
+target_bundle: cwwd
+default_langcode: site_default
+language_alterable: true

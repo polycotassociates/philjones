@@ -1,0 +1,28 @@
+uuid: 2a577417-d2c8-4e80-bb82-ab701c1dcb66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.susd_f
+  module:
+    - link
+id: node.susd_f.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: susd_f
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://stepupscaledown.org'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

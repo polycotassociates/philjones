@@ -1,0 +1,18 @@
+uuid: 529f5339-7259-4df4-8890-dabf006c6ba0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat.title
+field_name: title
+entity_type: node
+bundle: wat
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

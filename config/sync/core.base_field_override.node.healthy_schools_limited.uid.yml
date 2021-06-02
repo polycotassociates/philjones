@@ -1,0 +1,20 @@
+uuid: 632f9914-435d-475f-9522-bcd06d17b620
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_limited
+id: node.healthy_schools_limited.uid
+field_name: uid
+entity_type: node
+bundle: healthy_schools_limited
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

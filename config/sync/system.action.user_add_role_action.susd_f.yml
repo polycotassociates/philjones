@@ -1,0 +1,14 @@
+uuid: 15742761-c890-4cc2-ae76-edc6ba1a8a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.susd_f
+  module:
+    - user
+id: user_add_role_action.susd_f
+label: 'Add the SUSD-F role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: susd_f

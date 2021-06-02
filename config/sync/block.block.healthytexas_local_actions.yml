@@ -1,0 +1,20 @@
+uuid: 7c9ff8ab-ded4-4a6b-84d2-a287a904dff7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - healthytexas
+_core:
+  default_config_hash: ffxthelqQF8xcr4GTG4HlaNNsluiHftN0pujmQpW0bQ
+id: healthytexas_local_actions
+theme: healthytexas
+region: header
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

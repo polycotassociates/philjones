@@ -1,0 +1,22 @@
+uuid: 735b7475-90c9-494a-a01d-6ad18f8cdd8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.map
+id: node.map.status
+field_name: status
+entity_type: node
+bundle: map
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

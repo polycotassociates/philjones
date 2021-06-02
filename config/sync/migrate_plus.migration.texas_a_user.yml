@@ -1,0 +1,371 @@
+uuid: 75a92144-f9cd-45e3-a58d-0249e9b0eb95
+langcode: en
+status: true
+dependencies: {  }
+id: texas_a_user
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: texas_user
+label: 'Import texas program participants from static file to user with program partipipant role'
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'private://qualtrics_data/SV_3ejJc2qfOotJblX.json'
+  ids:
+    responseId:
+      type: string
+  item_selector: responses
+  constants:
+    field_address_state: TX
+    s_link_title: 'HT Participant Screener'
+    s_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_3ejJc2qfOotJblX?ID='
+    q_link_title: 'Online Health Survey'
+    q_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_81vKYPSQYjf4AER?ID='
+    a_link_title: 'HT Participant Program Participation Survey'
+    a_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_eXwbaKyAQxhIiBD?ID='
+    d_link_title: 'Data Collection Form'
+    d_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_8bPbpQDM3Mz07Ax?ID='
+    asa_link_title: 'Online Food Diary'
+    asa_link_prefix: ID=
+    e_link_title: 'Report an Adverse Event'
+    e_link_prefix: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_czLu8GWlkw5q7Zj?ID='
+    dep_f_prefix: '&DEP-F='
+    dep_l_prefix: '&DEP-L='
+    susd_f_prefix: '&SUSD-F='
+    susd_l_prefix: '&SUSD-L='
+    cwwd_prefix: '&CWWD='
+    map_prefix: '&MAP='
+    htds_f_prefix: '&HTDS-F='
+    htds_l_prefix: '&HTDS-L='
+    wat_prefix: '&WAT='
+    dem_prefix: '&DEM=0'
+    lng_prefix: '&LNG='
+  fields:
+    -
+      name: responseId
+      label: 'Unique identifier'
+      selector: responseId
+    -
+      name: field_response_id
+      label: 'Participant ID'
+      selector: values/QID2_TEXT
+    -
+      name: name
+      label: Name
+      selector: values/QID4_TEXT
+    -
+      name: mail
+      label: Email
+      selector: values/QID6_TEXT
+    -
+      name: field_primary_phone
+      label: 'Primary Phone'
+      selector: values/QID7_TEXT
+    -
+      name: field_street_address
+      label: 'Street Address'
+      selector: values/QID8_TEXT
+    -
+      name: field_address_city
+      label: City
+      selector: values/QID9_TEXT
+    -
+      name: field_address_zip
+      label: 'Zip Code'
+      selector: values/QID10_TEXT
+    -
+      name: field_preferred_contact
+      label: 'Preferred Contact'
+      selector: labels/QID13
+    -
+      name: field_willing_to_be_contacted_by
+      label: 'Willing to be contacted by other HT programs'
+      selector: values/QID45
+    -
+      name: field_willing_to_be_contacted_in
+      label: 'Willing to be contacted in the future for HT programs or research studies'
+      selector: values/QID46
+    -
+      name: field_preferred_language
+      label: 'Preferred Contact'
+      selector: values/QID11
+    -
+      name: field_person_title
+      label: Race
+      selector: labels/QID5
+    -
+      name: field_study_site
+      label: 'Study Site'
+      selector: labels/QID3
+    -
+      name: field_staff_entered_intake
+      label: 'Staff that entered intake form'
+      selector: labels/QID124
+    -
+      name: dep_f
+      label: DEP-F
+      selector: 'values/QID43#2_1_1'
+    -
+      name: dep_l
+      label: DEP-L
+      selector: 'values/QID43#2_2_1'
+    -
+      name: susd_f
+      label: SUSD-F
+      selector: 'values/QID43#2_3_1'
+    -
+      name: susd_l
+      label: SUSD-L
+      selector: 'values/QID43#2_4_1'
+    -
+      name: cwwd
+      label: CWWD
+      selector: 'values/QID43#2_6_1'
+    -
+      name: map
+      label: MAP
+      selector: 'values/QID43#2_7_1'
+    -
+      name: htds_f
+      label: HTDS-F
+      selector: 'values/QID43#2_8_1'
+    -
+      name: htds_l
+      label: HTDS-L
+      selector: 'values/QID43#2_9_1'
+    -
+      name: wat
+      label: Role
+      selector: 'values/QID43#2_5_1'
+process:
+  name:
+    plugin: concat
+    source:
+      - name
+      - field_response_id
+    delimiter: '-'
+  mail: mail
+  pass: changemeclub
+  temp_langlink:
+    plugin: langlink
+    source: field_preferred_language
+  temp_langcode:
+    plugin: langcode
+    source: field_preferred_language
+  langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: false
+  preferred_langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: '@temp_langcode'
+    fallback_to_site_default: true
+  field_street_address: field_street_address
+  field_address_city: field_address_city
+  field_address_state: field_address_state
+  field_address_zip: field_address_zip
+  field_displa: name
+  field_email: mail
+  field_response_id:
+    plugin: skip_on_empty
+    method: row
+    source: field_response_id
+  field_primary_phone: field_primary_phone
+  field_preferred_contact: field_preferred_contact
+  field_willing_to_be_contacted_by: field_willing_to_be_contacted_by
+  field_willing_to_be_contacted_in: field_willing_to_be_contacted_in
+  field_person_title: field_person_title
+  field_study_site:
+    plugin: entity_lookup
+    source: field_study_site
+    entity_type: taxonomy_term
+    value_key: name
+  field_ht_participant_screener/title: constants/s_link_title
+  field_ht_participant_screener/uri:
+    plugin: concat
+    source:
+      - constants/s_link_prefix
+      - field_response_id
+  pseudo_dep_f:
+    -
+      plugin: timepoint_link
+      source: dep_f
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_dep_l:
+    -
+      plugin: timepoint_link
+      source: dep_l
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_susd_f:
+    -
+      plugin: timepoint_link
+      source: susd_f
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_susd_l:
+    -
+      plugin: timepoint_link
+      source: susd_l
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_cwwd:
+    -
+      plugin: timepoint_link
+      source: cwwd
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_map:
+    -
+      plugin: timepoint_link
+      source: map
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_htds_f:
+    -
+      plugin: timepoint_link
+      source: htds_f
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_htds_l:
+    -
+      plugin: timepoint_link
+      source: htds_l
+    -
+      plugin: default_value
+      default_value: 'N'
+  pseudo_wat:
+    -
+      plugin: timepoint_link
+      source: wat
+    -
+      plugin: default_value
+      default_value: 'N'
+  psuedo_programs:
+    plugin: concat
+    source:
+      - constants/dep_f_prefix
+      - '@pseudo_dep_f'
+      - constants/dep_l_prefix
+      - '@pseudo_dep_l'
+      - constants/susd_f_prefix
+      - '@pseudo_susd_f'
+      - constants/susd_l_prefix
+      - '@pseudo_susd_l'
+      - constants/cwwd_prefix
+      - '@pseudo_cwwd'
+      - constants/map_prefix
+      - '@pseudo_map'
+      - constants/htds_f_prefix
+      - '@pseudo_htds_f'
+      - constants/htds_l_prefix
+      - '@pseudo_htds_l'
+      - constants/wat_prefix
+      - '@pseudo_wat'
+  field_staff_entered_intake:
+    plugin: entity_lookup
+    source: field_staff_entered_intake
+    entity_type: user
+    value_key: name
+  field_programs_enrolled:
+    plugin: programs_enrolled
+    source: '@psuedo_programs'
+  psuedo_uri:
+    plugin: concat
+    source:
+      - constants/q_link_prefix
+      - field_response_id
+      - constants/dep_f_prefix
+      - '@pseudo_dep_f'
+      - constants/dep_l_prefix
+      - '@pseudo_dep_l'
+      - constants/susd_f_prefix
+      - '@pseudo_susd_f'
+      - constants/susd_l_prefix
+      - '@pseudo_susd_l'
+      - constants/cwwd_prefix
+      - '@pseudo_cwwd'
+      - constants/map_prefix
+      - '@pseudo_map'
+      - constants/htds_f_prefix
+      - '@pseudo_htds_f'
+      - constants/htds_l_prefix
+      - '@pseudo_htds_l'
+      - constants/wat_prefix
+      - '@pseudo_wat'
+      - constants/dem_prefix
+      - constants/lng_prefix
+      - '@temp_langlink'
+  field_participant_questionnaire/title: constants/q_link_title
+  field_participant_questionnaire/uri: '@psuedo_uri'
+  field_attendance_process_survey/title: constants/a_link_title
+  field_attendance_process_survey/uri:
+    plugin: concat
+    source:
+      - constants/a_link_prefix
+      - field_response_id
+  field_data_collection_form/title: constants/d_link_title
+  field_data_collection_form/uri:
+    plugin: concat
+    source:
+      - constants/d_link_prefix
+      - field_response_id
+  psuedo_asa:
+    plugin: concat
+    source:
+      - constants/asa_link_prefix
+      - field_response_id
+      - constants/dep_f_prefix
+      - '@pseudo_dep_f'
+      - constants/dep_l_prefix
+      - '@pseudo_dep_l'
+      - constants/susd_f_prefix
+      - '@pseudo_susd_f'
+      - constants/susd_l_prefix
+      - '@pseudo_susd_l'
+      - constants/cwwd_prefix
+      - '@pseudo_cwwd'
+      - constants/map_prefix
+      - '@pseudo_map'
+      - constants/htds_f_prefix
+      - '@pseudo_htds_f'
+      - constants/htds_l_prefix
+      - '@pseudo_htds_l'
+      - constants/wat_prefix
+      - '@pseudo_wat'
+  field_asa_24/title: constants/asa_link_title
+  field_asa_24/uri:
+    plugin: asa_link
+    source: '@psuedo_asa'
+  field_report_an_adverse_event/title: constants/e_link_title
+  field_report_an_adverse_event/uri:
+    plugin: concat
+    source:
+      - constants/e_link_prefix
+      - field_response_id
+  roles:
+    plugin: default_value
+    default_value: participant
+  status:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:user'
+  md5_passwords: true
+migration_dependencies: null

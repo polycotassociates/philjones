@@ -1,0 +1,18 @@
+uuid: 6d850c23-3570-4592-aecc-d08d349ebd2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_f
+id: node.susd_f.changed
+field_name: changed
+entity_type: node
+bundle: susd_f
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

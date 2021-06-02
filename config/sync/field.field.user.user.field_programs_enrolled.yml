@@ -1,0 +1,21 @@
+uuid: 8237f32e-8b6c-486a-af40-db0e1721ff97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_programs_enrolled
+  module:
+    - options
+    - user
+id: user.user.field_programs_enrolled
+field_name: field_programs_enrolled
+entity_type: user
+bundle: user
+label: 'Programs Enrolled'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

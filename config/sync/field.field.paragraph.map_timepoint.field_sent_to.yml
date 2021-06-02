@@ -1,0 +1,19 @@
+uuid: eea38e6e-5700-4f47-8d65-9cbe9e0309af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sent_to
+    - paragraphs.paragraphs_type.map_timepoint
+id: paragraph.map_timepoint.field_sent_to
+field_name: field_sent_to
+entity_type: paragraph
+bundle: map_timepoint
+label: 'Email address sent to'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

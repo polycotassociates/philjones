@@ -1,0 +1,23 @@
+uuid: a1db9555-a12c-492a-9042-4efdcc20ca9e
+langcode: en
+status: true
+dependencies: {  }
+id: food_diary_complete
+label: 'DEP-F Food Diary Complete'
+type: data_comparison
+reverse: false
+description: 'Check to see if Food Diary Complete for DEP-F timepoint'
+target_entity_type: paragraph
+target_bundle: dep_f_timepoint
+success_items:
+  dep_f_update_compensation:
+    id: dep_f_update_compensation
+    type: action
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: revision_default
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

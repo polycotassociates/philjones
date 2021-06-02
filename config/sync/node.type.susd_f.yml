@@ -1,0 +1,17 @@
+uuid: 99fc9503-695e-407f-bb39-6f1554de4d32
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Step Up Scale Down'
+type: susd_f
+description: 'Step Up Scale Down (SUSD-F)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

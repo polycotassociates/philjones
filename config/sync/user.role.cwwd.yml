@@ -1,0 +1,18 @@
+uuid: a2aa21a7-61ec-4a1d-8138-c67140540973
+langcode: en
+status: true
+dependencies: {  }
+id: cwwd
+label: 'CWWD Staff'
+weight: 1
+is_admin: null
+permissions:
+  - 'create cwwd content'
+  - 'delete any cwwd content'
+  - 'delete cwwd revisions'
+  - 'delete own cwwd content'
+  - 'edit any cwwd content'
+  - 'edit own cwwd content'
+  - 'view cwwd revisions'
+  - 'view field_attendance_process_survey'
+  - 'view field_data_collection_form'

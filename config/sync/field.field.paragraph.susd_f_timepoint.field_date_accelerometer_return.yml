@@ -1,0 +1,21 @@
+uuid: d0900728-24b8-4ad8-be6c-33fece1f7a06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_accelerometer_return
+    - paragraphs.paragraphs_type.susd_f_timepoint
+  module:
+    - datetime
+id: paragraph.susd_f_timepoint.field_date_accelerometer_return
+field_name: field_date_accelerometer_return
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: 'Date Accelerometer Returned'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

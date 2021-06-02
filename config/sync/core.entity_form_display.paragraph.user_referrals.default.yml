@@ -1,0 +1,50 @@
+uuid: f395b27f-13a1-4d56-af19-03e8257b0e74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.user_referrals.field_notes
+    - field.field.paragraph.user_referrals.field_program_referred
+    - field.field.paragraph.user_referrals.field_referred_by
+    - field.field.paragraph.user_referrals.field_start_date
+    - paragraphs.paragraphs_type.user_referrals
+  module:
+    - datetime
+id: paragraph.user_referrals.default
+targetEntityType: paragraph
+bundle: user_referrals
+mode: default
+content:
+  field_notes:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_program_referred:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_referred_by:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_start_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  created: true
+  status: true

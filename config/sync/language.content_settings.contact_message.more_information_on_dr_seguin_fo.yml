@@ -1,0 +1,11 @@
+uuid: 18ccd163-4685-4bf9-b814-8195d4eb1cbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.more_information_on_dr_seguin_fo
+id: contact_message.more_information_on_dr_seguin_fo
+target_entity_type_id: contact_message
+target_bundle: more_information_on_dr_seguin_fo
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,22 @@
+uuid: 8999d4e4-a2cc-4356-abfd-a8c17422eb16
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cwwd
+id: node.cwwd.status
+field_name: status
+entity_type: node
+bundle: cwwd
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

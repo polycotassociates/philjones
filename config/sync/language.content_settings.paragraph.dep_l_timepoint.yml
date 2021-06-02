@@ -1,0 +1,18 @@
+uuid: f56b3159-5c05-4349-a157-8b15accc8d95
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.dep_l_timepoint
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.dep_l_timepoint
+target_entity_type_id: paragraph
+target_bundle: dep_l_timepoint
+default_langcode: site_default
+language_alterable: false

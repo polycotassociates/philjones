@@ -1,0 +1,20 @@
+uuid: 67a0c9c8-cac8-457e-bf52-bf864d63318e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wat
+id: node.wat.menu_link
+field_name: menu_link
+entity_type: node
+bundle: wat
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

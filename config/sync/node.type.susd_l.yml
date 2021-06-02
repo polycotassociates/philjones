@@ -1,0 +1,17 @@
+uuid: 0c3e5de0-cc04-4b80-b2b5-4eb4e4519d9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Step Up Scale Down: Limited'
+type: susd_l
+description: 'Step Up Scale Down: Limited (SUSD-L)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

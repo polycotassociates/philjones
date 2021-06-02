@@ -1,4 +1,4 @@
-uuid: d75a84b7-c3f3-4423-b2ed-19ec23f707d5
+uuid: 93a15b28-dfaa-480c-bb69-7d6d7266afd6
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: bootstrap_page_title
 theme: bootstrap
 region: header
-weight: 0
+weight: -4
 provider: null
 plugin: page_title_block
 settings:

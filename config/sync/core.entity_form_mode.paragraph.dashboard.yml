@@ -1,0 +1,10 @@
+uuid: f6102ec8-b525-4880-a1c0-fd5578d2cfef
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.dashboard
+label: Dashboard
+targetEntityType: paragraph
+cache: true

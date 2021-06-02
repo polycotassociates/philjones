@@ -1,0 +1,85 @@
+uuid: 9caea2fb-94ef-489a-a27e-29bf75d341aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.user_dashboard
+    - field.field.node.healthy_schools_full.field_program_website
+    - field.field.node.healthy_schools_full.field_response_id
+    - field.field.node.healthy_schools_full.field_timepoint_12w
+    - field.field.node.healthy_schools_full.field_timepoint_baseline
+    - field.field.node.healthy_schools_full.field_user
+    - node.type.healthy_schools_full
+  module:
+    - entity_reference_revisions
+    - field_group
+    - link
+    - user
+third_party_settings:
+  field_group:
+    group_participant_data:
+      children:
+        - field_user
+        - field_response_id
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Participant Data'
+    group_time:
+      children:
+        - field_timepoint_baseline
+        - field_timepoint_12w
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Timepoint Data'
+id: node.healthy_schools_full.user_dashboard
+targetEntityType: node
+bundle: healthy_schools_full
+mode: user_dashboard
+content:
+  field_program_website:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_timepoint_12w:
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_timepoint_baseline:
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  field_response_id: true
+  field_user: true
+  langcode: true
+  links: true

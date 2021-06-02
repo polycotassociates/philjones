@@ -3,22 +3,33 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.feeds_item
     - field.field.user.user.field_address_city
     - field.field.user.user.field_address_state
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_asa_24
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
-    - field.field.user.user.field_migrate_example_favbeers
-    - field.field.user.user.field_migrate_example_gender
-    - field.field.user.user.field_mobile_phone_carrier
+    - field.field.user.user.field_ht_participant_screener
+    - field.field.user.user.field_participant_questionnaire
+    - field.field.user.user.field_person_title
     - field.field.user.user.field_preferred_contact
     - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_programs_enrolled
+    - field.field.user.user.field_referrals
+    - field.field.user.user.field_report_an_adverse_event
     - field.field.user.user.field_response_id
+    - field.field.user.user.field_staff_entered_intake
     - field.field.user.user.field_street_address
     - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
+    - field.field.user.user.field_willing_to_be_contacted_by
+    - field.field.user.user.field_willing_to_be_contacted_in
   module:
     - field_group
+    - link
+    - paragraphs
     - telephone
     - user
     - viewsreference
@@ -26,15 +37,18 @@ third_party_settings:
   field_group:
     group_contact_info:
       children:
+        - field_person_title
         - field_displa
         - field_email
+        - field_primary_phone
         - field_street_address
         - field_address_city
         - field_address_state
         - field_address_zip
-        - field_primary_phone
-        - field_mobile_phone_carrier
+        - langcode
         - field_preferred_contact
+        - field_willing_to_be_contacted_by
+        - field_willing_to_be_contacted_in
       parent_name: group_user_account
       weight: 4
       format_type: tab
@@ -48,7 +62,17 @@ third_party_settings:
       region: content
     group_survey_info:
       children:
+        - field_programs_enrolled
+        - field_referrals
+        - field_staff_entered_intake
         - field_response_id
+        - field_study_site
+        - field_ht_participant_screener
+        - field_participant_questionnaire
+        - field_attendance_process_survey
+        - field_data_collection_form
+        - field_asa_24
+        - field_report_an_adverse_event
         - field_study_data
       parent_name: group_user_account
       weight: 5
@@ -64,6 +88,7 @@ third_party_settings:
     group_account_info:
       children:
         - account
+        - language
       parent_name: group_user_account
       weight: 3
       format_type: tab
@@ -106,7 +131,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address_city:
-    weight: 5
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -114,7 +139,7 @@ content:
     type: string_textfield
     region: content
   field_address_state:
-    weight: 6
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -122,15 +147,39 @@ content:
     type: string_textfield
     region: content
   field_address_zip:
-    weight: 7
+    weight: 14
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_asa_24:
+    weight: 21
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Online Food Diary'
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_attendance_process_survey:
+    weight: 19
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'HT Participant Program Participation Survey'
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_data_collection_form:
+    weight: 20
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Data Collection Form'
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_displa:
-    weight: 2
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -138,42 +187,96 @@ content:
     type: string_textfield
     region: content
   field_email:
-    weight: 3
+    weight: 9
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
-  field_mobile_phone_carrier:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_preferred_contact:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_primary_phone:
-    weight: 8
+  field_ht_participant_screener:
+    weight: 17
     settings:
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
-    type: telephone_default
+    type: link_default
     region: content
-  field_response_id:
-    weight: 8
+  field_participant_questionnaire:
+    weight: 18
+    settings:
+      placeholder_url: ''
+      placeholder_title: 'Online Health Survey'
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_person_title:
+    weight: 7
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_preferred_contact:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_primary_phone:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_programs_enrolled:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_referrals:
+    type: entity_reference_paragraphs
+    weight: 13
+    settings:
+      title: 'additional HT Program'
+      title_plural: 'additional HT Programs'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: user_referrals
+    third_party_settings: {  }
+    region: content
+  field_report_an_adverse_event:
+    weight: 22
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_response_id:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_staff_entered_intake:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_street_address:
-    weight: 4
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -181,7 +284,7 @@ content:
     type: string_textfield
     region: content
   field_study_data:
-    weight: 9
+    weight: 23
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -190,11 +293,43 @@ content:
     third_party_settings: {  }
     type: viewsreference_autocomplete
     region: content
+  field_study_site:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_willing_to_be_contacted_by:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_willing_to_be_contacted_in:
+    weight: 18
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  langcode:
+    type: language_select
+    weight: 15
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  language:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   contact: true
-  feeds_item: true
-  field_migrate_example_favbeers: true
-  field_migrate_example_gender: true
-  language: true
   path: true
   timezone: true

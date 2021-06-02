@@ -1,0 +1,19 @@
+uuid: c43efb3a-da5f-4ee0-89c6-9b6b346b46f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_notes
+    - paragraphs.paragraphs_type.user_referrals
+id: paragraph.user_referrals.field_notes
+field_name: field_notes
+entity_type: paragraph
+bundle: user_referrals
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

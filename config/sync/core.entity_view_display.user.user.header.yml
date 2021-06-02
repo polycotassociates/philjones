@@ -1,0 +1,124 @@
+uuid: b0f6224d-04c3-4433-b084-de7be19fe9fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.header
+    - field.field.user.user.field_address_city
+    - field.field.user.user.field_address_state
+    - field.field.user.user.field_address_zip
+    - field.field.user.user.field_asa_24
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
+    - field.field.user.user.field_displa
+    - field.field.user.user.field_email
+    - field.field.user.user.field_ht_participant_screener
+    - field.field.user.user.field_participant_questionnaire
+    - field.field.user.user.field_person_title
+    - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_programs_enrolled
+    - field.field.user.user.field_referrals
+    - field.field.user.user.field_report_an_adverse_event
+    - field.field.user.user.field_response_id
+    - field.field.user.user.field_staff_entered_intake
+    - field.field.user.user.field_street_address
+    - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
+    - field.field.user.user.field_willing_to_be_contacted_by
+    - field.field.user.user.field_willing_to_be_contacted_in
+  module:
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_contact_info:
+      children:
+        - langcode
+        - field_primary_phone
+        - field_willing_to_be_contacted_by
+        - field_street_address
+        - field_staff_entered_intake
+        - field_report_an_adverse_event
+        - field_referrals
+        - field_programs_enrolled
+        - field_preferred_contact
+        - field_address_city
+        - field_person_title
+        - field_email
+        - field_data_collection_form
+        - field_asa_24
+        - field_address_zip
+        - field_address_state
+        - field_willing_to_be_contacted_in
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Contact Info'
+      region: hidden
+    group_survey_info:
+      children:
+        - field_attendance_process_survey
+        - field_ht_participant_screener
+        - field_participant_questionnaire
+        - field_study_data
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        description: ''
+        id: ''
+        classes: ''
+      label: 'Study Info'
+      region: hidden
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.header
+targetEntityType: user
+bundle: user
+mode: header
+content:
+  field_displa:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+  field_response_id:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_address_city: true
+  field_address_state: true
+  field_address_zip: true
+  field_asa_24: true
+  field_attendance_process_survey: true
+  field_data_collection_form: true
+  field_email: true
+  field_ht_participant_screener: true
+  field_participant_questionnaire: true
+  field_person_title: true
+  field_preferred_contact: true
+  field_primary_phone: true
+  field_programs_enrolled: true
+  field_referrals: true
+  field_report_an_adverse_event: true
+  field_staff_entered_intake: true
+  field_street_address: true
+  field_study_data: true
+  field_study_site: true
+  field_willing_to_be_contacted_by: true
+  field_willing_to_be_contacted_in: true
+  langcode: true
+  member_for: true

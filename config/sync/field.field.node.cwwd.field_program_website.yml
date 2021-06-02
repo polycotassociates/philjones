@@ -1,0 +1,28 @@
+uuid: ac091f02-03ae-49e1-8bfa-8821dbaabf4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_website
+    - node.type.cwwd
+  module:
+    - link
+id: node.cwwd.field_program_website
+field_name: field_program_website
+entity_type: node
+bundle: cwwd
+label: 'Program Website'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://agrilifelearn.tamu.edu/product?catalog=IPHI-002'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,14 @@
+uuid: dfd93e3c-4979-4fc6-b9f3-053031ef8f6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cwwd
+  module:
+    - user
+id: user_add_role_action.cwwd
+label: 'Add the CWWD role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cwwd

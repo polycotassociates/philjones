@@ -51,3 +51,87 @@
     carbon_copy: 0
     remember: 1
     attachments: ''
+'participant_programs:page_2':
+  'uid:1':
+    bulk_form:
+      - 0
+      - 0
+    from_name: 'Healthy Texas Program Evaluation'
+    from_mail: info@stronghealthycommunities.org
+    tokens:
+      name_pos_1: name
+      field_response_id_pos_2: field_response_id
+      field_study_site_pos_3: field_study_site
+      type_pos_4: type
+      field_person_title_pos_5: field_person_title
+      field_email_pos_6: field_email
+      field_street_address_pos_7: field_street_address
+      field_address_city_pos_8: field_address_city
+      field_address_state_pos_9: field_address_state
+      field_address_zip_pos_10: field_address_zip
+      field_primary_phone_pos_11: field_primary_phone
+      preferred_langcode_pos_12: preferred_langcode
+      field_staff_entered_intake_pos_13: field_staff_entered_intake
+      field_willing_to_be_contacted_by_pos_14: field_willing_to_be_contacted_by
+      field_willing_to_be_contacted_in_pos_15: field_willing_to_be_contacted_in
+      field_referrals_pos_16: field_referrals
+      field_timepoint_baseline_pos_17: field_timepoint_baseline
+      field_timepoint_12w_pos_18: field_timepoint_12w
+      field_timepoint_24w_pos_19: field_timepoint_24w
+      field_timepoint_36w_pos_20: field_timepoint_36w
+      field_timepoint_48w_pos_21: field_timepoint_48w
+    to_name: name_pos_1
+    to_mail: field_email_pos_6
+    subject: 'Testing Batch Emails Again'
+    message:
+      value: "<table data-striping=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_referrals]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_timepoint_baseline]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_timepoint_12w]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_timepoint_24w]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_timepoint_36w]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>[views-send:field_timepoint_48w]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
+      format: full_html
+    attachments: ''
+    priority: '0'
+    receipt: 0
+    headers: ''
+    direct: 1
+    carbon_copy: 0
+    remember: 1
+  'uid:10':
+    bulk_form:
+      - 0
+      - 0
+      - 0
+    from_name: 'Healthy Texas Program Evaluation'
+    from_mail: info@stronghealthycommunities.org
+    tokens:
+      name_pos_1: name
+      field_response_id_pos_2: field_response_id
+      field_study_site_pos_3: field_study_site
+      type_pos_4: type
+      field_person_title_pos_5: field_person_title
+      field_email_pos_6: field_email
+      field_street_address_pos_7: field_street_address
+      field_address_city_pos_8: field_address_city
+      field_address_state_pos_9: field_address_state
+      field_address_zip_pos_10: field_address_zip
+      field_primary_phone_pos_11: field_primary_phone
+      preferred_langcode_pos_12: preferred_langcode
+      field_staff_entered_intake_pos_13: field_staff_entered_intake
+      field_willing_to_be_contacted_by_pos_14: field_willing_to_be_contacted_by
+      field_willing_to_be_contacted_in_pos_15: field_willing_to_be_contacted_in
+      field_referrals_pos_16: field_referrals
+      field_timepoint_baseline_pos_17: field_timepoint_baseline
+      field_timepoint_12w_pos_18: field_timepoint_12w
+      field_timepoint_24w_pos_19: field_timepoint_24w
+      field_timepoint_36w_pos_20: field_timepoint_36w
+      field_timepoint_48w_pos_21: field_timepoint_48w
+    to_name: name_pos_1
+    to_mail: field_email_pos_6
+    subject: 'Your accelerometer is on its way'
+    message:
+      value: "<p>Dear&nbsp;[views-send:name],</p>\r\n\r\n<p>See you in&nbsp;[views-send:field_study_site] real soon.</p>\r\n\r\n<p>Meredith</p>\r\n"
+      format: full_html
+    attachments: ''
+    priority: '0'
+    receipt: 0
+    headers: ''
+    direct: 1
+    carbon_copy: 1
+    remember: 1

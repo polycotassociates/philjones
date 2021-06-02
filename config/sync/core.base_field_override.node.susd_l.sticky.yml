@@ -1,0 +1,22 @@
+uuid: 02ea494e-0d8f-4fe5-9182-61d4314c045a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.susd_l
+id: node.susd_l.sticky
+field_name: sticky
+entity_type: node
+bundle: susd_l
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

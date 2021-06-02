@@ -1,0 +1,14 @@
+uuid: 035156ec-9f8d-444d-bc9e-54dbc743c7c1
+langcode: en
+status: true
+dependencies: {  }
+id: dep_f_update_compensation
+label: 'DEP-F Update Awarded'
+description: 'DEP-F Update Compensation'
+type: set_field_value
+target_entity_type: paragraph
+target_bundle: dep_f_timepoint
+tags: {  }
+settings:
+  field: field_amount_earned
+  value: '50'

@@ -1,0 +1,18 @@
+uuid: 769ae8e8-08aa-475a-a8ce-4c3f8b931236
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_sites
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.study_sites
+target_entity_type_id: taxonomy_term
+target_bundle: study_sites
+default_langcode: site_default
+language_alterable: false

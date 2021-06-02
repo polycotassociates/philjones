@@ -1,0 +1,23 @@
+uuid: f90b4f75-61dd-4781-b2fe-df8f7fb32652
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ht_participant_screener
+  module:
+    - link
+    - user
+id: user.user.field_ht_participant_screener
+field_name: field_ht_participant_screener
+entity_type: user
+bundle: user
+label: 'HT Intake Form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

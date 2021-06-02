@@ -1,0 +1,18 @@
+uuid: 195858ac-1016-4a90-897c-4826b7a30084
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cwwd
+id: node.cwwd.changed
+field_name: changed
+entity_type: node
+bundle: cwwd
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

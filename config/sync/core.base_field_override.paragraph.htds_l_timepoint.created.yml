@@ -1,0 +1,18 @@
+uuid: 3c9bc508-7e6a-4424-8f11-da3a1c44035b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.htds_l_timepoint
+id: paragraph.htds_l_timepoint.created
+field_name: created
+entity_type: paragraph
+bundle: htds_l_timepoint
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,28 @@
+uuid: 80079880-fb85-494b-8c52-6900ee8a8755
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_report_an_adverse_event
+  module:
+    - link
+    - user
+id: user.user.field_report_an_adverse_event
+field_name: field_report_an_adverse_event
+entity_type: user
+bundle: user
+label: 'Report an adverse event'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'https://tamuag.az1.qualtrics.com/jfe/form/SV_eVvqmVBRO6NpQ6F'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

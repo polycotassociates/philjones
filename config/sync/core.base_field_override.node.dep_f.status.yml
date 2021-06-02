@@ -1,0 +1,22 @@
+uuid: c01ae140-3495-4525-beb2-0832c1f2e742
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dep_f
+id: node.dep_f.status
+field_name: status
+entity_type: node
+bundle: dep_f
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

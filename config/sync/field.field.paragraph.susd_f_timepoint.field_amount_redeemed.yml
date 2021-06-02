@@ -1,0 +1,23 @@
+uuid: 61ff2e57-709a-4ddb-9f58-fffb80948c2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_redeemed
+    - paragraphs.paragraphs_type.susd_f_timepoint
+id: paragraph.susd_f_timepoint.field_amount_redeemed
+field_name: field_amount_redeemed
+entity_type: paragraph
+bundle: susd_f_timepoint
+label: Redeemed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

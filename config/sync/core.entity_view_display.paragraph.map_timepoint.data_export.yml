@@ -1,0 +1,119 @@
+uuid: af5ce8d4-c73c-4d3e-8de8-dc4fb478519d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.data_export
+    - field.field.paragraph.map_timepoint.field_amount_available
+    - field.field.paragraph.map_timepoint.field_amount_earned
+    - field.field.paragraph.map_timepoint.field_amount_redeemed
+    - field.field.paragraph.map_timepoint.field_balance
+    - field.field.paragraph.map_timepoint.field_date_purchased
+    - field.field.paragraph.map_timepoint.field_how_sent
+    - field.field.paragraph.map_timepoint.field_notes
+    - field.field.paragraph.map_timepoint.field_participant_id
+    - field.field.paragraph.map_timepoint.field_sent_by
+    - field.field.paragraph.map_timepoint.field_sent_to
+    - field.field.paragraph.map_timepoint.field_start_date
+    - field.field.paragraph.map_timepoint.field_survey_completed
+    - field.field.paragraph.map_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.map_timepoint.field_timepoint
+    - field.field.paragraph.map_timepoint.field_vendor
+    - paragraphs.paragraphs_type.map_timepoint
+  module:
+    - datetime
+id: paragraph.map_timepoint.data_export
+targetEntityType: paragraph
+bundle: map_timepoint
+mode: data_export
+content:
+  field_amount_available:
+    weight: 10
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_amount_earned:
+    weight: 11
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_amount_redeemed:
+    weight: 12
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_how_sent:
+    weight: 15
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_notes:
+    weight: 16
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sent_by:
+    weight: 13
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sent_to:
+    weight: 14
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_start_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  field_balance: true
+  field_date_purchased: true
+  field_participant_id: true
+  field_survey_completed_with_help: true
+  field_timepoint: true
+  field_vendor: true

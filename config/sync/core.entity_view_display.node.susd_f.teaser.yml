@@ -1,0 +1,37 @@
+uuid: ecb534dc-d163-4315-9bc5-71b7a4a953b1
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.susd_f.field_program_website
+    - field.field.node.susd_f.field_response_id
+    - field.field.node.susd_f.field_timepoint_12w
+    - field.field.node.susd_f.field_timepoint_24w
+    - field.field.node.susd_f.field_timepoint_36w
+    - field.field.node.susd_f.field_timepoint_48w
+    - field.field.node.susd_f.field_timepoint_baseline
+    - field.field.node.susd_f.field_user
+    - node.type.susd_f
+  module:
+    - user
+id: node.susd_f.teaser
+targetEntityType: node
+bundle: susd_f
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_program_website: true
+  field_response_id: true
+  field_timepoint_12w: true
+  field_timepoint_24w: true
+  field_timepoint_36w: true
+  field_timepoint_48w: true
+  field_timepoint_baseline: true
+  field_user: true
+  langcode: true

@@ -1,0 +1,256 @@
+uuid: 74068202-87d6-4ae5-8fb3-ac9b9381a734
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.contact
+    - field.field.user.user.field_address_city
+    - field.field.user.user.field_address_state
+    - field.field.user.user.field_address_zip
+    - field.field.user.user.field_asa_24
+    - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_data_collection_form
+    - field.field.user.user.field_displa
+    - field.field.user.user.field_email
+    - field.field.user.user.field_ht_participant_screener
+    - field.field.user.user.field_participant_questionnaire
+    - field.field.user.user.field_person_title
+    - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_primary_phone
+    - field.field.user.user.field_programs_enrolled
+    - field.field.user.user.field_referrals
+    - field.field.user.user.field_report_an_adverse_event
+    - field.field.user.user.field_response_id
+    - field.field.user.user.field_staff_entered_intake
+    - field.field.user.user.field_street_address
+    - field.field.user.user.field_study_data
+    - field.field.user.user.field_study_site
+    - field.field.user.user.field_willing_to_be_contacted_by
+    - field.field.user.user.field_willing_to_be_contacted_in
+  module:
+    - field_group
+    - link
+    - options
+    - telephone
+    - user
+    - viewsreference
+third_party_settings:
+  field_group:
+    group_contact_info:
+      children:
+        - field_email
+        - field_street_address
+        - field_address_city
+        - field_address_state
+        - field_address_zip
+        - field_primary_phone
+        - field_preferred_contact
+        - langcode
+        - field_willing_to_be_contacted_by
+        - field_willing_to_be_contacted_in
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Contact Info'
+      region: content
+    group_survey_info:
+      children:
+        - field_study_data
+        - field_participant_questionnaire
+        - field_attendance_process_survey
+        - field_data_collection_form
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        description: ''
+        id: ''
+        classes: ''
+      label: 'Study Info'
+      region: content
+    group_name_id:
+      children:
+        - field_study_site
+        - field_displa
+        - field_response_id
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'special layout for showing on dashboard sections.'
+      label: 'Name ID'
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.contact
+targetEntityType: user
+bundle: user
+mode: contact
+content:
+  field_address_city:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_state:
+    weight: 8
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_zip:
+    weight: 9
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_attendance_process_survey:
+    weight: 20
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_data_collection_form:
+    weight: 21
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_displa:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_email:
+    weight: 5
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_participant_questionnaire:
+    weight: 19
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_preferred_contact:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_primary_phone:
+    weight: 10
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_response_id:
+    type: string
+    weight: 6
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_street_address:
+    weight: 6
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_study_data:
+    weight: 18
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+  field_study_site:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_willing_to_be_contacted_by:
+    type: boolean
+    weight: 15
+    region: content
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+  field_willing_to_be_contacted_in:
+    type: boolean
+    weight: 16
+    region: content
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+  langcode:
+    type: language
+    weight: 12
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+hidden:
+  field_asa_24: true
+  field_ht_participant_screener: true
+  field_person_title: true
+  field_programs_enrolled: true
+  field_referrals: true
+  field_report_an_adverse_event: true
+  field_staff_entered_intake: true
+  member_for: true

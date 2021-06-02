@@ -1,0 +1,10 @@
+uuid: 5e4b0b22-32ea-4556-a1c5-c29a3e60c2cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.contact
+label: Dashboard
+targetEntityType: user
+cache: true

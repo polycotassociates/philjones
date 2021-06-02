@@ -1,0 +1,21 @@
+uuid: 0d2873c3-8007-4252-aea1-c210208b4cba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date_accelerometer_return
+    - paragraphs.paragraphs_type.htds_f_timepoint
+  module:
+    - datetime
+id: paragraph.htds_f_timepoint.field_date_accelerometer_return
+field_name: field_date_accelerometer_return
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: 'Date Accelerometer Returned'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,31 @@
+uuid: 0e44f8e4-4064-4dc3-8bd5-f6adcc0bdfb3
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.healthy_schools_limited.field_participant_name
+    - field.field.node.healthy_schools_limited.field_program_website
+    - field.field.node.healthy_schools_limited.field_response_id
+    - field.field.node.healthy_schools_limited.field_timepoint_12w
+    - field.field.node.healthy_schools_limited.field_timepoint_baseline
+    - node.type.healthy_schools_limited
+  module:
+    - user
+id: node.healthy_schools_limited.teaser
+targetEntityType: node
+bundle: healthy_schools_limited
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_participant_name: true
+  field_program_website: true
+  field_response_id: true
+  field_timepoint_12w: true
+  field_timepoint_baseline: true
+  langcode: true

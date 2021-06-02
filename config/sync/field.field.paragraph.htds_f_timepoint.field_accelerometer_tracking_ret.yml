@@ -1,0 +1,19 @@
+uuid: 9f088dd2-de6d-4509-a002-cb6180b0f730
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accelerometer_tracking_ret
+    - paragraphs.paragraphs_type.htds_f_timepoint
+id: paragraph.htds_f_timepoint.field_accelerometer_tracking_ret
+field_name: field_accelerometer_tracking_ret
+entity_type: paragraph
+bundle: htds_f_timepoint
+label: 'Return accelerometer tracking number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

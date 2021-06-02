@@ -1,0 +1,20 @@
+uuid: 0ba997d7-2b3e-4e2d-beb7-020b6db148ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.healthy_schools_full
+  module:
+    - path
+id: node.healthy_schools_full.path
+field_name: path
+entity_type: node
+bundle: healthy_schools_full
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

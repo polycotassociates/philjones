@@ -1,0 +1,22 @@
+uuid: 5fdbdd19-870c-4453-a356-6c77b05b2e09
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.user_referrals
+id: paragraph.user_referrals.status
+field_name: status
+entity_type: paragraph
+bundle: user_referrals
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

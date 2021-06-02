@@ -1,0 +1,23 @@
+uuid: adf3b8ce-391b-49e1-a473-f3e236ac3327
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_participant_questionnaire
+  module:
+    - link
+    - user
+id: user.user.field_participant_questionnaire
+field_name: field_participant_questionnaire
+entity_type: user
+bundle: user
+label: 'Online Health Survey'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

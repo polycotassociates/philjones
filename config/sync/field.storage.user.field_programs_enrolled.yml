@@ -1,0 +1,52 @@
+uuid: 4448d948-10df-49b7-bd25-162703a706dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_programs_enrolled
+field_name: field_programs_enrolled
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: cwwd
+      label: 'Cooking Well with Diabetes'
+    -
+      value: dep_f
+      label: 'Diabetes Education Program: Full'
+    -
+      value: dep_l
+      label: 'Diabetes Education Program: Limited'
+    -
+      value: htds_f
+      label: 'Healthy Schools: Full'
+    -
+      value: htds_l
+      label: 'Healthy Schools: Limited'
+    -
+      value: map
+      label: 'Medication Assistance Program'
+    -
+      value: susd_f
+      label: 'Step Up Scale Down: Full'
+    -
+      value: susd_l
+      label: 'Step Up Scale Down: Limited'
+    -
+      value: wat
+      label: 'Walk Across Texas!'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

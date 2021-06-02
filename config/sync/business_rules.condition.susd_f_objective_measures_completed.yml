@@ -1,0 +1,23 @@
+uuid: f810a5e0-0958-490a-9bdc-6b3ecc0550da
+langcode: en
+status: true
+dependencies: {  }
+id: susd_f_objective_measures_completed
+label: 'SUSD-F Objective Measures Completed'
+type: data_comparison
+reverse: false
+description: 'Check to see if Objective Measures Completed for SUSD-F timepoint'
+target_entity_type: paragraph
+target_bundle: susd_f_timepoint
+success_items:
+  susd_f_food_diary_complete:
+    id: susd_f_food_diary_complete
+    type: condition
+    weight: -9
+fail_items: {  }
+tags: {  }
+settings:
+  field: field_measures_completed
+  data_to_compare: current_data
+  operator: '=='
+  value_to_compare: '1'

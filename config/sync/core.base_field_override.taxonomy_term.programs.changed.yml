@@ -1,0 +1,18 @@
+uuid: a520432e-c2be-4cb2-83bc-339d62c6451f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.programs
+id: taxonomy_term.programs.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: programs
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

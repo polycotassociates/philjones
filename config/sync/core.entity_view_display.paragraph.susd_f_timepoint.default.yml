@@ -1,0 +1,259 @@
+uuid: 48d9ae41-2a70-412b-a4d1-d5c60c1bcea3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.susd_f_timepoint.field_accelerometer_label_id
+    - field.field.paragraph.susd_f_timepoint.field_accelerometer_status
+    - field.field.paragraph.susd_f_timepoint.field_accelerometer_tracking_num
+    - field.field.paragraph.susd_f_timepoint.field_accelerometer_tracking_ret
+    - field.field.paragraph.susd_f_timepoint.field_amount_available
+    - field.field.paragraph.susd_f_timepoint.field_amount_earned
+    - field.field.paragraph.susd_f_timepoint.field_amount_redeemed
+    - field.field.paragraph.susd_f_timepoint.field_asa_24_complete
+    - field.field.paragraph.susd_f_timepoint.field_balance
+    - field.field.paragraph.susd_f_timepoint.field_date_accelerometer_distrib
+    - field.field.paragraph.susd_f_timepoint.field_date_accelerometer_return
+    - field.field.paragraph.susd_f_timepoint.field_date_purchased
+    - field.field.paragraph.susd_f_timepoint.field_how_sent
+    - field.field.paragraph.susd_f_timepoint.field_measures_completed
+    - field.field.paragraph.susd_f_timepoint.field_notes
+    - field.field.paragraph.susd_f_timepoint.field_objective_measures_appoint
+    - field.field.paragraph.susd_f_timepoint.field_objective_measures_date
+    - field.field.paragraph.susd_f_timepoint.field_participant_id
+    - field.field.paragraph.susd_f_timepoint.field_sent_by
+    - field.field.paragraph.susd_f_timepoint.field_sent_to
+    - field.field.paragraph.susd_f_timepoint.field_start_date
+    - field.field.paragraph.susd_f_timepoint.field_survey_completed
+    - field.field.paragraph.susd_f_timepoint.field_survey_completed_with_help
+    - field.field.paragraph.susd_f_timepoint.field_timepoint
+    - field.field.paragraph.susd_f_timepoint.field_vendor
+    - paragraphs.paragraphs_type.susd_f_timepoint
+  module:
+    - datetime
+    - field_group
+    - options
+third_party_settings:
+  field_group:
+    group_compensation:
+      children:
+        - field_amount_available
+        - field_amount_earned
+        - field_amount_redeemed
+        - field_vendor
+        - field_sent_by
+        - field_sent_to
+        - field_how_sent
+        - field_date_purchased
+        - field_notes
+      parent_name: ''
+      weight: 13
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Compensation
+id: paragraph.susd_f_timepoint.default
+targetEntityType: paragraph
+bundle: susd_f_timepoint
+mode: default
+content:
+  field_accelerometer_label_id:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_accelerometer_status:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_accelerometer_tracking_num:
+    weight: 10
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_accelerometer_tracking_ret:
+    weight: 11
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_amount_available:
+    weight: 22
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_amount_earned:
+    weight: 24
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_amount_redeemed:
+    weight: 25
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_asa_24_complete:
+    weight: 12
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_date_accelerometer_distrib:
+    weight: 8
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_accelerometer_return:
+    weight: 9
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_purchased:
+    weight: 30
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_how_sent:
+    weight: 29
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_measures_completed:
+    weight: 5
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_notes:
+    weight: 31
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_objective_measures_appoint:
+    weight: 3
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_objective_measures_date:
+    weight: 4
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_sent_by:
+    weight: 27
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sent_to:
+    weight: 28
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_start_date:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_survey_completed:
+    weight: 1
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_survey_completed_with_help:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_vendor:
+    weight: 26
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  field_balance: true
+  field_participant_id: true
+  field_timepoint: true

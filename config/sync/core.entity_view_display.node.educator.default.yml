@@ -23,4 +23,5 @@ content:
     third_party_settings: {  }
     region: ds_content
 hidden:
+  langcode: true
   links: true

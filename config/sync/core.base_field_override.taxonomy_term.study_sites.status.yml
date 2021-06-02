@@ -1,0 +1,22 @@
+uuid: fa4c5120-0d5c-4100-9b52-0a850c61b2d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.study_sites
+id: taxonomy_term.study_sites.status
+field_name: status
+entity_type: taxonomy_term
+bundle: study_sites
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
