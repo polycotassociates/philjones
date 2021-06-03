@@ -1,16 +1,16 @@
-uuid: 83cb6fc7-7412-4d5a-afe2-262774865748
+uuid: 8ac89db3-2661-48be-b783-a66f67f10d0e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_address_state
+    - field.storage.user.field_address_state_home
   module:
     - user
-id: user.user.field_address_state
-field_name: field_address_state
+id: user.user.field_address_state_home
+field_name: field_address_state_home
 entity_type: user
 bundle: user
-label: 'Mailing Address: State'
+label: 'Home Address: State'
 description: ''
 required: false
 translatable: false

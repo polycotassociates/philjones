@@ -1,4 +1,4 @@
-uuid: 3494a683-f865-4f8e-9235-932677a9ca6b
+uuid: 21ca8c54-8ecc-4a94-9ff5-b5e296a8c228
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,11 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: user.field_address_state
-field_name: field_address_state
+id: user.field_withdrew
+field_name: field_withdrew
 entity_type: user
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

@@ -4,57 +4,76 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_address_city
+    - field.field.user.user.field_address_city_home
     - field.field.user.user.field_address_state
+    - field.field.user.user.field_address_state_home
     - field.field.user.user.field_address_zip
+    - field.field.user.user.field_address_zip_home
     - field.field.user.user.field_asa_24
     - field.field.user.user.field_attendance_process_survey
+    - field.field.user.user.field_cluster_id
+    - field.field.user.user.field_consent_date
+    - field.field.user.user.field_cr_surveyonly
     - field.field.user.user.field_data_collection_form
     - field.field.user.user.field_displa
     - field.field.user.user.field_email
+    - field.field.user.user.field_end_date
+    - field.field.user.user.field_enrolled
+    - field.field.user.user.field_first_name
     - field.field.user.user.field_ht_participant_screener
+    - field.field.user.user.field_id_previous
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_notes
     - field.field.user.user.field_participant_questionnaire
     - field.field.user.user.field_person_title
+    - field.field.user.user.field_photo_consent
     - field.field.user.user.field_preferred_contact
+    - field.field.user.user.field_previous_role
     - field.field.user.user.field_primary_phone
     - field.field.user.user.field_programs_enrolled
     - field.field.user.user.field_referrals
     - field.field.user.user.field_report_an_adverse_event
     - field.field.user.user.field_response_id
     - field.field.user.user.field_staff_entered_intake
+    - field.field.user.user.field_state
     - field.field.user.user.field_street_address
+    - field.field.user.user.field_street_address_home
     - field.field.user.user.field_study_data
     - field.field.user.user.field_study_site
     - field.field.user.user.field_willing_to_be_contacted_by
     - field.field.user.user.field_willing_to_be_contacted_in
+    - field.field.user.user.field_withdrew
   module:
-    - entity_reference_revisions
+    - datetime
     - field_group
     - link
     - options
     - telephone
+    - text
     - user
     - viewsreference
 third_party_settings:
   field_group:
     group_contact_info:
       children:
-        - field_study_site
-        - field_staff_entered_intake
-        - field_person_title
         - field_displa
+        - field_first_name
+        - field_last_name
         - field_email
         - field_street_address
         - field_address_city
         - field_address_state
         - field_address_zip
+        - field_street_address_home
+        - field_address_city_home
+        - field_address_state_home
+        - field_address_zip_home
         - field_primary_phone
-        - field_preferred_contact
         - langcode
-        - field_willing_to_be_contacted_by
-        - field_willing_to_be_contacted_in
-        - field_referrals
+        - field_photo_consent
+        - field_notes
       parent_name: ''
-      weight: 0
+      weight: 8
       format_type: fieldset
       format_settings:
         id: ''
@@ -64,17 +83,19 @@ third_party_settings:
       region: content
     group_survey_info:
       children:
+        - field_enrolled
+        - field_end_date
         - field_response_id
         - field_study_data
         - field_ht_participant_screener
         - field_participant_questionnaire
         - field_attendance_process_survey
         - field_data_collection_form
-        - field_asa_24
         - field_report_an_adverse_event
+        - field_asa_24
         - field_programs_enrolled
       parent_name: ''
-      weight: 1
+      weight: 9
       format_type: fieldset
       format_settings:
         description: ''
@@ -82,6 +103,26 @@ third_party_settings:
         classes: ''
       label: 'Study Info'
       region: content
+    group_user_info:
+      children:
+        - field_consent_date
+        - field_cluster_id
+        - field_cr_surveyonly
+        - field_person_title
+        - field_state
+        - field_study_site
+        - field_previous_role
+        - field_withdrew
+        - field_id_previous
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'User Info'
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
@@ -90,22 +131,6 @@ bundle: user
 mode: default
 content:
   field_address_city:
-    weight: 10
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_address_state:
-    weight: 11
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_address_zip:
     weight: 12
     label: inline
     settings:
@@ -113,8 +138,48 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_address_city_home:
+    weight: 16
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_state:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_state_home:
+    weight: 17
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_zip:
+    weight: 14
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_zip_home:
+    weight: 18
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_asa_24:
-    weight: 31
+    weight: 21
     label: hidden
     settings:
       trim_length: 80
@@ -126,7 +191,7 @@ content:
     type: link
     region: content
   field_attendance_process_survey:
-    weight: 29
+    weight: 18
     label: hidden
     settings:
       trim_length: 80
@@ -137,8 +202,36 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_cluster_id:
+    weight: 25
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_consent_date:
+    weight: 24
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_cr_surveyonly:
+    weight: 26
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_data_collection_form:
-    weight: 30
+    weight: 19
     label: hidden
     settings:
       trim_length: 80
@@ -158,14 +251,41 @@ content:
     type: string
     region: content
   field_email:
-    weight: 8
+    weight: 10
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_end_date:
+    weight: 13
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_enrolled:
+    weight: 12
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_first_name:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_ht_participant_screener:
-    weight: 27
+    weight: 16
     label: hidden
     settings:
       trim_length: 80
@@ -176,8 +296,31 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_id_previous:
+    weight: 32
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_last_name:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_notes:
+    weight: 23
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_participant_questionnaire:
-    weight: 28
+    weight: 17
     label: hidden
     settings:
       trim_length: 80
@@ -189,22 +332,33 @@ content:
     type: link
     region: content
   field_person_title:
-    weight: 6
+    weight: 27
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_preferred_contact:
-    weight: 14
+  field_photo_consent:
+    weight: 21
     label: above
-    settings: {  }
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: list_default
+    type: boolean
+    region: content
+  field_previous_role:
+    weight: 30
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_primary_phone:
-    weight: 13
+    weight: 19
     label: inline
     settings:
       title: ''
@@ -212,23 +366,16 @@ content:
     type: telephone_link
     region: content
   field_programs_enrolled:
-    weight: 33
+    weight: 22
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
-  field_referrals:
-    type: entity_reference_revisions_entity_view
-    weight: 18
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
   field_report_an_adverse_event:
-    weight: 32
+    type: link
+    weight: 20
+    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -237,34 +384,39 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
-    region: content
   field_response_id:
     type: string
-    weight: 24
+    weight: 14
     region: content
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_staff_entered_intake:
-    weight: 5
+  field_state:
+    weight: 28
     label: inline
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: list_default
     region: content
   field_street_address:
-    weight: 9
+    weight: 11
     label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_street_address_home:
+    weight: 15
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_study_data:
-    weight: 26
+    weight: 15
     label: hidden
     settings:
       plugin_types:
@@ -273,36 +425,26 @@ content:
     type: viewsreference_formatter
     region: content
   field_study_site:
-    weight: 4
+    weight: 29
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_willing_to_be_contacted_by:
-    weight: 16
-    label: above
+  field_withdrew:
+    weight: 31
+    label: inline
     settings:
-      format: yes-no
-      format_custom_true: ''
+      format: default
       format_custom_false: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_willing_to_be_contacted_in:
-    weight: 17
-    label: above
-    settings:
-      format: yes-no
       format_custom_true: ''
-      format_custom_false: ''
     third_party_settings: {  }
     type: boolean
     region: content
   langcode:
     type: language
-    weight: 15
+    weight: 20
     region: content
     label: above
     settings:
@@ -310,4 +452,9 @@ content:
       native_language: false
     third_party_settings: {  }
 hidden:
+  field_preferred_contact: true
+  field_referrals: true
+  field_staff_entered_intake: true
+  field_willing_to_be_contacted_by: true
+  field_willing_to_be_contacted_in: true
   member_for: true

@@ -10,7 +10,7 @@ id: user.user.field_street_address
 field_name: field_street_address
 entity_type: user
 bundle: user
-label: 'Street Address'
+label: 'Mailing Address: Street'
 description: ''
 required: false
 translatable: false

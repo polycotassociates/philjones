@@ -1,0 +1,24 @@
+uuid: 4dc87df9-16b8-4764-8ac0-3ab09f2d5003
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cluster_id
+  module:
+    - user
+id: user.user.field_cluster_id
+field_name: field_cluster_id
+entity_type: user
+bundle: user
+label: 'Cluster ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: 999
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,17 +1,17 @@
-uuid: ce3fe0ea-753e-4c79-99aa-1b6ad990167d
+uuid: 147e2da0-3409-413b-b610-ed462c7f29b7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_study_site
-    - taxonomy.vocabulary.study_sites
+    - field.storage.user.field_previous_role
+    - taxonomy.vocabulary.participant_roles
   module:
     - user
-id: user.user.field_study_site
-field_name: field_study_site
+id: user.user.field_previous_role
+field_name: field_previous_role
 entity_type: user
 bundle: user
-label: Community
+label: 'Previous Role'
 description: ''
 required: false
 translatable: false
@@ -21,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      study_sites: study_sites
+      participant_roles: participant_roles
     sort:
       field: name
       direction: asc
