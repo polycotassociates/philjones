@@ -4,7 +4,7 @@ schemas:
 favicon:
   mimetype: image/png
   path: 'public://TAM-LogoBox_2_0.png'
-  url: 'http://surveyportal.localhost.autodesk.com/sites/default/files/TAM-LogoBox_2_0.png'
+  url: 'https://texas.stronghealthycommunities.org/sites/texas/files/TAM-LogoBox_2_0.png'
   use_default: false
 features:
   comment_user_picture: true
@@ -15,3 +15,6 @@ logo:
   path: ''
   url: ''
   use_default: false
+fluid_container: 1
+reset_http_request_cache: ''
+table: ''
