@@ -48,7 +48,7 @@ function texas_migrate_programs_runner(){
   $settings["data_center"] = $config->get("data_center");
   $settings["survey_id"] = $config->get("survey_id");
   $surveys = explode("|", $settings["survey_id"]);
-  $path = '../private/qualtrics_data';
+  $path = '/app/private/qualtrics_data';
   $survey ="";
   $textout = "";
   $index = 0;
@@ -72,7 +72,7 @@ function texas_migrate_programs_runner(){
  * Downloads survey results from qualtrics().
  */
 function texas_migrate_programs_qualtrics($settings, $surveyid){
-  $path = '../private/qualtrics_data';
+  $path = '/app/private/qualtrics_data';
   $progressid = "";
   $progresspercentcomplete = "";
   $fileid = "";
@@ -155,8 +155,8 @@ sleep(10);
 // download and save the .zip file
 // file to save the contents to
 
-    //$textout =  $textout . "<li><strong>File Path is: </strong>../private/qualtrics_data/".$surveyid.".zip</li>";
-    $fp = fopen("../private/qualtrics_data/".$surveyid.".zip", "wb");
+    //$textout =  $textout . "<li><strong>File Path is: </strong>/app/private/qualtrics_data/".$surveyid.".zip</li>";
+    $fp = fopen("/app/private/qualtrics_data/".$surveyid.".zip", "wb");
     //$datap = file_get_contents($path.'/'.$surveyid.'.zip');
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -206,7 +206,7 @@ function texas_migrate_programs_unzip($surveyid){
 
 // unzip path
 //$path = drupal_realpath('private://qualtrics_data/');
-$path = '../private/qualtrics_data';
+$path = '/app/private/qualtrics_data';
 // zip file name
 $filename = $path."/".$surveyid.'.zip';
 // do the business

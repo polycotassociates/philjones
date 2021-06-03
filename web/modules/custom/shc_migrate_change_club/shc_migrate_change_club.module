@@ -192,9 +192,9 @@ function shc_migrate_change_club_qualtrics($settings, $surveyid){
 function shc_migrate_change_club_unzip($surveyid){
 
 // zip file name
-$filename = '../private/qualtrics_data/'.$surveyid.'.zip';
+$filename = '/app/private/qualtrics_data/'.$surveyid.'.zip';
 // unzip path
-$path = "../private/qualtrics_data/";
+$path = "/app/private/qualtrics_data/";
 // do the business
 $zip = new ZipArchive;
 $res = $zip->open($filename);
@@ -313,7 +313,7 @@ function shc_migrate_change_club_get_qualtrics_file($settings, $fileid){
 
 // download and save the .zip file
 // file to save the contents to
-    $fp = fopen("../private/qualtrics_data/".$surveyid.".zip", "w+b");
+    $fp = fopen("/app/private/qualtrics_data/".$surveyid.".zip", "w+b");
     $curl = curl_init();
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://".$settings['data_center'].".qualtrics.com/API/v3/surveys/".$surveyid."/export-responses/".$fileid."/file",
